@@ -24,8 +24,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 | 🔧         | Code modification or Dependencies modification       |
 | 🐞         | Fix Bug     |
 | 📚         | Documentation (add or remove)    |
-| 🐞         | Test        |
-| 🚨         | Fix Bug     |
+| 🚨         | Test     |
 | ✅         | Adding test    |
 | 🔨         | Code refactoring     |
 | 🎨         | Improve format & structure    |
@@ -35,4 +34,4 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 | ⏪         | Reverting change        |
 | 💩         | Bad code / need to improve        |
 | 👌         | Code review changes        |
-| 📄         | Readme update        |
+| 📄         | Readme update or correction       |
