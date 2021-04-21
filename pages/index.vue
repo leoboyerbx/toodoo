@@ -16,7 +16,7 @@
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           rel="noopener noreferrer"
-          class="button--grey"
+          class="button--grey text-g"
         >
           GitHub
         </a>
