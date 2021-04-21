@@ -2,9 +2,9 @@
   <div class="container">
     <div>
       <NuxtLink class="underline text-theme" to="/map">
-        Carte interactive
+        Carte interactive de Vincent
       </NuxtLink>
-      <NuxtLink class="underline text-theme" to="/map">
+      <NuxtLink class="underline text-theme" to="/boss">
         Boss de fin de semaine
       </NuxtLink>
     </div>
