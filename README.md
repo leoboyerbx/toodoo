@@ -16,5 +16,23 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Emoji commit Tab
+| Emoji      | Description |
+| ---------- | ----------- |
+| 🔧         | Code modification or Dependencies modification       |
+| 🐞         | Fix Bug     |
+| 📚         | Documentation (add or remove)    |
+| 🐞         | Test        |
+| 🚨         | Fix Bug     |
+| ✅         | Adding test    |
+| 🔨         | Code refactoring     |
+| 🎨         | Improve format & structure    |
+| 🗑         | Removing code / file     |
+| 🔒         | Security        |
+| 🖌         | Lint        |
+| ⏪         | Reverting change        |
+| 💩         | Bad code / need to improve        |
+| 👌         | Code review changes        |
+| 📄         | Readme update        |
