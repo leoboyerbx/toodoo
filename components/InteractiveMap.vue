@@ -1,5 +1,5 @@
 <template>
-  <div>Ici la carte interactive de {{ name }}</div>
+  <MapOverlay></MapOverlay>
 </template>
 
 <script>
