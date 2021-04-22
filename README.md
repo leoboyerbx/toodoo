@@ -21,7 +21,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ## Emoji commit Tab
 | Emoji      | Description |
 | ---------- | ----------- |
-| 🔧         | Code modification or Dependencies modification       |
+| 🔧         | Code modification       |
 | 🐞         | Fix Bug     |
 | 📚         | Documentation (add or remove)    |
 | 🚨         | Test     |
@@ -35,3 +35,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 | 💩         | Bad code / need to improve        |
 | 👌         | Code review changes        |
 | 📄         | Readme update or correction       |
+| ⬆️         | Upgrade dependencies       |
+| ⬇️         | Downgrade dependencies       |
