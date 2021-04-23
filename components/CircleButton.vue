@@ -1,13 +1,11 @@
 <template>
-$END$
+  <div></div>
 </template>
 
 <script>
 export default {
-name: "CircleButton"
+  name: 'CircleButton',
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
