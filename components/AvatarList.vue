@@ -4,7 +4,8 @@
       v-for="avatar in avatarArray"
       :key="avatar.name"
       class="avatar"
-      @click="makeAvatarCurrent($event)"
+      :class="{ focus: currentAvatar === avatar }"
+      @click="currentAvatar = avatar"
     >
       <img :src="avatar.avatarUrl" alt="" />
     </div>
@@ -15,18 +16,15 @@
 export default {
   name: 'AvatarList',
   props: {
-    // eslint-disable-next-line vue/require-default-prop
     avatarArray: {
       type: Array,
+      default: () => [],
     },
   },
-  methods: {
-    makeAvatarCurrent: (event) => {
-      document.querySelectorAll('.avatar').forEach((element) => {
-        element.classList.remove('focus')
-      })
-      event.path[1].classList.toggle('focus')
-    },
+  data() {
+    return {
+      currentAvatar: null,
+    }
   },
 }
 </script>
