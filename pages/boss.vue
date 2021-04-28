@@ -1,3 +1,3 @@
 <template>
-  <div>Ici le boss de fin de semaine</div>
+  <div>Là y'aura le cast</div>
 </template>
