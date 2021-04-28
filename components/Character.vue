@@ -25,7 +25,7 @@ export default {
   width: 50px;
   top: 0;
   left: 0;
-  transition: transform 1s ease-in-out;
+  transition: 1s ease-in-out;
   @apply absolute;
 }
 </style>

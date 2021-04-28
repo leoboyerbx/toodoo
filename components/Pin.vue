@@ -1,13 +1,16 @@
 <template>
-  <div class="pin">
-    <span
+  <div
+    class="pin absolute"
+    :style="'top:' + position.y + '%; left:' + position.x + '%'"
+  >
+    <div
       class="pin__marker"
-      :style="'top:' + position.y + 'px; left:' + position.x + 'px'"
       @click="clickPopUp($event)"
-    ></span>
+      v-click-outside="hide"
+    ></div>
     <div
       class="pin__content"
-      :style="'top:' + position.y + 'px; left:' + (position.x + 30) + 'px'"
+      :style="'top:' + position.y + '%; left: calc(' + position.x + '% + 30px)'"
       :class="{ active: isActive }"
     >
       <p>{{ text }}</p>
@@ -16,6 +19,8 @@
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside'
+
 export default {
   name: 'Pin',
 
@@ -36,24 +41,42 @@ export default {
     }
   },
 
+  mounted() {
+    // prevent click outside event with popupItem.
+    this.popupItem = this.$el
+  },
+
+  // do not forget this section
+  directives: {
+    ClickOutside,
+  },
+
   methods: {
     clickPopUp(event) {
-      this.isActive = !this.isActive
-      this.$emit(this.isActive ? 'open' : 'close')
+      this.isActive = true
+      this.$emit('open')
+    },
+
+    hide() {
+      this.isActive = false
+      this.$emit('close')
     },
   },
 }
 </script>
 
 <style scoped>
+.pin {
+  height: 5%;
+  aspect-ratio: 1 / 1;
+}
 .pin__marker {
-  width: 30px;
-  height: 30px;
+  height: 100%;
+  width: 100%;
   background-color: red;
   border: 1px solid black;
   box-sizing: border-box;
   border-radius: 50px;
-  position: absolute;
   cursor: pointer;
 }
 
