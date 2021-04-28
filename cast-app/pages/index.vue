@@ -1,6 +1,6 @@
 <template>
   <div class="bg-theme-light">
-    <component :is="`${$store.state.currentScreen}-screen`" />
+    <component :is="`${$store.state.bossSync.currentScreen}-screen`" />
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   components: { PairingScreen },
   layout: 'tv-screen',
   beforeCreate() {
-    this.$store.commit('setCastType', false)
+    this.$store.commit('bossSync/setCastType', 'pc')
   },
 }
 </script>

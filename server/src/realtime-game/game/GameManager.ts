@@ -23,6 +23,10 @@ export default class GameManager {
    * @private
    */
   private checkReady () {
-    console.log(this.playerSockets.length && this.castSocket);
+    if (this.playerSockets.length && this.castSocket) {
+      console.log('ready')
+    } else {
+      console.log('room not ready yet')
+    }
   }
 }

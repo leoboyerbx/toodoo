@@ -17,11 +17,19 @@ export default {
   data() {
     return {
       sessionId: uuid(),
+      unsubscribe: null,
     }
   },
-  mounted() {
-    // lets pair the cast with the server right after the component is mounted
-    this.$emit('pair', this.sessionId)
+  beforeCreate() {
+    // lets pair the cast with the server right after the socket connection is established
+    this.unsubscribe = this.$store.subscribeAction((action) => {
+      if (action.type === 'bossSync/socketStart') {
+        this.$emit('pair', this.sessionId)
+      }
+    })
+  },
+  beforeDestroy() {
+    this.unsubscribe?.call()
   },
 }
 </script>

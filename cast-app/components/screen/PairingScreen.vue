@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <CastPairing v-if="$store.state.isCast" />
+    <CastPairing v-if="$store.state.bossSync.clientType === 'cast'" />
     <QrCodePairing v-else @pair="onPair" />
   </div>
 </template>
@@ -15,19 +15,12 @@ export default {
       require: true,
     },
   },
-  beforeCreate() {
-    this.socket = this.$nuxtSocket({})
-  },
   methods: {
     onPair(sessionId) {
-      this.socket.emit('pair', {
+      this.$store.dispatch('bossSync/pair', {
         id: sessionId,
-        type: 'player',
+        type: 'cast',
       })
-      // this.$socket.client.emit('pair', {
-      //   id: sessionId,
-      //   type: 'player',
-      // })
     },
   },
 }

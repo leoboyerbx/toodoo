@@ -1,3 +1,5 @@
+import io from '../common/io.config'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -39,7 +41,9 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-socket-io',
   ],
+  io,
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
