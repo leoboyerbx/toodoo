@@ -9,6 +9,9 @@ const io = {
                     {
                         start: 'bossSync/socketStart',
                     },
+                    {
+                        ready: 'bossSync/ready',
+                    },
                 ],
             },
         },

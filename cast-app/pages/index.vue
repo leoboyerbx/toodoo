@@ -6,9 +6,10 @@
 
 <script>
 import PairingScreen from '../components/screen/PairingScreen'
+import IntroScreen from '../components/screen/IntroScreen'
 
 export default {
-  components: { PairingScreen },
+  components: { PairingScreen, IntroScreen },
   layout: 'tv-screen',
   beforeCreate() {
     this.$store.commit('bossSync/setCastType', 'pc')
