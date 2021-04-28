@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Team {
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name     String   @db.VarChar(255)
+  players  Player[]
+  games    Game[]
+}
+
+model Player {
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name     String   @db.VarChar(255)
+  avatar   String   @db.VarChar(255)
+  points   Int
+  team     Team     @relation(fields: [teamId], references: [id])
+  teamId   Int
+  assignedMissions Mission[] @relation("assignPlayer")
+  completeMissions Mission[] @relation("completeByPlayer")
+}
+
+model Mission {
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name     String   @db.VarChar(255)
+  ponctual Boolean  @default(false)
+  active Boolean  @default(false)
+  game  Game  @relation(fields: [gameId], references: [id])
+  gameId   Int
+  assignPlayer Player? @relation(name: "assignPlayer", fields: [assignTo], references: [id])
+  assignTo Int?
+  completeByPlayer Player? @relation(name: "completeByPlayer", fields: [completeBy], references: [id])
+  completeBy Int?
+}
+
+model Game {
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  team  Team @relation(fields: [teamId], references: [id])
+  teamId   Int
+  currentWeek Int
+  startDate DateTime
+  gameDay Int
+  missions Mission[]
+}

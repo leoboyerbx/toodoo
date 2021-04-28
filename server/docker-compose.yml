@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0.24
+    container_name: mysqldb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vert
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: devpass
+    ports:
+      - "9906:3306"
+    volumes:
+      - ./_docker/data/last.sql:/docker-entrypoint-initdb.d/dump.sql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpma
+    links:
+      - db:db
+    ports:
+      - 8080:80
+    environment:
+      MYSQL_USER: devpass
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: root

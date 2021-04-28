@@ -1,0 +1,38 @@
+{
+  "name": "cast-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint": "yarn lint:js"
+  },
+  "dependencies": {
+    "core-js": "^3.9.1",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.15.3",
+    "nuxt-socket-io": "^1.1.17",
+    "qr.js": "^0.0.0",
+    "sass-loader": "^10",
+    "socket.io-client": "^4.0.1",
+    "uuid": "^8.3.2",
+    "v-aspect-ratio": "^2.0.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^4.0.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.7.0",
+    "postcss": "^8.2.8",
+    "prettier": "^2.2.1",
+    "tailwindcss": "^2.1.1"
+  }
+}
