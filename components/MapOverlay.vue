@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <AvatarList :avatar-array="avatars"></AvatarList>
+  <div class="fixed top-0 left-0 h-full pointer-events-none">
+    <AvatarList
+      :avatar-array="avatars"
+      class="pointer-events-auto"
+    ></AvatarList>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fullscreen">
     <InteractiveMap></InteractiveMap>
   </div>
 </template>

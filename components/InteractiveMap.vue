@@ -1,5 +1,8 @@
 <template>
-  <MapOverlay></MapOverlay>
+  <div class="h-full w-full">
+    <Map></Map>
+    <MapOverlay></MapOverlay>
+  </div>
 </template>
 
 <script>

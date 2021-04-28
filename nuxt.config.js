@@ -55,6 +55,6 @@ export default {
   build: {},
 
   server: {
-    host: '0', // on ouvre le serveur de dev au réseau local
+    host: '0.0.0.0', // on ouvre le serveur de dev au réseau local
   },
 }
