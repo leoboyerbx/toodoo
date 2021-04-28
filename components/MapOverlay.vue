@@ -4,6 +4,16 @@
       :avatar-array="avatars"
       class="pointer-events-auto"
     ></AvatarList>
+    <CircleButton
+      id="stats-btn"
+      :icon-url="require(`@/assets/ionic-md-stats.png`)"
+      icon-alt="Texte alternatif"
+    ></CircleButton>
+    <CircleButton
+      id="calendar-btn"
+      :icon-url="require(`@/assets/awesome-calendar-plus.png`)"
+      icon-alt="Texte alternatif"
+    ></CircleButton>
   </div>
 </template>
 
@@ -39,4 +49,16 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#stats-btn,
+#calendar-btn {
+  position: absolute;
+  bottom: 15px;
+}
+#stats-btn {
+  left: 15px;
+}
+#calendar-btn {
+  right: 15px;
+}
+</style>
