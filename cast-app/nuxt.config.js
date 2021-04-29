@@ -1,5 +1,19 @@
 import io from '../common/io.config'
 
+const nodeEnv = process.env.NODE_ENV
+let publicRuntimeConfig
+if (nodeEnv === 'tunnel') {
+  publicRuntimeConfig = {
+    API_URL: 'https://apivert.tn.leoboyer.dev',
+    baseUrl: 'https://vert.tn.leoboyer.dev',
+  }
+} else {
+  publicRuntimeConfig = {
+    API_URL: 'http://localhost:7554',
+    baseUrl: 'http://localhost:3001',
+  }
+}
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -37,7 +51,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['nuxt-socket-io'],
-  io,
+  io: io(publicRuntimeConfig.API_URL),
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 

@@ -1,3 +1,6 @@
+import dotenvFlow from 'dotenv-flow';
+dotenvFlow.config();
+
 import { createServer } from 'http'
 import { PrismaClient } from '@prisma/client'
 import express from 'express'
@@ -5,6 +8,7 @@ import {Server, Socket} from 'socket.io'
 import ClientSocket from './realtime-game/sockets/ClientSocket';
 const app = express();
 const serverPort = 7554;
+
 
 const server = createServer(app);
 const io = new Server(server, {
@@ -96,7 +100,7 @@ app.get('/missions/:id', async(req, res) => {
   res.json(missions)
 })
 
-app.get('/missions/team/:gameId', async(req, res) => {
+app.get('/missions/game/:gameId', async(req, res) => {
   const { gameId } = req.params
   const missions = await prisma.mission.findMany({
     where: {

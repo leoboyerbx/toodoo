@@ -1,8 +1,8 @@
-const io = {
+const io = (url) => ({
     sockets: [
         {
             name: 'game-sync',
-            url: 'http://localhost:7554',
+            url,
             default: true,
             vuex: {
                 actions: [
@@ -16,6 +16,6 @@ const io = {
             },
         },
     ],
-}
+})
 
 export default io
