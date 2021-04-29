@@ -3,3 +3,4 @@
 .nuxt
 .eslintcache
 node_modules
+static/
