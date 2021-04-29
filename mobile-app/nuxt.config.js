@@ -1,8 +1,23 @@
 import io from '../common/io.config'
 
+const nodeEnv = process.env.NODE_ENV
+let publicRuntimeConfig
+if (nodeEnv === 'tunnel') {
+  publicRuntimeConfig = {
+    API_URL: 'https://apivert.tn.leoboyer.dev',
+    baseUrl: 'https://vert.tn.leoboyer.dev',
+  }
+} else {
+  publicRuntimeConfig = {
+    API_URL: 'http://localhost:7554',
+    baseUrl: 'http://localhost:3000',
+  }
+}
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  // publicRuntimeConfig,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -43,7 +58,7 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-socket-io',
   ],
-  io,
+  io: io(publicRuntimeConfig.API_URL),
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

@@ -1,3 +1,6 @@
+import dotenvFlow from 'dotenv-flow';
+dotenvFlow.config();
+
 import { createServer } from 'http'
 import { PrismaClient } from '@prisma/client'
 import express from 'express'
@@ -5,6 +8,7 @@ import {Server, Socket} from 'socket.io'
 import ClientSocket from './realtime-game/sockets/ClientSocket';
 const app = express();
 const serverPort = 7554;
+
 
 const server = createServer(app);
 const io = new Server(server, {
