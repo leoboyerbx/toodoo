@@ -6,6 +6,7 @@ import { PrismaClient } from '@prisma/client'
 import express from 'express'
 import {Server, Socket} from 'socket.io'
 import ClientSocket from './realtime-game/sockets/ClientSocket';
+import cors from 'cors';
 const app = express();
 const serverPort = 7554;
 
@@ -17,7 +18,7 @@ const io = new Server(server, {
     methods: ["GET", "POST"]
   }
 });
-
+app.use(cors())
 app.use(express.static(`${__dirname}/public`));
 
 io.sockets.on('connection', (socket: Socket) => {
