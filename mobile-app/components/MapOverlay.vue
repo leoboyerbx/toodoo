@@ -3,6 +3,7 @@
     <AvatarList
       :avatar-array="avatars"
       class="pointer-events-auto"
+      @select="$emit('selectAvatar', $event)"
     ></AvatarList>
     <CircleButton
       id="stats-btn"
@@ -21,30 +22,15 @@
 export default {
   name: 'MapOverlay',
   data: () => {
-    return {
-      avatars: [
-        {
-          name: 'Vincent',
-          avatarUrl:
-            'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
-        },
-        {
-          name: 'Jojo',
-          avatarUrl:
-            'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
-        },
-        {
-          name: 'Léo',
-          avatarUrl:
-            'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
-        },
-        {
-          name: 'Billy',
-          avatarUrl:
-            'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
-        },
-      ],
-    }
+    return {}
+  },
+  computed: {
+    avatars() {
+      return this.$store.state.apiService.players
+    },
+  },
+  mounted() {
+    this.$store.dispatch('apiService/getPlayers')
   },
 }
 </script>

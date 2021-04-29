@@ -1,7 +1,7 @@
-export const state = {
+export const state = () => ({
     currentScreen: 'pairing',
     clientType: '',
-}
+})
 
 export const mutations = {
     setCastType(state, set = true) {
