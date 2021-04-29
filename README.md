@@ -23,4 +23,5 @@
 | ⬇️         | Downgrade dependencies       |
 | 🧩         | Add Component    |
 | 🚧         | Work in progress    |
-
+| 🥞         | Database change   |
+| 🛣         | Adding a API Route |
