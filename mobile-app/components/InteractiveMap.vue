@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full">
     <Map></Map>
-    <MapOverlay></MapOverlay>
+    <MapOverlay @selectAvatar="selectedAvatar = $event"></MapOverlay>
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
       type: String,
       default: 'Vincent',
     },
+  },
+  data() {
+    return {
+      selectedAvatar: null,
+    }
   },
 }
 </script>

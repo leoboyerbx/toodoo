@@ -2,12 +2,15 @@
   <div class="avatar-container">
     <div
       v-for="avatar in avatarArray"
-      :key="avatar.name"
+      :key="avatar.id"
       class="avatar"
       :class="{ focus: currentAvatar === avatar }"
-      @click="currentAvatar = avatar"
+      @click="
+        currentAvatar = avatar
+        returnSelected(avatar)
+      "
     >
-      <img :src="avatar.avatarUrl" alt="" />
+      <img :src="require(`~/assets/img/${avatar.avatar}`)" alt="" />
     </div>
   </div>
 </template>
@@ -25,6 +28,12 @@ export default {
     return {
       currentAvatar: null,
     }
+  },
+  methods: {
+    returnSelected: (avatar) => {
+      console.log(avatar)
+      this.$emit('select', avatar)
+    },
   },
 }
 </script>
