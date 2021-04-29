@@ -12,10 +12,10 @@
         @load="onLoadMap"
       />
       <Character
-        v-for="(character, index) in characters"
-        :key="index"
-        :name="character.name"
-        :url="character.url"
+        v-for="character in characters"
+        :key="character.player.id"
+        :name="character.player.name"
+        :url="character.player.avatar"
         :style="{
           top: `${character.position.y}%`,
           left: `${character.position.x}%`,
@@ -39,34 +39,24 @@ export default {
   data: () => {
     return {
       mapWidth: 0,
-      characters: [
-        {
-          name: 'firstCharacter',
-          url: 'character.png',
-          position: {
-            x: 0,
-            y: 0,
-          },
-        },
-      ],
-      pinList: [
-        {
-          text: 'Pin1',
-          position: {
-            x: 8.995,
-            y: 26.75,
-          },
-        },
-        {
-          text: 'Pin3',
-          position: {
-            x: 7.41,
-            y: 47.7,
-          },
-        },
-      ],
       currentCharacter: null,
     }
+  },
+  computed: {
+    viewData() {
+      return this.$store.state.viewModel.mapViewData
+    },
+    characters() {
+      return this.viewData.characters
+    },
+    pinList() {
+      return this.viewData.pinList
+    },
+  },
+  beforeMount() {
+    this.$store.dispatch('viewModel/fetchmapViewData', {
+      weekIndex: 0,
+    })
   },
   mounted() {
     this.currentCharacter = this.characters[0]

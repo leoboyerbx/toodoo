@@ -51,7 +51,7 @@ const dumbApiData = {
       createdAt: '2021-04-28T16:26:58.476Z',
       updatedAt: '1970-01-01T00:00:00.000Z',
       name: 'joueureu 1',
-      avatar: 'totoavatar',
+      avatar: 'character.png',
       points: 5,
       teamId: 1,
     },
@@ -60,15 +60,56 @@ const dumbApiData = {
       createdAt: '2021-04-29T08:42:32.413Z',
       updatedAt: '2021-04-29T08:43:56.316Z',
       name: 'Julien',
-      avatar: 'avatar1',
+      avatar: 'character.png',
       points: 2,
       teamId: 2,
     },
   ],
 }
-export const getters = {
-  mapData: (state) => async (id) => {
+
+export const state = {
+  mapViewData: {
+    pinList: [],
+    characters: [],
+  },
+}
+
+export const mutations = {
+  setMapViewData(state, set) {
+    state.mapViewData = set
+  },
+}
+
+export const actions = {
+  async fetchmapViewData({ commit }, { weekIndex }) {
+    // eslint-disable-next-line no-unused-vars
     const missions = dumbApiData.missions
     const players = dumbApiData.players
+    const mapData = await import(
+      `~/assets/data/maps/map-week-${weekIndex}.json`
+    )
+    const characters = players.map((player) => {
+      return {
+        player,
+        position: mapData.startCoords,
+      }
+    })
+
+    const pinList = []
+
+    mapData.pinPlaces.forEach((pinPlacesOfDay) => {
+      pinPlacesOfDay.forEach((pinPlace, index) => {
+        if (index >= missions.length) return
+        pinList.push({
+          position: pinPlace.coords,
+          mission: missions[index],
+        })
+      })
+    })
+
+    commit('setMapViewData', {
+      pinList,
+      characters,
+    })
   },
 }
