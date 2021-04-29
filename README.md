@@ -1,6 +1,8 @@
 # gobelins-vert
 --> This name is soooo temporary
 
+[Server API documentation](server/README.md)
+
 ## Emoji commit reference table
 | Emoji      | Description |
 | ---------- | ----------- |
