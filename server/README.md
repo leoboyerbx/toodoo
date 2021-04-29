@@ -88,6 +88,24 @@ Accéder à un joueur via son id
 
    `id=[integer]`
 
+**Show Players of a team**
+----
+Accéder à tout les joueurs d'une équipe
+
+* **URL**
+
+  /players/team/:teamId
+
+* **Method:**
+
+  `GET`
+
+*  **URL Params**
+
+   **Required:**
+
+   `teamId=[integer]`
+
 **Show Missions**
 ----
 Accéder à toutes les missions
