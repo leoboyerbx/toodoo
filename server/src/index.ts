@@ -86,6 +86,20 @@ app.get('/players/:id', async(req, res) => {
   res.json(player)
 })
 
+app.get('/players/team/:teamId', async(req, res) => {
+  const { teamId } = req.params
+  const players = await prisma.player.findMany({
+    where: {
+      teamId: Number(teamId)
+    },
+    include: {
+      assignedMissions: true,
+      completeMissions: true
+    },
+  })
+  res.json(players)
+})
+
 app.get('/missions', async(req, res) => {
   const missions = await prisma.mission.findMany()
   res.json(missions)
