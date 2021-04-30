@@ -1071,7 +1071,7 @@ CREATE TABLE `Player` (
   PRIMARY KEY (`id`),
   KEY `teamId` (`teamId`),
   CONSTRAINT `Player_ibfk_1` FOREIGN KEY (`teamId`) REFERENCES `Team` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1080,7 +1080,7 @@ CREATE TABLE `Player` (
 
 LOCK TABLES `Player` WRITE;
 /*!40000 ALTER TABLE `Player` DISABLE KEYS */;
-INSERT INTO `Player` VALUES (1,'2021-04-28 16:26:58.476','1970-01-01 00:00:00.000','joueureu 1','totoavatar',5,1),(2,'2021-04-29 08:42:32.413','2021-04-29 08:43:56.316','Julien','avatar1',2,2);
+INSERT INTO `Player` VALUES (1,'2021-04-28 16:26:58.476','2021-04-29 13:57:54.806','joueureu 1','avatar.png',5,1),(2,'2021-04-29 08:42:32.413','2021-04-29 13:57:54.806','Julien','avatar.png',2,2),(3,'2021-04-30 12:24:03.031','1970-01-01 00:00:00.000','Anaïs','avatar.png',8,2);
 /*!40000 ALTER TABLE `Player` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1150,4 +1150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-29 12:31:15
+-- Dump completed on 2021-04-30 12:29:33
