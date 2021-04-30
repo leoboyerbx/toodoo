@@ -37,9 +37,9 @@ export const actions = {
     )
     commit('SET_MISSIONS', response.data)
   },
-  async fetchAll() {
-    await this.$store.dispatch('apiService/getGame')
-    await this.$store.dispatch('apiService/getPlayers')
-    await this.$store.dispatch('apiService/getMissions')
+  async fetchAll({ dispatch }) {
+    await dispatch('getGame')
+    await dispatch('getPlayers')
+    await dispatch('getMissions')
   },
 }

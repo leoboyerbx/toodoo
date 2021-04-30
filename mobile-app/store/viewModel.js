@@ -1,13 +1,16 @@
-export const state = {
+export const state = () => ({
   mapViewData: {
     pinList: [],
     characters: [],
   },
-}
+})
 
 export const mutations = {
   setMapViewData(state, set) {
     state.mapViewData = set
+  },
+  setCharacters(state, characters) {
+    state.mapViewData.characters = characters
   },
 }
 

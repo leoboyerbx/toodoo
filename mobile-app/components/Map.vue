@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import { cloneDeep } from 'lodash'
 export default {
   name: 'Map',
   data: () => {
@@ -39,30 +38,12 @@ export default {
     }
   },
   computed: {
-    viewData() {
-      return cloneDeep(this.$store.state.viewModel.mapViewData)
-    },
     characters() {
-      return this.viewData.characters
+      return this.$store.state.viewModel.mapViewData.characters
     },
     pinList() {
-      return this.viewData.pinList
+      return this.$store.state.viewModel.mapViewData.pinList
     },
-    currentPlayer() {
-      return this.$store.state.currentPlayer
-    },
-    currentCharacter() {
-      return (
-        this.characters.find((character) => {
-          return character.player.id === this.currentPlayer.id
-        }) || null
-      )
-    },
-  },
-  beforeMount() {
-    this.$store.dispatch('viewModel/fetchMapViewData', {
-      weekIndex: 0,
-    })
   },
   methods: {
     onLoadMap(e) {
@@ -73,7 +54,7 @@ export default {
       })
     },
     moveCurrentCharacter(position) {
-      this.currentCharacter.position = position
+      this.$store.commit('moveCurrentCharacter', position)
     },
     onWheel(e) {
       const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail))

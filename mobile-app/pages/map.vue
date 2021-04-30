@@ -7,9 +7,7 @@
 <script>
 export default {
   async beforeCreate() {
-    await this.$store.dispatch('apiService/getGame')
-    await this.$store.dispatch('apiService/getPlayers')
-    await this.$store.dispatch('apiService/getMissions')
+    await this.$store.dispatch('fetchAll')
   },
 }
 </script>
