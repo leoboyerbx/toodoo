@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full">
     <Map></Map>
-    <MapOverlay></MapOverlay>
+    <MapOverlay class="map-overlay"></MapOverlay>
   </div>
 </template>
 
@@ -20,3 +20,13 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.map-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+</style>
