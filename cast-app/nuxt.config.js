@@ -5,7 +5,7 @@ let publicRuntimeConfig
 if (nodeEnv === 'tunnel') {
   publicRuntimeConfig = {
     API_URL: 'https://apivert.tn.leoboyer.dev',
-    baseUrl: 'https://vert.tn.leoboyer.dev',
+    baseUrl: 'https://cast.tn.leoboyer.dev',
   }
 } else {
   publicRuntimeConfig = {
@@ -30,6 +30,14 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        hid: 'cast',
+        src:
+          'https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js',
+        defer: false,
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

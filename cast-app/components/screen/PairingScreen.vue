@@ -1,6 +1,9 @@
 <template>
   <div class="w-full h-full">
-    <CastPairing v-if="$store.state.bossSync.clientType === 'cast'" />
+    <CastPairing
+      v-if="$store.state.bossSync.clientType === 'cast'"
+      @pair="onPair"
+    />
     <QrCodePairing v-else @pair="onPair" />
   </div>
 </template>
