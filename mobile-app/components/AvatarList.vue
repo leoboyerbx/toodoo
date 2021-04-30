@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-    returnSelected: (avatar) => {
+    returnSelected(avatar) {
       this.$emit('select', avatar)
     },
   },
