@@ -3,6 +3,7 @@ import axios from 'axios'
 export const state = () => ({
   players: [],
   game: null,
+  missions: [],
 })
 
 export const mutations = {
@@ -12,19 +13,28 @@ export const mutations = {
   SET_GAME(state, game) {
     state.game = game
   },
+  SET_MISSIONS(state, missions) {
+    state.missions = missions
+  },
 }
 
 export const getters = {}
 
 export const actions = {
-  getGame({commit}) {
-    axios.get('http://localhost:7554/games/2').then((response) => {
-      commit('SET_GAME', response.data)
-    })
+  async getGame({ commit }) {
+    const response = await axios.get('http://localhost:7554/games/2')
+    commit('SET_GAME', response.data[0])
   },
-  getPlayers({ commit }) {
-    axios.get('http://localhost:7554/players').then((response) => {
-      commit('SET_PLAYERS', response.data)
-    })
+  async getPlayers({ commit, state }) {
+    const response = await axios.get(
+      `http://localhost:7554/players/team/${state.game.teamId}`
+    )
+    commit('SET_PLAYERS', response.data)
+  },
+  async getMissions({ commit, state }) {
+    const response = await axios.get(
+      `http://localhost:7554/missions/game/${state.game.id}`
+    )
+    commit('SET_MISSIONS', response.data)
   },
 }

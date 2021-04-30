@@ -29,8 +29,10 @@ export default {
       return this.$store.state.apiService.players
     },
   },
-  mounted() {
-    this.$store.dispatch('apiService/getPlayers')
+  async mounted() {
+    await this.$store.dispatch('apiService/getGame')
+    await this.$store.dispatch('apiService/getPlayers')
+    await this.$store.dispatch('apiService/getMissions')
   },
 }
 </script>
