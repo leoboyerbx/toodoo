@@ -55,8 +55,8 @@ export default {
 .avatar img {
   object-fit: cover;
   object-position: center;
-  height: 55px;
-  width: 55px;
+  height: 80px;
+  width: 80px;
 }
 .avatar.focus {
   border: #2583db 4px solid;
