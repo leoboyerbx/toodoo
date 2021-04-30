@@ -1,9 +1,9 @@
 export const state = () => ({
-  counter: 0,
+  currentPlayer: null,
 })
 
 export const mutations = {
-  increment(state) {
-    state.counter++
+  setCurrentPlayer(state, newPlayer) {
+    state.currentPlayer = newPlayer
   },
 }
