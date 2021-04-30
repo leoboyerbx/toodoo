@@ -1,5 +1,11 @@
 <template>
-  <div class="character">
+  <div
+    class="character"
+    :style="{
+      top: `${position.y}%`,
+      left: `${position.x}%`,
+    }"
+  >
     <img :src="require(`~/assets/img/${url}`)" alt="" />
     <p>{{ name }}</p>
   </div>
@@ -14,6 +20,10 @@ export default {
     },
     url: {
       type: String,
+      required: true,
+    },
+    position: {
+      type: Object,
       required: true,
     },
   },

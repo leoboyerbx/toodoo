@@ -16,10 +16,7 @@
         :key="character.player.id"
         :name="character.player.name"
         :url="character.player.avatar"
-        :style="{
-          top: `${character.position.y}%`,
-          left: `${character.position.x}%`,
-        }"
+        :position="character.position"
       ></Character>
       <Pin
         v-for="pin in pinList"
@@ -33,18 +30,17 @@
 </template>
 
 <script>
+import { cloneDeep } from 'lodash'
 export default {
   name: 'Map',
-
   data: () => {
     return {
       mapWidth: 0,
-      currentCharacter: null,
     }
   },
   computed: {
     viewData() {
-      return this.$store.state.viewModel.mapViewData
+      return cloneDeep(this.$store.state.viewModel.mapViewData)
     },
     characters() {
       return this.viewData.characters
@@ -52,14 +48,21 @@ export default {
     pinList() {
       return this.viewData.pinList
     },
+    currentPlayer() {
+      return this.$store.state.currentPlayer
+    },
+    currentCharacter() {
+      return (
+        this.characters.find((character) => {
+          return character.player.id === this.currentPlayer.id
+        }) || null
+      )
+    },
   },
   beforeMount() {
-    this.$store.dispatch('viewModel/fetchmapViewData', {
+    this.$store.dispatch('viewModel/fetchMapViewData', {
       weekIndex: 0,
     })
-  },
-  mounted() {
-    this.currentCharacter = this.characters[0]
   },
   methods: {
     onLoadMap(e) {
