@@ -3,7 +3,7 @@
     <AvatarList
       :avatar-array="avatars"
       class="pointer-events-auto"
-      @select="$emit('selectAvatar', $event)"
+      @select="$store.commit('setCurrentPlayer', $event)"
     ></AvatarList>
     <CircleButton
       id="stats-btn"

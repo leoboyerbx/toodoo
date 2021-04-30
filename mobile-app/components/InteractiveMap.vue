@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full">
     <Map></Map>
-    <MapOverlay @selectAvatar="selectedAvatar = $event"></MapOverlay>
+    <MapOverlay></MapOverlay>
   </div>
 </template>
 
