@@ -26,7 +26,7 @@ model Player {
   team     Team     @relation(fields: [teamId], references: [id])
   teamId   Int
   assignedMissions Mission[] @relation("assignPlayer")
-  completeMissions Mission[] @relation("completeByPlayer")
+  completeMissions MissionCompletion[] @relation("completeByPlayer")
 }
 
 model Mission {
@@ -40,8 +40,16 @@ model Mission {
   gameId   Int
   assignPlayer Player? @relation(name: "assignPlayer", fields: [assignTo], references: [id])
   assignTo Int?
+  missionCompletion MissionCompletion[] @relation("completion")
+}
+
+model MissionCompletion {
+  id        Int      @default(autoincrement()) @id
+  mission   Mission  @relation(name: "completion", fields: [missionId], references: [id])
+  missionId Int
   completeByPlayer Player? @relation(name: "completeByPlayer", fields: [completeBy], references: [id])
   completeBy Int?
+  completeDay DateTime?
 }
 
 model Game {
