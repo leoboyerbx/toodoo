@@ -1,3 +1,5 @@
+# API Routes Documentation
+
 **Show Games**
 ----
 Accéder à toutes les parties
