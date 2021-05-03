@@ -7,6 +7,11 @@ if (nodeEnv === 'tunnel') {
     API_URL: 'https://apivert.tn.leoboyer.dev',
     baseUrl: 'https://vert.tn.leoboyer.dev',
   }
+} else if (nodeEnv === 'production') {
+  publicRuntimeConfig = {
+    API_URL: 'https://api.toodoo.games',
+    baseUrl: 'https://app.toodoo.games',
+  }
 } else {
   publicRuntimeConfig = {
     API_URL: 'http://localhost:7554',

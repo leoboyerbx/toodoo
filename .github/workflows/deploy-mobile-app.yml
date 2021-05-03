@@ -1,48 +1,46 @@
 name: Deploy PWA and compile TWA
-
 on:
   push:
-    branches:
-      - none
+    branches: [ deploy ]
   pull_request:
-    branches:
-      - none
+    branches: [ deploy ]
+
+defaults:
+  run:
+    working-directory: mobile-app
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-
+  deploy-pwa:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
-
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v2.1.2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
-
-      - name: Get yarn cache directory path 🛠
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`screens.yarn-cache.outputs.cache-hit != 'true'`)
+          node-version: 14
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn generate
+      - uses: actions/upload-artifact@v2
         with:
-          path: ${{ screens.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies 👨🏻‍💻
-        run: yarn
-
-      - name: Run linter 👀
-        run: yarn lint
-
+          name: dist
+          path: mobile-app/dist
+  deploy-production:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: mobile-app/dist
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: mobile-app/dist/
+          remote_path: ~/sites/toodoo/app/
+          remote_host: ${{ secrets.PROD_HOST }}
+          remote_port: ${{ secrets.PROD_PORT }}
+          remote_user: ${{ secrets.PROD_USERNAME }}
+          remote_key: ${{ secrets.PROD_KEY }}
