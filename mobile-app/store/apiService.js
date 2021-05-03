@@ -22,18 +22,19 @@ export const getters = {}
 
 export const actions = {
   async getGame({ commit }) {
-    const response = await axios.get('http://localhost:7554/games/2')
+    console.log(this)
+    const response = await axios.get(`${this.$config.API_URL}/games/2`)
     commit('SET_GAME', response.data[0])
   },
   async getPlayers({ commit, state }) {
     const response = await axios.get(
-      `http://localhost:7554/players/team/${state.game.teamId}`
+      `${this.$config.API_URL}/players/team/${state.game.teamId}`
     )
     commit('SET_PLAYERS', response.data)
   },
   async getMissions({ commit, state }) {
     const response = await axios.get(
-      `http://localhost:7554/missions/game/${state.game.id}`
+      `${this.$config.API_URL}/missions/game/${state.game.id}`
     )
     commit('SET_MISSIONS', response.data)
   },
