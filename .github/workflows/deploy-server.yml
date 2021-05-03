@@ -20,11 +20,10 @@ jobs:
           node-version: 14
       - run: yarn install --frozen-lockfile
       - run: yarn compile
-      - run: ls dist
       - uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: dist
+          path: server/dist
 
   deploy:
     needs: compile
@@ -37,12 +36,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: dist
+          path: server/dist
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete --exclude=".env.local" --exclude="public" --exclude="node_modules"
+          path: server
           remote_path: ~/sites/toodoo/server
           remote_host: ${{ secrets.PROD_HOST }}
           remote_port: ${{ secrets.PROD_PORT }}
