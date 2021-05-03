@@ -1,12 +1,12 @@
-name: ci-mobile-app
+name: Deploy PWA and compile TWA
 
 on:
   push:
     branches:
-      - deploy
+      - none
   pull_request:
     branches:
-      - deploy
+      - none
 
 jobs:
   ci:
