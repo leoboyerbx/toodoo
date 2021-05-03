@@ -1,10 +1,13 @@
 name: Deploy cast app to production
-
 on:
   push:
-    branches: [ none ]
+    branches: [ deploy ]
   pull_request:
-    branches: [ none ]
+    branches: [ deploy ]
+
+defaults:
+  run:
+    working-directory: cast-app
 
 jobs:
   build:
@@ -20,8 +23,8 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: dist
-  deploy-production:
+          path: cast-app/dist
+  deploy-pwa:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -30,13 +33,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: dist
+          path: cast-app/dist
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
-          path: dist/
-          remote_path: ~/sites/ysk/public/
+          path: cast-app/dist/
+          remote_path: ~/sites/toodoo/boss/
           remote_host: ${{ secrets.PROD_HOST }}
           remote_port: ${{ secrets.PROD_PORT }}
           remote_user: ${{ secrets.PROD_USERNAME }}
