@@ -10,7 +10,7 @@ defaults:
     working-directory: mobile-app
 
 jobs:
-  deploy-pwa:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
         with:
           name: dist
           path: mobile-app/dist
-  deploy-production:
+  deploy-pwa:
     needs: build
     runs-on: ubuntu-latest
     steps:
