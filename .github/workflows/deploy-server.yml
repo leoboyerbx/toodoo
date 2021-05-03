@@ -43,7 +43,7 @@ jobs:
         with:
           switches: -avzr --delete --exclude=".env.local" --exclude="public" --exclude="node_modules"
           path: server
-          remote_path: ~/sites/toodoo/server
+          remote_path: ~/sites/toodoo
           remote_host: ${{ secrets.PROD_HOST }}
           remote_port: ${{ secrets.PROD_PORT }}
           remote_user: ${{ secrets.PROD_USERNAME }}
