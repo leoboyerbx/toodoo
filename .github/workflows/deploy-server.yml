@@ -19,13 +19,14 @@ jobs:
         with:
           node-version: 14
       - run: yarn install --frozen-lockfile
-      - run: npm run compile
+      - run: yarn compile
+      - run: ls
       - uses: actions/upload-artifact@v2
         with:
           name: dist
           path: dist
 
-  deploy-staging:
+  deploy:
     needs: compile
     runs-on: ubuntu-latest
     steps:
