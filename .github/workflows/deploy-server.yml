@@ -20,7 +20,7 @@ jobs:
           node-version: 14
       - run: yarn install --frozen-lockfile
       - run: yarn compile
-      - run: ls
+      - run: ls dist
       - uses: actions/upload-artifact@v2
         with:
           name: dist
