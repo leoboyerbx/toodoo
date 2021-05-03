@@ -59,4 +59,5 @@ jobs:
           script: |
             cd ~/sites/toodoo/server
             yarn install --production
+            dotenv -e .env.local -- npx prisma migrate deploy
             pm2 restart ecosystem.config.js
