@@ -1,0 +1,20 @@
+{
+  "name": "toodoo-monorepo",
+  "version": "0.1.0",
+  "description": "Monorepo for Toodoo project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git checkout deploy && git merge main && git pull && git push && git checkout main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoboyerbx/vert.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoboyerbx/vert/issues"
+  },
+  "homepage": "https://www.toodoo.games/"
+}

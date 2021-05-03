@@ -12,7 +12,8 @@
     "dk:start": "docker-compose up -d",
     "dk:stop": "node ./_docker/docker-stop.js",
     "db:load": "node _docker/db-load.js",
-    "db:save": "node _docker/db-save.js"
+    "db:save": "node _docker/db-save.js",
+    "deploy": "cd .. && yarn deploy"
   },
   "author": "",
   "license": "ISC",
