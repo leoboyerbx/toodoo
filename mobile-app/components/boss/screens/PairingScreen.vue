@@ -4,7 +4,7 @@
       <QrcodeStream @decode="onDecode"></QrcodeStream>
     </div>
 
-    <google-cast-launcher v-pre></google-cast-launcher>
+    <google-cast-launcher v-pre id="cast-button"></google-cast-launcher>
   </div>
 </template>
 <script>
@@ -13,15 +13,38 @@ import { v4 as uuid } from 'uuid'
 
 export default {
   components: { QrcodeStream },
+  data() {
+    return {
+      castDeviceAvailable: false,
+    }
+  },
   beforeMount() {
     window.__onGCastApiAvailable = (isAvailable) => {
-      console.log('init', isAvailable)
       if (isAvailable) {
         this.initializeCastApi()
       }
     }
   },
+  mounted() {
+    this.castButton = this.$el.querySelector('#cast-button')
+    this.mutationObserver = new window.MutationObserver(
+      this.checkCastStyleDiff.bind(this)
+    )
+    this.mutationObserver.observe(this.castButton, {
+      attributes: true,
+      attributeFilter: ['style'],
+    })
+  },
+  beforeDestroy() {
+    this.mutationObserver.disconnect()
+  },
   methods: {
+    checkCastStyleDiff() {
+      const display = window
+        .getComputedStyle(this.castButton)
+        .getPropertyValue('display')
+      this.castDeviceAvailable = display === 'block'
+    },
     onDecode(decodedString) {
       if (decodedString.length === 36) {
         this.pairSocket(decodedString)
