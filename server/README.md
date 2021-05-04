@@ -173,3 +173,24 @@ Accéder à toutes les missions reliées à un joueur
    **Required:**
 
    `id=[integer]`
+
+**Create a Mission Completion**
+----
+Ajouter une entrée correspondant à l'ajout d'une completion de mission
+
+* **URL**
+
+  /mission-completion
+
+* **Method:**
+
+  `POST`
+
+*  **Data Params:**
+  ```javascript
+    {
+        missionId
+        completeBy
+        completeDay
+      }
+  ```
