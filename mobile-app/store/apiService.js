@@ -42,4 +42,16 @@ export const actions = {
     await dispatch('getPlayers')
     await dispatch('getMissions')
   },
+  async postMissionCompletion(context, { missionId, completeBy, completeDay }) {
+    console.log('Bonne blague')
+    const response = await axios.post(
+      `${this.$config.API_URL}/mission-completion`,
+      {
+        missionId,
+        completeBy,
+        completeDay,
+      }
+    )
+    console.log(response)
+  },
 }

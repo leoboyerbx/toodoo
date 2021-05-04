@@ -17,10 +17,13 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchAll({ dispatch }) {
+  async fetchAll({ dispatch, commit, state }) {
     await dispatch('apiService/fetchAll')
     await dispatch('viewModel/fetchMapViewData', {
       weekIndex: 0,
     })
+    if (!state.currentPlayer) {
+      commit('setCurrentPlayer', state.apiService.players[0])
+    }
   },
 }
