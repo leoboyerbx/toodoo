@@ -2,7 +2,10 @@
   <div>
     <Pin :position="position" @open="$emit('open', $event)">
       <p class="text-center">{{ mission.name }}</p>
-      <button class="flex mx-auto mt-6 rounded-full p-2 bg-theme">
+      <button
+        @click="sendMissionCompletion"
+        class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
+      >
         <unicon name="check" fill="#fff" />
       </button>
     </Pin>
@@ -20,6 +23,16 @@ export default {
     mission: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    sendMissionCompletion() {
+      const currentDate = new Date()
+      this.$store.dispatch('apiService/postMissionCompletion', {
+        missionId: this.mission.id,
+        completeBy: this.$store.state.currentPlayer.id,
+        completeDay: currentDate,
+      })
     },
   },
 }

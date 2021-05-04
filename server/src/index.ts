@@ -137,7 +137,6 @@ app.get('/missions/player/:playerId', async(req, res) => {
 })
 
 app.post(`/mission-completion`, jsonParser, async (req, res) => {
-  console.log(req)
   const { missionId, completeBy, completeDay } = req.body
   const result = await prisma.missionCompletion.create ({
     data: {
