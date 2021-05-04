@@ -11,6 +11,7 @@ if (nodeEnv === 'tunnel') {
   publicRuntimeConfig = {
     API_URL: 'http://localhost:7554',
     baseUrl: 'http://localhost:3000',
+    devPair: true,
   }
 } else {
   publicRuntimeConfig = {
@@ -22,6 +23,7 @@ if (nodeEnv === 'tunnel') {
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  publicRuntimeConfig,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

@@ -12,6 +12,7 @@ if (nodeEnv === 'tunnel') {
   publicRuntimeConfig = {
     API_URL: 'http://localhost:7554',
     baseUrl: 'http://localhost:3000',
+    devPair: true,
   }
 } else {
   publicRuntimeConfig = {

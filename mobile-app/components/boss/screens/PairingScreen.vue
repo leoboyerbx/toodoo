@@ -19,6 +19,9 @@ export default {
     }
   },
   beforeMount() {
+    if (this.$config.devPair) {
+      this.pairSocket('devroom')
+    }
     window.__onGCastApiAvailable = (isAvailable) => {
       if (isAvailable) {
         this.initializeCastApi()
