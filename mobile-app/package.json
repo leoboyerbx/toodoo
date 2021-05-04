@@ -21,7 +21,8 @@
     "nuxt-socket-io": "^1.1.17",
     "uuid": "^8.3.2",
     "vue-click-outside": "^1.1.0",
-    "vue-qrcode-reader": "^3.0.0"
+    "vue-qrcode-reader": "^3.0.0",
+    "vue-unicons": "^3.2.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
