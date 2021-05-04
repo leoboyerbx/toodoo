@@ -1,5 +1,8 @@
 <template>
-  <div class="map--container h-full w-full z-0 flex" @wheel="onWheel">
+  <div
+    class="map--container h-full w-full z-0 flex overflow-x-scroll"
+    @wheel="onWheel"
+  >
     <div
       class="relative"
       :style="{
@@ -18,13 +21,13 @@
         :url="character.player.avatar"
         :position="character.position"
       ></Character>
-      <Pin
-        v-for="pin in pinList"
-        :key="pin.text"
-        :text="pin.text"
+      <MissionPin
+        v-for="(pin, index) in pinList"
+        :key="index + 'pin'"
         :position="pin.position"
+        :mission="pin.mission"
         @open="moveCurrentCharacter(pin.position)"
-      ></Pin>
+      />
     </div>
   </div>
 </template>
@@ -53,13 +56,13 @@ export default {
         this.mapWidth = this.mapImg.offsetWidth
       })
     },
-    moveCurrentCharacter(position) {
-      this.$store.commit('moveCurrentCharacter', position)
-    },
     onWheel(e) {
       const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail))
       e.currentTarget.scrollLeft -= delta * 40 // Multiplied by 40
       e.preventDefault()
+    },
+    moveCurrentCharacter(position) {
+      this.$store.commit('moveCurrentCharacter', position)
     },
   },
 }
@@ -68,10 +71,5 @@ export default {
 <style scoped>
 .map--container::-webkit-scrollbar {
   display: none;
-}
-
-.map--container {
-  /*max-width: fit-content;*/
-  overflow-x: scroll;
 }
 </style>
