@@ -2,7 +2,6 @@
   <div class="h-full w-full">
     <Map></Map>
     <MapOverlay class="absolute left-0 top-0"></MapOverlay>
-    <button @click="sendData">Cliquer pour envoyer</button>
   </div>
 </template>
 
