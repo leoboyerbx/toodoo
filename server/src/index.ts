@@ -7,10 +7,11 @@ import express from 'express'
 import {Server, Socket} from 'socket.io'
 import ClientSocket from './realtime-game/sockets/ClientSocket';
 import cors from 'cors';
+import bodyParser from 'body-parser'
 const app = express();
 const serverPort = 7554;
 
-
+const jsonParser = bodyParser.json()
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
@@ -135,7 +136,8 @@ app.get('/missions/player/:playerId', async(req, res) => {
   res.json(missions)
 })
 
-app.post(`/mission-completion`, async (req, res) => {
+app.post(`/mission-completion`, jsonParser, async (req, res) => {
+  console.log(req)
   const { missionId, completeBy, completeDay } = req.body
   const result = await prisma.missionCompletion.create ({
     data: {
