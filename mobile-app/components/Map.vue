@@ -35,10 +35,11 @@
 
 <script>
 import Character from './Character'
+import MissionPin from './MissionPin'
 
 export default {
   name: 'Map',
-  components: { Character },
+  components: { MissionPin, Character },
   data: () => {
     return {
       mapWidth: 0,
