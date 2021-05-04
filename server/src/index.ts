@@ -135,6 +135,18 @@ app.get('/missions/player/:playerId', async(req, res) => {
   res.json(missions)
 })
 
+app.post(`/mission-completion`, async (req, res) => {
+  const { missionId, completeBy, completeDay } = req.body
+  const result = await prisma.missionCompletion.create ({
+    data: {
+      missionId: missionId,
+      completeBy: completeBy,
+      completeDay: completeDay
+    },
+  })
+  res.json(result)
+})
+
 // function bindInGameEvents(socket, room) {
 //   socket.on('game-data', (data) => {
 //     const fullData = {
