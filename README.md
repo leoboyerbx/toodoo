@@ -28,3 +28,4 @@
 | 🥞         | Database change   |
 | 🛣         | Adding a API Route |
 | 🏗         | Changes to the CI construction system |
+| 🚀         | Deployment stuff |
