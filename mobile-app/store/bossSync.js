@@ -1,1 +1,1 @@
-export * from '../../common/store/bossSyncClient'
+export * from 'common/store/bossSyncClient'

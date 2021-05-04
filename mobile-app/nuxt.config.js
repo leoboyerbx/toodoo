@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import io from '../common/io.config'
 
 const nodeEnv = process.env.NODE_ENV
@@ -80,5 +81,8 @@ export default {
 
   server: {
     host: '0.0.0.0', // on ouvre le serveur de dev au réseau local
+  },
+  alias: {
+    common: resolve(__dirname, '../common'),
   },
 }

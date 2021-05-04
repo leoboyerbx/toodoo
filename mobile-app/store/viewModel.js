@@ -1,3 +1,5 @@
+import getAvatar from 'common/avatars/getAvatar'
+
 export const state = () => ({
   mapViewData: {
     pinList: [],
@@ -22,12 +24,16 @@ export const actions = {
     const mapData = await import(
       `~/assets/data/maps/map-week-${weekIndex}.json`
     )
-    const characters = players.map((player) => {
-      return {
-        player,
-        position: mapData.startCoords,
-      }
-    })
+    const characters = await Promise.all(
+      players.map(async (player) => {
+        const avatar = await getAvatar(player.avatar)
+        return {
+          player,
+          avatar,
+          position: mapData.startCoords,
+        }
+      })
+    )
 
     const pinList = []
 

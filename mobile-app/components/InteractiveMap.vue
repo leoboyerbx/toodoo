@@ -6,7 +6,11 @@
 </template>
 
 <script>
+import Map from './Map'
+import MapOverlay from './MapOverlay'
+
 export default {
+  components: { Map, MapOverlay },
   props: {
     name: {
       type: String,

@@ -9,13 +9,14 @@
       <img
         class="h-full max-w-none w-auto"
         src="~/assets/img/map1.svg"
+        alt="Carte"
         @load="onLoadMap"
       />
       <Character
         v-for="character in characters"
         :key="character.player.id"
         :name="character.player.name"
-        :url="character.player.avatar"
+        :url="character.avatar.img.character"
         :position="character.position"
       ></Character>
       <Pin
@@ -30,8 +31,11 @@
 </template>
 
 <script>
+import Character from './Character'
+import Pin from './Pin'
 export default {
   name: 'Map',
+  components: { Pin, Character },
   data: () => {
     return {
       mapWidth: 0,

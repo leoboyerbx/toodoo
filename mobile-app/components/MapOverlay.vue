@@ -1,10 +1,10 @@
 <template>
   <div class="fixed top-0 left-0 h-full pointer-events-none">
-    <AvatarList
-      :avatar-array="avatars"
+    <PlayersList
+      :players="players"
       class="pointer-events-auto"
       @select="$store.commit('setCurrentPlayer', $event)"
-    ></AvatarList>
+    ></PlayersList>
     <CircleButton
       id="stats-btn"
       :icon-url="require(`@/assets/ionic-md-stats.png`)"
@@ -19,13 +19,17 @@
 </template>
 
 <script>
+import PlayersList from './PlayersList'
+import CircleButton from './CircleButton'
+
 export default {
   name: 'MapOverlay',
+  components: { CircleButton, PlayersList },
   data: () => {
     return {}
   },
   computed: {
-    avatars() {
+    players() {
       return this.$store.state.apiService.players
     },
   },

@@ -6,7 +6,7 @@
       left: `${position.x}%`,
     }"
   >
-    <img :src="require(`~/assets/img/${url}`)" alt="" />
+    <img :src="require(`assets/img/avatars/${url}`)" alt="" />
     <p>{{ name }}</p>
   </div>
 </template>
