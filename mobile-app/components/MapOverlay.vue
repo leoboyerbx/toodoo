@@ -1,10 +1,6 @@
 <template>
   <div class="fixed top-0 left-0 h-full pointer-events-none">
-    <PlayersList
-      :players="players"
-      class="pointer-events-auto"
-      @select="$store.commit('setCurrentPlayer', $event)"
-    ></PlayersList>
+    <PlayersList :players="players" class="pointer-events-auto"></PlayersList>
     <CircleButton
       id="stats-btn"
       :icon-url="require(`@/assets/ionic-md-stats.png`)"

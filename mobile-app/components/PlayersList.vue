@@ -4,11 +4,8 @@
       v-for="profile in playersProfiles"
       :key="profile.player.id"
       class="avatar"
-      :class="{ focus: currentPlayer === profile }"
-      @click="
-        currentPlayer = profile
-        returnSelected(profile)
-      "
+      :class="{ focus: currentPlayer === profile.player }"
+      @click="currentPlayer = profile.player"
     >
       <img
         :src="require('assets/img/avatars/' + profile.avatar.img.portrait)"
@@ -31,9 +28,18 @@ export default {
   },
   data() {
     return {
-      currentPlayer: null,
       playersProfiles: [],
     }
+  },
+  computed: {
+    currentPlayer: {
+      get() {
+        return this.$store.state.currentPlayer
+      },
+      set(player) {
+        this.$store.commit('setCurrentPlayer', player)
+      },
+    },
   },
   watch: {
     players(val) {
