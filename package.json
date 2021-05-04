@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "git checkout deploy && git merge main && git pull && git push && git checkout main"
+    "deploy": "git checkout deploy && git pull && git merge main && git push && git checkout main"
   },
   "repository": {
     "type": "git",
