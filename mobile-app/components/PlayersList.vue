@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import getAvatar from 'common/avatars/getAvatar'
+import { getAvatar } from '../../common/entities/getEntity'
 
 export default {
   name: 'AvatarList',

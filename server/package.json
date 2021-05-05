@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
-    "dev": "ts-node-dev --no-notify src/",
+    "dev": "ts-node-dev --exit-child --no-notify src/",
     "start": "yarn compile && node dist/",
     "compile": "shx rm -rf dist/ && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,4 +1,4 @@
-import getAvatar from 'common/avatars/getAvatar'
+import { getAvatar } from '../../common/entities/getEntity'
 
 export const state = () => ({
   mapViewData: {
