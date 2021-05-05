@@ -49,6 +49,9 @@ export default {
     characters() {
       return this.$store.state.viewModel.mapViewData.characters
     },
+    // charactersAutoPlace() {
+    //   const rawCharacters = this.characters
+    // },
     pinList() {
       return this.$store.state.viewModel.mapViewData.pinList
     },
