@@ -37,21 +37,26 @@ export const actions = {
     )
     commit('SET_MISSIONS', response.data)
   },
-  async fetchAll({ dispatch }) {
-    await dispatch('getGame')
-    await dispatch('getPlayers')
-    await dispatch('getMissions')
-  },
-  async postMissionCompletion(context, { missionId, completeBy, completeDay }) {
-    console.log('Bonne blague')
+  async postMissionCompletion(
+    { commit, state },
+    { missionId, completeBy, completeDay }
+  ) {
     const response = await axios.post(
       `${this.$config.API_URL}/mission-completion`,
       {
         missionId,
         completeBy,
         completeDay,
+        teamId: state.game.teamId,
+        gameId: state.game.id,
       }
     )
-    console.log(response)
+    commit('SET_MISSIONS', response.data.missions)
+    commit('SET_PLAYERS', response.data.players)
+  },
+  async fetchAll({ dispatch }) {
+    await dispatch('getGame')
+    await dispatch('getPlayers')
+    await dispatch('getMissions')
   },
 }
