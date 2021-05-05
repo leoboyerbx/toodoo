@@ -1,17 +1,20 @@
 {
     "name": "TheBossOne",
-    "entity": {
-        "hp": 300,
-        "energy": 300,
-        "capabilities": [
-            {
-                "name": "Boum",
-                "cost": 40,
-                "effect": {
-                    "attack": 13
-                },
-                "target": "randomPlayer"
-            }
-        ]
-    }
+    "introReplica": "Ah grou grouuu ! Je suis le boss méchant !",
+    "img": {
+        "decor": "boss1-decor.svg",
+        "character": "boss1-character.png"
+    },
+    "hp": 300,
+    "energy": 300,
+    "capabilities": [
+        {
+            "name": "Boum",
+            "cost": 40,
+            "effect": {
+                "attack": 13
+            },
+            "target": "randomPlayer"
+        }
+    ]
 }

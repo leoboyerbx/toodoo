@@ -19,9 +19,6 @@ export const mutations = {
 export const actions = {
     // common
     socketStart() {},
-    ready({ commit }) {
-        commit('changeScreen', 'intro')
-    },
     async pair(context, pairData) {
         await context.dispatch(
             '$nuxtSocket/emit',
@@ -35,6 +32,8 @@ export const actions = {
     },
     initContext({ commit }, gameContext) {
         commit('setGameContext', gameContext)
+        // Since the context is ready, we can go on to the intro cinematic
+        commit('changeScreen', 'intro')
     },
 
     // mobile app specific

@@ -4,18 +4,16 @@
     "portrait": "poki-portrait.svg",
     "character": "poki-character.png"
   },
-  "entity": {
-    "hp": 100,
-    "capabilities": [
-      {
-        "name": "Noie sel",
-        "cost": 12,
-        "effect": {
-          "attack": 13,
-          "heal": 0
-        },
-        "target": "boss"
-      }
-    ]
-  }
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Noie sel",
+      "cost": 12,
+      "effect": {
+        "attack": 13,
+        "heal": 0
+      },
+      "target": "boss"
+    }
+  ]
 }

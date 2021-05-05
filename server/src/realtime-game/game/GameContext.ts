@@ -16,6 +16,6 @@ export default class GameContext {
     })
     this.week = this.game.currentWeek
     const bossData = await getBossForWeek(this.week)
-    this.boss = new BossEntity(bossData.entity)
+    this.boss = new BossEntity(bossData)
   }
 }
