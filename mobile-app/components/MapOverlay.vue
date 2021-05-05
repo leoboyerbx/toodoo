@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 left-0 h-full pointer-events-none">
+  <div class="fixed top-0 left-0 right-0 h-full pointer-events-none">
     <PlayersList :players="players" class="pointer-events-auto"></PlayersList>
     <CircleButton
       id="stats-btn"

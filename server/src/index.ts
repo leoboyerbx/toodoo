@@ -145,7 +145,9 @@ app.post(`/mission-completion`, jsonParser, async (req, res) => {
       completeDay: completeDay
     },
   })
-  res.json(result)
+  const missions = await prisma.mission.findMany()
+  const players = await prisma.player.findMany()
+  res.json({missions: missions, players: players})
 })
 
 // function bindInGameEvents(socket, room) {
