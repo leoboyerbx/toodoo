@@ -6,8 +6,11 @@
       :missionComplete="completed"
       @open="$emit('open', $event)"
     >
-      <p class="text-center">{{ mission.name }}</p>
+      <p class="text-center">
+        {{ completed ? 'Tâche ' + mission.name + ' effectuée' : mission.name }}
+      </p>
       <button
+        v-if="!completed"
         class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
         @click="sendMissionCompletion"
       >
