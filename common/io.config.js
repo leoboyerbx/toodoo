@@ -12,6 +12,9 @@ const io = (url) => ({
                     {
                         ready: 'bossSync/ready',
                     },
+                    {
+                        askConfig: 'bossSync/sendConfig',
+                    },
                 ],
             },
         },

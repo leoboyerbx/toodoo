@@ -13,6 +13,7 @@ export const mutations = {
 }
 
 export const actions = {
+    // common
     socketStart() {},
     ready({ commit }) {
         commit('changeScreen', 'intro')
@@ -27,5 +28,20 @@ export const actions = {
             },
             { root: true }
         )
-    }
+    },
+
+    // mobile app specific
+    sendConfig({ dispatch, rootState }) {
+        dispatch(
+            '$nuxtSocket/emit',
+            {
+                label: 'game-sync',
+                evt: 'config',
+                msg: {
+                    gameId: rootState.apiService.game.id
+                }
+            },
+            { root: true }
+        )
+    },
 }
