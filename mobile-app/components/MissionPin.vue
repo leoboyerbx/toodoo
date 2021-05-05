@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Pin ref="pin" :position="position" @open="$emit('open', $event)">
+    <Pin
+      ref="pin"
+      :position="position"
+      :missionComplete="completed"
+      @open="$emit('open', $event)"
+    >
       <p class="text-center">{{ mission.name }}</p>
       <button
         class="flex mx-auto mt-6 rounded-full p-2 bg-theme"

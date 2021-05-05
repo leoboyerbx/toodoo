@@ -4,15 +4,14 @@
     :style="'top:' + position.y + '%; left:' + position.x + '%'"
     :class="isActive ? 'z-20' : 'z-10'"
   >
-    <!--    <div-->
-    <!--      v-click-outside="hide"-->
-    <!--      class="h-full w-full bg-theme border border-theme-dark box-border cursor-pointer rounded-full relative z-10"-->
-    <!--      @click="clickPopUp($event)"-->
-    <!--    ></div>-->
     <img
-      src="~/assets/img/socle.svg"
-      alt=""
       v-click-outside="hide"
+      :src="
+        missionComplete
+          ? require('~/assets/img/soclefini.svg')
+          : require('~/assets/img/socle.svg')
+      "
+      alt=""
       class="cursor-pointer h-full mx-auto"
       @click="clickPopUp($event)"
     />
@@ -43,6 +42,11 @@ export default {
     position: {
       type: Object,
       required: true,
+    },
+    missionComplete: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
 
