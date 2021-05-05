@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Pin :position="position" @open="$emit('open', $event)" ref="pin">
+    <Pin ref="pin" :position="position" @open="$emit('open', $event)">
       <p class="text-center">{{ mission.name }}</p>
       <button
         class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
@@ -25,6 +25,11 @@ export default {
       required: true,
     },
   },
+  data: () => {
+    return {
+      completed: false,
+    }
+  },
   methods: {
     sendMissionCompletion() {
       const currentDate = new Date()
@@ -34,7 +39,20 @@ export default {
         completeDay: currentDate,
       })
       this.$refs.pin.hide()
+      this.completed = true
     },
+  },
+  mounted() {
+    this.mission.missionCompletion.forEach((completion) => {
+      const completionDate = new Date(completion.completeDay)
+      const currentDate = new Date()
+      if (
+        completionDate.getDate() === currentDate.getDate() &&
+        completionDate.getFullYear() === currentDate.getFullYear()
+      ) {
+        this.completed = true
+      }
+    })
   },
 }
 </script>
