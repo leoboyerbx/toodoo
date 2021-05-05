@@ -35,10 +35,4 @@ export default {
 }
 </script>
 
-<style>
-button {
-  position: absolute;
-  left: 0;
-  top: 50%;
-}
-</style>
+<style scoped></style>

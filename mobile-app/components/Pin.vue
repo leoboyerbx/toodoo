@@ -2,14 +2,15 @@
   <div
     class="pin absolute"
     :style="'top:' + position.y + '%; left:' + position.x + '%'"
+    :class="isActive ? 'z-20' : 'z-10'"
   >
     <div
       v-click-outside="hide"
-      class="h-full w-full bg-theme border border-theme-dark box-border cursor-pointer rounded-full"
+      class="h-full w-full bg-theme border border-theme-dark box-border cursor-pointer rounded-full relative z-10"
       @click="clickPopUp($event)"
     ></div>
     <div
-      class="pin__content hidden absolute right-2/4 text-theme z-10 -translate-y-full p-6 rounded-xl"
+      class="pin__content hidden absolute right-2/4 text-theme z-20 -translate-y-full p-6 rounded-xl"
       :class="[
         isActive ? 'active' : '',
         position.y > 20 ? 'top-0' : 'bottom-0',
