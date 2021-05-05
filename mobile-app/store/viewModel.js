@@ -7,6 +7,12 @@ export const state = () => ({
   },
 })
 
+export const getters = {
+  currentCharacter: (state, getters, rootState) => {
+    return state.mapViewData.characters[rootState.currentPlayerIndex]
+  },
+}
+
 export const mutations = {
   setMapViewData(state, set) {
     state.mapViewData = set

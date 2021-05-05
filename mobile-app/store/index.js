@@ -1,18 +1,24 @@
+import Vue from 'vue'
 export const state = () => ({
-  currentPlayer: null,
-  currentCharacter: null,
+  currentPlayerIndex: null,
 })
 
 export const mutations = {
   setCurrentPlayer(state, newPlayer) {
-    state.currentPlayer = newPlayer
-    state.currentCharacter =
-      state.viewModel.mapViewData.characters.find((character) => {
-        return character.player?.id === state.currentPlayer?.id
-      }) || null
+    const playerIndex = state.apiService.players.findIndex((player) => {
+      return player.id === newPlayer.id
+    })
+    state.currentPlayerIndex = playerIndex >= 0 ? playerIndex : 0
   },
   moveCurrentCharacter(state, position) {
-    state.currentCharacter.position = position
+    const character =
+      state.viewModel.mapViewData.characters[state.currentPlayerIndex]
+    character.position = position
+    Vue.set(
+      state.viewModel.mapViewData.characters,
+      state.currentPlayerIndex,
+      character
+    )
   },
 }
 
