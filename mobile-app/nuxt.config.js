@@ -11,14 +11,14 @@ if (nodeEnv === 'tunnel') {
 } else if (nodeEnv === 'dev') {
   publicRuntimeConfig = {
     API_URL: 'http://localhost:7554',
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'http://localhost:3002',
     devPair: true,
   }
 } else if (nodeEnv === 'lan') {
   const ip = process.env.IP
   publicRuntimeConfig = {
     API_URL: `http://${ip}:7554`,
-    baseUrl: `http://${ip}:3000`,
+    baseUrl: `http://${ip}:3002`,
   }
 } else {
   publicRuntimeConfig = {
@@ -88,6 +88,7 @@ export default {
 
   server: {
     host: '0.0.0.0', // on ouvre le serveur de dev au réseau local
+    port: 3002,
   },
   alias: {
     common: resolve(__dirname, '../common'),
