@@ -1,10 +1,10 @@
 <template>
   <div>
-    <Pin :position="position" @open="$emit('open', $event)">
+    <Pin :position="position" @open="$emit('open', $event)" ref="pin">
       <p class="text-center">{{ mission.name }}</p>
       <button
-        @click="sendMissionCompletion"
         class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
+        @click="sendMissionCompletion"
       >
         <unicon name="check" fill="#fff" />
       </button>
@@ -33,6 +33,7 @@ export default {
         completeBy: this.$store.state.currentPlayer.id,
         completeDay: currentDate,
       })
+      this.$refs.pin.hide()
     },
   },
 }
