@@ -15,6 +15,9 @@ const io = (url) => ({
                     {
                         askConfig: 'bossSync/sendConfig',
                     },
+                    {
+                        initContext: 'bossSync/initContext',
+                    },
                 ],
             },
         },

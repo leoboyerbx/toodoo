@@ -1,6 +1,7 @@
 export const state = () => ({
     currentScreen: 'pairing',
     clientType: '',
+    gameContext: null,
 })
 
 export const mutations = {
@@ -9,7 +10,10 @@ export const mutations = {
     },
     changeScreen(state, screen) {
         state.currentScreen = screen
-    }
+    },
+    setGameContext(state, context) {
+        state.gameContext = context
+    },
 }
 
 export const actions = {
@@ -28,6 +32,9 @@ export const actions = {
             },
             { root: true }
         )
+    },
+    initContext({ commit }, gameContext) {
+        commit('setGameContext', gameContext)
     },
 
     // mobile app specific

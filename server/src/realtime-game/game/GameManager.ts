@@ -55,5 +55,17 @@ export default class GameManager {
   }
   private async config(configData) {
     await this.gameContext.setGame(configData.gameId)
+    this.broadCast('initContext', this.gameContext)
+  }
+
+  /**
+   * Send Socket.io message to every client: players and cast
+   * @param message
+   * @param payload
+   * @private
+   */
+  private broadCast(message: string, payload: any = null) {
+    this.castSocket.socket.emit(message, payload)
+    this.playerSockets.emit(message, payload)
   }
 }
