@@ -73,6 +73,7 @@ export default {
 .avatar-container {
   margin-left: 10px;
   margin-top: 10px;
+  width: fit-content;
 }
 .avatar {
   height: 55px;
