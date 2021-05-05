@@ -4,11 +4,18 @@
     :style="'top:' + position.y + '%; left:' + position.x + '%'"
     :class="isActive ? 'z-20' : 'z-10'"
   >
-    <div
+    <!--    <div-->
+    <!--      v-click-outside="hide"-->
+    <!--      class="h-full w-full bg-theme border border-theme-dark box-border cursor-pointer rounded-full relative z-10"-->
+    <!--      @click="clickPopUp($event)"-->
+    <!--    ></div>-->
+    <img
+      src="~/assets/img/socle.svg"
+      alt=""
       v-click-outside="hide"
-      class="h-full w-full bg-theme border border-theme-dark box-border cursor-pointer rounded-full relative z-10"
+      class="cursor-pointer h-full mx-auto"
       @click="clickPopUp($event)"
-    ></div>
+    />
     <transition name="slide-fade">
       <div
         v-show="isActive"
@@ -66,7 +73,7 @@ export default {
 
 <style scoped>
 .pin {
-  height: 5%;
+  height: 10%;
   aspect-ratio: 1 / 1;
   transform: translateY(-50%) translateX(-50%);
 }
