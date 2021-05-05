@@ -18,6 +18,11 @@ export default {
       require: true,
     },
   },
+  beforeMount() {
+    if (this.$config.devPair) {
+      this.onPair('devroom')
+    }
+  },
   methods: {
     onPair(sessionId) {
       this.$store.dispatch('bossSync/pair', {

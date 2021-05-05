@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     image: mysql:8.0.24
+    platform: linux/amd64
     container_name: mysqldb
     environment:
       MYSQL_ROOT_PASSWORD: root
