@@ -8,8 +8,7 @@
                 "name": "Boum",
                 "cost": 40,
                 "effect": {
-                    "attack": 13,
-                    "heal": 0
+                    "attack": 13
                 },
                 "target": "randomPlayer"
             }
