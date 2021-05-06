@@ -1,13 +1,16 @@
 <template>
-
+  <div>
+    <PonctualMissions />
+  </div>
 </template>
 
 <script>
+import PonctualMissions from '../components/PonctualMissions'
+
 export default {
-name: "ponctual-missions"
+  components: { PonctualMissions },
+  name: 'ponctual-missions',
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
