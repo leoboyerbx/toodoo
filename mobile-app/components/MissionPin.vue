@@ -9,7 +9,7 @@
       {{ completed ? 'Tâche ' + mission.name + ' effectuée' : mission.name }}
     </p>
     <button
-      v-if="!completed"
+      v-if="!completed && goodAssign"
       class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
       @click="sendMissionCompletion"
     >
@@ -47,6 +47,20 @@ export default {
         this.completed = true
       }
     })
+  },
+  computed: {
+    goodAssign() {
+      const currentPlayer = this.$store.getters['apiService/currentPlayer']
+      if (!currentPlayer || this.mission.assignTo === null) return true
+      if (
+        this.mission.assignTo ===
+        this.$store.getters['apiService/currentPlayer'].id
+      ) {
+        return true
+      } else {
+        return false
+      }
+    },
   },
   methods: {
     sendMissionCompletion() {
