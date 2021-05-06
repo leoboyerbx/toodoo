@@ -8,7 +8,7 @@
   "capabilities": [
     {
       "name": "Pif paf",
-      "cost": 12,
+      "cost": 30,
       "effect": {
         "attack": 13,
         "heal": 0

@@ -1,5 +1,9 @@
 <template>
-  <div class="bg-white text-theme-dark px-6 py-4 w-72 rounded-lg flex flex-col">
+  <div
+    class="text-theme-dark px-6 py-4 w-72 rounded-lg flex flex-col"
+    :class="disabled ? 'bg-gray-400' : 'bg-white'"
+    @click="use"
+  >
     <div class="font-bold">
       {{ capability.name }}
     </div>
@@ -17,10 +21,19 @@ export default {
       type: Object,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     effect() {
       return this.capability.effect
+    },
+  },
+  methods: {
+    use() {
+      if (!this.disabled) this.$emit('use')
     },
   },
 }

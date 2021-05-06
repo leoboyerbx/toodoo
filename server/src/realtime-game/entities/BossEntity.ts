@@ -1,6 +1,7 @@
 import Entity from "./Entity";
 import GameContext from "../game/GameContext";
 import ComputerPlayer from "./ComputerPlayer";
+import PlayerEntity from "./PlayerEntity";
 
 interface BossImg {
   decor: String;
@@ -26,7 +27,8 @@ export default class BossEntity extends Entity implements ComputerPlayer {
       availableCapabilities[
         Math.floor(Math.random() * availableCapabilities.length)
       ];
-    const capabilityResult = usedCapability.use(context);
-    return `Le boss utilise l'attaque ${this.name} sur ${capabilityResult.effectiveTarget.name} ! Moins ${capabilityResult.capability.effect.attack} PV !`;
+    const result = usedCapability.use(context);
+    const playerName = (result.effectiveTarget as PlayerEntity).player.name;
+    return `Le boss utilise l'attaque ${result.capability.name} sur ${playerName} ! Moins ${result.capability.effect.attack} PV !`;
   }
 }

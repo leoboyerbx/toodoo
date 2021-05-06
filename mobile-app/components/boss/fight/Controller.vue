@@ -5,7 +5,8 @@
         v-for="capability in capabilities"
         :key="capability.name"
         :capability="capability"
-        @click.native="useCapability(capability)"
+        :disabled="capability.cost > turnEntity.energy"
+        @use="useCapability(capability)"
       />
     </section>
   </div>
@@ -18,6 +19,11 @@ export default {
     capabilities: {
       type: Array,
       default: () => [],
+    },
+  },
+  computed: {
+    turnEntity() {
+      return this.$store.state.bossSync.gameContext.turnEntity
     },
   },
   methods: {
