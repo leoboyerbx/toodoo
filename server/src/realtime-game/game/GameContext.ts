@@ -1,4 +1,4 @@
-import { Game, Player } from "@prisma/client";
+import { Game } from "@prisma/client";
 import prismaClient from "../../database/prismaClient";
 import BossEntity from "../entities/BossEntity";
 import PlayerEntity from "../entities/PlayerEntity";
