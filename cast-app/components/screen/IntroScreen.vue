@@ -1,8 +1,11 @@
 <template>
   <div class="w-full h-full flex justify-center items-center">
-    <div class="text-lg">Introscreen</div>
+    <BossSentence />
   </div>
 </template>
 <script>
-export default {}
+import BossSentence from '../intro/BossSentence'
+export default {
+  components: { BossSentence },
+}
 </script>

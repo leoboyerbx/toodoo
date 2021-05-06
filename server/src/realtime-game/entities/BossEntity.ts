@@ -1,4 +1,4 @@
-import Entity from './Entity';
+import Entity from "./Entity";
 
 interface BossImg {
   decor: String;
@@ -7,11 +7,11 @@ interface BossImg {
 
 export default class BossEntity extends Entity {
   img: BossImg;
-  introReplica: string;
+  introSentence: string;
 
   constructor(data) {
     super(data);
-    this.img = data.img
-    this.introReplica = data.introReplica
+    this.img = data.img;
+    this.introSentence = data.introSentence;
   }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "TheBossOne",
-    "introReplica": "Ah grou grouuu ! Je suis le boss méchant !",
+    "name": "BadLavLinge",
+    "introSentence": "COMMENT ÇA, mon nom est pourri ?!",
     "img": {
         "decor": "boss1-decor.svg",
         "character": "boss1-character.png"
