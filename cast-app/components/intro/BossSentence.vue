@@ -18,6 +18,19 @@
       alt="Boss image"
       class="absolute w-96 bottom-10 right-10"
     />
+    <div class="absolute left-0 bottom-0 w-1/2 h-1/4 flex">
+      <div
+        v-for="player in players"
+        :key="player.player.id"
+        class="flex flex-col mx-5 justify-end items-center"
+      >
+        <img
+          :src="require(`assets/img/avatars/${player.img.character}`)"
+          alt="Avatar image"
+          class="h-full"
+        />
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -28,6 +41,9 @@ export default {
     },
     boss() {
       return this.gameContext.boss
+    },
+    players() {
+      return this.gameContext.players
     },
   },
 }

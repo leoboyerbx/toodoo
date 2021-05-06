@@ -13,6 +13,13 @@ if (nodeEnv === 'tunnel') {
     baseUrl: 'http://localhost:3000',
     devPair: true,
   }
+} else if (nodeEnv === 'lan') {
+  const ip = process.env.IP
+  publicRuntimeConfig = {
+    API_URL: `http://${ip}:7554`,
+    baseUrl: `http://${ip}:3001`,
+    devPair: true,
+  }
 } else {
   publicRuntimeConfig = {
     API_URL: 'https://api.toodoo.games',
