@@ -1,6 +1,6 @@
 <template>
   <div
-    class="character"
+    class="character absolute top-0 left-0 z-15 pointer-event-none"
     :style="{
       top: `${position.y}%`,
       left: `${position.x}%`,
@@ -33,9 +33,6 @@ export default {
 <style scoped>
 .character {
   width: 50px;
-  top: 0;
-  left: 0;
   transition: 1s ease-in-out;
-  @apply absolute;
 }
 </style>

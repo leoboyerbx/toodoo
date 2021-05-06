@@ -2,7 +2,7 @@
   <div
     class="pin absolute"
     :style="'top:' + position.y + '%; left:' + position.x + '%'"
-    :class="isActive ? 'z-20' : 'z-10'"
+    :class="isActive ? 'z-12' : 'z-10'"
   >
     <!--    <div-->
     <!--      v-click-outside="hide"-->

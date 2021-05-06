@@ -16,7 +16,7 @@
         @load="onLoadMap"
       />
       <Character
-        v-for="character in characters"
+        v-for="character in charactersAutoPlace"
         :key="character.player.id"
         :name="character.player.name"
         :url="character.avatar.img.character"
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { cloneDeep } from 'lodash'
 import Character from './Character'
 import MissionPin from './MissionPin'
 
@@ -49,9 +50,38 @@ export default {
     characters() {
       return this.$store.state.viewModel.mapViewData.characters
     },
-    // charactersAutoPlace() {
-    //   const rawCharacters = this.characters
-    // },
+    charactersAutoPlace() {
+      const rawCharacters = cloneDeep(this.characters)
+      const positions = {}
+      rawCharacters.forEach((character) => {
+        if (positions[`${character.position.x}:${character.position.y}`]) {
+          positions[`${character.position.x}:${character.position.y}`].push(
+            character
+          )
+        } else {
+          positions[`${character.position.x}:${character.position.y}`] = [
+            character,
+          ]
+        }
+      })
+      const resultCharacters = []
+      Object.values(positions).forEach((position) => {
+        if (position.length > 1) {
+          // rawCharacters.forEach((character) => {
+          //   if (character.player.id === position[1].player.id) {
+          //     console.log('change')
+          //     character.position.x += 0.5
+          //   }
+          // })
+          position[0].position.x -= 0.5
+          position[1].position.x += 0.5
+          position.forEach((character) => resultCharacters.push(character))
+        } else {
+          resultCharacters.push(position[0])
+        }
+      })
+      return resultCharacters
+    },
     pinList() {
       return this.$store.state.viewModel.mapViewData.pinList
     },
@@ -70,7 +100,7 @@ export default {
       e.preventDefault()
     },
     moveCurrentCharacter(position) {
-      this.$store.commit('moveCurrentCharacter', position)
+      this.$store.commit('moveCurrentCharacter', Object.assign({}, position))
     },
   },
 }
