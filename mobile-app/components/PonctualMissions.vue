@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'PonctualMissions',
+  computed: {
+    missions() {
+      return this.$store.state.viewModel.mapViewData.characters
+    },
+  },
 }
 </script>
 

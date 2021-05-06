@@ -5,6 +5,9 @@ export const state = () => ({
     pinList: [],
     characters: [],
   },
+  ponctualMissionsListData: {
+    missionsList: [],
+  },
 })
 
 export const getters = {
@@ -19,6 +22,9 @@ export const mutations = {
   },
   setCharacters(state, characters) {
     state.mapViewData.characters = characters
+  },
+  setPonctualMissionsList(state, set) {
+    state.ponctualMissionsListData.missionsList = set.missionsFiltered
   },
 }
 
@@ -56,6 +62,19 @@ export const actions = {
     commit('setMapViewData', {
       pinList,
       characters,
+    })
+  },
+  fetchPonctualMissionsListData({ commit, rootState }) {
+    const missions = rootState.apiService.missions
+    const missionsFiltered = []
+
+    missions.forEach((mission) => {
+      if (mission.ponctual) {
+        missionsFiltered.push(mission)
+      }
+    })
+    commit('setPonctualMissionsList', {
+      missionsFiltered,
     })
   },
 }
