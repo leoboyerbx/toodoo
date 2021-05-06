@@ -35,7 +35,8 @@ export const actions = {
     // Since the context is ready, we can go on to the intro cinematic
     commit("changeScreen", "intro");
   },
-  startFight({ commit }) {
+  startFight({ commit }, gameContext) {
+    commit("setGameContext", gameContext);
     // Since the context is ready, we can go on to the intro cinematic
     commit("changeScreen", "fight");
   },

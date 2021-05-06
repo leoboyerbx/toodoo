@@ -77,6 +77,6 @@ export default class GameManager {
   private async startFight() {
     console.log("startFight");
     this.context.setTurn(0);
-    this.broadCast("startFight");
+    this.broadCast("startFight", this.context);
   }
 }

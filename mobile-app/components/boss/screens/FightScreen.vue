@@ -2,9 +2,30 @@
   <div
     class="w-full h-screen bg-theme-dark text-white flex flex-col justify-center items-center"
   >
-    <h1 class="text-2xl mb-5">Commandes komba</h1>
+    <Controller
+      v-if="gameContext.turnIndex > -1"
+      :capabilities="capabilities"
+    />
+    <p v-else>Au tour du boss</p>
   </div>
 </template>
 <script>
-export default {}
+import Controller from '@/components/boss/fight/Controller'
+export default {
+  components: { Controller },
+  computed: {
+    gameContext() {
+      return this.$store.state.bossSync.gameContext
+    },
+    boss() {
+      return this.gameContext.boss
+    },
+    players() {
+      return this.gameContext.players
+    },
+    capabilities() {
+      return this.gameContext.turnEntity.capabilities
+    },
+  },
+}
 </script>
