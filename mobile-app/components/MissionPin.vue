@@ -1,23 +1,21 @@
 <template>
-  <div>
-    <Pin
-      ref="pin"
-      :position="position"
-      :mission-complete="completed"
-      @open="$emit('open', $event)"
+  <Pin
+    ref="pin"
+    :position="position"
+    :mission-complete="completed"
+    @open="$emit('open', $event)"
+  >
+    <p class="text-center">
+      {{ completed ? 'Tâche ' + mission.name + ' effectuée' : mission.name }}
+    </p>
+    <button
+      v-if="!completed && goodAssign"
+      class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
+      @click="sendMissionCompletion"
     >
-      <p class="text-center">
-        {{ completed ? 'Tâche ' + mission.name + ' effectuée' : mission.name }}
-      </p>
-      <button
-        v-if="!completed && goodAssign"
-        class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
-        @click="sendMissionCompletion"
-      >
-        <unicon name="check" fill="#fff" />
-      </button>
-    </Pin>
-  </div>
+      <unicon name="check" fill="#fff" />
+    </button>
+  </Pin>
 </template>
 
 <script>
