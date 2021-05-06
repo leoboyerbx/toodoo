@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Missions ponctuelles</h1>
+    <h1 class="text-center text-gray-50 text-4xl font-semibold mt-10">
+      Missions ponctuelles
+    </h1>
     <PonctualMissionLine
       v-for="mission in missions"
       :key="mission.id"

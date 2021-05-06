@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-screen pt-10 bg-theme-darkBlue">
     <PonctualMissions />
   </div>
 </template>

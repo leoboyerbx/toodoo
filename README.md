@@ -30,3 +30,4 @@
 | 🏗         | Changes to the CI construction system |
 | 🚀         | Deployment stuff |
 | 🤹     | Animation |
+| 🏄‍         | Front end add or update |
