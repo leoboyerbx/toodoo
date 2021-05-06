@@ -1,6 +1,6 @@
 <template>
   <div
-    class="character absolute top-0 left-0 z-15 pointer-event-none"
+    class="character absolute top-0 left-0 z-15 pointer-events-none"
     :style="{
       top: `${position.y}%`,
       left: `${position.x}%`,
