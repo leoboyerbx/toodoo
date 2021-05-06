@@ -29,6 +29,7 @@
         :mission="pin.mission"
         @open="moveCurrentCharacter(pin.position)"
       />
+      <DailyGuide />
     </div>
   </div>
 </template>
@@ -37,10 +38,11 @@
 import { cloneDeep } from 'lodash'
 import Character from './Character'
 import MissionPin from './MissionPin'
+import DailyGuide from './DailyGuide'
 
 export default {
   name: 'Map',
-  components: { MissionPin, Character },
+  components: { MissionPin, Character, DailyGuide },
   data: () => {
     return {
       mapWidth: 0,
