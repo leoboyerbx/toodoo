@@ -10,7 +10,10 @@ const io = (url) => ({
                         start: 'bossSync/socketStart',
                     },
                     {
-                        ready: 'bossSync/ready',
+                        askConfig: 'bossSync/sendConfig',
+                    },
+                    {
+                        initContext: 'bossSync/initContext',
                     },
                 ],
             },

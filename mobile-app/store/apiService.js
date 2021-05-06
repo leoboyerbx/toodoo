@@ -18,7 +18,11 @@ export const mutations = {
   },
 }
 
-export const getters = {}
+export const getters = {
+  currentPlayer: (state, getters, rootState) => {
+    return state.players[rootState.currentPlayerIndex]
+  },
+}
 
 export const actions = {
   async getGame({ commit }) {

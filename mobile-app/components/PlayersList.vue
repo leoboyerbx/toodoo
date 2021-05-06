@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import getAvatar from 'common/avatars/getAvatar'
+import { getAvatar } from '../../common/entities/getEntity'
 
 export default {
   name: 'AvatarList',
@@ -34,7 +34,7 @@ export default {
   computed: {
     currentPlayer: {
       get() {
-        return this.$store.state.currentPlayer
+        return this.$store.getters['apiService/currentPlayer']
       },
       set(player) {
         this.$store.commit('setCurrentPlayer', player)

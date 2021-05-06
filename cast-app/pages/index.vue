@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-theme-light">
+  <div>
     <component :is="`${$store.state.bossSync.currentScreen}-screen`" />
   </div>
 </template>

@@ -1,8 +1,16 @@
 <template>
   <div>
-    <Pin :position="position" @open="$emit('open', $event)" ref="pin">
-      <p class="text-center">{{ mission.name }}</p>
+    <Pin
+      ref="pin"
+      :position="position"
+      :mission-complete="completed"
+      @open="$emit('open', $event)"
+    >
+      <p class="text-center">
+        {{ completed ? 'Tâche ' + mission.name + ' effectuée' : mission.name }}
+      </p>
       <button
+        v-if="!completed"
         class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
         @click="sendMissionCompletion"
       >
@@ -25,15 +33,33 @@ export default {
       required: true,
     },
   },
+  data: () => {
+    return {
+      completed: false,
+    }
+  },
+  mounted() {
+    this.mission.missionCompletion.forEach((completion) => {
+      const completionDate = new Date(completion.completeDay)
+      const currentDate = new Date()
+      if (
+        completionDate.getDate() === currentDate.getDate() &&
+        completionDate.getFullYear() === currentDate.getFullYear()
+      ) {
+        this.completed = true
+      }
+    })
+  },
   methods: {
     sendMissionCompletion() {
       const currentDate = new Date()
       this.$store.dispatch('apiService/postMissionCompletion', {
         missionId: this.mission.id,
-        completeBy: this.$store.state.currentPlayer.id,
+        completeBy: this.$store.getters['apiService/currentPlayer'].id,
         completeDay: currentDate,
       })
       this.$refs.pin.hide()
+      this.completed = true
     },
   },
 }

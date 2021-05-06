@@ -31,6 +31,7 @@ export default {
       name: 'game-sync',
       persist: true,
     })
+    this.$store.dispatch('fetchAll')
   },
 }
 </script>

@@ -1,4 +1,4 @@
-import getAvatar from 'common/avatars/getAvatar'
+import { getAvatar } from '../../common/entities/getEntity'
 
 export const state = () => ({
   mapViewData: {
@@ -6,6 +6,12 @@ export const state = () => ({
     characters: [],
   },
 })
+
+export const getters = {
+  currentCharacter: (state, getters, rootState) => {
+    return state.mapViewData.characters[rootState.currentPlayerIndex]
+  },
+}
 
 export const mutations = {
   setMapViewData(state, set) {

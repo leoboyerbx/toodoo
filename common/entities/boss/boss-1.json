@@ -1,0 +1,20 @@
+{
+    "name": "BadLavLinge",
+    "introSentence": "COMMENT ÇA, mon nom est pourri ?!",
+    "img": {
+        "decor": "boss1-decor.svg",
+        "character": "boss1-character.png"
+    },
+    "hp": 300,
+    "energy": 300,
+    "capabilities": [
+        {
+            "name": "Boum",
+            "cost": 40,
+            "effect": {
+                "attack": 13
+            },
+            "target": "randomPlayer"
+        }
+    ]
+}
