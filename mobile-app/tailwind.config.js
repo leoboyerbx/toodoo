@@ -14,6 +14,8 @@ module.exports = {
         light: '#65bbdd',
         DEFAULT: '#319dc4',
         dark: '#1f657e',
+        darkBlue: '#1f0A62',
+        lightPurple: '#b5b1fe',
       },
     },
     zIndex: {
