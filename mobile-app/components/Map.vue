@@ -1,27 +1,23 @@
 <template>
   <div
-    class="map--container h-full w-full z-0 flex overflow-x-scroll"
+    class="map--container h-full w-full z-0 overflow-x-scroll"
     @wheel="onWheel"
   >
     <div
-      class="relative"
+      class="relative h-full"
       :style="{
         width: mapWidth + 'px',
       }"
     >
-      <img
-        class="h-full max-w-none w-auto"
-        src="~/assets/img/map1.svg"
-        alt="Carte"
-        @load="onLoadMap"
-      />
-      <Character
-        v-for="character in charactersAutoPlace"
-        :key="character.player.id"
-        :name="character.player.name"
-        :url="character.avatar.img.character"
-        :position="character.position"
-      ></Character>
+      <MapBackground @mounted="onLoadMap">
+        <Character
+          v-for="character in charactersAutoPlace"
+          :key="character.player.id"
+          :name="character.player.name"
+          :url="character.avatar.img.character"
+          :position="character.position"
+        ></Character>
+      </MapBackground>
       <MissionPin
         v-for="(pin, index) in pinList"
         :key="index + 'pin'"
@@ -29,6 +25,7 @@
         :mission="pin.mission"
         @open="moveCurrentCharacter(pin.position)"
       />
+      <DailyGuide />
     </div>
   </div>
 </template>
@@ -37,10 +34,11 @@
 import { cloneDeep } from 'lodash'
 import Character from './Character'
 import MissionPin from './MissionPin'
+import DailyGuide from './DailyGuide'
 
 export default {
   name: 'Map',
-  components: { MissionPin, Character },
+  components: { MissionPin, Character, DailyGuide },
   data: () => {
     return {
       mapWidth: 0,
@@ -67,14 +65,8 @@ export default {
       const resultCharacters = []
       Object.values(positions).forEach((position) => {
         if (position.length > 1) {
-          // rawCharacters.forEach((character) => {
-          //   if (character.player.id === position[1].player.id) {
-          //     console.log('change')
-          //     character.position.x += 0.5
-          //   }
-          // })
-          position[0].position.x -= 0.5
-          position[1].position.x += 0.5
+          position[0].position.x += 0.2
+          position[1].position.x -= 0.7
           position.forEach((character) => resultCharacters.push(character))
         } else {
           resultCharacters.push(position[0])
@@ -87,9 +79,10 @@ export default {
     },
   },
   methods: {
-    onLoadMap(e) {
-      this.mapWidth = e.currentTarget.offsetWidth
-      this.mapImg = e.currentTarget
+    onLoadMap(mapDiv) {
+      this.mapWidth = mapDiv.offsetWidth
+      this.mapImg = mapDiv
+      console.log(mapDiv)
       window.addEventListener('resize', () => {
         this.mapWidth = this.mapImg.offsetWidth
       })

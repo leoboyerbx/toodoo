@@ -1,7 +1,16 @@
 <template>
-  <div>
-    <div>{{ mission.name }}</div>
-    <div>{{ completed ? 'Terminée' : 'Fait' }}</div>
+  <div
+    class="max-w-3xl mx-auto mt-5 flex flex-row flex-nowrap justify-between rounded-lg"
+    :class="{ 'bg-white': completed === true }"
+  >
+    <div class="p-2.5 px-8 bg-white w-10/12 rounded-lg">{{ mission.name }}</div>
+    <div
+      class="py-2.5 px-8 font-bold bg-white rounded-lg"
+      :class="{ 'bg-theme-lightPurple text-white': completed === false }"
+      @click="sendMissionCompletion"
+    >
+      {{ completed ? 'Terminée' : 'Fait' }}
+    </div>
   </div>
 </template>
 
@@ -30,6 +39,17 @@ export default {
         this.completed = true
       }
     })
+  },
+  methods: {
+    sendMissionCompletion() {
+      const currentDate = new Date()
+      this.$store.dispatch('apiService/postMissionCompletion', {
+        missionId: this.mission.id,
+        completeBy: this.$store.getters['apiService/currentPlayer'].id,
+        completeDay: currentDate,
+      })
+      this.$data.completed = true
+    },
   },
 }
 </script>

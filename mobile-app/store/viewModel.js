@@ -32,6 +32,12 @@ export const actions = {
   async fetchMapViewData({ commit, rootState }, { weekIndex }) {
     // eslint-disable-next-line no-unused-vars
     const missions = rootState.apiService.missions
+    const missionsToPin = []
+    missions.forEach((mission) => {
+      if (!mission.ponctual && mission.active) {
+        missionsToPin.push(mission)
+      }
+    })
     const players = rootState.apiService.players
     const mapData = await import(
       `~/assets/data/maps/map-week-${weekIndex}.json`
@@ -51,10 +57,10 @@ export const actions = {
 
     mapData.pinPlaces.forEach((pinPlacesOfDay) => {
       pinPlacesOfDay.forEach((pinPlace, index) => {
-        if (index >= missions.length) return
+        if (index >= missionsToPin.length) return
         pinList.push({
           position: pinPlace.coords,
-          mission: missions[index],
+          mission: missionsToPin[index],
         })
       })
     })

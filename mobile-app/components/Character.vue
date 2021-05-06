@@ -1,14 +1,19 @@
 <template>
-  <div
-    class="character absolute top-0 left-0 z-15 pointer-event-none"
-    :style="{
-      top: `${position.y}%`,
-      left: `${position.x}%`,
-    }"
+  <foreignObject
+    class="character"
+    :style="`transform: translateX(${position.x - 0.1 + '%'}) translateY(${
+      position.y + 3 + '%'
+    })`"
+    height="75"
+    width="50"
   >
-    <img :src="require(`assets/img/avatars/${url}`)" alt="" />
-    <p>{{ name }}</p>
-  </div>
+    <img
+      class="absolute z-15 pointer-events-none"
+      :src="require(`assets/img/avatars/${url}`)"
+      alt=""
+      xmlns="http://www.w3.org/1999/xhtml"
+    />
+  </foreignObject>
 </template>
 
 <script>
@@ -32,7 +37,6 @@ export default {
 
 <style scoped>
 .character {
-  width: 50px;
   transition: 1s ease-in-out;
 }
 </style>

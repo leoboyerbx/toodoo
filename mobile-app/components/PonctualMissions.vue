@@ -1,11 +1,19 @@
 <template>
   <div>
-    <h1>Missions ponctuelles</h1>
+    <h1 class="text-center text-gray-50 text-4xl font-semibold mt-10">
+      Missions ponctuelles
+    </h1>
     <PonctualMissionLine
       v-for="mission in missions"
       :key="mission.id"
       :mission="mission"
     />
+    <button
+      class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white"
+      @click="$router.go(-1)"
+    >
+      <unicon name="arrow-left" fill="#b5b1fe" />
+    </button>
   </div>
 </template>
 
