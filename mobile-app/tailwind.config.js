@@ -11,9 +11,9 @@ module.exports = {
       pink: colors.fuchsia,
       green: colors.green,
       theme: {
-        light: '#65bbdd',
-        DEFAULT: '#319dc4',
-        dark: '#1f657e',
+        light: '#AE91FF',
+        DEFAULT: '#552088',
+        dark: '#1F0A62',
       },
     },
     zIndex: {

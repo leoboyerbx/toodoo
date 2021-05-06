@@ -18,6 +18,8 @@ module.exports = {
       red: colors.rose,
       pink: colors.fuchsia,
       green: colors.green,
+      white: colors.white,
+      black: colors.black,
       theme: {
         light: '#65bbdd',
         DEFAULT: '#319dc4',

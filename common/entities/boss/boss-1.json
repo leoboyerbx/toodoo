@@ -2,8 +2,12 @@
     "name": "BadLavLinge",
     "introSentence": "COMMENT ÇA, mon nom est pourri ?!",
     "img": {
-        "decor": "boss1-decor.svg",
-        "character": "boss1-character.png"
+        "decor": "boss1-decor.png",
+        "character": "boss1-character.png",
+        "positionInDecor": {
+            "x": 63,
+            "y": 59
+        }
     },
     "hp": 300,
     "energy": 300,

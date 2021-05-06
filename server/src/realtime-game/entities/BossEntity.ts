@@ -3,8 +3,8 @@ import Entity from "./Entity";
 interface BossImg {
   decor: String;
   character: String;
+  positionInDecor: any;
 }
-
 export default class BossEntity extends Entity {
   img: BossImg;
   introSentence: string;

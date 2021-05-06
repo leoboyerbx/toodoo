@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full relative">
+  <div class="w-full h-full relative text-white">
     <img
       :src="require(`assets/img/boss/${boss.img.decor}`)"
       alt=""
@@ -16,7 +16,11 @@
     <img
       :src="require(`assets/img/boss/${boss.img.character}`)"
       alt="Boss image"
-      class="absolute w-96 bottom-10 right-10"
+      class="absolute w-64"
+      :style="{
+        left: boss.img.positionInDecor.x + '%',
+        top: boss.img.positionInDecor.y + '%',
+      }"
     />
     <div class="absolute left-0 bottom-0 w-1/2 h-1/4 flex">
       <div
