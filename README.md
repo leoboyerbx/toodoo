@@ -1,4 +1,4 @@
-# gobelins-vert
+# TOODOO Adventures
 --> This name is soooo temporary
 
 [Server API documentation](server/README.md)
