@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex items-center justify-center">
+  <div class="w-full h-full bg-theme flex items-center justify-center">
     <QrcodeVue
       id="qrcode"
       :value="sessionId"
