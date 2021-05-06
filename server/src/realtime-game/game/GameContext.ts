@@ -1,11 +1,8 @@
 import { Game, Player } from "@prisma/client";
-import {
-  getAvatar,
-  getBossForWeek,
-} from "../../../../common/entities/getEntityServer";
 import prismaClient from "../../database/prismaClient";
 import BossEntity from "../entities/BossEntity";
 import PlayerEntity from "../entities/PlayerEntity";
+import Common from "../../helpers/Common";
 
 export default class GameContext {
   public game: Game;
@@ -27,7 +24,7 @@ export default class GameContext {
       },
     });
     this.week = this.game.currentWeek;
-    const bossData = await getBossForWeek(this.week);
+    const bossData = await Common.getBossForWeek(this.week);
     this.boss = new BossEntity(bossData);
     const players = await prismaClient.player.findMany({
       where: {
@@ -36,7 +33,7 @@ export default class GameContext {
     });
     this.players = [];
     for (const player of players) {
-      const avatar = await getAvatar(player.avatar);
+      const avatar = await Common.getAvatar(player.avatar);
       this.players.push(new PlayerEntity(avatar, player));
     }
   }

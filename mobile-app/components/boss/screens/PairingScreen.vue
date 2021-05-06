@@ -1,10 +1,11 @@
 <template>
   <div class="w-full h-full flex justify-center items-center">
-    <div class="w-64 h-64">
-      <QrcodeStream @decode="onDecode"></QrcodeStream>
+    <div v-if="!$config.devPair">
+      <div class="w-64 h-64">
+        <QrcodeStream @decode="onDecode"></QrcodeStream>
+      </div>
+      <google-cast-launcher v-pre id="cast-button"></google-cast-launcher>
     </div>
-
-    <google-cast-launcher v-pre id="cast-button"></google-cast-launcher>
   </div>
 </template>
 <script>
@@ -21,10 +22,11 @@ export default {
   beforeMount() {
     if (this.$config.devPair) {
       this.pairSocket('devroom')
-    }
-    window.__onGCastApiAvailable = (isAvailable) => {
-      if (isAvailable) {
-        this.initializeCastApi()
+    } else {
+      window.__onGCastApiAvailable = (isAvailable) => {
+        if (isAvailable) {
+          this.initializeCastApi()
+        }
       }
     }
   },
@@ -33,10 +35,12 @@ export default {
     this.mutationObserver = new window.MutationObserver(
       this.checkCastStyleDiff.bind(this)
     )
-    this.mutationObserver.observe(this.castButton, {
-      attributes: true,
-      attributeFilter: ['style'],
-    })
+    if (this.castButton) {
+      this.mutationObserver.observe(this.castButton, {
+        attributes: true,
+        attributeFilter: ['style'],
+      })
+    }
   },
   beforeDestroy() {
     this.mutationObserver.disconnect()

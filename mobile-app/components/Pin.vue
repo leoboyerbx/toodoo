@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="pin absolute"
-    :style="'top:' + position.y + '%; left:' + position.x + '%'"
-    :class="isActive ? 'z-12' : 'z-10'"
-  >
+  <div>
     <img
       v-click-outside="hide"
       :src="
@@ -12,14 +8,24 @@
           : require('~/assets/img/socle.svg')
       "
       alt=""
-      class="cursor-pointer h-full mx-auto"
+      class="pin absolute cursor-pointer mx-auto"
+      :style="'top:' + position.y + '%; left:' + position.x + '%'"
       @click="clickPopUp($event)"
     />
     <transition name="slide-fade">
       <div
         v-show="isActive"
-        class="pin__content absolute right-2/4 text-theme z-20 -translate-y-full p-6 rounded-xl"
-        :class="position.y > 20 ? 'top-0 pin-top' : 'bottom-0 pin-bottom'"
+        class="pin__content absolute text-theme z-20 p-6 rounded-xl"
+        :class="position.y > 20 ? 'pin-top' : 'pin-bottom'"
+        :style="
+          position.y > 20
+            ? 'top: calc(' + position.y + '% - 20px); left:' + position.x + '%'
+            : 'top: calc(' +
+              position.y +
+              '% + 10% + 20px); left:' +
+              position.x +
+              '%'
+        "
       >
         <slot />
       </div>
@@ -79,7 +85,7 @@ export default {
 .pin {
   height: 10%;
   aspect-ratio: 1 / 1;
-  transform: translateY(-50%) translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .pin__content {
@@ -99,10 +105,10 @@ export default {
 /*}*/
 
 .pin-top {
-  transform: translateY(calc(-100% - 20px)) translateX(50%);
+  transform: translateY(-100%) translateX(-50%);
 }
 .pin-bottom {
-  transform: translateY(calc(100% + 20px)) translateX(50%);
+  transform: translateY(0) translateX(-50%);
 }
 
 .slide-fade-enter-active {
@@ -117,10 +123,10 @@ export default {
 }
 .slide-fade-enter.pin-top,
 .slide-fade-leave-to.pin-top {
-  transform: translateY(calc(-70% - 20px)) translateX(50%) scale(0.2);
+  transform: translateY(-70%) translateX(-50%) scale(0.2);
 }
 .slide-fade-enter.pin-bottom,
 .slide-fade-leave-to.pin-bottom {
-  transform: translateY(calc(70% - 20px)) translateX(50%) scale(0.2);
+  transform: translateY(-30%) translateX(-50%) scale(0.2);
 }
 </style>

@@ -1,0 +1,19 @@
+{
+  "name": "Lyo",
+  "img": {
+    "portrait": "lyo-portrait.png",
+    "character": "lyo-character.png"
+  },
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Noie sel",
+      "cost": 12,
+      "effect": {
+        "attack": 13,
+        "heal": 0
+      },
+      "target": "boss"
+    }
+  ]
+}
