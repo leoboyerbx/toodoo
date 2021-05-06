@@ -7,13 +7,20 @@
   "hp": 100,
   "capabilities": [
     {
-      "name": "Noie sel",
+      "name": "Rugissement",
       "cost": 12,
       "effect": {
-        "attack": 13,
-        "heal": 0
+        "attack": 13
       },
       "target": "boss"
+    },
+    {
+      "name": "Régénération",
+      "cost": 12,
+      "effect": {
+        "heal": 10
+      },
+      "target": "self"
     }
   ]
 }
