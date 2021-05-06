@@ -25,7 +25,7 @@ jobs:
           name: dist
           path: server/dist
 
-  deploy:
+  deploy-server:
     needs: compile
     runs-on: ubuntu-latest
     steps:
@@ -61,3 +61,18 @@ jobs:
             yarn install --production
             dotenv -e .env.local -- npx prisma migrate deploy
             pm2 restart ecosystem.config.js
+  upload-common:
+    needs: deploy-server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: common
+          remote_path: ~/sites/toodoo/common
+          remote_host: ${{ secrets.PROD_HOST }}
+          remote_port: ${{ secrets.PROD_PORT }}
+          remote_user: ${{ secrets.PROD_USERNAME }}
+          remote_key: ${{ secrets.PROD_KEY }}
