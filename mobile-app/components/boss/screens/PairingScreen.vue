@@ -35,10 +35,12 @@ export default {
     this.mutationObserver = new window.MutationObserver(
       this.checkCastStyleDiff.bind(this)
     )
-    this.mutationObserver.observe(this.castButton, {
-      attributes: true,
-      attributeFilter: ['style'],
-    })
+    if (this.castButton) {
+      this.mutationObserver.observe(this.castButton, {
+        attributes: true,
+        attributeFilter: ['style'],
+      })
+    }
   },
   beforeDestroy() {
     this.mutationObserver.disconnect()
