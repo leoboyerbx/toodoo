@@ -13,6 +13,7 @@ export default class GameContext {
 
   // Index of who's turn. If -1, its boss turn
   public turnIndex?: number;
+  public playerTurn?: number;
   public turnEntity?: Entity;
 
   public async setGame(gameId: number) {
@@ -47,14 +48,20 @@ export default class GameContext {
     if (index === -1) {
       this.turnEntity = this.boss;
     } else {
+      this.playerTurn = index;
       this.turnEntity = this.players[index];
     }
   }
   nextTurn() {
-    if (this.turnIndex >= this.players.length - 1) {
-      this.setTurn(-1);
+    if (this.turnIndex === -1) {
+      if (this.playerTurn < this.players.length - 1) {
+        this.playerTurn++;
+      } else {
+        this.playerTurn = 0;
+      }
+      this.setTurn(this.playerTurn);
     } else {
-      this.setTurn(this.turnIndex + 1);
+      this.setTurn(-1);
     }
   }
 }

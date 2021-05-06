@@ -1,7 +1,10 @@
 <template>
   <div class="w-full h-full flex justify-center items-center">
     <div class="w-full h-full relative text-white">
-      <p>Au tour de {{ gameContext.turnEntity.name }}</p>
+      <p v-if="gameContext.turnIndex >= 0">
+        Au tour de {{ gameContext.turnEntity.player.name }}
+      </p>
+      <p v-else>Au tour du boss !</p>
       <p v-for="player in players" :key="player.player.id">
         {{ player.player.name }} a {{ player.hp }} pv et
         {{ player.energy }} points d'énergie

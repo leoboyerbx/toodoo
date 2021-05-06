@@ -35,6 +35,9 @@ export const actions = {
     // Since the context is ready, we can go on to the intro cinematic
     commit("changeScreen", "intro");
   },
+  updateContext({ commit }, gameContext) {
+    commit("setGameContext", gameContext);
+  },
   startFight({ commit }, gameContext) {
     commit("setGameContext", gameContext);
     // Since the context is ready, we can go on to the intro cinematic
@@ -62,6 +65,17 @@ export const actions = {
         label: "game-sync",
         evt: "startFight",
         msg: {},
+      },
+      { root: true }
+    );
+  },
+  useCapability({ dispatch }, capability) {
+    dispatch(
+      "$nuxtSocket/emit",
+      {
+        label: "game-sync",
+        evt: "useCapability",
+        msg: capability,
       },
       { root: true }
     );

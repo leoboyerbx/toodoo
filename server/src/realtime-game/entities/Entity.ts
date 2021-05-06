@@ -2,8 +2,8 @@ import Capability from "../capabilities/Capability";
 
 export default class Entity {
   public name: String;
-  public hp: Number;
-  public energy: Number;
+  public hp: number;
+  public energy: number;
   public capabilities: Capability[] = [];
   constructor(data) {
     this.name = data.name;

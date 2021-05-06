@@ -16,6 +16,9 @@ const io = (url) => ({
             initContext: "bossSync/initContext",
           },
           {
+            updateContext: "bossSync/updateContext",
+          },
+          {
             startFight: "bossSync/startFight",
           },
         ],

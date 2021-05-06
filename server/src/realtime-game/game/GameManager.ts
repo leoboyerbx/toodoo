@@ -1,6 +1,7 @@
 import ClientSocket from "../sockets/ClientSocket";
 import { ClientType } from "../sockets/PairDataInterface";
 import GameContext from "./GameContext";
+import Capability from "../capabilities/Capability";
 
 class SocketsArray extends Array<ClientSocket> {
   private constructor(items?: Array<ClientSocket>) {
@@ -30,6 +31,9 @@ export default class GameManager {
   private bindClientSocket(socket: ClientSocket) {
     socket.socket.on("config", (config) => this.config(config));
     socket.socket.on("startFight", () => this.startFight());
+    socket.socket.on("useCapability", (capability) =>
+      this.currentPlayerUseCapability(new Capability(capability))
+    );
   }
 
   public join(socket: ClientSocket) {
@@ -78,5 +82,10 @@ export default class GameManager {
     console.log("startFight");
     this.context.setTurn(0);
     this.broadCast("startFight", this.context);
+  }
+  private currentPlayerUseCapability(capability: Capability) {
+    capability.use(this.context);
+    this.context.nextTurn();
+    this.broadcastState();
   }
 }

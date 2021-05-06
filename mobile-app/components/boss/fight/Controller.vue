@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     useCapability(capability) {
-      console.log(capability)
+      this.$store.dispatch('bossSync/useCapability', capability)
     },
   },
 }

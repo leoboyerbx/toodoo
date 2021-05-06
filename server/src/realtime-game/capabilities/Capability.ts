@@ -1,8 +1,12 @@
+import GameContext from "../game/GameContext";
+import Entity from "../entities/Entity";
+import PlayerEntity from "../entities/PlayerEntity";
+
 export enum CapabilityTarget {
-  boss = 'boss',
-  randomPlayer = 'randomPlayer',
-  specificPlayer = 'specificPlayer',
-  self = 'self',
+  boss = "boss",
+  randomPlayer = "randomPlayer",
+  specificPlayer = "specificPlayer",
+  self = "self",
 }
 
 export interface CapabilityEffect {
@@ -12,10 +16,31 @@ export interface CapabilityEffect {
 
 export default class Capability {
   public name: String;
-  public cost: Number;
+  public cost: number;
   public target: CapabilityTarget;
   public effect: CapabilityEffect;
   constructor(data) {
-    Object.assign(this, data)
+    Object.assign(this, data);
+  }
+  use(context: GameContext, player?: PlayerEntity) {
+    let target: Entity;
+    switch (this.target) {
+      case CapabilityTarget.boss:
+        target = context.boss;
+        break;
+      case CapabilityTarget.randomPlayer:
+        target =
+          context.players[Math.floor(Math.random() * context.players.length)];
+        break;
+      case CapabilityTarget.specificPlayer:
+        target = player;
+        break;
+      case CapabilityTarget.self:
+        target = context.turnEntity;
+        break;
+    }
+
+    if (this.effect.attack) target.hp -= this.effect.attack;
+    if (this.effect.heal) target.hp += this.effect.heal;
   }
 }
