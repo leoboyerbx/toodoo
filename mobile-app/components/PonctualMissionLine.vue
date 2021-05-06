@@ -1,7 +1,9 @@
 <template>
   <div>
     <div>{{ mission.name }}</div>
-    <div>{{ completed ? 'Terminée' : 'Fait' }}</div>
+    <div @click="sendMissionCompletion">
+      {{ completed ? 'Terminée' : 'Fait' }}
+    </div>
   </div>
 </template>
 
@@ -30,6 +32,17 @@ export default {
         this.completed = true
       }
     })
+  },
+  methods: {
+    sendMissionCompletion() {
+      const currentDate = new Date()
+      this.$store.dispatch('apiService/postMissionCompletion', {
+        missionId: this.mission.id,
+        completeBy: this.$store.getters['apiService/currentPlayer'].id,
+        completeDay: currentDate,
+      })
+      this.$data.completed = true
+    },
   },
 }
 </script>
