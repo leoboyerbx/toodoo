@@ -1,5 +1,10 @@
 <template>
-  <div class="bg-red-500 w-full h-full relative">
+  <div class="w-full h-full relative">
+    <img
+      :src="require(`assets/img/boss/${boss.img.decor}`)"
+      alt=""
+      class="absolute top-0 left-0 w-full h-full object-cover"
+    />
     <span
       class="absolute top-10 left-0 w-full flex justify-center text-xl font-bold"
     >
