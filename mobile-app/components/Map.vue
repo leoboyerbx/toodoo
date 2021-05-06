@@ -67,14 +67,8 @@ export default {
       const resultCharacters = []
       Object.values(positions).forEach((position) => {
         if (position.length > 1) {
-          // rawCharacters.forEach((character) => {
-          //   if (character.player.id === position[1].player.id) {
-          //     console.log('change')
-          //     character.position.x += 0.5
-          //   }
-          // })
-          position[0].position.x -= 0.5
-          position[1].position.x += 0.5
+          position[0].position.x += 0.2
+          position[1].position.x -= 0.7
           position.forEach((character) => resultCharacters.push(character))
         } else {
           resultCharacters.push(position[0])
