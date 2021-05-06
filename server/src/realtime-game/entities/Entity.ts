@@ -1,4 +1,4 @@
-import Capability from '../capabilities/Capability';
+import Capability from "../capabilities/Capability";
 
 export default class Entity {
   public name: String;
@@ -6,11 +6,12 @@ export default class Entity {
   public energy: Number;
   public capabilities: Capability[] = [];
   constructor(data) {
-    this.name = data.name
-    this.hp = data.hp ?? 100
-    this.energy = data.energy ?? 100
-    data.capabilities.forEach(capabilityData => {
-      this.capabilities.push(new Capability(capabilityData))
-    })
+    this.name = data.name;
+    this.hp = data.hp ?? 100;
+    this.energy = data.energy ?? 100;
+    console.log(data);
+    data.capabilities?.forEach((capabilityData) => {
+      this.capabilities.push(new Capability(capabilityData));
+    });
   }
 }
