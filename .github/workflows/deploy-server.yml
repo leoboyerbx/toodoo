@@ -71,7 +71,7 @@ jobs:
         with:
           switches: -avzr --delete
           path: common
-          remote_path: ~/sites/toodoo/common
+          remote_path: ~/sites/toodoo
           remote_host: ${{ secrets.PROD_HOST }}
           remote_port: ${{ secrets.PROD_PORT }}
           remote_user: ${{ secrets.PROD_USERNAME }}
