@@ -42,7 +42,7 @@ export const actions = {
         return {
           player,
           avatar,
-          position: mapData.startCoords,
+          position: Object.assign({}, mapData.startCoords),
         }
       })
     )
