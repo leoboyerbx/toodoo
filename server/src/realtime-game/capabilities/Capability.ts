@@ -13,6 +13,10 @@ export interface CapabilityEffect {
   attack: number;
   heal: number;
 }
+export interface CapabilityUsageResult {
+  capability: Capability;
+  effectiveTarget: Entity;
+}
 
 export default class Capability {
   public name: String;
@@ -22,7 +26,10 @@ export default class Capability {
   constructor(data) {
     Object.assign(this, data);
   }
-  use(context: GameContext, player?: PlayerEntity) {
+  use(
+    context: GameContext,
+    targetPlayer?: PlayerEntity
+  ): CapabilityUsageResult {
     let target: Entity;
     switch (this.target) {
       case CapabilityTarget.boss:
@@ -33,7 +40,7 @@ export default class Capability {
           context.players[Math.floor(Math.random() * context.players.length)];
         break;
       case CapabilityTarget.specificPlayer:
-        target = player;
+        target = targetPlayer;
         break;
       case CapabilityTarget.self:
         target = context.turnEntity;
@@ -42,5 +49,12 @@ export default class Capability {
 
     if (this.effect.attack) target.hp -= this.effect.attack;
     if (this.effect.heal) target.hp += this.effect.heal;
+
+    context.turnEntity.energy -= this.cost;
+
+    return {
+      capability: this,
+      effectiveTarget: target,
+    };
   }
 }

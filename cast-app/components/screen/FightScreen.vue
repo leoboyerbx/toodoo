@@ -11,6 +11,7 @@
       </p>
       <br />
       <p>Le boss a {{ boss.hp }} PV et {{ boss.energy }} points d'énergie</p>
+      <p v-if="gameContext.bossMessage">{{ gameContext.bossMessage }}</p>
       <!--      <img-->
       <!--        :src="require(`assets/img/boss/${boss.img.decor}`)"-->
       <!--        alt=""-->

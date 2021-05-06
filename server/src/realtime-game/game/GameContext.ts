@@ -4,6 +4,8 @@ import BossEntity from "../entities/BossEntity";
 import PlayerEntity from "../entities/PlayerEntity";
 import Common from "../../helpers/Common";
 import Entity from "../entities/Entity";
+import BossPlayListener from "../listeners/BossPlayListener";
+import { delay } from "../../helpers/timers";
 
 export default class GameContext {
   public game: Game;
@@ -15,6 +17,14 @@ export default class GameContext {
   public turnIndex?: number;
   public playerTurn?: number;
   public turnEntity?: Entity;
+
+  public bossMessage?: string;
+
+  private onBossPlay: () => void;
+
+  constructor(bossPlayListener: () => void) {
+    this.onBossPlay = bossPlayListener;
+  }
 
   public async setGame(gameId: number) {
     this.game = await prismaClient.game.findFirst({
@@ -47,11 +57,13 @@ export default class GameContext {
     this.turnIndex = index;
     if (index === -1) {
       this.turnEntity = this.boss;
+      this.playBossTurn();
     } else {
       this.playerTurn = index;
       this.turnEntity = this.players[index];
     }
   }
+
   nextTurn() {
     if (this.turnIndex === -1) {
       if (this.playerTurn < this.players.length - 1) {
@@ -63,5 +75,11 @@ export default class GameContext {
     } else {
       this.setTurn(-1);
     }
+  }
+
+  async playBossTurn() {
+    await delay(2000);
+    this.bossMessage = this.boss.playTurn(this);
+    this.onBossPlay();
   }
 }

@@ -2,6 +2,8 @@ import ClientSocket from "../sockets/ClientSocket";
 import { ClientType } from "../sockets/PairDataInterface";
 import GameContext from "./GameContext";
 import Capability from "../capabilities/Capability";
+import BossPlayListener from "../listeners/BossPlayListener";
+import { delay } from "../../helpers/timers";
 
 class SocketsArray extends Array<ClientSocket> {
   private constructor(items?: Array<ClientSocket>) {
@@ -22,10 +24,11 @@ export default class GameManager {
   public id: string;
   private castSocket: ClientSocket;
   private playerSockets: SocketsArray = SocketsArray.create();
-  private context = new GameContext();
+  private readonly context;
 
   constructor(id: string) {
     this.id = id;
+    this.context = new GameContext(this.onBossPlay.bind(this));
   }
 
   private bindClientSocket(socket: ClientSocket) {
@@ -69,6 +72,11 @@ export default class GameManager {
     this.castSocket.socket.emit(message, payload);
     this.playerSockets.emit(message, payload);
   }
+
+  /**
+   * Send the current state to all clients
+   * @private
+   */
   private broadcastState() {
     this.broadCast("updateContext", this.context);
   }
@@ -78,14 +86,25 @@ export default class GameManager {
     await this.context.setGame(configData.gameId);
     this.broadCast("initContext", this.context);
   }
+
   private async startFight() {
     console.log("startFight");
     this.context.setTurn(0);
     this.broadCast("startFight", this.context);
   }
+
   private currentPlayerUseCapability(capability: Capability) {
     capability.use(this.context);
     this.context.nextTurn();
+    this.broadcastState();
+  }
+
+  // Listeners
+  async onBossPlay() {
+    this.broadcastState();
+    await delay(5000);
+    this.context.nextTurn();
+    this.context.bossMessage = null;
     this.broadcastState();
   }
 }
