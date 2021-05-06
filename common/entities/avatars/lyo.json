@@ -1,7 +1,7 @@
 {
   "name": "Lyo",
   "img": {
-    "portrait": "lyo-portrait.svg",
+    "portrait": "lyo-portrait.png",
     "character": "lyo-character.png"
   },
   "hp": 100,
