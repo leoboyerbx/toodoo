@@ -1,6 +1,6 @@
 <template>
-  <div class="absolute w-auto">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="7186.99" height="751" viewBox="0 0 7186.99 751">
+  <div class="absolute w-auto h-full">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-full" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7186.99 751">
       <defs>
         <clipPath id="clip-path">
           <rect x="-165" width="7186.99" height="751" fill="none"/>
