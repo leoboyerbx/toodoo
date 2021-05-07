@@ -9,6 +9,12 @@
         v-for="(player, index) in players"
         :key="player.player.id"
         class="flex flex-col mx-5 justify-end items-center w-20 relative"
+        :class="{
+          blink:
+            gameContext.bossAttack &&
+            gameContext.bossAttack.capabilityResult.effectiveTarget.player
+              .id === player.player.id,
+        }"
       >
         <div
           class="border-theme-light triangle transition-opacity"
@@ -42,5 +48,22 @@ export default {
   border-bottom-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
+}
+.blink {
+  animation: blink 0.4s infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>

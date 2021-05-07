@@ -43,7 +43,10 @@
     <LifeBar
       v-else-if="gameContext.bossAttack"
       class="absolute left-16 top-72"
-      name="Vie"
+      :name="
+        'Vie de ' +
+        gameContext.bossAttack.capabilityResult.effectiveTarget.player.name
+      "
       :entity="gameContext.bossAttack.capabilityResult.effectiveTarget"
       :animate-from="
         gameContext.bossAttack.capabilityResult.targetPreviousState.hp
