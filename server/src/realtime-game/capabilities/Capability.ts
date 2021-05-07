@@ -61,9 +61,11 @@ export default class Capability {
     const newEnergy = context.turnEntity.energy - this.cost;
     context.turnEntity.energy = Math.max(newEnergy, 0);
 
-    return {
+    const result: CapabilityUsageResult = {
       capability: this,
       effectiveTarget: target,
     };
+    context.capabilitiesHistory.unshift(result);
+    return result;
   }
 }

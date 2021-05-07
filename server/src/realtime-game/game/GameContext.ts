@@ -7,6 +7,7 @@ import Entity from "../entities/Entity";
 import BossPlayListener from "../listeners/BossPlayListener";
 import { delay } from "../../helpers/timers";
 import EventEmitter from "events";
+import { CapabilityUsageResult } from "../capabilities/Capability";
 
 export default class GameContext extends EventEmitter {
   public game: Game;
@@ -21,6 +22,8 @@ export default class GameContext extends EventEmitter {
 
   public bossMessage?: string;
   public winner: string = null;
+
+  capabilitiesHistory: CapabilityUsageResult[];
 
   constructor() {
     super();
