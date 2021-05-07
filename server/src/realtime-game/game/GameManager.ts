@@ -28,7 +28,9 @@ export default class GameManager {
 
   constructor(id: string) {
     this.id = id;
-    this.context = new GameContext(this.onBossPlay.bind(this));
+    this.context = new GameContext();
+
+    this.context.on("bossPlay", () => this.onBossPlay());
   }
 
   private bindClientSocket(socket: ClientSocket) {

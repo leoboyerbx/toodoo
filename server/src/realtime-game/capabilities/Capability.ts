@@ -47,10 +47,17 @@ export default class Capability {
         break;
     }
 
-    if (this.effect.attack) target.hp -= this.effect.attack;
-    if (this.effect.heal) target.hp += this.effect.heal;
+    if (this.effect.attack) {
+      const newHp = target.hp - this.effect.attack;
+      target.hp = Math.max(newHp, 0);
+    }
+    if (this.effect.heal) {
+      const newHp = target.hp + this.effect.heal;
+      target.hp = Math.min(newHp, context.turnEntity.initialHp);
+    }
 
-    context.turnEntity.energy -= this.cost;
+    const newEnergy = context.turnEntity.energy - this.cost;
+    context.turnEntity.energy = Math.max(newEnergy, 0);
 
     return {
       capability: this,

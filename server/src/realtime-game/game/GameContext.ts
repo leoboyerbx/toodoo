@@ -6,8 +6,9 @@ import Common from "../../helpers/Common";
 import Entity from "../entities/Entity";
 import BossPlayListener from "../listeners/BossPlayListener";
 import { delay } from "../../helpers/timers";
+import EventEmitter from "events";
 
-export default class GameContext {
+export default class GameContext extends EventEmitter {
   public game: Game;
   public boss: BossEntity;
   public players: PlayerEntity[];
@@ -20,10 +21,8 @@ export default class GameContext {
 
   public bossMessage?: string;
 
-  private onBossPlay: () => void;
-
-  constructor(bossPlayListener: () => void) {
-    this.onBossPlay = bossPlayListener;
+  constructor() {
+    super();
   }
 
   public async setGame(gameId: number) {
@@ -80,6 +79,6 @@ export default class GameContext {
   async playBossTurn() {
     await delay(2000);
     this.bossMessage = this.boss.playTurn(this);
-    this.onBossPlay();
+    this.emit("bossPlay");
   }
 }
