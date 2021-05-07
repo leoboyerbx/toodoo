@@ -1,23 +1,9 @@
 import GameContext from "../game/GameContext";
 import Entity from "../entities/Entity";
 import PlayerEntity from "../entities/PlayerEntity";
-
-export enum CapabilityTarget {
-  boss = "boss",
-  randomPlayer = "randomPlayer",
-  specificPlayer = "specificPlayer",
-  self = "self",
-}
-
-export interface CapabilityEffect {
-  attack: number;
-  heal: number;
-}
-export interface CapabilityUsageResult {
-  capability: Capability;
-  effectiveTarget: Entity;
-  targetPreviousState: Entity;
-}
+import { CapabilityTarget } from "./CapabilityTarget";
+import { CapabilityEffect } from "./CapabilityEffect";
+import { CapabilityUsageResult } from "./CapabilityUsageResult";
 
 export default class Capability {
   public name: String;

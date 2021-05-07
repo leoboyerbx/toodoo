@@ -7,8 +7,8 @@ import Entity from "../entities/Entity";
 import BossPlayListener from "../listeners/BossPlayListener";
 import { delay } from "../../helpers/timers";
 import EventEmitter from "events";
-import { CapabilityUsageResult } from "../capabilities/Capability";
 import BossAttackResult from "../capabilities/BossAttackResult";
+import { CapabilityUsageResult } from "../capabilities/CapabilityUsageResult";
 
 export default class GameContext extends EventEmitter {
   public game: Game;
