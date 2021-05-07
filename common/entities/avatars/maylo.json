@@ -1,0 +1,26 @@
+{
+  "name": "Maylo",
+  "img": {
+    "portrait": "maylo-portrait.png",
+    "character": "maylo-character.png"
+  },
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Rugissement",
+      "cost": 15,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Régénération",
+      "cost": 12,
+      "effect": {
+        "heal": 10
+      },
+      "target": "self"
+    }
+  ]
+}

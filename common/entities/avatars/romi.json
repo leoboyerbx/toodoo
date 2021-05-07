@@ -1,17 +1,16 @@
 {
-  "name": "Poki",
+  "name": "Romi",
   "img": {
-    "portrait": "poki-portrait.svg",
-    "character": "poki-character.png"
+    "portrait": "romi-portrait.png",
+    "character": "romi-character.png"
   },
   "hp": 100,
   "capabilities": [
     {
-      "name": "Pif paf",
-      "cost": 30,
+      "name": "Rugissement",
+      "cost": 15,
       "effect": {
-        "attack": 20,
-        "heal": 0
+        "attack": 10
       },
       "target": "boss"
     },
