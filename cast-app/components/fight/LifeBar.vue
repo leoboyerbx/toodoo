@@ -10,12 +10,12 @@
       <div
         class="absolute w-full top-0 left-0 w-full h-full transition-transform duration-300 bg-theme-light"
         :style="{
-          transform: `scaleX(${entity.hp / entity.initialHp})`,
+          transform: `scaleX(${hp / entity.initialHp})`,
           transformOrigin: `${align}`,
         }"
       ></div>
     </div>
-    <div class="mt-4">{{ entity.hp }} / {{ entity.initialHp }}</div>
+    <div class="mt-4">{{ hp }} / {{ entity.initialHp }}</div>
   </div>
 </template>
 <script>
@@ -34,6 +34,26 @@ export default {
       default: 'left',
       validator: (value) => ['left', 'right'].includes(value),
     },
+    animateFrom: {
+      type: Number,
+      default: null,
+    },
+  },
+  data() {
+    return { isInitial: true }
+  },
+  computed: {
+    hp() {
+      if (this.animateFrom && this.isInitial) {
+        return this.animateFrom
+      }
+      return this.entity.hp
+    },
+  },
+  mounted() {
+    if (this.animateFrom) {
+      setTimeout(() => (this.isInitial = false), 100)
+    }
   },
 }
 </script>

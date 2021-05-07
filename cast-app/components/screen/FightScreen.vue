@@ -22,6 +22,7 @@
       class="absolute right-16 top-24"
       :name="boss.name"
       :entity="boss"
+      align="right"
     />
     <img
       :src="require(`assets/img/boss/${boss.img.character}`)"
@@ -33,7 +34,21 @@
       }"
     />
     <TurnIndicator class="absolute top-10 left-12" />
-
+    <LifeBar
+      v-if="gameContext.turnIndex > -1"
+      class="absolute left-16 top-72"
+      name="Vie"
+      :entity="gameContext.turnEntity"
+    />
+    <LifeBar
+      v-else-if="gameContext.bossAttack"
+      class="absolute left-16 top-72"
+      name="Vie"
+      :entity="gameContext.bossAttack.capabilityResult.effectiveTarget"
+      :animate-from="
+        gameContext.bossAttack.capabilityResult.targetPreviousState.hp
+      "
+    />
     <!--    <div class="absolute left-0 bottom-0 w-1/2 h-1/4 flex">-->
     <!--      <div-->
     <!--        v-for="player in players"-->
