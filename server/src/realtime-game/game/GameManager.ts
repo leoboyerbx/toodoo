@@ -115,7 +115,7 @@ export default class GameManager {
     this.broadcastState();
     await delay(3000);
     this.context.nextTurn();
-    this.context.bossMessage = null;
+    this.context.bossAttack = null;
     this.broadcastState();
   }
   async onVictory() {

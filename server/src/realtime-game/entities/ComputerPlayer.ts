@@ -4,5 +4,5 @@ import Capability from "../capabilities/Capability";
 export default interface ComputerPlayer {
   capabilities: Capability[];
   energy: number;
-  playTurn(context: GameContext): string;
+  playTurn(context: GameContext);
 }

@@ -16,6 +16,7 @@ export interface CapabilityEffect {
 export interface CapabilityUsageResult {
   capability: Capability;
   effectiveTarget: Entity;
+  targetPreviousState: Entity;
 }
 
 export default class Capability {
@@ -49,6 +50,8 @@ export default class Capability {
         break;
     }
 
+    const targetPreviousState = new Entity(target);
+
     if (this.effect.attack) {
       const newHp = target.hp - this.effect.attack;
       target.hp = Math.max(newHp, 0);
@@ -58,12 +61,16 @@ export default class Capability {
       target.hp = Math.min(newHp, context.turnEntity.initialHp);
     }
 
-    const newEnergy = context.turnEntity.energy - this.cost;
-    context.turnEntity.energy = Math.max(newEnergy, 0);
+    if (context.turnEntity.energy > -1) {
+      // An entity with "-1" as power has unlimited power
+      const newEnergy = context.turnEntity.energy - this.cost;
+      context.turnEntity.energy = Math.max(newEnergy, 0);
+    }
 
     const result: CapabilityUsageResult = {
       capability: this,
       effectiveTarget: target,
+      targetPreviousState,
     };
     context.capabilitiesHistory.unshift(result);
     return result;

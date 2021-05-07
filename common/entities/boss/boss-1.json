@@ -10,7 +10,7 @@
         }
     },
     "hp": 100,
-    "energy": 300,
+    "energy": -1,
     "capabilities": [
         {
             "name": "Boum",

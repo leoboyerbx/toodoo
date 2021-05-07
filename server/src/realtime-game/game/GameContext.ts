@@ -8,6 +8,7 @@ import BossPlayListener from "../listeners/BossPlayListener";
 import { delay } from "../../helpers/timers";
 import EventEmitter from "events";
 import { CapabilityUsageResult } from "../capabilities/Capability";
+import BossAttackResult from "../capabilities/BossAttackResult";
 
 export default class GameContext extends EventEmitter {
   public game: Game;
@@ -20,10 +21,10 @@ export default class GameContext extends EventEmitter {
   public playerTurn?: number;
   public turnEntity?: Entity;
 
-  public bossMessage?: string;
+  public bossAttack?: BossAttackResult;
   public winner: string = null;
 
-  capabilitiesHistory: CapabilityUsageResult[];
+  public capabilitiesHistory: CapabilityUsageResult[] = [];
 
   constructor() {
     super();
@@ -102,7 +103,7 @@ export default class GameContext extends EventEmitter {
 
   async playBossTurn() {
     await delay(3000);
-    this.bossMessage = this.boss.playTurn(this);
+    this.bossAttack = this.boss.playTurn(this);
     this.emit("bossPlay");
   }
 }
