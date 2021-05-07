@@ -29,6 +29,16 @@
               index === gameContext.turnIndex ? 'translateY(5vh)' : 'none',
           }"
         />
+        <span
+          v-if="player.protected"
+          class="absolute top-12 right-1 transition-transform duration-200"
+          :style="{
+            transform:
+              index === gameContext.turnIndex ? 'translateY(5vh)' : 'none',
+          }"
+        >
+          🛡️
+        </span>
       </div>
     </div>
   </div>
