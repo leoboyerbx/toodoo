@@ -16,7 +16,8 @@
           :name="character.player.name"
           :url="character.avatar.img.character"
           :position="character.position"
-        ></Character>
+        >
+        </Character>
       </MapBackground>
       <MissionPin
         v-for="(pin, index) in pinList"
