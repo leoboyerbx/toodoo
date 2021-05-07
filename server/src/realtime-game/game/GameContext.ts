@@ -4,11 +4,10 @@ import BossEntity from "../entities/BossEntity";
 import PlayerEntity from "../entities/PlayerEntity";
 import Common from "../../helpers/Common";
 import Entity from "../entities/Entity";
-import BossPlayListener from "../listeners/BossPlayListener";
 import { delay } from "../../helpers/timers";
 import EventEmitter from "events";
-import { CapabilityUsageResult } from "../capabilities/Capability";
 import BossAttackResult from "../capabilities/BossAttackResult";
+import { CapabilityUsageResult } from "../capabilities/CapabilityUsageResult";
 
 export default class GameContext extends EventEmitter {
   public game: Game;
@@ -54,6 +53,7 @@ export default class GameContext extends EventEmitter {
     this.players = [];
     for (const player of players) {
       const avatar = await Common.getAvatar(player.avatar);
+      avatar.energy = player.points;
       this.players.push(new PlayerEntity(avatar, player));
     }
   }

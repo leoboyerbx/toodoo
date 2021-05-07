@@ -7,20 +7,20 @@
   "hp": 100,
   "capabilities": [
     {
-      "name": "Rugissement",
-      "cost": 15,
+      "name": "Bulle lumineuse",
+      "cost": 30,
       "effect": {
-        "attack": 10
+        "protect": true
       },
-      "target": "boss"
+      "target": "allPlayers"
     },
     {
-      "name": "Régénération",
-      "cost": 12,
+      "name": "Jouvence",
+      "cost": 15,
       "effect": {
-        "heal": 10
+        "heal": 5
       },
-      "target": "self"
+      "target": "allPlayers"
     }
   ]
 }

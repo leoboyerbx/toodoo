@@ -1,6 +1,6 @@
 {
-    "name": "BadLavLinge",
-    "introSentence": "COMMENT ÇA, mon nom est pourri ?!",
+    "name": "Machine à laver",
+    "introSentence": "Préparez vous à être lessivés !",
     "img": {
         "decor": "boss1-decor.png",
         "character": "boss1-character.png",
@@ -9,16 +9,32 @@
             "y": 59
         }
     },
-    "hp": 100,
-    "energy": -1,
+    "hp": 250,
+    "energy": 100,
     "capabilities": [
         {
-            "name": "Boum",
-            "cost": 10,
+            "name": "Essorage",
+            "cost": 0,
             "effect": {
-                "attack": 20
+                "attack": 30
             },
             "target": "randomPlayer"
+        },
+        {
+            "name": "Rinçage",
+            "cost": 0,
+            "effect": {
+                "attack": 10
+            },
+            "target": "allPlayers"
+        },
+        {
+            "name": "Adoucissant",
+            "cost": 50,
+            "effect": {
+                "heal": 30
+            },
+            "target": "self"
         }
     ]
 }
