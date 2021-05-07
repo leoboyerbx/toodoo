@@ -2,9 +2,6 @@
   <div class="h-full w-full">
     <Map></Map>
     <MapOverlay class="absolute left-0 top-0"></MapOverlay>
-    <NuxtLink to="/ponctual-missions" class="absolute left-1/3 top-5"
-      >Test vers la page des missions ponctuelles
-    </NuxtLink>
   </div>
 </template>
 
