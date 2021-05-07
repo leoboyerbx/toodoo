@@ -20,6 +20,7 @@ export default class GameContext extends EventEmitter {
   public turnEntity?: Entity;
 
   public bossMessage?: string;
+  public winner: string = null;
 
   constructor() {
     super();
@@ -64,15 +65,32 @@ export default class GameContext extends EventEmitter {
   }
 
   nextTurn() {
+    this.checkVictory();
     if (this.turnIndex === -1) {
-      if (this.playerTurn < this.players.length - 1) {
-        this.playerTurn++;
-      } else {
-        this.playerTurn = 0;
-      }
-      this.setTurn(this.playerTurn);
+      do {
+        this.incrementPlayerTurn();
+        this.setTurn(this.playerTurn);
+      } while (this.turnEntity.hp === 0 && !this.winner);
     } else {
       this.setTurn(-1);
+    }
+  }
+
+  private checkVictory() {
+    if (this.boss.hp === 0) {
+      this.winner = "players";
+      this.emit("victory");
+    } else if (this.players.every((player) => player.hp === 0)) {
+      this.winner = "boss";
+      this.emit("victory");
+    }
+  }
+
+  private incrementPlayerTurn() {
+    if (this.playerTurn < this.players.length - 1) {
+      this.playerTurn++;
+    } else {
+      this.playerTurn = 0;
     }
   }
 

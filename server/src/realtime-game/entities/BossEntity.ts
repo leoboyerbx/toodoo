@@ -23,6 +23,8 @@ export default class BossEntity extends Entity implements ComputerPlayer {
     const availableCapabilities = this.capabilities.filter(
       (capability) => capability.cost <= this.energy
     );
+    if (!availableCapabilities.length)
+      return "Le boss n'a plus assez d'énergie pour jouer !";
     const usedCapability =
       availableCapabilities[
         Math.floor(Math.random() * availableCapabilities.length)

@@ -14,9 +14,9 @@
     "capabilities": [
         {
             "name": "Boum",
-            "cost": 40,
+            "cost": 10,
             "effect": {
-                "attack": 13
+                "attack": 20
             },
             "target": "randomPlayer"
         }
