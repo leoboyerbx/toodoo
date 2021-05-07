@@ -54,6 +54,7 @@ export default class GameContext extends EventEmitter {
     this.players = [];
     for (const player of players) {
       const avatar = await Common.getAvatar(player.avatar);
+      avatar.energy = player.points;
       this.players.push(new PlayerEntity(avatar, player));
     }
   }
