@@ -3,7 +3,7 @@
     class="flex flex-col w-96 text-md text-white"
     :class="align === 'left' ? 'items-start' : 'items-end'"
   >
-    <div class="text-lg mb-5">
+    <div class="text-md font-bold mb-5">
       {{ name }}
     </div>
     <div class="relative w-full h-4 bg-gray-200 rounded overflow-hidden">
@@ -50,7 +50,7 @@ export default {
       return this.entity.hp
     },
   },
-  mounted() {
+  updated() {
     if (this.animateFrom) {
       setTimeout(() => (this.isInitial = false), 100)
     }

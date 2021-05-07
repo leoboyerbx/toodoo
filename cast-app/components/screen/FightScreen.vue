@@ -46,12 +46,20 @@
         gameContext.bossAttack.capabilityResult.targetPreviousState.hp
       "
     />
-    <LifeBar
-      v-else
-      class="absolute left-16 top-72"
-      name="Vie"
-      :entity="gameContext.players[gameContext.playerTurn]"
-    />
+    <div v-else class="absolute left-16 top-72 flex flex-col">
+      <LifeBar
+        name="Vie"
+        :entity="gameContext.players[gameContext.playerTurn]"
+      />
+      <div class="flex flex-col text-md text-white mt-10">
+        <div class="text-md font-bold mb-5 flex flex-col">
+          <span>Énergie:</span>
+          <span class="text-lg mt-2">{{
+            gameContext.players[gameContext.playerTurn].energy
+          }}</span>
+        </div>
+      </div>
+    </div>
     <!--    <div class="absolute left-0 bottom-0 w-1/2 h-1/4 flex">-->
     <!--      <div-->
     <!--        v-for="player in players"-->
