@@ -124,6 +124,7 @@ app.get('/missions/game/:gameId', async(req, res) => {
     },
     include: {
       missionCompletion: true,
+      assignPlayer: true,
     }
   })
   res.json(missions)
