@@ -7,18 +7,18 @@
   "hp": 100,
   "capabilities": [
     {
-      "name": "Rugissement",
-      "cost": 15,
+      "name": "Arrosage",
+      "cost": 10,
       "effect": {
         "attack": 10
       },
       "target": "boss"
     },
     {
-      "name": "Régénération",
-      "cost": 12,
+      "name": "Bombe à eau",
+      "cost": 30,
       "effect": {
-        "heal": 10
+        "attack": 30
       },
       "target": "self"
     }

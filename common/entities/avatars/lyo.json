@@ -7,20 +7,20 @@
   "hp": 100,
   "capabilities": [
     {
-      "name": "Rugissement",
+      "name": "Muraille",
       "cost": 15,
       "effect": {
-        "attack": 10
+        "protect": true
       },
-      "target": "boss"
+      "target": "randomPlayer"
     },
     {
-      "name": "Régénération",
-      "cost": 12,
+      "name": "Baies sauvages",
+      "cost": 10,
       "effect": {
         "heal": 10
       },
-      "target": "self"
+      "target": "randomPlayer"
     }
   ]
 }

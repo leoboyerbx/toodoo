@@ -7,20 +7,20 @@
   "hp": 100,
   "capabilities": [
     {
-      "name": "Rugissement",
-      "cost": 15,
+      "name": "Eruption",
+      "cost": 30,
       "effect": {
-        "attack": 10
+        "attack": 30
       },
       "target": "boss"
     },
     {
-      "name": "Régénération",
-      "cost": 12,
+      "name": "Braises",
+      "cost": 10,
       "effect": {
-        "heal": 10
+        "attack": 10
       },
-      "target": "self"
+      "target": "boss"
     }
   ]
 }
