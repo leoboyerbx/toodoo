@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { cloneDeep } from 'lodash'
+import charactersAutoPlace from '@/helpers/charactersAutoPlace'
 import Character from './Character'
 import MissionPin from './MissionPin'
 import DailyGuide from './DailyGuide'
@@ -52,30 +52,7 @@ export default {
       return this.$store.state.viewModel.mapViewData.characters
     },
     charactersAutoPlace() {
-      const rawCharacters = cloneDeep(this.characters)
-      const positions = {}
-      rawCharacters.forEach((character) => {
-        if (positions[`${character.position.x}:${character.position.y}`]) {
-          positions[`${character.position.x}:${character.position.y}`].push(
-            character
-          )
-        } else {
-          positions[`${character.position.x}:${character.position.y}`] = [
-            character,
-          ]
-        }
-      })
-      const resultCharacters = []
-      Object.values(positions).forEach((position) => {
-        if (position.length > 1) {
-          position[0].position.x += 0.2
-          position[1].position.x -= 0.7
-          position.forEach((character) => resultCharacters.push(character))
-        } else {
-          resultCharacters.push(position[0])
-        }
-      })
-      return resultCharacters
+      return charactersAutoPlace(this.characters)
     },
     pinList() {
       return this.$store.state.viewModel.mapViewData.pinList
