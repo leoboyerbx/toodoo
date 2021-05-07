@@ -20,7 +20,7 @@
       "effect": {
         "attack": 30
       },
-      "target": "self"
+      "target": "boss"
     }
   ]
 }
