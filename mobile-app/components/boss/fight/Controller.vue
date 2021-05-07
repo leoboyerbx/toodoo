@@ -39,7 +39,7 @@ export default {
       this.$store.dispatch('bossSync/useCapability', capability)
     },
     skipTurn() {
-      this.$store.dispatch('bossSync/')
+      this.$store.dispatch('bossSync/skipTurn')
     },
   },
 }

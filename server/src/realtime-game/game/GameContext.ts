@@ -53,6 +53,9 @@ export default class GameContext extends EventEmitter {
       this.players.push(new PlayerEntity(avatar, player));
     }
   }
+  get alivePlayers() {
+    return this.players.filter((player) => player.hp > 0);
+  }
   setTurn(index: number) {
     this.turnIndex = index;
     if (index === -1) {

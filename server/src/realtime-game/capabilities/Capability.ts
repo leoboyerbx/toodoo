@@ -37,7 +37,9 @@ export default class Capability {
         break;
       case CapabilityTarget.randomPlayer:
         target =
-          context.players[Math.floor(Math.random() * context.players.length)];
+          context.alivePlayers[
+            Math.floor(Math.random() * context.alivePlayers.length)
+          ];
         break;
       case CapabilityTarget.specificPlayer:
         target = targetPlayer;
