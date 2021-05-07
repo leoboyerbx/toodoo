@@ -26,7 +26,9 @@
         :mission="pin.mission"
         @open="moveCurrentCharacter(pin.position)"
       />
-      <DailyGuide />
+      <NuxtLink to="/ponctual-missions">
+        <DailyGuide />
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -83,7 +85,6 @@ export default {
     onLoadMap(mapDiv) {
       this.mapWidth = mapDiv.offsetWidth
       this.mapImg = mapDiv
-      console.log(mapDiv)
       window.addEventListener('resize', () => {
         this.mapWidth = this.mapImg.offsetWidth
       })

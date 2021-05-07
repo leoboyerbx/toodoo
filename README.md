@@ -32,3 +32,4 @@
 | 🤹     | Animation |
 | 🏄      | Front end add or update |
 | 🥷      | Back end add or update |
+| 🍱       | Add or update assets |
