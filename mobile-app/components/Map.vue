@@ -38,10 +38,11 @@ import charactersAutoPlace from '@/helpers/charactersAutoPlace'
 import Character from './Character'
 import MissionPin from './MissionPin'
 import DailyGuide from './DailyGuide'
+import MapBackground from './MapBackground'
 
 export default {
   name: 'Map',
-  components: { MissionPin, Character, DailyGuide },
+  components: { MapBackground, MissionPin, Character, DailyGuide },
   data: () => {
     return {
       mapWidth: 0,
