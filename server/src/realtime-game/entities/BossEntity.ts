@@ -21,13 +21,24 @@ export default class BossEntity extends Entity implements ComputerPlayer {
 
   playTurn(context: GameContext): BossAttackResult {
     // Capabilities that the boss can use
-    const usedCapability = this.capabilities[
-      Math.floor(Math.random() * this.capabilities.length)
-    ];
+    const capabilitiesToUse = this.capabilities.filter((capability) => {
+      return !(this.hp === this.initialHp && capability.effect.heal);
+    });
+    const usedCapability =
+      capabilitiesToUse[Math.floor(Math.random() * capabilitiesToUse.length)];
     const result = usedCapability.use(context);
-    const playerName = (result.effectiveTarget as PlayerEntity).player.name;
+    let message = "";
+    if (usedCapability.effect.attack) {
+      const playerName =
+        usedCapability.target === "allPlayers"
+          ? "tout le monde"
+          : (result.effectiveTarget as PlayerEntity).player.name;
+      message = `Le boss utilise l'attaque ${usedCapability.name} sur ${playerName} ! Moins ${usedCapability.effect.attack} PV !`;
+    } else if (usedCapability.effect.heal) {
+      message = `Le boss utilise ${usedCapability.name} pour récupérer de la vie ! Il gagne ${usedCapability.effect.heal} PV !`;
+    }
     return {
-      message: `Le boss utilise l'attaque ${result.capability.name} sur ${playerName} ! Moins ${result.capability.effect.attack} PV !`,
+      message,
       capabilityResult: result,
     };
   }

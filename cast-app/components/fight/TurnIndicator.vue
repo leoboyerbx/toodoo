@@ -12,8 +12,12 @@
         :class="{
           blink:
             gameContext.bossAttack &&
-            gameContext.bossAttack.capabilityResult.effectiveTarget.player
-              .id === player.player.id,
+            gameContext.bossAttack.capabilityResult.capability.target !==
+              'self' &&
+            (gameContext.bossAttack.capabilityResult.effectiveTarget.player
+              .id === player.player.id ||
+              gameContext.bossAttack.capabilityResult.capability.target ===
+                'allPlayers'),
         }"
       >
         <div

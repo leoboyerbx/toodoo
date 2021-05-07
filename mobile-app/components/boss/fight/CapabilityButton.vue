@@ -15,6 +15,16 @@
         <span v-if="capability.target === 'allPlayers'">
           chez tout le monde
         </span>
+        <span v-else-if="capability.target === 'randomPlayer'">
+          chez un joueur au hasard
+        </span>
+      </div>
+      <div v-if="effect.protect">
+        Protège
+        <span v-if="capability.target === 'allPlayers'"> tout le monde </span>
+        <span v-else-if="capability.target === 'randomPlayer'">
+          un joueur au hasard
+        </span>
       </div>
     </div>
   </a>

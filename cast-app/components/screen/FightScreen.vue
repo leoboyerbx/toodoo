@@ -34,7 +34,10 @@
     />
     <TurnIndicator class="absolute top-10 left-12" />
     <LifeBar
-      v-if="gameContext.bossAttack"
+      v-if="
+        gameContext.bossAttack &&
+        gameContext.bossAttack.capabilityResult.capability.target !== 'self'
+      "
       class="absolute left-16 top-72"
       :name="
         'Vie de ' +
