@@ -19,8 +19,10 @@
 </template>
 
 <script>
+import Pin from './Pin'
 export default {
   name: 'MissionPin',
+  components: { Pin },
   props: {
     position: {
       type: Object,
@@ -36,18 +38,6 @@ export default {
       completed: false,
     }
   },
-  mounted() {
-    this.mission.missionCompletion.forEach((completion) => {
-      const completionDate = new Date(completion.completeDay)
-      const currentDate = new Date()
-      if (
-        completionDate.getDate() === currentDate.getDate() &&
-        completionDate.getFullYear() === currentDate.getFullYear()
-      ) {
-        this.completed = true
-      }
-    })
-  },
   computed: {
     goodAssign() {
       const currentPlayer = this.$store.getters['apiService/currentPlayer']
@@ -61,6 +51,18 @@ export default {
         return false
       }
     },
+  },
+  mounted() {
+    this.mission.missionCompletion.forEach((completion) => {
+      const completionDate = new Date(completion.completeDay)
+      const currentDate = new Date()
+      if (
+        completionDate.getDate() === currentDate.getDate() &&
+        completionDate.getFullYear() === currentDate.getFullYear()
+      ) {
+        this.completed = true
+      }
+    })
   },
   methods: {
     sendMissionCompletion() {

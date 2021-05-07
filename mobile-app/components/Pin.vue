@@ -5,7 +5,7 @@
       :src="
         missionComplete
           ? require('~/assets/img/soclefini.svg')
-          : require('~/assets/img/socle.svg')
+          : require('~/assets/img/socle_violet.png')
       "
       alt=""
       class="pin absolute cursor-pointer mx-auto"
@@ -84,7 +84,7 @@ export default {
 <style scoped>
 .pin {
   height: 10%;
-  aspect-ratio: 1 / 1;
+  /*aspect-ratio: 1 / 1;*/
   transform: translateX(-50%);
 }
 
