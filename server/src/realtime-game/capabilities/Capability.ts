@@ -1,14 +1,15 @@
 import GameContext from "../game/GameContext";
 import Entity from "../entities/Entity";
 import PlayerEntity from "../entities/PlayerEntity";
-import { CapabilityTarget } from "./CapabilityTarget";
+import { CapabilityTargetType } from "./CapabilityTargetType";
 import { CapabilityEffect } from "./CapabilityEffect";
 import { CapabilityUsageResult } from "./CapabilityUsageResult";
+import CapabilityTarget from "./CapabilityTarget";
 
 export default class Capability {
   public name: String;
   public cost: number;
-  public target: CapabilityTarget;
+  public target: CapabilityTargetType;
   public effect: CapabilityEffect;
   constructor(data) {
     Object.assign(this, data);
@@ -17,34 +18,43 @@ export default class Capability {
     context: GameContext,
     targetPlayer?: PlayerEntity
   ): CapabilityUsageResult {
-    let target: Entity;
+    let target: CapabilityTarget;
     switch (this.target) {
-      case CapabilityTarget.boss:
-        target = context.boss;
+      case CapabilityTargetType.boss:
+        target = new CapabilityTarget(context.boss);
         break;
-      case CapabilityTarget.randomPlayer:
-        target =
+      case CapabilityTargetType.randomPlayer:
+        target = new CapabilityTarget(
           context.alivePlayers[
             Math.floor(Math.random() * context.alivePlayers.length)
-          ];
+          ]
+        );
         break;
-      case CapabilityTarget.specificPlayer:
-        target = targetPlayer;
+      case CapabilityTargetType.specificPlayer:
+        target = new CapabilityTarget(targetPlayer);
         break;
-      case CapabilityTarget.self:
-        target = context.turnEntity;
+      case CapabilityTargetType.allPlayers:
+        target = new CapabilityTarget(context.players);
+        break;
+      case CapabilityTargetType.self:
+        target = new CapabilityTarget(context.turnEntity);
         break;
     }
+    console.log(target);
 
-    const targetPreviousState = new Entity(target);
+    const targetPreviousState = new Entity(target.effectiveTarget);
 
     if (this.effect.attack) {
-      const newHp = target.hp - this.effect.attack;
-      target.hp = Math.max(newHp, 0);
+      target.apply((entity) => {
+        const newHp = entity.hp - this.effect.attack;
+        entity.hp = Math.max(newHp, 0);
+      });
     }
     if (this.effect.heal) {
-      const newHp = target.hp + this.effect.heal;
-      target.hp = Math.min(newHp, context.turnEntity.initialHp);
+      target.apply((entity) => {
+        const newHp = entity.hp + this.effect.heal;
+        entity.hp = Math.min(newHp, context.turnEntity.initialHp);
+      });
     }
 
     if (context.turnEntity.energy > -1) {
@@ -55,7 +65,7 @@ export default class Capability {
 
     const result: CapabilityUsageResult = {
       capability: this,
-      effectiveTarget: target,
+      effectiveTarget: target.effectiveTarget,
       targetPreviousState,
     };
     context.capabilitiesHistory.unshift(result);
