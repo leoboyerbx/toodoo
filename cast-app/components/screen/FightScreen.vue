@@ -11,8 +11,7 @@
     <!--      </p>-->
     <!--      <br />-->
     <!--      <p>Le boss a {{ boss.hp }} PV et {{ boss.energy }} points d'énergie</p>-->
-    <!--      <p v-if="gameContext.bossMessage">{{ gameContext.bossMessage }}</p>-->
-    <!--    </div>-->
+    <!--        </div>-->
     <img
       :src="require(`assets/img/boss/${boss.img.decor}`)"
       alt=""
@@ -60,6 +59,13 @@
         </div>
       </div>
     </div>
+
+    <p
+      v-if="gameContext.bossAttack && gameContext.bossAttack.message"
+      class="text-lg absolute w-96 text-white bottom-10 right-1/2"
+    >
+      {{ gameContext.bossAttack.message }}
+    </p>
     <!--    <div class="absolute left-0 bottom-0 w-1/2 h-1/4 flex">-->
     <!--      <div-->
     <!--        v-for="player in players"-->
