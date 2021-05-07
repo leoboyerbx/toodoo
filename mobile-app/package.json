@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nuxt",
+    "dev:tunnel": "cross-env NODE_ENV=tunnel nuxt",
     "dev:lan-mac": "cross-env NODE_ENV=lan IP=$(ipconfig getifaddr en0) nuxt",
     "build": "nuxt build",
     "start": "nuxt start",

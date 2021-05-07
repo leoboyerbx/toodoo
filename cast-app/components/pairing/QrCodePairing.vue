@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full h-full bg-theme flex items-center justify-center">
+  <div class="w-full h-full bg-white flex items-center justify-center">
     <QrcodeVue
       id="qrcode"
       :value="sessionId"
-      size="400"
-      class="relative w-32"
+      size="800"
+      class="relative w-64"
     />
   </div>
 </template>

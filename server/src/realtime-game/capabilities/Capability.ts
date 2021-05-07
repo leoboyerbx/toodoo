@@ -40,7 +40,6 @@ export default class Capability {
         target = new CapabilityTarget(context.turnEntity);
         break;
     }
-    console.log(target);
 
     const targetPreviousState = new Entity(target.effectiveTarget);
 

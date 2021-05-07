@@ -22,7 +22,10 @@ export default class BossEntity extends Entity implements ComputerPlayer {
   playTurn(context: GameContext): BossAttackResult {
     // Capabilities that the boss can use
     const capabilitiesToUse = this.capabilities.filter((capability) => {
-      return !(this.hp === this.initialHp && capability.effect.heal);
+      return (
+        capability.cost <= this.energy &&
+        !(this.hp === this.initialHp && capability.effect.heal)
+      );
     });
     const usedCapability =
       capabilitiesToUse[Math.floor(Math.random() * capabilitiesToUse.length)];

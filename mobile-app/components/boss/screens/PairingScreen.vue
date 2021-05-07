@@ -53,6 +53,7 @@ export default {
       this.castDeviceAvailable = display === 'block'
     },
     onDecode(decodedString) {
+      console.log(decodedString)
       if (decodedString.length === 36) {
         this.pairSocket(decodedString)
       }
