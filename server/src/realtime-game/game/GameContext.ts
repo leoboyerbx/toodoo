@@ -4,7 +4,6 @@ import BossEntity from "../entities/BossEntity";
 import PlayerEntity from "../entities/PlayerEntity";
 import Common from "../../helpers/Common";
 import Entity from "../entities/Entity";
-import BossPlayListener from "../listeners/BossPlayListener";
 import { delay } from "../../helpers/timers";
 import EventEmitter from "events";
 import BossAttackResult from "../capabilities/BossAttackResult";

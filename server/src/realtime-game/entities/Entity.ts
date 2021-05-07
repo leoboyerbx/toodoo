@@ -6,6 +6,8 @@ export default class Entity {
   public initialHp: number;
   public energy: number;
   public capabilities: Capability[] = [];
+  public protected: boolean = false;
+
   constructor(data) {
     this.name = data.name;
     this.hp = data.hp ?? 100;

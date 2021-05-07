@@ -8,7 +8,7 @@
   "capabilities": [
     {
       "name": "Bulle lumineuse",
-      "cost": 15,
+      "cost": 30,
       "effect": {
         "protect": true
       },
@@ -16,7 +16,7 @@
     },
     {
       "name": "Jouvence",
-      "cost": 20,
+      "cost": 15,
       "effect": {
         "heal": 5
       },

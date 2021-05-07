@@ -46,14 +46,23 @@ export default class Capability {
 
     if (this.effect.attack) {
       target.apply((entity) => {
-        const newHp = entity.hp - this.effect.attack;
-        entity.hp = Math.max(newHp, 0);
+        if (entity.protected) {
+          entity.protected = false;
+        } else {
+          const newHp = entity.hp - this.effect.attack;
+          entity.hp = Math.max(newHp, 0);
+        }
       });
     }
     if (this.effect.heal) {
       target.apply((entity) => {
         const newHp = entity.hp + this.effect.heal;
         entity.hp = Math.min(newHp, context.turnEntity.initialHp);
+      });
+    }
+    if (this.effect.protect) {
+      target.apply((entity) => {
+        entity.protected = true;
       });
     }
 
