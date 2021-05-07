@@ -5,6 +5,7 @@
 </template>
 <script>
 import FightScreen from '@/components/boss/screens/FightScreen'
+import VictoryScreen from '@/components/boss/screens/VictoryScreen'
 import PairingScreen from '../components/boss/screens/PairingScreen'
 import IntroScreen from '../components/boss/screens/IntroScreen'
 
@@ -13,7 +14,7 @@ import IntroScreen from '../components/boss/screens/IntroScreen'
  */
 
 export default {
-  components: { PairingScreen, IntroScreen, FightScreen },
+  components: { PairingScreen, IntroScreen, FightScreen, VictoryScreen },
   head() {
     return {
       script: [

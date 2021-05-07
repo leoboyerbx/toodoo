@@ -10,7 +10,7 @@
       "name": "Pif paf",
       "cost": 30,
       "effect": {
-        "attack": 13,
+        "attack": 20,
         "heal": 0
       },
       "target": "boss"

@@ -21,6 +21,9 @@ const io = (url) => ({
           {
             startFight: "bossSync/startFight",
           },
+          {
+            victory: "bossSync/victory",
+          },
         ],
       },
     },

@@ -43,6 +43,11 @@ export const actions = {
     // Since the context is ready, we can go on to the intro cinematic
     commit("changeScreen", "fight");
   },
+  victory({ commit }, gameContext) {
+    commit("setGameContext", gameContext);
+    // Since the context is ready, we can go on to the intro cinematic
+    commit("changeScreen", "victory");
+  },
 
   // mobile app specific
   sendConfig({ dispatch, rootState }) {

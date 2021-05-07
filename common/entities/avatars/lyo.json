@@ -8,9 +8,9 @@
   "capabilities": [
     {
       "name": "Rugissement",
-      "cost": 12,
+      "cost": 15,
       "effect": {
-        "attack": 13
+        "attack": 10
       },
       "target": "boss"
     },

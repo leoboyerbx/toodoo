@@ -31,6 +31,7 @@ export default class GameManager {
     this.context = new GameContext();
 
     this.context.on("bossPlay", () => this.onBossPlay());
+    this.context.on("victory", () => this.onVictory());
   }
 
   private bindClientSocket(socket: ClientSocket) {
@@ -116,5 +117,8 @@ export default class GameManager {
     this.context.nextTurn();
     this.context.bossMessage = null;
     this.broadcastState();
+  }
+  async onVictory() {
+    this.broadCast("victory", this.context);
   }
 }
