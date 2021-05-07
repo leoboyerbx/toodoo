@@ -50,10 +50,18 @@ export default {
       return this.entity.hp
     },
   },
+  mounted() {
+    this.animate()
+  },
   updated() {
-    if (this.animateFrom) {
-      setTimeout(() => (this.isInitial = false), 100)
-    }
+    this.animate()
+  },
+  methods: {
+    animate() {
+      if (this.animateFrom) {
+        setTimeout(() => (this.isInitial = false), 100)
+      }
+    },
   },
 }
 </script>
