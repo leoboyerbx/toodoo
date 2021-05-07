@@ -124,6 +124,7 @@ app.get('/missions/game/:gameId', async(req, res) => {
     },
     include: {
       missionCompletion: true,
+      assignPlayer: true,
     }
   })
   res.json(missions)
@@ -154,6 +155,7 @@ app.post(`/mission-completion`, jsonParser, async (req, res) => {
     },
     include: {
       missionCompletion: true,
+      assignPlayer: true
     }
   })
   const players = await prisma.player.findMany({

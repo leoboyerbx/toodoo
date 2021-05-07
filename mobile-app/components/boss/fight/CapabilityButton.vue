@@ -1,5 +1,5 @@
 <template>
-  <div
+  <a
     class="text-theme-dark px-6 py-4 w-72 rounded-lg flex flex-col"
     :class="disabled ? 'bg-gray-400' : 'bg-white'"
     @click="use"
@@ -12,7 +12,7 @@
       <div v-if="effect.attack">Dégâts: {{ effect.attack }}</div>
       <div v-if="effect.heal">Soigne {{ effect.heal }} PV</div>
     </div>
-  </div>
+  </a>
 </template>
 <script>
 export default {

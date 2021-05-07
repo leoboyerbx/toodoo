@@ -26,7 +26,7 @@ export const getters = {
 
 export const actions = {
   async getGame({ commit }) {
-    const response = await axios.get(`${this.$config.API_URL}/games/2`)
+    const response = await axios.get(`${this.$config.API_URL}/games/3`)
     commit('SET_GAME', response.data[0])
   },
   async getPlayers({ commit, state }) {

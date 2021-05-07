@@ -1,25 +1,22 @@
 <template>
   <div class="avatar-container">
     <div
-      v-for="profile in playersProfiles"
-      :key="profile.player.id"
+      v-for="player in players"
+      :key="player.id"
       class="avatar"
-      :class="{ focus: currentPlayer === profile.player }"
-      @click="currentPlayer = profile.player"
+      :class="{ focus: currentPlayer === player }"
+      @click="currentPlayer = player"
     >
-      <img
-        :src="require('assets/img/avatars/' + profile.avatar.img.portrait)"
-        alt="avatar"
-      />
+      <AvatarImg :avatar-name="player.avatar" avatar-type="portrait" />
     </div>
   </div>
 </template>
 
 <script>
-import { getAvatar } from '../../common/entities/getEntity'
-
+import AvatarImg from '@/components/avatar/AvatarImg'
 export default {
   name: 'AvatarList',
+  components: { AvatarImg },
   props: {
     players: {
       type: Array,
@@ -41,29 +38,9 @@ export default {
       },
     },
   },
-  watch: {
-    players(val) {
-      this.loadAvatars()
-    },
-  },
-  beforeMount() {
-    this.loadAvatars()
-  },
   methods: {
     returnSelected(avatar) {
       this.$emit('select', avatar)
-    },
-    async loadAvatars() {
-      const playersProfiles = []
-      for (const player of this.players) {
-        const avatar = await getAvatar(player.avatar)
-        const profile = {
-          player,
-          avatar,
-        }
-        playersProfiles.push(profile)
-      }
-      this.playersProfiles = playersProfiles
     },
   },
 }
