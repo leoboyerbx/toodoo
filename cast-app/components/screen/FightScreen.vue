@@ -35,13 +35,7 @@
     />
     <TurnIndicator class="absolute top-10 left-12" />
     <LifeBar
-      v-if="gameContext.turnIndex > -1"
-      class="absolute left-16 top-72"
-      name="Vie"
-      :entity="gameContext.turnEntity"
-    />
-    <LifeBar
-      v-else-if="gameContext.bossAttack"
+      v-if="gameContext.bossAttack"
       class="absolute left-16 top-72"
       :name="
         'Vie de ' +
@@ -51,6 +45,12 @@
       :animate-from="
         gameContext.bossAttack.capabilityResult.targetPreviousState.hp
       "
+    />
+    <LifeBar
+      v-else
+      class="absolute left-16 top-72"
+      name="Vie"
+      :entity="gameContext.players[gameContext.playerTurn]"
     />
     <!--    <div class="absolute left-0 bottom-0 w-1/2 h-1/4 flex">-->
     <!--      <div-->

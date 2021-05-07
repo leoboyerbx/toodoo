@@ -84,6 +84,12 @@ export default class GameManager {
   private broadcastState() {
     this.broadCast("updateContext", this.context);
   }
+  private updateStatePlayers() {
+    this.playerSockets.emit("updateContext", this.context);
+  }
+  private updateStateCast() {
+    this.castSocket.socket.emit("updateContext", this.context);
+  }
 
   // Socket events methods
   private async config(configData) {
@@ -97,7 +103,7 @@ export default class GameManager {
     this.broadCast("startFight", this.context);
   }
 
-  private currentPlayerUseCapability(capability: Capability) {
+  private async currentPlayerUseCapability(capability: Capability) {
     if (this.context.turnIndex < 0) return;
     capability.use(this.context);
     this.context.nextTurn();
