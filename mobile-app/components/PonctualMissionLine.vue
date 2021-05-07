@@ -3,15 +3,16 @@
     class="max-w-3xl mx-auto mt-5 flex flex-row flex-nowrap justify-between rounded-lg"
     :class="{ 'bg-white': completed === true }"
   >
-    <div class="p-2.5 px-8 bg-white w-10/12 rounded-lg">
+    <div
+      class="p-2.5 px-8 bg-white w-10/12 rounded-lg flex flex-row justify-between items-center"
+    >
       {{ mission.name }}
-      <!-- <img
+      <AvatarImg
         v-if="mission.assignTo !== null"
-        :src="
-          require('assets/img/avatars/' + mission.assignTo.avatar.img.portrait)
-        "
-        alt="Avatar"
-      /> -->
+        class="rounded-full h-7 w-7"
+        :avatar-name="mission.assignPlayer.avatar"
+        avatar-type="portrait"
+      />
     </div>
     <div
       class="py-2.5 px-8 font-bold bg-white rounded-lg"
