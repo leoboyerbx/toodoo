@@ -10,7 +10,12 @@
     <div class="flex justify-between">
       <div>Coût: {{ capability.cost }} énergie</div>
       <div v-if="effect.attack">Dégâts: {{ effect.attack }}</div>
-      <div v-if="effect.heal">Soigne {{ effect.heal }} PV</div>
+      <div v-if="effect.heal">
+        Soigne {{ effect.heal }} PV
+        <span v-if="capability.target === 'allPlayers'">
+          chez tout le monde
+        </span>
+      </div>
     </div>
   </a>
 </template>
