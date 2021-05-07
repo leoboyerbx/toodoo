@@ -113,7 +113,7 @@ export default class GameManager {
   // Listeners
   async onBossPlay() {
     this.broadcastState();
-    await delay(5000);
+    await delay(3000);
     this.context.nextTurn();
     this.context.bossMessage = null;
     this.broadcastState();

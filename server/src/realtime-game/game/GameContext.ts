@@ -98,7 +98,7 @@ export default class GameContext extends EventEmitter {
   }
 
   async playBossTurn() {
-    await delay(2000);
+    await delay(3000);
     this.bossMessage = this.boss.playTurn(this);
     this.emit("bossPlay");
   }
