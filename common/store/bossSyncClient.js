@@ -80,4 +80,15 @@ export const actions = {
       { root: true }
     );
   },
+  skipTurn({ dispatch }) {
+    dispatch(
+      "$nuxtSocket/emit",
+      {
+        label: "game-sync",
+        evt: "skipTurn",
+        msg: {},
+      },
+      { root: true }
+    );
+  },
 };

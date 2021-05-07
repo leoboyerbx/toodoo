@@ -39,6 +39,7 @@ export default class GameManager {
     socket.socket.on("useCapability", (capability) =>
       this.currentPlayerUseCapability(new Capability(capability))
     );
+    socket.socket.on("skipTurn", () => this.currentPlayerSkipTurn());
   }
 
   public join(socket: ClientSocket) {
@@ -96,7 +97,14 @@ export default class GameManager {
   }
 
   private currentPlayerUseCapability(capability: Capability) {
+    if (this.context.turnIndex < 0) return;
     capability.use(this.context);
+    this.context.nextTurn();
+    this.broadcastState();
+  }
+
+  private currentPlayerSkipTurn() {
+    if (this.context.turnIndex < 0) return;
     this.context.nextTurn();
     this.broadcastState();
   }
