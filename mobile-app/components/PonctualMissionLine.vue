@@ -16,7 +16,11 @@
     </div>
     <div
       class="py-2.5 px-8 font-bold bg-white rounded-lg"
-      :class="{ 'bg-theme-lightPurple text-white': completed === false }"
+      :class="{
+        'bg-gray-700 text-white': goodAssign === false,
+        'bg-theme-lightPurple text-white':
+          completed === false && goodAssign === true,
+      }"
       @click="sendMissionCompletion"
     >
       {{ completed ? 'Terminée' : 'Fait' }}
@@ -36,6 +40,7 @@ export default {
   data: () => {
     return {
       completed: false,
+      goodAssign: false,
     }
   },
   mounted() {
@@ -49,16 +54,32 @@ export default {
         this.completed = true
       }
     })
+    const currentPlayer = this.$store.getters['apiService/currentPlayer']
+    if (
+      this.mission.assignTo === null ||
+      this.mission.assignTo === currentPlayer.id ||
+      !currentPlayer
+    ) {
+      this.goodAssign = true
+    }
+    console.log(this.goodAssign)
   },
   methods: {
     sendMissionCompletion() {
-      const currentDate = new Date()
-      this.$store.dispatch('apiService/postMissionCompletion', {
-        missionId: this.mission.id,
-        completeBy: this.$store.getters['apiService/currentPlayer'].id,
-        completeDay: currentDate,
-      })
-      this.$data.completed = true
+      const currentPlayer = this.$store.getters['apiService/currentPlayer']
+      if (
+        this.mission.assignTo === null ||
+        this.mission.assignTo === currentPlayer.id ||
+        !currentPlayer
+      ) {
+        const currentDate = new Date()
+        this.$store.dispatch('apiService/postMissionCompletion', {
+          missionId: this.mission.id,
+          completeBy: this.$store.getters['apiService/currentPlayer'].id,
+          completeDay: currentDate,
+        })
+        this.$data.completed = true
+      }
     },
   },
 }
