@@ -33,16 +33,15 @@
               index === gameContext.turnIndex ? 'translateY(5vh)' : 'none',
           }"
         />
-        <span
+        <img
           v-if="player.protected"
-          class="absolute top-12 right-1 transition-transform duration-200"
+          class="absolute top-14 right-2 transition-transform duration-200 w-5"
+          src="~assets/img/shield.svg"
           :style="{
             transform:
               index === gameContext.turnIndex ? 'translateY(5vh)' : 'none',
           }"
-        >
-          🛡️
-        </span>
+        />
       </div>
     </div>
   </div>
