@@ -15,7 +15,9 @@ export default {
         }
       }
     )
-    context.start()
+    const options = new window.cast.framework.CastReceiverOptions()
+    options.disableIdleTimeout = true
+    context.start(options)
   },
 }
 </script>
