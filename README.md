@@ -33,3 +33,10 @@
 | 🏄      | Front end add or update |
 | 🥷      | Back end add or update |
 | 🍱       | Add or update assets |
+
+## Auteurs
+* **Léo Boyer** _alias_ [@leoboyerbx](https://www.linkedin.com/in/leoboyerbx/)
+* **JohannDumoulin Minguet**
+* **Vincent Creton** _alias_ [@cretonv](https://fr.linkedin.com/in/vincent-creton-776816187)
+
+Retrouver les [comptes](https://github.com/leoboyerbx/toodoo/contributors) des contributeurs du projet.
