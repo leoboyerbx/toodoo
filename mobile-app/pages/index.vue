@@ -1,5 +1,5 @@
 <template>
-  <div class="container bg-theme-dark flex-wrap">
+  <div class="main bg-theme-dark flex-wrap">
     <img src="../assets/img/logo.png" alt="logo" class="w-2/5" />
     <div class="flex flex-nowrap w-full justify-center">
       <NuxtLink
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+.main {
+  @apply min-h-screen flex justify-center items-center text-center w-full;
 }
 </style>
