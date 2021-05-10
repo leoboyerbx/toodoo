@@ -1,6 +1,7 @@
 <template>
-  <div class="container bg-theme-dark">
-    <div class="flex flex-nowrap">
+  <div class="container bg-theme-dark flex-wrap">
+    <img src="../assets/img/logo.png" alt="logo" class="w-2/5" />
+    <div class="flex flex-nowrap w-full justify-center">
       <div class="bg-theme-light mr-3 p-10 rounded-md max-w-7xl">
         <NuxtLink class="text-blue-50 font-bold" to="/map">
           Carte interactive MVP
