@@ -1,15 +1,18 @@
 <template>
   <div class="container">
     <div>
-      <NuxtLink class="underline text-theme" to="/map">
-        Carte interactive de Vincent
+      <NuxtLink
+        class="underline text-white px-4 py-2 bg-blue-400 block rounded my-4 no-underline"
+        to="/map"
+      >
+        Carte interactive
       </NuxtLink>
-      <br />
-      <NuxtLink class="underline text-theme" to="/boss">
+      <NuxtLink
+        class="underline text-white px-4 py-2 bg-blue-400 block rounded my-4 no-underline"
+        to="/boss"
+      >
         Boss de fin de semaine
       </NuxtLink>
-      {{ $store.state.counter }}
-      <button @click="$store.commit('increment')">Plus</button>
     </div>
   </div>
 </template>
