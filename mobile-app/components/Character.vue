@@ -1,11 +1,11 @@
 <template>
   <foreignObject
     class="character"
-    :style="`transform: translateX(${position.x - 0.1 + '%'}) translateY(${
-      position.y + 3 + '%'
+    :style="`transform: translateX(${position.x - 0.45 + '%'}) translateY(${
+      position.y - 5 + '%'
     });`"
-    height="50"
-    width="50"
+    height="150"
+    width="150"
     transform-origin="100% 50%"
   >
     <img
