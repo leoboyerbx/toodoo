@@ -3,9 +3,10 @@
     class="character"
     :style="`transform: translateX(${position.x - 0.1 + '%'}) translateY(${
       position.y + 3 + '%'
-    })`"
-    height="75"
+    });`"
+    height="50"
     width="50"
+    transform-origin="100% 50%"
   >
     <img
       class="absolute z-15 pointer-events-none"
