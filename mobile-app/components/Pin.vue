@@ -16,7 +16,7 @@
       <div
         v-show="isActive"
         class="pin__content absolute text-theme z-20 p-6 rounded-xl"
-        :class="position.y > 20 ? 'pin-top' : 'pin-bottom'"
+        :class="position.y > 30 ? 'pin-top' : 'pin-bottom'"
         :style="
           position.y > 20
             ? 'top: calc(' + position.y + '% - 20px); left:' + position.x + '%'
