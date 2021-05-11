@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/leoboyerbx/vert/issues"
   },
-  "homepage": "https://www.toodoo.games/"
+  "homepage": "https://www.toodoo.games/",
+  "devDependencies": {
+    "nuxt-gsap-module": "^1.3.1"
+  }
 }

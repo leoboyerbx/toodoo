@@ -4,6 +4,7 @@ export const state = () => ({
   mapViewData: {
     pinList: [],
     characters: [],
+    meshPinList: [],
   },
   ponctualMissionsListData: {
     missionsList: [],
@@ -54,6 +55,22 @@ export const actions = {
     )
 
     const pinList = []
+    const meshPinList = [
+      {
+        id: 1,
+        position: {
+          x: 3.5,
+          y: 50,
+        },
+      },
+      {
+        id: 2,
+        position: {
+          x: 6,
+          y: 29,
+        },
+      },
+    ]
 
     mapData.pinPlaces.forEach((pinPlacesOfDay) => {
       pinPlacesOfDay.forEach((pinPlace, index) => {
@@ -68,6 +85,7 @@ export const actions = {
     commit('setMapViewData', {
       pinList,
       characters,
+      meshPinList,
     })
   },
   fetchPonctualMissionsListData({ commit, rootState }) {
