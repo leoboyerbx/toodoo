@@ -1,0 +1,164 @@
+name: Deploy to production
+on:
+  push:
+    branches: [ deploy ]
+  pull_request:
+    branches: [ deploy ]
+
+jobs:
+  # Build and deploy PWA
+  build-pwa:
+    name: Build PWA
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile-app
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn generate
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: mobile-app/dist
+  deploy-pwa:
+    name: Deploy PWA
+    needs: build-pwa
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile-app
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: mobile-app/dist
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete --exclude=".well-known"
+          path: mobile-app/dist/
+          remote_path: ~/sites/toodoo/app/
+          remote_host: ${{ secrets.PROD_HOST }}
+          remote_port: ${{ secrets.PROD_PORT }}
+          remote_user: ${{ secrets.PROD_USERNAME }}
+          remote_key: ${{ secrets.PROD_KEY }}
+
+  # Build and deploy cast app
+  build-cast:
+    name: Build cast app
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cast-app
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn generate
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: cast-app/dist
+  deploy-cast:
+    needs: build-cast
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cast-app
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: cast-app/dist
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: cast-app/dist/
+          remote_path: ~/sites/toodoo/boss/
+          remote_host: ${{ secrets.PROD_HOST }}
+          remote_port: ${{ secrets.PROD_PORT }}
+          remote_user: ${{ secrets.PROD_USERNAME }}
+          remote_key: ${{ secrets.PROD_KEY }}
+
+  # Build and deploy server
+  compile-server:
+    name: Compile server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: yarn install --frozen-lockfile
+      - run: yarn compile
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: server/dist
+
+  deploy-server:
+    name: Deploy server
+    needs: compile-server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: server/dist
+
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete --exclude=".env.local" --exclude="public" --exclude="node_modules"
+          path: server
+          remote_path: ~/sites/toodoo
+          remote_host: ${{ secrets.PROD_HOST }}
+          remote_port: ${{ secrets.PROD_PORT }}
+          remote_user: ${{ secrets.PROD_USERNAME }}
+          remote_key: ${{ secrets.PROD_KEY }}
+
+      - name: SSH deployment 📤
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          key: ${{ secrets.PROD_KEY }}
+          port: ${{ secrets.PROD_PORT }}
+          script: |
+            cd ~/sites/toodoo/server
+            yarn install --production
+            dotenv -e .env.local -- npx prisma migrate deploy
+            pm2 restart ecosystem.config.js
+  upload-common:
+    name: Upload common folder
+    needs: deploy-server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: common
+          remote_path: ~/sites/toodoo
+          remote_host: ${{ secrets.PROD_HOST }}
+          remote_port: ${{ secrets.PROD_PORT }}
+          remote_user: ${{ secrets.PROD_USERNAME }}
+          remote_key: ${{ secrets.PROD_KEY }}
