@@ -1,5 +1,4 @@
-# TOODOO Adventures
---> This name is soooo temporary
+# Toodoo Home Adventures
 
 [Server API documentation](server/README.md)
 
