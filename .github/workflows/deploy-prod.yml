@@ -97,6 +97,9 @@ jobs:
   compile-server:
     name: Compile server
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -113,6 +116,9 @@ jobs:
     name: Deploy server
     needs: compile-server
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
