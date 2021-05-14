@@ -6,6 +6,17 @@ on:
     branches: [ deploy ]
 
 jobs:
+  #Info to github
+  notify-started:
+    name: Notify discord server that the deployment started
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.0
+        with:
+          args: '🚀 Un nouveau déploiement a été démarré vers la prod !'
   # Build and deploy PWA
   build-pwa:
     name: Build PWA
@@ -154,7 +165,6 @@ jobs:
             pm2 restart ecosystem.config.js
   upload-common:
     name: Upload common folder
-    needs: deploy-server
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -168,3 +178,28 @@ jobs:
           remote_port: ${{ secrets.PROD_PORT }}
           remote_user: ${{ secrets.PROD_USERNAME }}
           remote_key: ${{ secrets.PROD_KEY }}
+
+  #Info to github
+  notify-ended:
+    needs: [ deploy-pwa, deploy-cast, upload-common ]
+    name: Notify discord server that the deployment ended
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.0
+        with:
+          args: '✅ Le déploiement a été réussi !'
+  notify-failed:
+    needs: [ deploy-pwa, deploy-cast, upload-common ]
+    if: ${{ failure() }}
+    name: Notify discord server that the deployment ended
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.0
+        with:
+          args: '🟥 Le déploiement a échoué. '
