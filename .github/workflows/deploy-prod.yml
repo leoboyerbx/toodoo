@@ -18,7 +18,7 @@ jobs:
             [
               {
                 "title": "Suivre l'exécution",
-                "color": "#d1b40d",
+                "color": 13743117,
                 "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}"
               }
             ]
