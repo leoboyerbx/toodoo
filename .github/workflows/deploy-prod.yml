@@ -14,9 +14,11 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS:
-            - title: Suivre l'exécution
-              color: '#d1b40d'
+          DISCORD_EMBEDS: |
+            [{ "title": "Suivre l'exécution",
+              "color": "#d1b40d",
+              "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}"
+            }]
         uses: Ilshidur/action-discord@0.3.0
         with:
           args: '🚀 Un nouveau déploiement a été démarré vers la prod !'
