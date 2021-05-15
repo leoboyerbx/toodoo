@@ -17,9 +17,11 @@ jobs:
           DISCORD_EMBEDS: |
             [
               {
-                "title": "Suivre l'exécution",
+                "title": "Statut",
                 "color": 13743117,
-                "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}"
+                "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}",
+                "description": "Suivre l'éxécution de la pipeline",
+                "footer": "⏳ Pipeline lancé à l'instant"
               }
             ]
         uses: Ilshidur/action-discord@0.3.0
@@ -196,9 +198,16 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-#          DISCORD_EMBEDS:
-#            - title: Résultat d'exécution
-#              color: '#23cc50'
+          DISCORD_EMBEDS: |
+            [
+              {
+                "title": "Statut",
+                "color": 13743117,
+                "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}",
+                "description": "Voir le résultat d'exécution",
+                "footer": "✅ Pipeline terminé avec succès"
+              }
+            ]
         uses: Ilshidur/action-discord@0.3.0
         with:
           args: |
@@ -212,10 +221,17 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-#          DISCORD_EMBEDS:
-#            - title: Résultat d'exécution
-#              color: '#db4d4d'
+          DISCORD_EMBEDS: |
+            [
+              {
+                "title": "Statut",
+                "color": 13743117,
+                "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}",
+                "description": "Voir le résultat d'exécution",
+                "footer": "❌ Pipeline en échec"
+              }
+            ]
         uses: Ilshidur/action-discord@0.3.0
         with:
           args: |
-            🟥 Le déploiement a échoué.
+            ❌ Le déploiement a échoué.
