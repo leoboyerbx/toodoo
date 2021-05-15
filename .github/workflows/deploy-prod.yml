@@ -21,7 +21,10 @@ jobs:
                 "color": 13743117,
                 "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}",
                 "description": "Suivre l'éxécution de la pipeline",
-                "footer": "⏳ Pipeline lancé à l'instant"
+                "footer": {
+                    "text": "Pipeline lancé à l'instant",
+                    "icon_url": "https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif"
+                },
               }
             ]
         uses: Ilshidur/action-discord@0.3.0
@@ -205,7 +208,9 @@ jobs:
                 "color": 13743117,
                 "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}",
                 "description": "Voir le résultat d'exécution",
-                "footer": "✅ Pipeline terminé avec succès"
+                "footer": {
+                    "text": "✅ Pipeline terminé avec succès"
+                },
               }
             ]
         uses: Ilshidur/action-discord@0.3.0
@@ -228,7 +233,9 @@ jobs:
                 "color": 13743117,
                 "url": "https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}",
                 "description": "Voir le résultat d'exécution",
-                "footer": "❌ Pipeline en échec"
+                "footer": {
+                    "text": "❌ Pipeline en échec"
+                },
               }
             ]
         uses: Ilshidur/action-discord@0.3.0
