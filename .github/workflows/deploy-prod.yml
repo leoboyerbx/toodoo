@@ -191,9 +191,9 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS:
-            - title: Résultat d'exécution
-              color: '#23cc50'
+#          DISCORD_EMBEDS:
+#            - title: Résultat d'exécution
+#              color: '#23cc50'
         uses: Ilshidur/action-discord@0.3.0
         with:
           args: |
@@ -207,9 +207,9 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS:
-            - title: Résultat d'exécution
-              color: '#db4d4d'
+#          DISCORD_EMBEDS:
+#            - title: Résultat d'exécution
+#              color: '#db4d4d'
         uses: Ilshidur/action-discord@0.3.0
         with:
           args: |
