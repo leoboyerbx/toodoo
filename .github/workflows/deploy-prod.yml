@@ -192,14 +192,7 @@ jobs:
         with:
           args: |
             ✅ Le déploiement a été réussi !
-            Résultat d'exécution:
-            - Construire la PWA: ${{ jobs.build-pwa.status }}
-            - Déployer la pwa: ${{ jobs.deploy-pwa.status }}
-            - Construire le Cast: ${{ jobs.build-cast.status }}
-            - Déployer le Cast: ${{ jobs.deploy-cast.status }}
-            - Compiler le Serveur: ${{ jobs.compile-server.status }}
-            - Déployer le Serveur: ${{ jobs.deploy-server.status }}
-            - Uploader les fichiers communs: ${{ jobs.upload-common.status }}
+            Résultat d'exécution: https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}
   notify-failed:
     needs: [ deploy-pwa, deploy-cast, upload-common ]
     if: ${{ failure() }}
@@ -213,11 +206,4 @@ jobs:
         with:
           args: |
             🟥 Le déploiement a échoué.
-            Résultat d'exécution
-            - Construire la PWA: ${{ jobs.build-pwa.status }}
-            - Déployer la pwa: ${{ jobs.deploy-pwa.status }}
-            - Construire le Cast: ${{ jobs.build-cast.status }}
-            - Déployer le Cast: ${{ jobs.deploy-cast.status }}
-            - Compiler le Serveur: ${{ jobs.compile-server.status }}
-            - Déployer le Serveur: ${{ jobs.deploy-server.status }}
-            - Uploader les fichiers communs: ${{ jobs.upload-common.status }}
+            Résultat d'exécution: https://github.com/leoboyerbx/toodoo/actions/runs/${{ github.run_id }}
