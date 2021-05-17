@@ -47,7 +47,7 @@ jobs:
       - run: yarn generate
       - uses: actions/upload-artifact@v2
         with:
-          name: dist
+          name: mobile-app-build
           path: mobile-app/dist
   deploy-pwa:
     name: Deploy PWA
@@ -61,7 +61,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v2
         with:
-          name: dist
+          name: mobile-app-build
           path: mobile-app/dist
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
@@ -75,47 +75,47 @@ jobs:
           remote_key: ${{ secrets.PROD_KEY }}
 
   # Build and deploy cast app
-#  build-cast:
-#    name: Build cast app
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: cast-app
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/setup-node@v1
-#        with:
-#          node-version: 14
-#      - run: yarn install --frozen-lockfile
-#      - run: yarn build
-#      - run: yarn generate
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: dist
-#          path: cast-app/dist
-#  deploy-cast:
-#    needs: build-cast
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: cast-app
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Download build artifact
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: dist
-#          path: cast-app/dist
-#      - name: rsync deployments
-#        uses: burnett01/rsync-deployments@4.1
-#        with:
-#          switches: -avzr --delete
-#          path: cast-app/dist/
-#          remote_path: ~/sites/toodoo/boss/
-#          remote_host: ${{ secrets.PROD_HOST }}
-#          remote_port: ${{ secrets.PROD_PORT }}
-#          remote_user: ${{ secrets.PROD_USERNAME }}
-#          remote_key: ${{ secrets.PROD_KEY }}
+  build-cast:
+    name: Build cast app
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cast-app
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn generate
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cast-build
+          path: cast-app/dist
+  deploy-cast:
+    needs: build-cast
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cast-app
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: cast-build
+          path: cast-app/dist
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -avzr --delete
+          path: cast-app/dist/
+          remote_path: ~/sites/toodoo/boss/
+          remote_host: ${{ secrets.PROD_HOST }}
+          remote_port: ${{ secrets.PROD_PORT }}
+          remote_user: ${{ secrets.PROD_USERNAME }}
+          remote_key: ${{ secrets.PROD_KEY }}
 
   # Build and deploy server
   compile-server:
@@ -133,7 +133,7 @@ jobs:
       - run: yarn compile
       - uses: actions/upload-artifact@v2
         with:
-          name: dist
+          name: server-dist
           path: server/dist
 
   deploy-server:
@@ -150,7 +150,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v2
         with:
-          name: dist
+          name: server-dist
           path: server/dist
 
       - name: rsync deployments
@@ -194,8 +194,7 @@ jobs:
 
   #Info to discord
   notify-ended:
-    needs: [ deploy-pwa, upload-common ]
-    #    needs: [ deploy-pwa, deploy-cast, upload-common ]
+    needs: [ deploy-pwa, deploy-cast, upload-common ]
     name: Notify discord server that the deployment ended
     runs-on: ubuntu-latest
     steps:
@@ -219,8 +218,7 @@ jobs:
           args: |
             ✅ Le déploiement a été réussi !
   notify-failed:
-    needs: [ deploy-pwa, upload-common ]
-#    needs: [ deploy-pwa, deploy-cast, upload-common ]
+    needs: [ deploy-pwa, deploy-cast, upload-common ]
     if: ${{ failure() }}
     name: Notify discord server that the deployment failed
     runs-on: ubuntu-latest
