@@ -194,7 +194,8 @@ jobs:
 
   #Info to discord
   notify-ended:
-    needs: [ deploy-pwa, deploy-cast, upload-common ]
+    needs: [ deploy-pwa, upload-common ]
+    #    needs: [ deploy-pwa, deploy-cast, upload-common ]
     name: Notify discord server that the deployment ended
     runs-on: ubuntu-latest
     steps:
