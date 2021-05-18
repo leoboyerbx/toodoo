@@ -1,5 +1,5 @@
 import ClientSocket from "../sockets/ClientSocket";
-import { ClientType } from "../sockets/PairDataInterface";
+import { ClientType } from "../sockets/PairData";
 import GameContext from "./GameContext";
 import Capability from "../capabilities/Capability";
 import { delay } from "../../helpers/timers";

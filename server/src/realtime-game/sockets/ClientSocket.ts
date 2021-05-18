@@ -1,5 +1,5 @@
 import { Socket } from "socket.io";
-import PairDataInterface, { ClientType } from "./PairDataInterface";
+import PairData, { ClientType } from "./PairData";
 import GameManagerFactory from "../game/GameManagerFactory";
 
 /**
@@ -29,7 +29,7 @@ export default class ClientSocket {
    * Pair the socket with the game manager with specified ID
    * @param data
    */
-  pair(data: PairDataInterface) {
+  pair(data: PairData) {
     this._clientType = data.type;
     const gameManager = GameManagerFactory.getInstance().getGameWithId(data.id);
     gameManager.join(this);
