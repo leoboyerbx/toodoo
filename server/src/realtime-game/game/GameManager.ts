@@ -4,6 +4,9 @@ import GameContext from "./GameContext";
 import Capability from "../capabilities/Capability";
 import { delay } from "../../helpers/timers";
 
+/**
+ * Main controller of a boss game
+ */
 export default class GameManager {
   public id: string;
   private castSocket: ClientSocket;
@@ -18,15 +21,10 @@ export default class GameManager {
     this.context.on("victory", () => this.onVictory());
   }
 
-  private bindPlayerSocket(socket: ClientSocket) {
-    socket.socket.on("config", (config) => this.config(config));
-    socket.socket.on("startFight", () => this.startFight());
-    socket.socket.on("useCapability", (capability) =>
-      this.currentPlayerUseCapability(new Capability(capability))
-    );
-    socket.socket.on("skipTurn", () => this.currentPlayerSkipTurn());
-  }
-
+  /**
+   * Add a socket (game or player) to the current game manager
+   * @param socket
+   */
   public join(socket: ClientSocket) {
     if (socket.clientType === ClientType.Cast) {
       this.castSocket = socket;
@@ -38,7 +36,22 @@ export default class GameManager {
   }
 
   /**
-   * Checks if the game is ready to start, i.e. if there is a cast connected
+   * Bind all required events of a player socket
+   * (The events sent by the mobile app acting as a joystick)
+   * @param socket
+   * @private
+   */
+  private bindPlayerSocket(socket: ClientSocket) {
+    socket.socket.on("config", (config) => this.config(config));
+    socket.socket.on("startFight", () => this.startFight());
+    socket.socket.on("useCapability", (capability) =>
+      this.currentPlayerUseCapability(new Capability(capability))
+    );
+    socket.socket.on("skipTurn", () => this.currentPlayerSkipTurn());
+  }
+
+  /**
+   * Check if the game is ready to start, i.e. if there is a cast connected
    * @private
    */
   private checkReady() {
@@ -62,7 +75,7 @@ export default class GameManager {
   }
 
   /**
-   * Send the current state to all clients
+   * Send the current game state to all clients
    * @private
    */
   private broadcastState() {
@@ -70,17 +83,30 @@ export default class GameManager {
   }
 
   // Socket events methods
+  /**
+   * Called when the mobile app send config data
+   * @param configData
+   * @private
+   */
   private async config(configData) {
     await this.context.setGame(configData.gameId);
     this.broadCast("initContext", this.context);
   }
 
+  /**
+   * Called when players click on "start"
+   * @private
+   */
   private async startFight() {
-    console.log("startFight");
     this.context.setTurn(0);
     this.broadCast("startFight", this.context);
   }
 
+  /**
+   * Called when the mobile app send the instruction to use a capability
+   * @param capability
+   * @private
+   */
   private async currentPlayerUseCapability(capability: Capability) {
     if (this.context.turnIndex < 0) return;
     capability.use(this.context);
@@ -88,6 +114,10 @@ export default class GameManager {
     this.broadcastState();
   }
 
+  /**
+   * Called when the mobile app send a "skip turn" instruction
+   * @private
+   */
   private currentPlayerSkipTurn() {
     if (this.context.turnIndex < 0) return;
     this.context.nextTurn();
@@ -95,6 +125,10 @@ export default class GameManager {
   }
 
   // Listeners
+
+  /**
+   * Send infos to all clients after the server played the turn of the boss
+   */
   async onBossPlay() {
     this.broadcastState();
     await delay(3000);
@@ -102,6 +136,10 @@ export default class GameManager {
     this.context.bossAttack = null;
     this.broadcastState();
   }
+
+  /**
+   * Called when the boss or the players won
+   */
   async onVictory() {
     this.broadCast("victory", this.context);
   }
