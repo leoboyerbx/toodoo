@@ -19,7 +19,7 @@ export default class Capability {
   /**
    * Applies the effects of the capability to a given GameContext.
    *
-   * @todo: break down this into smaller functions
+   * @todo Break down this into smaller functions
    *
    * @param context
    * @param targetPlayer
