@@ -90,7 +90,7 @@ Lancer le serveur de développement
 yarn dev
 ```
 
-> ℹ Pour pouvoir fonctionner, le serveur de dv a besoin que les conteneurs tournent, donc `yarn dk:start` est indispensable avant `yarn dev`
+> ℹ  Pour pouvoir fonctionner, le serveur de dv a besoin que les conteneurs tournent, donc `yarn dk:start` est indispensable avant `yarn dev`
 
 > Sinon, on peut démarrer les conteneurs puis directement lancer le serveur de dev:
 > 
@@ -106,7 +106,7 @@ Arrêter les conteneurs (recommandé avant de terminer une session de travail)
 yarn dk:stop
 ```
 
-> ⚠️ L'arrêt des conteneurs efface la base de données si elle n'a pas été sauvegardée. La commande propose de sauvegarder avant l'arrêt des conteneurs.
+> ⚠️  L'arrêt des conteneurs efface la base de données si elle n'a pas été sauvegardée. La commande propose de sauvegarder avant l'arrêt des conteneurs.
 
 ##### Base de données
 
