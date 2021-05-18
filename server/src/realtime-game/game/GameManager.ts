@@ -2,28 +2,12 @@ import ClientSocket from "../sockets/ClientSocket";
 import { ClientType } from "../sockets/PairDataInterface";
 import GameContext from "./GameContext";
 import Capability from "../capabilities/Capability";
-import BossPlayListener from "../listeners/BossPlayListener";
 import { delay } from "../../helpers/timers";
-
-class SocketsArray extends Array<ClientSocket> {
-  private constructor(items?: Array<ClientSocket>) {
-    super(...items);
-  }
-  public emit(event, payload: any = null) {
-    this.forEach((socket: ClientSocket) => {
-      socket.socket.emit(event, payload);
-    });
-  }
-
-  static create(): SocketsArray {
-    return Object.create(SocketsArray.prototype);
-  }
-}
 
 export default class GameManager {
   public id: string;
   private castSocket: ClientSocket;
-  private playerSockets: SocketsArray = SocketsArray.create();
+  private playerSocket: ClientSocket;
   private readonly context;
 
   constructor(id: string) {
@@ -34,7 +18,7 @@ export default class GameManager {
     this.context.on("victory", () => this.onVictory());
   }
 
-  private bindClientSocket(socket: ClientSocket) {
+  private bindPlayerSocket(socket: ClientSocket) {
     socket.socket.on("config", (config) => this.config(config));
     socket.socket.on("startFight", () => this.startFight());
     socket.socket.on("useCapability", (capability) =>
@@ -47,8 +31,8 @@ export default class GameManager {
     if (socket.clientType === ClientType.Cast) {
       this.castSocket = socket;
     } else if (socket.clientType === ClientType.Player) {
-      this.bindClientSocket(socket);
-      this.playerSockets.push(socket);
+      this.bindPlayerSocket(socket);
+      this.playerSocket = socket;
     }
     this.checkReady();
   }
@@ -58,9 +42,9 @@ export default class GameManager {
    * @private
    */
   private checkReady() {
-    if (this.playerSockets.length && this.castSocket) {
+    if (this.playerSocket && this.castSocket) {
       console.log(`Room ${this.id} ready`);
-      this.playerSockets.emit("askConfig");
+      this.playerSocket.emit("askConfig");
     } else {
       console.log("room not ready yet");
     }
@@ -73,8 +57,8 @@ export default class GameManager {
    * @private
    */
   private broadCast(message: string, payload: any = null) {
-    this.castSocket.socket.emit(message, payload);
-    this.playerSockets.emit(message, payload);
+    this.castSocket.emit(message, payload);
+    this.playerSocket.emit(message, payload);
   }
 
   /**
@@ -83,12 +67,6 @@ export default class GameManager {
    */
   private broadcastState() {
     this.broadCast("updateContext", this.context);
-  }
-  private updateStatePlayers() {
-    this.playerSockets.emit("updateContext", this.context);
-  }
-  private updateStateCast() {
-    this.castSocket.socket.emit("updateContext", this.context);
   }
 
   // Socket events methods
