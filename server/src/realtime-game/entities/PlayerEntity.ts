@@ -1,11 +1,10 @@
 import Entity from "./Entity";
 import { Player } from "@prisma/client";
+import { AvatarImg } from "./AvatarImg";
 
-interface AvatarImg {
-  portrait: String;
-  character: String;
-}
-
+/**
+ * An entity of the real players (not the boss) in the game
+ */
 export default class PlayerEntity extends Entity {
   img: AvatarImg;
   player: Player;

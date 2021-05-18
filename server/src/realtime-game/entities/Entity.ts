@@ -1,5 +1,8 @@
 import Capability from "../capabilities/Capability";
 
+/**
+ * An entity of the game: player or boss
+ */
 export default class Entity {
   public name: String;
   public hp: number;

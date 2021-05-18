@@ -1,8 +1,12 @@
 import GameContext from "../game/GameContext";
-import Capability from "../capabilities/Capability";
 
+/**
+ * Interface representing an object that can receive a game context and play by itself
+ */
 export default interface ComputerPlayer {
-  capabilities: Capability[];
-  energy: number;
+  /**
+   * Play the turn according to the game context
+   * @param context
+   */
   playTurn(context: GameContext);
 }

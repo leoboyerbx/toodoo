@@ -3,12 +3,8 @@ import GameContext from "../game/GameContext";
 import ComputerPlayer from "./ComputerPlayer";
 import PlayerEntity from "./PlayerEntity";
 import BossAttackResult from "../capabilities/BossAttackResult";
+import { BossImg } from "./BossImg";
 
-interface BossImg {
-  decor: String;
-  character: String;
-  positionInDecor: any;
-}
 export default class BossEntity extends Entity implements ComputerPlayer {
   img: BossImg;
   introSentence: string;
@@ -19,6 +15,10 @@ export default class BossEntity extends Entity implements ComputerPlayer {
     this.introSentence = data.introSentence;
   }
 
+  /**
+   * @inheritDoc
+   * @todo Refactor this method to implement a better playing boss
+   */
   playTurn(context: GameContext): BossAttackResult {
     // Capabilities that the boss can use
     const capabilitiesToUse = this.capabilities.filter((capability) => {
