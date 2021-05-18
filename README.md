@@ -32,6 +32,7 @@
 | 🏄      | Front end add or update |
 | 🥷      | Back end add or update |
 | 🍱       | Add or update assets |
+| 💡       | Add or update comments in code |
 
 ## Auteurs
 * **Léo Boyer** _alias_ [@leoboyerbx](https://www.linkedin.com/in/leoboyerbx/)
