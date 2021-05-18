@@ -31,11 +31,100 @@ git clone git@github.com:leoboyerbx/toodoo.git
 git clone https://github.com/leoboyerbx/toodoo.git
 ```
 
-Ce projet est divisé en 3 parties: app mobile, jeu sur chromecast et serveur. Pour installer les dépendances des 3 dossiers à la fois, placez-vcous dans le dossier racine et lancez:
+Ce projet est divisé en 3 parties: app mobile, jeu sur chromecast et serveur. Pour installer les dépendances des 3 dossiers à la fois, placez-vous dans le dossier racine et lancez le script `setup`:
 
 ```bash
+cd toodoo
 yarn setup
 ```
+
+### Exécution en local
+
+#### App mobile
+
+```bash
+cd mobile-app
+```
+
+Lancer le serveur de développement
+
+```bash
+yarn dev 
+```
+
+Lancer le serveur de développement avec accessiblité depuis le réseau local (MacOS uniquement)
+
+```bash
+yarn dev:lan-mac
+```
+
+#### Cast
+
+```bash
+cd cast-app
+```
+
+Lancer le serveur de développement
+
+```bash
+yarn dev
+```
+
+#### Serveur
+
+```bash
+cd server
+```
+
+##### Serveur de développement
+
+Démarrer les conteneurs Docker
+
+```bash
+yarn dk:start
+```
+
+Lancer le serveur de développement
+
+```bash
+yarn dev
+```
+
+> ℹ Pour pouvoir fonctionner, le serveur de dv a besoin que les conteneurs tournent, donc `yarn dk:start` est indispensable avant `yarn dev`
+
+> Sinon, on peut démarrer les conteneurs puis directement lancer le serveur de dev:
+> 
+> ```bash
+> yarn dk:dev
+> ```
+
+
+
+Arrêter les conteneurs (recommandé avant de terminer une session de travail)
+
+```bash
+yarn dk:stop
+```
+
+> ⚠️ L'arrêt des conteneurs efface la base de données si elle n'a pas été sauvegardée. La commande propose de sauvegarder avant l'arrêt des conteneurs.
+
+##### Base de données
+
+Un utilitaire permet de sauvegarder et restaurer l'état de la base de données.
+
+Sauvegarde:
+
+```bash
+yarn db:save
+```
+
+Restaurer une sauvegarde:
+
+```bash
+yarn db:load
+```
+
+Pour plus d'infos sur la structure, l'organisation ou le déploiement, voir [le wiki](https://wiki.toodoo.games).
 
 
 
@@ -78,4 +167,4 @@ yarn setup
 * **JohannDumoulin Minguet**
 * **Vincent Creton** _alias_ [@cretonv](https://fr.linkedin.com/in/vincent-creton-776816187)
 
-Retrouver les [comptes](https://github.com/leoboyerbx/toodoo/contributors) des contributeurs du projet.
+Retrouver les [comptes github](https://github.com/leoboyerbx/toodoo/contributors) des contributeurs du projet.

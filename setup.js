@@ -5,6 +5,10 @@ const spinnies = new Spinnies({
   spinnerColor: "cyan",
 });
 
+console.log(`
+Installing sub-folder dependencies...
+`);
+
 spinnies.add("spinner-mobile-app", {
   text: "Installing mobile app dependencies",
 });
@@ -96,8 +100,7 @@ Successfully set up project !
 
 ==== Run server ====
 - cd server
-- yarn dk:start
-- yarn dev
+- yarn dk:dev
 
 ==== Run mobile app ====
 - cd mobile-app

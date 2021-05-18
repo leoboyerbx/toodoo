@@ -11,6 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dk:start": "docker-compose up -d",
     "dk:stop": "node ./_docker/docker-stop.js",
+    "dk:dev": "yarn dk:start && yarn dev",
     "db:load": "node _docker/db-load.js",
     "db:save": "node _docker/db-save.js",
     "deploy": "cd .. && yarn deploy"
