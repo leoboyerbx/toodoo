@@ -4,6 +4,7 @@
   "description": "Monorepo for Toodoo project",
   "main": "index.js",
   "scripts": {
+    "setup": "yarn install && node setup.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "git checkout deploy && git pull && git merge main && git push && git checkout main"
   },
@@ -14,7 +15,10 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/leoboyerbx/vert/issues"
+    "url": "https://github.com/leoboyerbx/toodoo/issues"
   },
-  "homepage": "https://www.toodoo.games/"
+  "homepage": "https://www.toodoo.games/",
+  "dependencies": {
+    "spinnies": "^0.5.1"
+  }
 }
