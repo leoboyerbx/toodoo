@@ -11,13 +11,24 @@ export default class Capability {
   public cost: number;
   public target: CapabilityTargetType;
   public effect: CapabilityEffect;
+
   constructor(data) {
     Object.assign(this, data);
   }
+
+  /**
+   * Applies the effects of the capability to a given GameContext.
+   *
+   * @todo: break down this into smaller functions
+   *
+   * @param context
+   * @param targetPlayer
+   */
   use(
     context: GameContext,
     targetPlayer?: PlayerEntity
   ): CapabilityUsageResult {
+    // Select the target according to the capability settings
     let target: CapabilityTarget;
     switch (this.target) {
       case CapabilityTargetType.boss:
@@ -41,8 +52,10 @@ export default class Capability {
         break;
     }
 
+    // Store the entity state before the capability is used
     const targetPreviousState = new Entity(target.effectiveTarget);
 
+    // Apply the effects of the attack
     if (this.effect.attack) {
       target.apply((entity) => {
         if (entity.protected) {
@@ -65,6 +78,7 @@ export default class Capability {
       });
     }
 
+    // Compute new energy of the entity
     if (context.turnEntity.energy > -1) {
       // An entity with "-1" as power has unlimited power
       const newEnergy = context.turnEntity.energy - this.cost;
