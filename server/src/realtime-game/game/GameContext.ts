@@ -9,6 +9,10 @@ import EventEmitter from "events";
 import BossAttackResult from "../capabilities/BossAttackResult";
 import { CapabilityUsageResult } from "../capabilities/CapabilityUsageResult";
 
+/**
+ * Class representing the current game context
+ * Can emit events on certain game actions
+ */
 export default class GameContext extends EventEmitter {
   public game: Game;
   public boss: BossEntity;
@@ -29,6 +33,13 @@ export default class GameContext extends EventEmitter {
     super();
   }
 
+  /**
+   * Fetch game context data corresponding to the game ID
+   *
+   * @todo Extract data fetching to a separate function
+   *
+   * @param gameId
+   */
   public async setGame(gameId: number) {
     this.game = await prismaClient.game.findFirst({
       where: {
@@ -57,9 +68,18 @@ export default class GameContext extends EventEmitter {
       this.players.push(new PlayerEntity(avatar, player));
     }
   }
+
+  /**
+   * Getter returning every player with HP higher than 0
+   */
   get alivePlayers() {
     return this.players.filter((player) => player.hp > 0);
   }
+
+  /**
+   * Set turns to a specific index, updating every side variables
+   * @param index
+   */
   setTurn(index: number) {
     this.turnIndex = index;
     if (index === -1) {
@@ -71,6 +91,10 @@ export default class GameContext extends EventEmitter {
     }
   }
 
+  /**
+   * Increment turn following the pattern:
+   * player 1 - boss - player 2 - boss - player n - boss -> repeat
+   */
   nextTurn() {
     this.checkVictory();
     if (this.turnIndex === -1) {
@@ -83,6 +107,10 @@ export default class GameContext extends EventEmitter {
     }
   }
 
+  /**
+   * Check if the boss or the players won, and emit the corresponding event.
+   * @private
+   */
   private checkVictory() {
     if (this.boss.hp === 0) {
       this.winner = "players";
@@ -93,6 +121,10 @@ export default class GameContext extends EventEmitter {
     }
   }
 
+  /**
+   * Increment index of current playing player (ignoring boss)
+   * @private
+   */
   private incrementPlayerTurn() {
     if (this.playerTurn < this.players.length - 1) {
       this.playerTurn++;
@@ -101,6 +133,9 @@ export default class GameContext extends EventEmitter {
     }
   }
 
+  /**
+   * Call the boss to play his turn, and emitting teh related event after that
+   */
   async playBossTurn() {
     await delay(3000);
     this.bossAttack = this.boss.playTurn(this);
