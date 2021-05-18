@@ -1,16 +1,34 @@
+/**
+ * Utility class to access common code contents
+ */
 export default class Common {
   static commonDir = "../../../common";
 
-  static async getEntity(name, entityType) {
+  /**
+   * Get data about an entity
+   * @param name
+   * @param entityType
+   */
+  static async getEntity(name: string, entityType: string) {
     const dir = entityType === "boss" ? "boss" : "avatars";
     const avatar = await import(`${this.commonDir}/entities/${dir}/${name}`);
     if (!avatar) return null;
     return avatar.default;
   }
-  static async getAvatar(avatarName) {
+
+  /**
+   * Get data about an avatar
+   * @param avatarName
+   */
+  static async getAvatar(avatarName: string) {
     return await this.getEntity(avatarName, "avatar");
   }
-  static async getBossForWeek(week) {
+
+  /**
+   * Get data about the boss of a specified week
+   * @param week
+   */
+  static async getBossForWeek(week: number) {
     return await this.getEntity(`boss-${week + 1}`, "boss");
   }
 }
