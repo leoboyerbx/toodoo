@@ -69,6 +69,7 @@ Lancer le serveur de développement
 ```bash
 yarn dev
 ```
+> 💡 En environnement de développement, l'écran d'appairage n'existe pas: L'appairage est fait automatiquement aussitôt que les deux parties sont ouvertes dans un navigateur.
 
 #### Serveur
 
