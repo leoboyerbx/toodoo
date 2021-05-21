@@ -8,7 +8,7 @@ on:
 jobs:
   #Info to discord
   notify-started:
-    name: Notify discord deployment started
+    name: Discord notify start
     runs-on: ubuntu-latest
     steps:
       - name: Discord notification
@@ -94,6 +94,7 @@ jobs:
           name: cast-build
           path: cast-app/dist
   deploy-cast:
+    name: Deploy Cast
     needs: build-cast
     runs-on: ubuntu-latest
     defaults:
@@ -195,7 +196,7 @@ jobs:
   #Info to discord
   notify-ended:
     needs: [ deploy-pwa, deploy-cast, upload-common ]
-    name: Notify discord deployment succeed
+    name: Discord notify success
     runs-on: ubuntu-latest
     steps:
       - name: Discord notification
@@ -220,7 +221,7 @@ jobs:
   notify-failed:
     needs: [ deploy-pwa, deploy-cast, upload-common ]
     if: ${{ failure() }}
-    name: Notify discord deployment failed
+    name: Discord notify fail
     runs-on: ubuntu-latest
     steps:
       - name: Discord notification
