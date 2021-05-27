@@ -1,12 +1,12 @@
 <template>
   <div
-    class="flex flex-col w-96 text-md text-white"
+    class="flex flex-col w-80 text-md text-white"
     :class="align === 'left' ? 'items-start' : 'items-end'"
   >
     <div class="text-md font-bold mb-5">
       {{ name }}
     </div>
-    <div class="relative w-full h-4 bg-gray-200 rounded overflow-hidden">
+    <div class="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
       <div
         class="absolute w-full top-0 left-0 w-full h-full transition-transform duration-300 bg-theme-light"
         :style="{
@@ -34,33 +34,10 @@ export default {
       default: 'left',
       validator: (value) => ['left', 'right'].includes(value),
     },
-    animateFrom: {
-      type: Number,
-      default: null,
-    },
-  },
-  data() {
-    return { isInitial: true }
   },
   computed: {
     hp() {
-      if (this.animateFrom && this.isInitial) {
-        return this.animateFrom
-      }
       return this.entity.hp
-    },
-  },
-  mounted() {
-    this.animate()
-  },
-  updated() {
-    this.animate()
-  },
-  methods: {
-    animate() {
-      if (this.animateFrom) {
-        setTimeout(() => (this.isInitial = false), 100)
-      }
     },
   },
 }

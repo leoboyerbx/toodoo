@@ -1,28 +1,18 @@
 <template>
   <div class="w-full h-full">
-    <!--    <div class="w-full relative text-white">-->
-    <!--      <p v-if="gameContext.turnIndex >= 0">-->
-    <!--        Au tour de {{ gameContext.turnEntity.player.name }}-->
-    <!--      </p>-->
-    <!--      <p v-else>Au tour du boss !</p>-->
-    <!--      <p v-for="player in players" :key="player.player.id">-->
-    <!--        {{ player.player.name }} a {{ player.hp }} pv et-->
-    <!--        {{ player.energy }} points d'énergie-->
-    <!--      </p>-->
-    <!--      <br />-->
-    <!--      <p>Le boss a {{ boss.hp }} PV et {{ boss.energy }} points d'énergie</p>-->
-    <!--        </div>-->
     <img
       :src="require(`assets/img/boss/${boss.img.decor}`)"
       alt=""
       class="absolute top-0 left-0 w-full h-full object-cover"
     />
-    <LifeBar
-      class="absolute right-16 top-24"
-      :name="boss.name"
-      :entity="boss"
-      align="right"
-    />
+    <div class="absolute right-20 top-14 flex justify-end items-center">
+      <LifeBar class="" :name="boss.name" :entity="boss" align="right" />
+      <img
+        :src="require(`assets/img/boss/${boss.img.lifeBarIcon}`)"
+        alt="castle"
+        class="w-20 h-20 ml-6"
+      />
+    </div>
     <img
       :src="require(`assets/img/boss/${boss.img.character}`)"
       alt="Boss image"
@@ -33,35 +23,6 @@
       }"
     />
     <TurnIndicator class="absolute top-10 left-12" />
-    <LifeBar
-      v-if="
-        gameContext.bossAttack &&
-        gameContext.bossAttack.capabilityResult.capability.target !== 'self'
-      "
-      class="absolute left-16 top-72"
-      :name="
-        'Vie de ' +
-        gameContext.bossAttack.capabilityResult.effectiveTarget.player.name
-      "
-      :entity="gameContext.bossAttack.capabilityResult.effectiveTarget"
-      :animate-from="
-        gameContext.bossAttack.capabilityResult.targetPreviousState.hp
-      "
-    />
-    <div v-else class="absolute left-16 top-72 flex flex-col">
-      <LifeBar
-        name="Vie"
-        :entity="gameContext.players[gameContext.playerTurn]"
-      />
-      <div class="flex flex-col text-md text-white mt-10">
-        <div class="text-md font-bold mb-5 flex flex-col">
-          <span>Énergie:</span>
-          <span class="text-lg mt-2">{{
-            gameContext.players[gameContext.playerTurn].energy
-          }}</span>
-        </div>
-      </div>
-    </div>
 
     <p
       v-if="gameContext.bossAttack && gameContext.bossAttack.message"
@@ -69,19 +30,6 @@
     >
       {{ gameContext.bossAttack.message }}
     </p>
-    <!--    <div class="absolute left-0 bottom-0 w-1/2 h-1/4 flex">-->
-    <!--      <div-->
-    <!--        v-for="player in players"-->
-    <!--        :key="player.player.id"-->
-    <!--        class="flex flex-col mx-5 justify-end items-center"-->
-    <!--      >-->
-    <!--        <img-->
-    <!--          :src="require(`assets/img/avatars/${player.img.character}`)"-->
-    <!--          alt="Avatar image"-->
-    <!--          class="h-full"-->
-    <!--        />-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
 </template>
 <script>

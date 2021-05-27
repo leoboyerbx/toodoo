@@ -7,11 +7,13 @@ import { AvatarImg } from "./AvatarImg";
  */
 export default class PlayerEntity extends Entity {
   img: AvatarImg;
+  color: string;
   player: Player;
 
   constructor(avatarData, player: Player) {
     super(avatarData);
     this.img = avatarData.img;
     this.player = player;
+    this.color = avatarData.color ?? "#f00";
   }
 }

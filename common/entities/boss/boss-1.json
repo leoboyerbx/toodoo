@@ -4,6 +4,7 @@
     "img": {
         "decor": "boss1-decor.svg",
         "character": "boss1-character.png",
+        "lifeBarIcon": "boss1-castle.png",
         "positionInDecor": {
             "x": 56,
             "y": 29

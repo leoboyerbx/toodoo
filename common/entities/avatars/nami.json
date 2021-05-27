@@ -1,5 +1,6 @@
 {
   "name": "Nami",
+  "color": "#EE77C7",
   "img": {
     "portrait": "nami-portrait.png",
     "character": "nami-character.png"
