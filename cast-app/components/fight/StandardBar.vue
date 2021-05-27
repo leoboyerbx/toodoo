@@ -1,14 +1,22 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col w-64">
     <div class="flex">
-      <img :src="icon" alt="" />
-      <span>{{ name }}</span>
+      <img :src="require(`~/assets/img/${icon}`)" alt="" class="w-5" />
+      <span class="text-white font-bold ml-2">{{ name }}</span>
+    </div>
+    <div class="ml-6 w-56 mt-2">
+      <SmallBar :max-value="maxValue" :value="value" :color="color" />
+    </div>
+    <div class="ml-auto mt-2 font-bold text-white">
+      {{ value }} / {{ maxValue }}
     </div>
   </div>
 </template>
 
 <script>
+import SmallBar from './SmallBar'
 export default {
+  components: { SmallBar },
   props: {
     name: {
       type: String,
@@ -16,7 +24,8 @@ export default {
     },
     icon: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
     value: {
       type: Number,
@@ -25,6 +34,11 @@ export default {
     maxValue: {
       type: Number,
       required: true,
+    },
+    color: {
+      type: String,
+      required: false,
+      default: null,
     },
   },
 }

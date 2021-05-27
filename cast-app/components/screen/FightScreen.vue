@@ -23,10 +23,11 @@
       }"
     />
     <TurnIndicator class="absolute top-10 left-12" />
+    <CurrentPlayer class="absolute left-72 bottom-10" />
 
     <p
       v-if="gameContext.bossAttack && gameContext.bossAttack.message"
-      class="text-lg absolute w-96 text-white bottom-10 right-1/2"
+      class="text-lg absolute w-96 text-white bottom-10 left-1/2"
     >
       {{ gameContext.bossAttack.message }}
     </p>
@@ -35,8 +36,9 @@
 <script>
 import LifeBar from '../fight/LifeBar'
 import TurnIndicator from '../fight/TurnIndicator'
+import CurrentPlayer from '../fight/CurrentPlayer'
 export default {
-  components: { TurnIndicator, LifeBar },
+  components: { CurrentPlayer, TurnIndicator, LifeBar },
   computed: {
     gameContext() {
       return this.$store.state.bossSync.gameContext

@@ -40,6 +40,6 @@ export default {
 </script>
 <style scoped>
 .players-list-move {
-  transition: transform 1s;
+  transition: transform 0.8s;
 }
 </style>

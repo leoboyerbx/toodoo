@@ -3,7 +3,7 @@
     id="screen-wrapper"
     class="fixed top-0 left-0 flex justify-center items-center"
   >
-    <div class="relative" :style="{ width, height }">
+    <div class="relative overflow-hidden" :style="{ width, height }">
       <Nuxt class="absolute top-0 left-0 w-full h-full" />
     </div>
   </div>

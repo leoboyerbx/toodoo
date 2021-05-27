@@ -25,9 +25,6 @@
       v-if="player.protected"
       class="absolute top-11 right-2 transition-transform duration-200 w-5"
       src="~assets/img/shield.svg"
-      :style="{
-        transform: index === gameContext.turnIndex ? 'translateY(5vh)' : 'none',
-      }"
     />
   </div>
 </template>
