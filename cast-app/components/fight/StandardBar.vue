@@ -1,5 +1,10 @@
 <template>
-  <div></div>
+  <div class="flex flex-col">
+    <div class="flex">
+      <img :src="icon" alt="" />
+      <span>{{ name }}</span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -20,11 +25,6 @@ export default {
     maxValue: {
       type: Number,
       required: true,
-    },
-  },
-  computed: {
-    hp() {
-      return this.entity.hp
     },
   },
 }
