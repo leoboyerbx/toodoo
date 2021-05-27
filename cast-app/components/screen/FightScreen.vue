@@ -26,7 +26,7 @@
     <img
       :src="require(`assets/img/boss/${boss.img.character}`)"
       alt="Boss image"
-      class="absolute w-64"
+      class="absolute w-56"
       :style="{
         left: boss.img.positionInDecor.x + '%',
         top: boss.img.positionInDecor.y + '%',

@@ -2,11 +2,11 @@
     "name": "Machine à laver",
     "introSentence": "Préparez vous à être lessivés !",
     "img": {
-        "decor": "boss1-decor.png",
+        "decor": "boss1-decor.svg",
         "character": "boss1-character.png",
         "positionInDecor": {
-            "x": 63,
-            "y": 59
+            "x": 56,
+            "y": 29
         }
     },
     "hp": 150,
