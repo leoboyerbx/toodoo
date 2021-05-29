@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center text-lg">
     <div class="undersocle"></div>
     <transition name="avatar" mode="out-in">
       <img
@@ -19,13 +19,13 @@
           :color="player.color"
         />
         <div
-          class="flex items-center mr-auto"
+          class="flex items-center mr-auto mt-4"
           style="transform: translateX(-11px)"
         >
           <img src="~/assets/img/energy.png" alt="" class="w-8 h-8" />
           <p class="text-white font-bold ml-2">Energie</p>
         </div>
-        <p class="text-white font-bold text-xl mr-auto ml-7">
+        <p class="text-white font-bold text-xl mr-auto ml-7 mt-2">
           {{ player.energy }}
         </p>
       </div>
@@ -73,7 +73,7 @@ export default {
   position: absolute;
   top: 20vh;
   left: 0;
-  height: 40px;
+  height: 8vh;
   border-radius: 100%;
   opacity: 30%;
 }

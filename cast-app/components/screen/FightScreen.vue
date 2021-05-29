@@ -5,12 +5,12 @@
       alt=""
       class="absolute top-0 left-0 w-full h-full object-cover"
     />
-    <div class="absolute right-20 top-14 flex justify-end items-center">
+    <div class="absolute right-14 top-14 flex justify-end items-center">
       <LifeBar class="" :name="boss.name" :entity="boss" align="right" />
       <img
         :src="require(`assets/img/boss/${boss.img.lifeBarIcon}`)"
-        alt="castle"
-        class="w-20 h-20 ml-6"
+        alt=""
+        class="w-24 h-24 ml-6"
       />
     </div>
     <img

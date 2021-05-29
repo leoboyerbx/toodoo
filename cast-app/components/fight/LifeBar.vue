@@ -3,7 +3,7 @@
     class="flex flex-col w-80 text-md text-white"
     :class="align === 'left' ? 'items-start' : 'items-end'"
   >
-    <div class="text-md font-bold mb-5">
+    <div class="text-lg font-bold mb-5">
       {{ name }}
     </div>
     <div class="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
@@ -15,7 +15,7 @@
         }"
       ></div>
     </div>
-    <div class="mt-4">{{ hp }} / {{ entity.initialHp }}</div>
+    <div class="mt-4 text-lg">{{ hp }} / {{ entity.initialHp }}</div>
   </div>
 </template>
 <script>
