@@ -2,6 +2,11 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   theme: {
+    fontFamily: {
+      display: ['DongwhacaekR'],
+      body: ['LeagueSpartan'],
+      sans: ['LeagueSpartan'],
+    },
     fontSize: {
       sm: ['1vh', '1.1vh'],
       md: ['2vh', '2.2vh'],

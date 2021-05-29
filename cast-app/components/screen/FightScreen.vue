@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full">
+  <div class="w-full h-full font-display">
     <img
       :src="require(`assets/img/boss/${boss.img.decor}`)"
       alt=""

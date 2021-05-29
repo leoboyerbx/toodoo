@@ -10,7 +10,7 @@
     <!--    <p class="absolute top-1/3 text-right right-36 text-md w-96">-->
     <!--      {{ boss.introSentence }}-->
     <!--    </p>-->
-    <h1 class="text-2xl font-bold">Vous êtes prêts ?</h1>
+    <h1 class="text-2xl font-bold font-display">Vous êtes prêts ?</h1>
     <div class="grid grid-cols-3 w-full justify-items-center items-center my-8">
       <div class="flex w-96 flex-wrap">
         <div
