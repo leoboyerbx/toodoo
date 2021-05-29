@@ -48,10 +48,15 @@ export default {
 </script>
 <style scoped>
 .player-numbers-enter-active,
-.player-numbers-leave-active,
+.player-numbers-leave-active {
+  transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
 .avatar-enter-active,
 .avatar-leave-active {
   transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.player-numbers-enter-active {
+  transition-delay: 0.6s;
 }
 .player-numbers-enter,
 .player-numbers-leave-to {
@@ -66,7 +71,7 @@ export default {
   background-color: #b79bfb;
   width: 100%;
   position: absolute;
-  top: 145px;
+  top: 20vh;
   left: 0;
   height: 40px;
   border-radius: 100%;
