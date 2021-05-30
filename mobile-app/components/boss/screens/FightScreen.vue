@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-screen bg-theme-dark text-white flex flex-col justify-center items-center"
+    class="controller-screen w-full h-screen text-white flex flex-col justify-center items-center"
   >
     <Controller
       v-if="gameContext.turnIndex > -1"
@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import Controller from '@/components/boss/fight/Controller'
+import Controller from '../fight/Controller'
 export default {
   components: { Controller },
   computed: {
@@ -29,3 +29,9 @@ export default {
   },
 }
 </script>
+<style scoped>
+.controller-screen {
+  background-image: url('assets/img/controller-bg.svg');
+  background-size: cover;
+}
+</style>
