@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Rugissement",
+    "cost": 15,
+    "effect": {
+      "attack": 10
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Régénération",
+    "cost": 12,
+    "effect": {
+      "heal": 10
+    },
+    "target": "self"
+  },
+  {
+    "name": "Bulle lumineuse",
+    "cost": 30,
+    "effect": {
+      "protect": true
+    },
+    "target": "allPlayers"
+  },
+  {
+    "name": "Jouvence",
+    "cost": 15,
+    "effect": {
+      "heal": 5
+    },
+    "target": "allPlayers"
+  },
+  {
+    "name": "Rugissement",
+    "cost": 15,
+    "effect": {
+      "attack": 10
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Régénération",
+    "cost": 12,
+    "effect": {
+      "heal": 10
+    },
+    "target": "self"
+  },
+  {
+    "name": "Arrosage",
+    "cost": 10,
+    "effect": {
+      "attack": 10
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Bombe à eau",
+    "cost": 30,
+    "effect": {
+      "attack": 30
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Muraille",
+    "cost": 15,
+    "effect": {
+      "protect": true
+    },
+    "target": "randomPlayer"
+  },
+  {
+    "name": "Baies sauvages",
+    "cost": 10,
+    "effect": {
+      "heal": 10
+    },
+    "target": "randomPlayer"
+  },
+  {
+    "name": "Eruption",
+    "cost": 30,
+    "effect": {
+      "attack": 30
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Braises",
+    "cost": 10,
+    "effect": {
+      "attack": 10
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Rugissement",
+    "cost": 15,
+    "effect": {
+      "attack": 10
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Régénération",
+    "cost": 12,
+    "effect": {
+      "heal": 10
+    },
+    "target": "self"
+  },
+  {
+    "name": "Rugissement",
+    "cost": 15,
+    "effect": {
+      "attack": 10
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Médecine",
+    "cost": 20,
+    "effect": {
+      "heal": 15
+    },
+    "target": "self"
+  },
+  {
+    "name": "Glissement de terrain",
+    "cost": 20,
+    "effect": {
+      "attack": 20
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Vitalité",
+    "cost": 10,
+    "effect": {
+      "heal": 10
+    },
+    "target": "self"
+  },
+  {
+    "name": "Séisme",
+    "cost": 30,
+    "effect": {
+      "attack": 30
+    },
+    "target": "boss"
+  },
+  {
+    "name": "Tsunami",
+    "cost": 30,
+    "effect": {
+      "attack": 30
+    },
+    "target": "boss"
+  }
+]

@@ -1,3 +1,6 @@
+import playersCapabilities from "../../../common/entities/playersCapabilities.json";
+import Capability from "../realtime-game/capabilities/Capability";
+
 /**
  * Utility class to access common code contents
  */
@@ -14,6 +17,14 @@ export default class Common {
     const avatar = await import(`${this.commonDir}/entities/${dir}/${name}`);
     if (!avatar) return null;
     return avatar.default;
+  }
+  /**
+   * Get all capabilities
+   */
+  static getPlayersCapabilities(): Array<Capability> {
+    return playersCapabilities?.map((capability) => {
+      return new Capability(capability);
+    });
   }
 
   /**

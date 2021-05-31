@@ -5,23 +5,5 @@
     "portrait": "maylo-portrait.png",
     "character": "maylo-character.png"
   },
-  "hp": 100,
-  "capabilities": [
-    {
-      "name": "Eruption",
-      "cost": 30,
-      "effect": {
-        "attack": 30
-      },
-      "target": "boss"
-    },
-    {
-      "name": "Braises",
-      "cost": 10,
-      "effect": {
-        "attack": 10
-      },
-      "target": "boss"
-    }
-  ]
+  "hp": 100
 }
