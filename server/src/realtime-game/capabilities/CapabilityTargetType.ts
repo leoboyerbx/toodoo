@@ -4,4 +4,5 @@ export enum CapabilityTargetType {
   specificPlayer = "specificPlayer",
   self = "self",
   allPlayers = "allPlayers",
+  currentPlayer = "currentPlayer",
 }
