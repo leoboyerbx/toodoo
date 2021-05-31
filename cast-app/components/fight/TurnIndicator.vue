@@ -27,13 +27,22 @@ export default {
     sortedPlayers() {
       const players = this.gameContext.players
       const sorted = []
+      const dead = []
       for (let i = this.gameContext.playerTurn; i < players.length; i++) {
-        sorted.push(players[i])
+        if (players[i].hp <= 0) {
+          dead.push(players[i])
+        } else {
+          sorted.push(players[i])
+        }
       }
       for (let i = 0; i < this.gameContext.playerTurn; i++) {
-        sorted.push(players[i])
+        if (players[i].hp <= 0) {
+          dead.push(players[i])
+        } else {
+          sorted.push(players[i])
+        }
       }
-      return sorted
+      return [...sorted, ...dead]
     },
   },
 }

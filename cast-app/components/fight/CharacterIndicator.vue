@@ -3,7 +3,7 @@
     <img
       :src="require(`assets/img/avatars/${player.img.character}`)"
       alt="Avatar image"
-      class="w-16"
+      class="w-16 transition transition-all duration-200"
       :class="{
         blink:
           gameContext.bossAttack &&
@@ -13,6 +13,7 @@
             player.player.id ||
             gameContext.bossAttack.capabilityResult.capability.target ===
               'allPlayers'),
+        dead: player.hp <= 0,
       }"
     />
     <SmallBar
@@ -47,6 +48,9 @@ export default {
 <style scoped>
 .blink {
   animation: blink 0.4s infinite;
+}
+.dead {
+  filter: grayscale(1) brightness(0.8);
 }
 @keyframes blink {
   0% {
