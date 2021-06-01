@@ -5,23 +5,5 @@
     "portrait": "jujub-portrait.png",
     "character": "jujub-character.png"
   },
-  "hp": 100,
-  "capabilities": [
-    {
-      "name": "Arrosage",
-      "cost": 10,
-      "effect": {
-        "attack": 10
-      },
-      "target": "boss"
-    },
-    {
-      "name": "Bombe à eau",
-      "cost": 30,
-      "effect": {
-        "attack": 30
-      },
-      "target": "boss"
-    }
-  ]
+  "hp": 100
 }

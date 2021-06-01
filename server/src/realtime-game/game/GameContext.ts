@@ -8,6 +8,7 @@ import { delay } from "../../helpers/timers";
 import EventEmitter from "events";
 import BossAttackResult from "../capabilities/BossAttackResult";
 import { CapabilityUsageResult } from "../capabilities/CapabilityUsageResult";
+import CapabilitiesMapper from "../capabilities/CapabilitiesMapper";
 
 /**
  * Class representing the current game context
@@ -28,6 +29,8 @@ export default class GameContext extends EventEmitter {
   public winner: string = null;
 
   public capabilitiesHistory: CapabilityUsageResult[] = [];
+
+  public capabilitiesMapper = new CapabilitiesMapper();
 
   constructor() {
     super();
@@ -67,6 +70,8 @@ export default class GameContext extends EventEmitter {
       avatar.energy = player.points;
       this.players.push(new PlayerEntity(avatar, player));
     }
+    this.mapCapabilities();
+    console.log(this.players);
   }
 
   /**
@@ -88,7 +93,18 @@ export default class GameContext extends EventEmitter {
     } else {
       this.playerTurn = index;
       this.turnEntity = this.players[index];
+      if (this.turnIndex === 0) {
+        this.onFirstPlayerTurn();
+      }
     }
+  }
+
+  onFirstPlayerTurn() {
+    this.mapCapabilities();
+  }
+
+  mapCapabilities() {
+    this.capabilitiesMapper.mapRandomCapabilitiesToPlayers(this.players);
   }
 
   /**

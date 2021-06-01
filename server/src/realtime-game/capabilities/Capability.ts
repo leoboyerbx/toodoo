@@ -47,6 +47,9 @@ export default class Capability {
       case CapabilityTargetType.allPlayers:
         target = new CapabilityTarget(context.players);
         break;
+      case CapabilityTargetType.currentPlayer:
+        target = new CapabilityTarget(context.players[context.playerTurn]);
+        break;
       case CapabilityTargetType.self:
         target = new CapabilityTarget(context.turnEntity);
         break;

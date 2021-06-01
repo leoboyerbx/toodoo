@@ -5,23 +5,5 @@
     "portrait": "clomo-portrait.png",
     "character": "clomo-character.png"
   },
-  "hp": 100,
-  "capabilities": [
-    {
-      "name": "Bulle lumineuse",
-      "cost": 30,
-      "effect": {
-        "protect": true
-      },
-      "target": "allPlayers"
-    },
-    {
-      "name": "Jouvence",
-      "cost": 15,
-      "effect": {
-        "heal": 5
-      },
-      "target": "allPlayers"
-    }
-  ]
+  "hp": 100
 }

@@ -5,23 +5,5 @@
     "portrait": "lyo-portrait.png",
     "character": "lyo-character.png"
   },
-  "hp": 100,
-  "capabilities": [
-    {
-      "name": "Muraille",
-      "cost": 15,
-      "effect": {
-        "protect": true
-      },
-      "target": "randomPlayer"
-    },
-    {
-      "name": "Baies sauvages",
-      "cost": 10,
-      "effect": {
-        "heal": 10
-      },
-      "target": "randomPlayer"
-    }
-  ]
+  "hp": 100
 }

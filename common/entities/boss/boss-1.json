@@ -19,7 +19,7 @@
             "effect": {
                 "attack": 30
             },
-            "target": "randomPlayer"
+            "target": "currentPlayer"
         },
         {
             "name": "Rinçage",

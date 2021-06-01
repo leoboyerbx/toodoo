@@ -5,23 +5,5 @@
     "portrait": "vinou-portrait.png",
     "character": "vinou-character.png"
   },
-  "hp": 100,
-  "capabilities": [
-    {
-      "name": "Glissement de terrain",
-      "cost": 20,
-      "effect": {
-        "attack": 20
-      },
-      "target": "boss"
-    },
-    {
-      "name": "Vitalité",
-      "cost": 10,
-      "effect": {
-        "heal": 10
-      },
-      "target": "self"
-    }
-  ]
+  "hp": 100
 }
