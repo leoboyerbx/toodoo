@@ -8,6 +8,9 @@ export const state = () => ({
   ponctualMissionsListData: {
     missionsList: [],
   },
+  missionsManagerData: {
+    missionsList: [],
+  },
 })
 
 export const getters = {
@@ -25,6 +28,9 @@ export const mutations = {
   },
   setPonctualMissionsList(state, set) {
     state.ponctualMissionsListData.missionsList = set.missionsFiltered
+  },
+  setMissionsManagerList(state, set) {
+    state.missionsManagerData.missionsList = set.missions
   },
 }
 
@@ -81,6 +87,13 @@ export const actions = {
     })
     commit('setPonctualMissionsList', {
       missionsFiltered,
+    })
+  },
+  fetchMissionsManagerData({ commit, rootState }) {
+    const missions = rootState.apiService.missions
+    console.log(missions)
+    commit('setMissionsManagerList', {
+      missions,
     })
   },
 }
