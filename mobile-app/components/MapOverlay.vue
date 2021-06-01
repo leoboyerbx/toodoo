@@ -6,11 +6,13 @@
       :icon-url="require(`@/assets/ionic-md-stats.png`)"
       icon-alt="Texte alternatif"
     ></CircleButton>
-    <CircleButton
-      id="calendar-btn"
-      :icon-url="require(`@/assets/awesome-calendar-plus.png`)"
-      icon-alt="Texte alternatif"
-    ></CircleButton>
+    <NuxtLink to="/missions-manager">
+      <CircleButton
+        id="calendar-btn"
+        :icon-url="require(`@/assets/awesome-calendar-plus.png`)"
+        icon-alt="Texte alternatif"
+      ></CircleButton>
+    </NuxtLink>
   </div>
 </template>
 

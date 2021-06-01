@@ -26,7 +26,7 @@
         :mission="pin.mission"
         @open="moveCurrentCharacter(pin.position)"
       />
-      <NuxtLink to="/ponctual-missions">
+      <NuxtLink to="/missions-manager">
         <DailyGuide />
       </NuxtLink>
     </div>
