@@ -7,6 +7,7 @@
       >
         <unicon name="arrow-left" fill="#b5b1fe" />
       </button>
+      <DailyGuide class="right-0" />
       <div
         class="flex flex-row flex-nowrap justify-between max-w-4xl mt-5 mx-auto"
       >
@@ -47,10 +48,11 @@
 
 <script>
 import MissionControlLine from '../components/MissionControlLine'
+import DailyGuide from '../components/DailyGuide'
 
 export default {
   name: 'MissionsControl',
-  components: { MissionControlLine },
+  components: { MissionControlLine, DailyGuide },
   data: () => {
     return {
       displayPonctual: false,
