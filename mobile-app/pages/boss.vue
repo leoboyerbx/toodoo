@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="select-none">
     <component :is="`${$store.state.bossSync.currentScreen}-screen`" />
   </div>
 </template>
