@@ -13,7 +13,6 @@ export default {
 <style scoped>
 .daily-guide {
   position: absolute;
-  left: 8%;
   top: 5px;
   height: auto;
   width: 200px;
