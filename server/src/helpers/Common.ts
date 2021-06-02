@@ -1,4 +1,4 @@
-import playersCapabilities from "../../data/playersCapabilities.json";
+import playersCapabilities from "../data/playersCapabilities.json";
 import Capability from "../realtime-game/capabilities/Capability";
 
 /**
