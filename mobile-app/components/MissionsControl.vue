@@ -56,7 +56,26 @@ export default {
   },
   computed: {
     missions() {
-      return this.$store.state.viewModel.missionsManagerData.missionsList
+      const arrayToReturn = []
+      if (!this.displayPonctual) {
+        this.$store.state.viewModel.missionsManagerData.missionsList.forEach(
+          (mission) => {
+            if (mission.ponctual === false) {
+              arrayToReturn.push(mission)
+            }
+          }
+        )
+      } else {
+        this.$store.state.viewModel.missionsManagerData.missionsList.forEach(
+          (mission) => {
+            if (mission.ponctual === true) {
+              arrayToReturn.push(mission)
+            }
+          }
+        )
+      }
+
+      return arrayToReturn
     },
   },
   methods: {
