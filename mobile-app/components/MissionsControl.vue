@@ -7,19 +7,21 @@
       >
         <unicon name="arrow-left" fill="#b5b1fe" />
       </button>
-      <div class="flex flex-row flex-nowrap justify-between max-w-4xl mt-5">
+      <div
+        class="flex flex-row flex-nowrap justify-between max-w-4xl mt-5 mx-auto"
+      >
         <div
-          class="flex flex-row flex-nowrap justify-between mx-auto bg-white rounded-md p-1"
+          class="flex flex-row flex-nowrap justify-between bg-white rounded-lg p-1 shadow-2xl"
         >
           <div
-            class="pt-2 pb-2 pl-4 pr-4 rounded-md"
+            class="pt-2 pb-2 pl-4 pr-4 rounded-lg"
             :class="{ 'text-white bg-theme-light': displayPonctual === false }"
             @click="changeListFilter"
           >
             Quotidien
           </div>
           <div
-            class="pt-2 pb-2 pl-4 pr-4 rounded-md"
+            class="pt-2 pb-2 pl-4 pr-4 rounded-lg"
             :class="{ 'text-white bg-theme-light': displayPonctual === true }"
             @click="changeListFilter"
           >
