@@ -91,7 +91,6 @@ export const actions = {
   },
   fetchMissionsManagerData({ commit, rootState }) {
     const missions = rootState.apiService.missions
-    console.log(missions)
     commit('setMissionsManagerList', {
       missions,
     })
