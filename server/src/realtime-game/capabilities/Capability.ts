@@ -11,6 +11,7 @@ export default class Capability {
   public cost: number;
   public target: CapabilityTargetType;
   public effect: CapabilityEffect;
+  public animationSegment: Array<string>;
 
   constructor(data) {
     Object.assign(this, data);

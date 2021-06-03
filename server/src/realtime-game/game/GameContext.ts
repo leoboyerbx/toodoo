@@ -153,7 +153,7 @@ export default class GameContext extends EventEmitter {
    * Call the boss to play his turn, and emitting teh related event after that
    */
   async playBossTurn() {
-    await delay(3000);
+    await delay(3433);
     this.bossAttack = this.boss.playTurn(this);
     this.emit("bossPlay");
   }

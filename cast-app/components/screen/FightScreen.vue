@@ -25,11 +25,19 @@
     <TurnIndicator class="absolute top-10 left-12" />
     <CurrentPlayer class="absolute left-72 bottom-10" />
 
-    <AttacksAnimation
+    <CapabilityAnimation
       class="absolute top-0 left-0 h-full w-full z-50"
-      animation-file="lottiefiles/boss1.json"
-      start-marker="loopboss"
-      end-marker="loopboss_blessed"
+      :animation-data="boss.animation"
+      :hit="
+        gameContext.capabilitiesHistory[0] &&
+        gameContext.capabilitiesHistory[0].capability.target === 'boss'
+      "
+      :current-capability-segment="
+        (gameContext.bossAttack &&
+          gameContext.bossAttack.capabilityResult.capability
+            .animationSegment) ||
+        null
+      "
     />
     <p
       v-if="gameContext.bossAttack && gameContext.bossAttack.message"
@@ -43,9 +51,9 @@
 import LifeBar from '../fight/LifeBar'
 import TurnIndicator from '../fight/TurnIndicator'
 import CurrentPlayer from '../fight/CurrentPlayer'
-import AttacksAnimation from '../fight/AttacksAnimation'
+import CapabilityAnimation from '../fight/CapabilityAnimation'
 export default {
-  components: { AttacksAnimation, CurrentPlayer, TurnIndicator, LifeBar },
+  components: { CapabilityAnimation, CurrentPlayer, TurnIndicator, LifeBar },
   computed: {
     gameContext() {
       return this.$store.state.bossSync.gameContext
