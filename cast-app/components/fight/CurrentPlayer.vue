@@ -2,12 +2,13 @@
   <div class="flex flex-col items-center text-lg">
     <div class="undersocle"></div>
     <transition name="avatar" mode="out-in">
-      <img
-        :key="player.player.id"
-        :src="require(`assets/img/avatars/${player.img.character}`)"
-        alt=""
-        class="w-56 block mb-5 relative z-10"
-      />
+      <div :key="player.player.id" class="relative">
+        <img
+          :src="require(`assets/img/avatars/${player.img.character}`)"
+          alt=""
+          class="w-56 block mb-5 relative z-10 floating-avatar"
+        />
+      </div>
     </transition>
     <transition name="player-numbers" mode="out-in">
       <div :key="player.player.id" class="flex flex-col items-center">
@@ -46,7 +47,7 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .player-numbers-enter-active,
 .player-numbers-leave-active {
   transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -76,5 +77,25 @@ export default {
   height: 8vh;
   border-radius: 100%;
   opacity: 30%;
+}
+
+.floating-avatar {
+  animation: float 2s ease infinite alternate;
+}
+
+$floatingAmplitude: 8px;
+@keyframes float {
+  //from {
+  //  transform: translateY(0);
+  //}
+  from {
+    transform: translateY(-1 * $floatingAmplitude);
+  }
+  to {
+    transform: translateY($floatingAmplitude);
+  }
+  //to {
+  //  transform: translateY(0);
+  //}
 }
 </style>
