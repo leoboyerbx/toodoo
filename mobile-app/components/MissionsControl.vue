@@ -96,9 +96,9 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  clip-path: ellipse(45% 30% at 0% 0%);
+  clip-path: ellipse(45% 35% at 0% 0%);
   width: 100%;
-  height: 150%;
+  height: 145%;
   background-color: #ae91ff;
 }
 </style>
