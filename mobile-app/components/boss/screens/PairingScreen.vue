@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex justify-center items-center">
+  <div class="w-full h-full flex justify-center items-center bg-controller">
     <div v-if="!$config.devPair">
       <div class="w-64 h-64">
         <QrcodeStream @decode="onDecode"></QrcodeStream>
@@ -101,3 +101,10 @@ export default {
   },
 }
 </script>
+<style scoped>
+.bg-controller {
+  height: 100vh;
+  background-image: url('~assets/img/controller-bg-pairing.svg');
+  background-size: cover;
+}
+</style>

@@ -19,7 +19,7 @@ if (nodeEnv === 'tunnel') {
   publicRuntimeConfig = {
     API_URL: `http://${ip}:7554`,
     baseUrl: `http://${ip}:3002`,
-    devPair: true,
+    // devPair: true,
   }
 } else {
   publicRuntimeConfig = {
@@ -96,6 +96,7 @@ export default {
     port: 3002,
   },
   alias: {
+    components: resolve(__dirname, 'components'),
     common: resolve(__dirname, '../common'),
   },
 }
