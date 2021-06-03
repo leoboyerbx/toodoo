@@ -10,6 +10,11 @@
             "y": 29
         }
     },
+    "animation": {
+        "lottieFile": "boss1.json",
+        "idleAnimationSegment": ["loopboss", "loopboss_blessed"],
+        "hitAnimationSegment": ["loopboss_blessed", "loopboss_attack1"]
+    },
     "hp": 150,
     "energy": 100,
     "capabilities": [
@@ -19,7 +24,8 @@
             "effect": {
                 "attack": 30
             },
-            "target": "currentPlayer"
+            "target": "currentPlayer",
+            "animationSegment":["loop_attack2", "end"]
         },
         {
             "name": "Rinçage",
@@ -27,7 +33,8 @@
             "effect": {
                 "attack": 10
             },
-            "target": "allPlayers"
+            "target": "allPlayers",
+            "animationSegment": ["loopboss_attack1", "loop_attack2"]
         },
         {
             "name": "Adoucissant",
@@ -35,7 +42,8 @@
             "effect": {
                 "heal": 30
             },
-            "target": "self"
+            "target": "self",
+            "animationSegment": [""]
         }
     ]
 }

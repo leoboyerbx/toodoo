@@ -4,15 +4,18 @@ import ComputerPlayer from "./ComputerPlayer";
 import PlayerEntity from "./PlayerEntity";
 import BossAttackResult from "../capabilities/BossAttackResult";
 import { BossImg } from "./BossImg";
+import AnimationData from "./AnimationData";
 
 export default class BossEntity extends Entity implements ComputerPlayer {
   img: BossImg;
   introSentence: string;
+  animation: AnimationData;
 
   constructor(data) {
     super(data);
     this.img = data.img;
     this.introSentence = data.introSentence;
+    this.animation = data.animation;
   }
 
   /**
