@@ -58,6 +58,14 @@ export const actions = {
     commit('SET_MISSIONS', response.data.missions)
     commit('SET_PLAYERS', response.data.players)
   },
+  async postMission({ commit, state }, { name, ponctual }) {
+    const response = await axios.post(`${this.$config.API_URL}/missions`, {
+      name,
+      ponctual,
+      teamId: state.game.teamId,
+    })
+    commit('SET_MISSIONS', response.data)
+  },
   async fetchAll({ dispatch }) {
     await dispatch('getGame')
     await dispatch('getPlayers')
