@@ -97,8 +97,8 @@ export default {
   top: 0;
   left: 0;
   clip-path: ellipse(45% 35% at 0% 0%);
-  width: 100%;
-  height: 145%;
+  width: 100vw;
+  height: 75vh;
   background-color: #ae91ff;
 }
 </style>
