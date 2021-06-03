@@ -27,7 +27,7 @@ export default function setupRoutes(app: Express): void {
    * @param id
    */
   app.get("/games/:id", async (req, res) => {
-    const { id } = req.params;
+    const {id} = req.params;
     const games = await prisma.game.findMany({
       where: {
         id: Number(id),
@@ -55,7 +55,7 @@ export default function setupRoutes(app: Express): void {
    * @param id
    */
   app.get("/teams/:id", async (req, res) => {
-    const { id } = req.params;
+    const {id} = req.params;
     const team = await prisma.team.findUnique({
       where: {
         id: Number(id),
@@ -83,7 +83,7 @@ export default function setupRoutes(app: Express): void {
    * @param id
    */
   app.get("/players/:id", async (req, res) => {
-    const { id } = req.params;
+    const {id} = req.params;
     const player = await prisma.player.findUnique({
       where: {
         id: Number(id),
@@ -102,7 +102,7 @@ export default function setupRoutes(app: Express): void {
    * @param id
    */
   app.get("/players/team/:teamId", async (req, res) => {
-    const { teamId } = req.params;
+    const {teamId} = req.params;
     const players = await prisma.player.findMany({
       where: {
         teamId: Number(teamId),
@@ -130,7 +130,7 @@ export default function setupRoutes(app: Express): void {
    * @param id
    */
   app.get("/missions/:id", async (req, res) => {
-    const { id } = req.params;
+    const {id} = req.params;
     const missions = await prisma.mission.findMany({
       where: {
         id: Number(id),
@@ -145,7 +145,7 @@ export default function setupRoutes(app: Express): void {
    * @param id
    */
   app.get("/missions/game/:gameId", async (req, res) => {
-    const { gameId } = req.params;
+    const {gameId} = req.params;
     const missions = await prisma.mission.findMany({
       where: {
         gameId: Number(gameId),
@@ -164,7 +164,7 @@ export default function setupRoutes(app: Express): void {
    * @param id
    */
   app.get("/missions/player/:playerId", async (req, res) => {
-    const { playerId } = req.params;
+    const {playerId} = req.params;
     const missions = await prisma.mission.findMany({
       where: {
         assignTo: Number(playerId),
@@ -178,7 +178,7 @@ export default function setupRoutes(app: Express): void {
    * @param missionId, completeBy, completeDay
    */
   app.post(`/mission-completion`, jsonParser, async (req, res) => {
-    const { missionId, completeBy, completeDay, teamId, gameId } = req.body;
+    const {missionId, completeBy, completeDay, teamId, gameId} = req.body;
     const result = await prisma.missionCompletion.create({
       data: {
         missionId: missionId,
@@ -204,6 +204,23 @@ export default function setupRoutes(app: Express): void {
         completeMissions: true,
       },
     });
-    res.json({ missions: missions, players: players });
+    res.json({missions: missions, players: players});
+  });
+
+  /**
+   * Create a new mission
+   * @param name, ponctual, gameId
+   */
+  app.post(`/mission`, jsonParser, async (req, res) => {
+    const {name, ponctual, gameId} = req.body;
+    const result = await prisma.mission.create({
+      data: {
+        name: name,
+        ponctual: ponctual,
+        active: false,
+        gameId: gameId,
+      },
+    });
+    res.json(result)
   });
 }
