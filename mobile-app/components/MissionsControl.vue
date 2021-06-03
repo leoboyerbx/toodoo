@@ -45,9 +45,11 @@
         <input
           class="max-w-3xl w-full mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pt-2.5 pb-1 pl-3"
           placeholder="Ajouter une tâche |"
+          v-model="newMissionName"
         />
         <div
           class="w-16 h-10 rounded-lg bg-theme-light mt-5 flex justify-center ml-5"
+          @click="addNewMission"
         >
           <span class="font-bold font text-3xl my-auto">
             <unicon name="check" fill="#ffffff" />
@@ -74,6 +76,7 @@ export default {
     return {
       displayPonctual: false,
       addLineOpen: false,
+      newMissionName: '',
     }
   },
   computed: {
@@ -106,6 +109,18 @@ export default {
     },
     toggleAddLine() {
       this.addLineOpen = !this.addLineOpen
+    },
+    addNewMission() {
+      if (this.newMissionName !== '') {
+        this.$store.dispatch('apiService/postMission', {
+          name: this.newMissionName,
+          ponctual: this.displayPonctual,
+        })
+        this.toggleAddLine()
+        this.newMissionName = ''
+      } else {
+        alert('Vous devez renseigner un nom pour ajouter une mission')
+      }
     },
   },
 }
