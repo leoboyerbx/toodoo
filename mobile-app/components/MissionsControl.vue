@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="max-h-1/4 overflow-scroll">
+    <div class="max-h-1/4 overflow-scroll relative bg-shape">
       <button
-        class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white"
+        class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
         @click="$router.go(-1)"
       >
         <unicon name="arrow-left" fill="#b5b1fe" />
       </button>
-      <DailyGuide class="right-0" />
+      <DailyGuide class="right-1/4 top-10" />
       <div
-        class="flex flex-row flex-nowrap justify-between max-w-4xl mt-5 mx-auto"
+        class="flex flex-row flex-nowrap justify-between max-w-4xl mt-60 mx-auto"
       >
         <div
           class="flex flex-row flex-nowrap justify-between bg-white rounded-lg p-1 shadow-2xl"
@@ -90,4 +90,15 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.bg-shape::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: ellipse(45% 30% at 0% 0%);
+  width: 100%;
+  height: 150%;
+  background-color: #ae91ff;
+}
+</style>
