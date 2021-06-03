@@ -33,8 +33,25 @@
       <div class="flex flex-row flex-nowrap justify-between max-w-4xl mx-auto">
         <div
           class="w-10 h-10 rounded-lg bg-theme-light mt-5 flex justify-center"
+          @click="toggleAddLine"
         >
           <span class="text-blue-50 font-bold font text-3xl"> + </span>
+        </div>
+      </div>
+      <div
+        class="flex flex-row flex-nowrap max-w-4xl mx-auto"
+        :class="{ hidden: addLineOpen === false }"
+      >
+        <input
+          class="max-w-3xl w-full mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pt-2.5 pb-1 pl-3"
+          placeholder="Ajouter une tâche |"
+        />
+        <div
+          class="w-16 h-10 rounded-lg bg-theme-light mt-5 flex justify-center ml-5"
+        >
+          <span class="font-bold font text-3xl my-auto">
+            <unicon name="check" fill="#ffffff" />
+          </span>
         </div>
       </div>
       <MissionControlLine
@@ -56,6 +73,7 @@ export default {
   data: () => {
     return {
       displayPonctual: false,
+      addLineOpen: false,
     }
   },
   computed: {
@@ -85,6 +103,9 @@ export default {
   methods: {
     changeListFilter() {
       this.displayPonctual = !this.displayPonctual
+    },
+    toggleAddLine() {
+      this.addLineOpen = !this.addLineOpen
     },
   },
 }
