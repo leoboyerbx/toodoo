@@ -28,6 +28,8 @@
     <AttacksAnimation
       class="absolute top-0 left-0 h-full w-full z-50"
       animation-file="lottiefiles/boss1.json"
+      start-marker="loopboss"
+      end-marker="loopboss_blessed"
     />
     <p
       v-if="gameContext.bossAttack && gameContext.bossAttack.message"
