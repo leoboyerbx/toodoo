@@ -59,8 +59,6 @@ export const actions = {
     commit('SET_PLAYERS', response.data.players)
   },
   async postMission({ commit, state }, { name, ponctual }) {
-    console.log('INSPECTONS')
-    console.log(state.game.id)
     const response = await axios.post(`${this.$config.API_URL}/missions`, {
       name,
       ponctual,
