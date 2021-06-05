@@ -27,7 +27,7 @@
         @open="moveCurrentCharacter(pin.position)"
       />
       <NuxtLink to="/missions-manager">
-        <DailyGuide class="left-96 sticky" />
+        <DailyGuide class="left-96 sticky top-5" />
       </NuxtLink>
     </div>
   </div>
