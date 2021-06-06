@@ -5,18 +5,26 @@
       <span class="text-white font-bold ml-2">{{ name }}</span>
     </div>
     <div class="ml-6 w-56 my-3">
-      <SmallBar :max-value="maxValue" :value="value" :color="color" />
+      <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div
+          class="absolute w-full top-0 left-0 w-full h-full transition-transform duration-300 origin-left"
+          :style="{
+            transform: `scaleX(${animatedValue / maxValue})`,
+            backgroundColor: color,
+          }"
+        ></div>
+      </div>
     </div>
     <div class="ml-auto mt-2 font-bold text-white">
-      {{ value }} / {{ maxValue }}
+      {{ animatedValue }} / {{ maxValue }}
     </div>
   </div>
 </template>
 
 <script>
-import SmallBar from './SmallBar'
+import gsap from 'gsap'
+
 export default {
-  components: { SmallBar },
   props: {
     name: {
       type: String,
@@ -36,9 +44,33 @@ export default {
       required: true,
     },
     color: {
-      type: String,
       required: false,
       default: null,
+    },
+    delay: {
+      type: Number,
+      default: 0,
+    },
+  },
+  data() {
+    return {
+      tweenedValue: this.value,
+    }
+  },
+  computed: {
+    animatedValue() {
+      return this.tweenedValue.toFixed(0)
+    },
+  },
+  watch: {
+    value(newVal, oldVal) {
+      const duration = (Math.abs(oldVal - newVal) / this.maxValue) * 3
+
+      gsap.to(this.$data, {
+        tweenedValue: newVal,
+        duration,
+        delay: 1.8,
+      })
     },
   },
 }

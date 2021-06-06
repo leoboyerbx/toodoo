@@ -8,18 +8,19 @@
     </div>
     <div class="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
       <div
-        class="absolute w-full top-0 left-0 w-full h-full transition-transform duration-300 bg-theme-light"
+        class="absolute w-full top-0 left-0 w-full h-full bg-theme-light"
         :style="{
-          transform: `scaleX(${hp / entity.initialHp})`,
+          transform: `scaleX(${scale})`,
           transformOrigin: `${align}`,
-          transitionDelay: '3s',
         }"
       ></div>
     </div>
-    <div class="mt-4 text-lg">{{ hp }} / {{ entity.initialHp }}</div>
+    <div class="mt-4 text-lg">{{ animateHp }} / {{ entity.initialHp }}</div>
   </div>
 </template>
 <script>
+import gsap from 'gsap'
+
 export default {
   props: {
     name: {
@@ -36,9 +37,31 @@ export default {
       validator: (value) => ['left', 'right'].includes(value),
     },
   },
+  data() {
+    return {
+      tweenedHp: this.entity.hp,
+    }
+  },
   computed: {
     hp() {
       return this.entity.hp
+    },
+    scale() {
+      return this.animateHp / this.entity.initialHp
+    },
+    animateHp() {
+      return this.tweenedHp.toFixed(0)
+    },
+  },
+  watch: {
+    hp(newVal, oldVal) {
+      const duration = (Math.abs(oldVal - newVal) / this.entity.initialHp) * 3
+      console.log(duration)
+      gsap.to(this.$data, {
+        tweenedHp: newVal,
+        duration,
+        delay: 2.3,
+      })
     },
   },
 }
