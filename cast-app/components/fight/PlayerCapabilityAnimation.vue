@@ -5,6 +5,9 @@
     :path="capabilitiesLottie"
     :auto-play="false"
     :loop="false"
+    :style="{
+      filter: `hue-rotate(${hue}deg)`,
+    }"
     @AnimControl="setAnimController"
   />
 </template>
@@ -27,6 +30,7 @@ export default {
     return {
       segmentMarkers: null,
       capabilitiesLottie: capabilitiesAnimations.lottieFile,
+      hue: 0,
     }
   },
   watch: {
@@ -35,6 +39,10 @@ export default {
       const effect = Object.keys(this.capability.capability.effect)[0]
       const target = this.capability.capability.target
       if (effect && target) {
+        this.hue =
+          effect === 'attack'
+            ? this.gameContext.players[this.gameContext.playerTurn].hue
+            : 0
         const segment = getCapabilityAnimation(
           effect,
           target,
@@ -54,7 +62,6 @@ export default {
     },
     updatePlayingSegment(playImmediately = false) {
       if (this.anim) {
-        console.log(this.segmentMarkers)
         // const startMark = this.anim.markers.find((marker) => {
         //   return marker.payload.name.cm === this.segmentMarkers[0]
         // })
@@ -64,11 +71,6 @@ export default {
         let startMark = null
         let endMark = null
         for (const marker of this.anim.markers) {
-          console.log(
-            marker.payload.name.cm,
-            this.segmentMarkers[0],
-            this.segmentMarkers[1]
-          )
           if (marker.payload.name.cm.trim() === this.segmentMarkers[0].trim()) {
             startMark = marker
           } else if (
@@ -78,7 +80,6 @@ export default {
           }
           if (startMark && endMark) break
         }
-        console.log(startMark, endMark)
         if (startMark && endMark) {
           this.anim.playSegments(
             [startMark.time, endMark.time],
