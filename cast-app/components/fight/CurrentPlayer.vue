@@ -7,6 +7,16 @@
           :src="require(`assets/img/avatars/${player.img.character}`)"
           alt=""
           class="w-56 block mb-5 relative z-10 floating-avatar"
+          :class="{
+            playerhurt:
+              gameContext.bossAttack &&
+              gameContext.bossAttack.capabilityResult.capability.target !==
+                'self' &&
+              (gameContext.bossAttack.capabilityResult.effectiveTarget.player
+                .id === player.player.id ||
+                gameContext.bossAttack.capabilityResult.capability.target ===
+                  'allPlayers'),
+          }"
         />
       </div>
     </transition>

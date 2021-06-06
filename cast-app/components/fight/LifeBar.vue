@@ -12,6 +12,7 @@
         :style="{
           transform: `scaleX(${hp / entity.initialHp})`,
           transformOrigin: `${align}`,
+          transitionDelay: '3s',
         }"
       ></div>
     </div>

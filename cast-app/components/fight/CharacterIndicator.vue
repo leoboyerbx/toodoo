@@ -46,24 +46,7 @@ export default {
 </script>
 
 <style scoped>
-.blink {
-  animation: blink 0.4s infinite 0.2s;
-}
 .dead {
   filter: grayscale(1) brightness(0.8);
-}
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  49% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 </style>

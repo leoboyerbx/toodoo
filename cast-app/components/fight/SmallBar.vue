@@ -5,6 +5,7 @@
       :style="{
         transform: `scaleX(${value / maxValue})`,
         backgroundColor: color,
+        transitionDelay: '1s',
       }"
     ></div>
   </div>

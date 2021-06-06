@@ -26,7 +26,7 @@
     <CurrentPlayer class="absolute left-72 bottom-10" />
 
     <BossAnimation
-      class="absolute top-0 left-0 h-full w-full z-40"
+      class="absolute top-0 left-0 h-full w-full z-40 pointer-events-none"
       :animation-data="boss.animation"
       :hit="
         gameContext.capabilitiesHistory[0] &&
@@ -40,7 +40,7 @@
       "
     />
     <PlayerCapabilityAnimation
-      class="absolute top-0 left-0 h-full w-full z-50"
+      class="absolute top-0 left-0 h-full w-full z-50 pointer-events-none"
       :capability="gameContext.playerAttack ? gameContext.playerAttack : null"
     />
 
