@@ -1,6 +1,7 @@
 {
   "name": "Joy",
   "color": "#FD7605",
+  "hue": 32,
   "img": {
     "portrait": "joy-portrait.png",
     "character": "joy-character.png"

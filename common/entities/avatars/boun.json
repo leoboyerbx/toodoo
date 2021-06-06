@@ -1,6 +1,7 @@
 {
   "name": "Boun",
   "color": "#FFA3D5",
+  "hue": -28,
   "img": {
     "portrait": "boun-portrait.png",
     "character": "boun-character.png"

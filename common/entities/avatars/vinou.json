@@ -1,6 +1,7 @@
 {
   "name": "Vinou",
   "color": "#FF9F0D",
+  "hue": 58,
   "img": {
     "portrait": "vinou-portrait.png",
     "character": "vinou-character.png"

@@ -8,6 +8,7 @@ import { AvatarImg } from "./AvatarImg";
 export default class PlayerEntity extends Entity {
   img: AvatarImg;
   color: string;
+  hue: number;
   player: Player;
 
   constructor(avatarData, player: Player) {
@@ -15,6 +16,7 @@ export default class PlayerEntity extends Entity {
     this.img = avatarData.img;
     this.player = player;
     this.color = avatarData.color ?? "#f00";
+    this.hue = avatarData.hue ?? 0;
     this.capabilities = []; // capabilities are not defined by the avatar
   }
 }

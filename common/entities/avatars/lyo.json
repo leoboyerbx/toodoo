@@ -1,6 +1,7 @@
 {
   "name": "Lyo",
   "color": "#74D1FF",
+  "hue": 74,
   "img": {
     "portrait": "lyo-portrait.png",
     "character": "lyo-character.png"

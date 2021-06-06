@@ -1,6 +1,7 @@
 {
   "name": "Maylo",
   "color": "#FC3F52",
+  "hue": 0,
   "img": {
     "portrait": "maylo-portrait.png",
     "character": "maylo-character.png"
