@@ -7,7 +7,7 @@
     <div class="ml-6 w-56 my-3">
       <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
         <div
-          class="absolute w-full top-0 left-0 w-full h-full transition-transform duration-300 origin-left"
+          class="absolute w-full top-0 left-0 w-full h-full origin-left"
           :style="{
             transform: `scaleX(${animatedValue / maxValue})`,
             backgroundColor: color,

@@ -22,11 +22,13 @@
       :value="player.hp"
       :max-value="player.initialHp"
     />
-    <img
-      v-if="player.protected"
-      class="absolute top-11 right-2 transition-transform duration-200 w-5"
-      src="~assets/img/shield.svg"
-    />
+    <transition name="shield">
+      <img
+        v-if="player.protected"
+        class="absolute top-11 right-2 transition-transform duration-200 w-5"
+        src="~assets/img/shield.svg"
+      />
+    </transition>
   </div>
 </template>
 <script>
@@ -48,5 +50,18 @@ export default {
 <style scoped>
 .dead {
   filter: grayscale(1) brightness(0.8);
+}
+.shield-enter-active {
+  transition: all 0.5s ease-out 2s;
+}
+.shield-leave-active {
+  transition: all 0.1s 1s;
+}
+.shield-enter,
+.shield-leave-to {
+  opacity: 0;
+}
+.shield-enter {
+  transform: scale(1.5);
 }
 </style>
