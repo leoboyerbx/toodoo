@@ -1,0 +1,30 @@
+{
+  "lottieFile": "lottiefiles/capabilities.json",
+  "segments":{
+    "attack":{
+      "boss": ["capa_attack", "capa_shield_self"]
+    },
+    "heal": {
+      "self": ["capa_heal_self", "capa_heal_other"],
+      "specificPlayer": ["capa_heal_other", "capa_shield_2"],
+      "allPlayers": {
+        "2players": ["capa_heal_2", "capa_heal_3"],
+        "3players": ["capa_heal_3", "capa_heal_4"],
+        "4players": ["capa_heal_4", "capa_heal_5"],
+        "5players": ["capa_heal_5", "capa_heal_6"],
+        "6players": ["capa_heal_6", "capa_shield_other"]
+      }
+    },
+    "protect": {
+      "self": ["capa_shield_self", "capa_heal_self"],
+      "specificPlayer": ["capa_shield_other", "capa_end"],
+      "allPlayers": {
+        "2players": ["capa_shield_2", "capa_shield_3"],
+        "3players": ["capa_shield_3", "capa_shield_4"],
+        "4players": ["capa_shield_4", "capa_shield_5"],
+        "5players": ["capa_shield_5", "capa_shield_6"],
+        "6players": ["capa_shield_6", "capa_heal_2"]
+      }
+    }
+  }
+}

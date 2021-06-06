@@ -25,8 +25,8 @@
     <TurnIndicator class="absolute top-10 left-12" />
     <CurrentPlayer class="absolute left-72 bottom-10" />
 
-    <CapabilityAnimation
-      class="absolute top-0 left-0 h-full w-full z-50"
+    <BossAnimation
+      class="absolute top-0 left-0 h-full w-full z-40"
       :animation-data="boss.animation"
       :hit="
         gameContext.capabilitiesHistory[0] &&
@@ -39,6 +39,11 @@
         null
       "
     />
+    <PlayerCapabilityAnimation
+      class="absolute top-0 left-0 h-full w-full z-50"
+      :capability="gameContext.playerAttack ? gameContext.playerAttack : null"
+    />
+
     <p
       v-if="gameContext.bossAttack && gameContext.bossAttack.message"
       class="text-lg absolute w-96 text-white bottom-10 left-1/2"
@@ -48,12 +53,20 @@
   </div>
 </template>
 <script>
+import PlayerCapabilityAnimation from '@/components/fight/PlayerCapabilityAnimation'
 import LifeBar from '../fight/LifeBar'
 import TurnIndicator from '../fight/TurnIndicator'
 import CurrentPlayer from '../fight/CurrentPlayer'
-import CapabilityAnimation from '../fight/CapabilityAnimation'
+import BossAnimation from '../fight/BossAnimation'
+
 export default {
-  components: { CapabilityAnimation, CurrentPlayer, TurnIndicator, LifeBar },
+  components: {
+    BossAnimation,
+    CurrentPlayer,
+    TurnIndicator,
+    LifeBar,
+    PlayerCapabilityAnimation,
+  },
   computed: {
     gameContext() {
       return this.$store.state.bossSync.gameContext

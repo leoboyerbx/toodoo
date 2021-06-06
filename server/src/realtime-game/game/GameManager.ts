@@ -109,8 +109,11 @@ export default class GameManager {
    */
   private async currentPlayerUseCapability(capability: Capability) {
     if (this.context.turnIndex < 0) return;
-    capability.use(this.context);
+    this.context.playerAttack = capability.use(this.context);
+    this.broadcastState();
+    await delay(6000);
     this.context.nextTurn();
+    this.context.playerAttack = null;
     this.broadcastState();
   }
 

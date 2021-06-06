@@ -36,7 +36,6 @@ export default {
       this.onAnimationChange()
     },
     hit() {
-      console.log('hey')
       this.onAnimationChange()
     },
   },
@@ -53,7 +52,6 @@ export default {
     },
     setBossAnimController(controller) {
       this.anim = controller
-      window.anim = controller
       this.onAnimationChange()
     },
     updatePlayingSegment(playImmediately = false) {

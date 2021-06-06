@@ -26,6 +26,7 @@ export default class GameContext extends EventEmitter {
   public turnEntity?: Entity;
 
   public bossAttack?: BossAttackResult;
+  public playerAttack?: CapabilityUsageResult;
   public winner: string = null;
 
   public capabilitiesHistory: CapabilityUsageResult[] = [];
@@ -153,7 +154,7 @@ export default class GameContext extends EventEmitter {
    * Call the boss to play his turn, and emitting teh related event after that
    */
   async playBossTurn() {
-    await delay(3433);
+    // await delay(3433);
     this.bossAttack = this.boss.playTurn(this);
     this.emit("bossPlay");
   }

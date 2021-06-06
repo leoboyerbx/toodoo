@@ -8,7 +8,6 @@ class BossFightHaptic {
   contextUpdated(gameContext) {
     const capabilityTarget =
       gameContext.bossAttack?.capabilityResult.capability.target;
-    console.log(capabilityTarget);
     if (capabilityTarget && capabilityTarget.toLowerCase().includes("player")) {
       this.playerHurt();
     }
