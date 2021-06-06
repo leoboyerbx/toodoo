@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 .blink {
-  animation: blink 0.4s infinite;
+  animation: blink 0.4s infinite 0.2s;
 }
 .dead {
   filter: grayscale(1) brightness(0.8);

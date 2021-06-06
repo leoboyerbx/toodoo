@@ -19,7 +19,7 @@ if (nodeEnv === 'tunnel') {
   publicRuntimeConfig = {
     API_URL: `http://${ip}:7554`,
     baseUrl: `http://${ip}:3002`,
-    // devPair: true,
+    devPair: true,
   }
 } else {
   publicRuntimeConfig = {

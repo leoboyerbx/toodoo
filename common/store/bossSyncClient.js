@@ -1,3 +1,5 @@
+import bossFightHaptic from "../helpers/bossFightHaptic";
+
 export const state = () => ({
   currentScreen: "pairing",
   clientType: "",
@@ -13,6 +15,7 @@ export const mutations = {
   },
   setGameContext(state, context) {
     state.gameContext = context;
+    bossFightHaptic.contextUpdated(context);
   },
 };
 

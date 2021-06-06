@@ -30,6 +30,8 @@
   </a>
 </template>
 <script>
+import haptic from 'common/helpers/haptic'
+
 export default {
   props: {
     capability: {
@@ -48,6 +50,7 @@ export default {
   },
   methods: {
     use() {
+      haptic.vibrate(30)
       if (!this.disabled) this.$emit('use')
     },
   },
