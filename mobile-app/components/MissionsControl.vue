@@ -77,6 +77,7 @@ export default {
       displayPonctual: false,
       addLineOpen: false,
       newMissionName: '',
+      assignPlayerQueue: [],
     }
   },
   computed: {
@@ -121,6 +122,17 @@ export default {
       } else {
         alert('Vous devez renseigner un nom pour ajouter une mission')
       }
+    },
+    addToPlayerAssignQueue(queryParam) {
+      for (let i = 0; i < this.assignPlayerQueue.length; i++) {
+        if (this.assignPlayerQueue[i].missionId === queryParam.missionId) {
+          this.assignPlayerQueue[i].playerId = queryParam.missionId
+          console.log(this.assignPlayerQueue)
+          return
+        }
+      }
+      this.assignPlayerQueue.push(queryParam)
+      console.log(this.assignPlayerQueue)
     },
   },
 }

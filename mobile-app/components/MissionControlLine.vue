@@ -34,7 +34,12 @@
           class="absolute top-8 bg-theme-light pl-1 pr-1 pt-1.5 rounded-b-lg z-10"
           :class="{ hidden: listOfCharacterOpen === false }"
         >
-          <div v-for="player in players" :key="player.id" class="avatar w-8">
+          <div
+            v-for="player in players"
+            :key="player.id"
+            class="avatar w-8"
+            @click="queueNewAssignement(player.id)"
+          >
             <AvatarImg :avatar-name="player.avatar" avatar-type="portrait" />
           </div>
         </div>
@@ -69,6 +74,11 @@ export default {
     },
     displayPlayerList() {
       this.listOfCharacterOpen = !this.listOfCharacterOpen
+    },
+    queueNewAssignement(playerId) {
+      const missionId = this.$props.mission.id
+      this.$parent.addToPlayerAssignQueue({ missionId, playerId })
+      this.listOfCharacterOpen = false
     },
   },
 }
