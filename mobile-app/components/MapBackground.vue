@@ -25,4 +25,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.st0 {
+  opacity: 0;
+}
+</style>
