@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <div class="max-h-1/4 overflow-scroll relative bg-shape">
-      <button
-        class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
-        @click="$router.go(-1)"
-      >
-        <unicon name="arrow-left" fill="#b5b1fe" />
-      </button>
-      <DailyGuide class="right-1/4 top-10" />
+  <div class="fullscreen bg-shape relative">
+    <div class="absolute font-display z-15">VOS MISSIONS</div>
+    <button
+      class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
+      @click="$router.go(-1)"
+    >
+      <unicon name="arrow-left" fill="#b5b1fe" />
+    </button>
+    <DailyGuide class="right-1/4 top-10" />
+    <div class="max-h-3/4 relative">
       <div
         class="flex flex-row flex-nowrap justify-between max-w-4xl mt-60 mx-auto"
       >
@@ -56,11 +57,13 @@
           </span>
         </div>
       </div>
-      <MissionControlLine
-        v-for="mission in missions"
-        :key="mission.id"
-        :mission="mission"
-      />
+      <div class="overflow-scroll max-h-1/4 missions-container">
+        <MissionControlLine
+          v-for="mission in missions"
+          :key="mission.id"
+          :mission="mission"
+        />
+      </div>
     </div>
     <button
       class="absolute bottom-7 right-7 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
@@ -169,6 +172,13 @@ export default {
 </script>
 
 <style scoped>
+.bg-shape {
+  background: linear-gradient(
+    137deg,
+    rgba(72, 56, 141, 1) 30%,
+    rgba(172, 168, 241, 1) 100%
+  );
+}
 .bg-shape::after {
   content: '';
   position: absolute;
@@ -178,5 +188,8 @@ export default {
   width: 100vw;
   height: 75vh;
   background-color: #ae91ff;
+}
+.missions-container {
+  max-height: 50vh;
 }
 </style>
