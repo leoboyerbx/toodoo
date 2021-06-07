@@ -63,6 +63,9 @@ export default {
       listOfCharacterOpen: false,
     }
   },
+  mounted() {
+    this.$data.isActive = this.$props.mission.active
+  },
   computed: {
     players() {
       return this.$store.state.apiService.players
