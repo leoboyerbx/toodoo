@@ -62,6 +62,12 @@
         :mission="mission"
       />
     </div>
+    <button
+      class="absolute bottom-7 right-7 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
+      @click="makeAllQueries"
+    >
+      <unicon name="check" fill="#b5b1fe" />
+    </button>
   </div>
 </template>
 
@@ -128,23 +134,33 @@ export default {
       for (let i = 0; i < this.assignPlayerQueue.length; i++) {
         if (this.assignPlayerQueue[i].missionId === queryParam.missionId) {
           this.assignPlayerQueue[i].playerId = queryParam.missionId
-          console.log(this.assignPlayerQueue)
           return
         }
       }
       this.assignPlayerQueue.push(queryParam)
-      console.log(this.assignPlayerQueue)
     },
     addToActiveMissionQueue(queryParam) {
       for (let i = 0; i < this.activeMissionQueue.length; i++) {
         if (this.activeMissionQueue[i].missionId === queryParam.missionId) {
           this.activeMissionQueue[i].active = queryParam.active
-          console.log(this.activeMissionQueue)
           return
         }
       }
       this.activeMissionQueue.push(queryParam)
-      console.log(this.activeMissionQueue)
+    },
+    makeAllQueries() {
+      this.assignPlayerQueue.forEach((data) => {
+        this.$store.dispatch('apiService/assignPlayer', {
+          playerId: data.playerId,
+          missionId: data.missionId,
+        })
+      })
+      this.activeMissionQueue.forEach((data) => {
+        this.$store.dispatch('apiService/activateMission', {
+          active: data.active,
+          missionId: data.missionId,
+        })
+      })
     },
   },
 }
