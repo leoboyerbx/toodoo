@@ -1,10 +1,10 @@
 <template>
   <a
-    class="text-theme-dark px-6 py-4 w-72 rounded-lg flex flex-col"
-    :class="disabled ? 'bg-gray-400' : 'bg-white'"
+    class="text-theme-dark px-6 py-4 w-72 rounded-3xl flex flex-col border-4"
+    :class="[disabled ? 'bg-gray-400' : 'bg-white', 'border-' + color]"
     @click="use"
   >
-    <div class="font-bold">
+    <div class="font-display text-xl mb-2">
       {{ capability.name }}
     </div>
     <div class="flex justify-between">
@@ -46,6 +46,14 @@ export default {
   computed: {
     effect() {
       return this.capability.effect
+    },
+    color() {
+      const effect = Object.keys(this.effect)[0]
+      switch (effect) {
+        case 'attack':
+          return 'pink'
+      }
+      return 'pink'
     },
   },
   methods: {
