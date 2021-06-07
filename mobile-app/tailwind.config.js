@@ -13,7 +13,7 @@ module.exports = {
       gray: colors.coolGray,
       blue: colors.lightBlue,
       red: colors.rose,
-      pink: colors.fuchsia,
+      fuchsia: colors.fuchsia,
       green: colors.green,
       theme: {
         light: '#AE91FF',
@@ -22,6 +22,7 @@ module.exports = {
         darkBlue: '#1f0A62',
         lightPurple: '#b5b1fe',
       },
+      pink: '#FF8A8A',
     },
     zIndex: {
       0: 0,
