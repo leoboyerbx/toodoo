@@ -18,20 +18,25 @@
         class="absolute right-16 top-0 bottom-0 text-1xl font-bold text-theme-lightPurple flex items-center"
         :class="{ 'hidden-check': isActive === false }"
       >
-        <span v-if="!$props.mission.assignTo">Attribuer à quelqu'un</span>
+        <span v-if="!$data.isAssign">Attribuer à quelqu'un</span>
       </div>
       <div
         class="absolute flex justify-center right-0 top-0 bottom-0 w-10 bg-theme-light rounded-lg"
         :class="{ 'hidden-check': isActive === false }"
       >
-        <span
-          class="text-blue-50 font-bold font text-3xl text-before"
-          @click="displayPlayerList"
-        >
-          <span v-if="!$props.mission.assignTo">+</span>
+        <span class="text-blue-50 font-bold font text-3xl text-before">
+          <span
+            v-if="!$data.isAssign && !$data.listOfCharacterOpen"
+            @click="displayPlayerList"
+            >+</span
+          >
+          <span v-if="$data.listOfCharacterOpen" @click="removeAssignement"
+            >-</span
+          >
           <div
+            v-if="$data.isAssign && !$data.listOfCharacterOpen"
             class="bg-theme-light pl-1 pr-1 rounded-b-lg z-10 avatar h-5/6 w-5/6 mx-auto mt-1"
-            v-if="$props.mission.assignTo"
+            @click="displayPlayerList"
           >
             <AvatarImg
               :avatar-name="assignPlayerAvatarComp"
@@ -71,12 +76,7 @@ export default {
       isActive: false,
       listOfCharacterOpen: false,
       assignPlayerAvatar: 'clomo',
-    }
-  },
-  mounted() {
-    this.$data.isActive = this.$props.mission.active
-    if (this.$props.mission.assignTo) {
-      this.assignPlayerAvatar = this.$props.mission.assignPlayer.avatar
+      isAssign: false,
     }
   },
   computed: {
@@ -84,9 +84,17 @@ export default {
       return this.$store.state.apiService.players
     },
     assignPlayerAvatarComp() {
-      console.log(this.assignPlayerAvatar)
       return this.assignPlayerAvatar
     },
+  },
+  mounted() {
+    this.$data.isActive = this.$props.mission.active
+    if (this.$props.mission.assignTo) {
+      this.isAssign = true
+    }
+    if (this.$props.mission.assignTo) {
+      this.assignPlayerAvatar = this.$props.mission.assignPlayer.avatar
+    }
   },
   methods: {
     addMissionToActive() {
@@ -99,9 +107,17 @@ export default {
       this.listOfCharacterOpen = !this.listOfCharacterOpen
     },
     queueNewAssignement(playerId, playerAvatar) {
-      this.$data.assignPlayerAvatar = playerAvatar
+      this.assignPlayerAvatar = playerAvatar
+      this.isAssign = true
       const missionId = this.$props.mission.id
       this.$parent.addToPlayerAssignQueue({ missionId, playerId })
+      this.listOfCharacterOpen = false
+    },
+    removeAssignement() {
+      const missionId = this.$props.mission.id
+      const playerId = null
+      this.$parent.addToPlayerAssignQueue({ missionId, playerId })
+      this.isAssign = false
       this.listOfCharacterOpen = false
     },
   },
