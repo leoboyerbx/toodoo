@@ -161,6 +161,8 @@ export default {
           missionId: data.missionId,
         })
       })
+      this.activeMissionQueue = []
+      this.assignPlayerQueue = []
     },
   },
 }
