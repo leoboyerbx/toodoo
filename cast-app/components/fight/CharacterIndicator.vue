@@ -32,7 +32,7 @@
   </div>
 </template>
 <script>
-import gameContext from '../../mixins/gameContext'
+import gameContext from '../../../common/mixins/gameContext'
 import SmallBar from './SmallBar'
 
 export default {

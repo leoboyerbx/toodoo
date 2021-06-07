@@ -10,9 +10,11 @@
   </div>
 </template>
 <script>
+import gameContext from 'common/mixins/gameContext'
 import Controller from '../fight/Controller'
 export default {
   components: { Controller },
+  mixins: [gameContext],
   computed: {
     gameContext() {
       return this.$store.state.bossSync.gameContext

@@ -39,17 +39,9 @@
   </div>
 </template>
 <script>
+import gameContext from '../../../common/mixins/gameContext'
+
 export default {
-  computed: {
-    gameContext() {
-      return this.$store.state.bossSync.gameContext
-    },
-    boss() {
-      return this.gameContext.boss
-    },
-    players() {
-      return this.gameContext.players
-    },
-  },
+  mixins: [gameContext],
 }
 </script>

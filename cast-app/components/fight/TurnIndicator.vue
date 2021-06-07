@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import gameContext from '../../mixins/gameContext'
+import gameContext from '../../../common/mixins/gameContext'
 import CharacterIndicator from './CharacterIndicator'
 
 export default {

@@ -45,7 +45,7 @@
   </div>
 </template>
 <script>
-import gameContext from '@/mixins/gameContext'
+import gameContext from '../../../common/mixins/gameContext'
 
 export default {
   mixins: [gameContext],

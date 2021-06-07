@@ -54,6 +54,7 @@
 </template>
 <script>
 import PlayerCapabilityAnimation from '@/components/fight/PlayerCapabilityAnimation'
+import gameContext from '../../../common/mixins/gameContext'
 import LifeBar from '../fight/LifeBar'
 import TurnIndicator from '../fight/TurnIndicator'
 import CurrentPlayer from '../fight/CurrentPlayer'
@@ -67,16 +68,6 @@ export default {
     LifeBar,
     PlayerCapabilityAnimation,
   },
-  computed: {
-    gameContext() {
-      return this.$store.state.bossSync.gameContext
-    },
-    boss() {
-      return this.gameContext.boss
-    },
-    players() {
-      return this.gameContext.players
-    },
-  },
+  mixins: [gameContext],
 }
 </script>

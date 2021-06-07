@@ -12,7 +12,7 @@
   />
 </template>
 <script>
-import gameContext from '@/mixins/gameContext'
+import gameContext from '../../../common/mixins/gameContext'
 import capabilitiesAnimations from '../../../common/entities/capabilitiesAnimations.json'
 import getCapabilityAnimation from '../../../common/helpers/getCapabilityAnimation'
 import LottieAnimation from '../lib/LottieAnimation'
