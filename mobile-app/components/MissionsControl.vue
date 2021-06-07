@@ -1,6 +1,8 @@
 <template>
   <div class="fullscreen bg-shape relative">
-    <div class="absolute font-display z-15">VOS MISSIONS</div>
+    <div class="title absolute top-20 left-10 font-display z-15">
+      VOS MISSIONS
+    </div>
     <button
       class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
       @click="$router.go(-1)"
@@ -191,5 +193,11 @@ export default {
 }
 .missions-container {
   max-height: 50vh;
+}
+.title {
+  font-size: 30px;
+  background: -webkit-linear-gradient(#eec389, #fd8486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
