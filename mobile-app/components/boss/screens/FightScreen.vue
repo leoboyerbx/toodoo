@@ -4,7 +4,7 @@
   >
     <section class="w-full h-1/3"></section>
     <section class="w-full h-2/3 flex items-center">
-      <div class="w-1/3">hey</div>
+      <CurrentPlayer />
       <Controller
         v-if="gameContext.turnIndex > -1 && !gameContext.playerAttack"
         :capabilities="capabilities"
@@ -15,9 +15,10 @@
 </template>
 <script>
 import gameContext from 'common/mixins/gameContext'
+import CurrentPlayer from '@/components/boss/fight/CurrentPlayer'
 import Controller from '../fight/Controller'
 export default {
-  components: { Controller },
+  components: { Controller, CurrentPlayer },
   mixins: [gameContext],
   computed: {
     gameContext() {
