@@ -27,6 +27,11 @@ export default {
   beforeMount() {
     this.loadAvatar()
   },
+  watch: {
+    avatarName() {
+      this.loadAvatar()
+    },
+  },
   beforeUpdate() {
     this.loadAvatar()
   },

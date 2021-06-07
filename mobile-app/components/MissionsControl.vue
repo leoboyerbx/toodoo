@@ -62,6 +62,12 @@
         :mission="mission"
       />
     </div>
+    <button
+      class="absolute bottom-7 right-7 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
+      @click="makeAllQueries"
+    >
+      <unicon name="check" fill="#b5b1fe" />
+    </button>
   </div>
 </template>
 
@@ -77,6 +83,8 @@ export default {
       displayPonctual: false,
       addLineOpen: false,
       newMissionName: '',
+      assignPlayerQueue: [],
+      activeMissionQueue: [],
     }
   },
   computed: {
@@ -121,6 +129,40 @@ export default {
       } else {
         alert('Vous devez renseigner un nom pour ajouter une mission')
       }
+    },
+    addToPlayerAssignQueue(queryParam) {
+      for (let i = 0; i < this.assignPlayerQueue.length; i++) {
+        if (this.assignPlayerQueue[i].missionId === queryParam.missionId) {
+          this.assignPlayerQueue[i].playerId = queryParam.missionId
+          return
+        }
+      }
+      this.assignPlayerQueue.push(queryParam)
+    },
+    addToActiveMissionQueue(queryParam) {
+      for (let i = 0; i < this.activeMissionQueue.length; i++) {
+        if (this.activeMissionQueue[i].missionId === queryParam.missionId) {
+          this.activeMissionQueue[i].active = queryParam.active
+          return
+        }
+      }
+      this.activeMissionQueue.push(queryParam)
+    },
+    makeAllQueries() {
+      this.assignPlayerQueue.forEach((data) => {
+        this.$store.dispatch('apiService/assignPlayer', {
+          playerId: data.playerId,
+          missionId: data.missionId,
+        })
+      })
+      this.activeMissionQueue.forEach((data) => {
+        this.$store.dispatch('apiService/activateMission', {
+          active: data.active,
+          missionId: data.missionId,
+        })
+      })
+      this.activeMissionQueue = []
+      this.assignPlayerQueue = []
     },
   },
 }
