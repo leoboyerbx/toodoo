@@ -23,7 +23,7 @@
     <!--      }"-->
     <!--    />-->
     <TurnIndicator class="absolute top-10 left-12" />
-    <CurrentPlayer class="absolute left-72 bottom-10" />
+    <CurrentPlayer class="absolute left-56 bottom-10" />
 
     <BossAnimation
       class="absolute top-0 left-0 h-full w-full z-40 pointer-events-none"

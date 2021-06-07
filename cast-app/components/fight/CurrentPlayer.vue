@@ -2,11 +2,11 @@
   <div class="flex flex-col items-center text-lg">
     <div class="undersocle"></div>
     <transition name="avatar" mode="out-in">
-      <div :key="player.player.id" class="relative">
+      <div :key="player.player.id" class="relative -mb-16">
         <img
           :src="require(`assets/img/avatars/${player.img.character}`)"
           alt=""
-          class="w-56 block mb-5 relative z-10 floating-avatar"
+          class="w-96 block relative z-10 floating-avatar"
           :class="{
             playerhurt:
               gameContext.bossAttack &&
@@ -78,11 +78,11 @@ export default {
 .undersocle {
   z-index: 1;
   background-color: #b79bfb;
-  width: 100%;
+  width: 70%;
   position: absolute;
-  top: 20vh;
-  left: 0;
-  height: 8vh;
+  bottom: 25vh;
+  left: 15%;
+  height: 6vh;
   border-radius: 100%;
   opacity: 30%;
 }

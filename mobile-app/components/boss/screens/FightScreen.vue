@@ -2,11 +2,15 @@
   <div
     class="controller-screen w-full h-screen text-white flex flex-col justify-center items-center"
   >
-    <Controller
-      v-if="gameContext.turnIndex > -1"
-      :capabilities="capabilities"
-    />
-    <p v-else>Au tour du boss</p>
+    <section class="w-full h-1/3"></section>
+    <section class="w-full h-2/3 flex items-center">
+      <div class="w-1/3">hey</div>
+      <Controller
+        v-if="gameContext.turnIndex > -1 && !gameContext.playerAttack"
+        :capabilities="capabilities"
+      />
+      <p v-else>Au tour du boss</p>
+    </section>
   </div>
 </template>
 <script>

@@ -4,6 +4,7 @@
       :src="require(`assets/img/avatars/${player.img.character}`)"
       alt="Avatar image"
       class="w-16 transition transition-all duration-200"
+      style="transform: scale(2)"
       :class="{
         blink:
           gameContext.bossAttack &&
