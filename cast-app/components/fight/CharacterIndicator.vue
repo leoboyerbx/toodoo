@@ -4,6 +4,7 @@
       :src="require(`assets/img/avatars/${player.img.character}`)"
       alt="Avatar image"
       class="w-16 transition transition-all duration-200"
+      style="transform: scale(2)"
       :class="{
         blink:
           gameContext.bossAttack &&
@@ -32,7 +33,7 @@
   </div>
 </template>
 <script>
-import gameContext from '../../mixins/gameContext'
+import gameContext from '../../../common/mixins/gameContext'
 import SmallBar from './SmallBar'
 
 export default {

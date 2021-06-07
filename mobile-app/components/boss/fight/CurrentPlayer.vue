@@ -1,12 +1,11 @@
 <template>
   <div class="flex flex-col items-center text-lg">
-    <div class="undersocle"></div>
     <transition name="avatar" mode="out-in">
       <div :key="player.player.id" class="relative -mb-16">
         <img
           :src="require(`assets/img/avatars/${player.img.character}`)"
           alt=""
-          class="w-96 block relative z-10 floating-avatar"
+          class="w-80 block relative z-10 floating-avatar"
           :class="{
             playerhurt:
               gameContext.bossAttack &&
@@ -42,7 +41,7 @@
   </div>
 </template>
 <script>
-import gameContext from '../../../common/mixins/gameContext'
+import gameContext from 'common/mixins/gameContext'
 import StandardBar from './StandardBar'
 
 export default {
@@ -74,17 +73,6 @@ export default {
 .avatar-enter,
 .avatar-leave-to {
   transform: translate(-240%, 0);
-}
-.undersocle {
-  z-index: 1;
-  background-color: #b79bfb;
-  width: 70%;
-  position: absolute;
-  bottom: 25vh;
-  left: 15%;
-  height: 6vh;
-  border-radius: 100%;
-  opacity: 30%;
 }
 
 .floating-avatar {

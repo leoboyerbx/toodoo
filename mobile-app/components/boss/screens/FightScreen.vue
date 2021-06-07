@@ -2,17 +2,24 @@
   <div
     class="controller-screen w-full h-screen text-white flex flex-col justify-center items-center"
   >
-    <Controller
-      v-if="gameContext.turnIndex > -1"
-      :capabilities="capabilities"
-    />
-    <p v-else>Au tour du boss</p>
+    <section class="w-full h-1/3"></section>
+    <section class="w-full h-2/3 flex items-center">
+      <CurrentPlayer />
+      <Controller
+        v-if="gameContext.turnIndex > -1 && !gameContext.playerAttack"
+        :capabilities="capabilities"
+      />
+      <p v-else>Au tour du boss</p>
+    </section>
   </div>
 </template>
 <script>
+import gameContext from 'common/mixins/gameContext'
+import CurrentPlayer from '@/components/boss/fight/CurrentPlayer'
 import Controller from '../fight/Controller'
 export default {
-  components: { Controller },
+  components: { Controller, CurrentPlayer },
+  mixins: [gameContext],
   computed: {
     gameContext() {
       return this.$store.state.bossSync.gameContext
