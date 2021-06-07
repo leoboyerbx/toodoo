@@ -232,4 +232,26 @@ export default function setupRoutes(app: Express): void {
     });
     res.json(missions)
   });
+
+  /**
+   * Assign player to a mission
+   * @param missionId, playerId, gameId
+   */
+  app.put('/assignMission', jsonParser, async (req, res) => {
+    const {missionId, playerId, gameId} = req.body
+    await prisma.mission.update({
+      where: { id : missionId},
+      data: { assignTo: playerId},
+    })
+    const missions = await prisma.mission.findMany({
+      where: {
+        gameId: Number(gameId),
+      },
+      include: {
+        missionCompletion: true,
+        assignPlayer: true,
+      },
+    });
+    res.json(missions)
+  })
 }
