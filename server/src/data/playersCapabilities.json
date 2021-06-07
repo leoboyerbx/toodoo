@@ -1,5 +1,6 @@
 [
   {
+    "id": 0,
     "name": "Rugissement",
     "cost": 15,
     "effect": {
@@ -8,6 +9,7 @@
     "target": "boss"
   },
   {
+    "id":  1,
     "name": "Régénération",
     "cost": 12,
     "effect": {
@@ -16,6 +18,7 @@
     "target": "self"
   },
   {
+    "id":  2,
     "name": "Bulle lumineuse",
     "cost": 30,
     "effect": {
@@ -24,6 +27,7 @@
     "target": "allPlayers"
   },
   {
+    "id":  3,
     "name": "Jouvence",
     "cost": 15,
     "effect": {
@@ -32,6 +36,7 @@
     "target": "allPlayers"
   },
   {
+    "id":  4,
     "name": "Rugissement",
     "cost": 15,
     "effect": {
@@ -40,6 +45,7 @@
     "target": "boss"
   },
   {
+    "id":  5,
     "name": "Régénération",
     "cost": 12,
     "effect": {
@@ -48,6 +54,7 @@
     "target": "self"
   },
   {
+    "id":  6,
     "name": "Arrosage",
     "cost": 10,
     "effect": {
@@ -56,6 +63,7 @@
     "target": "boss"
   },
   {
+    "id":  7,
     "name": "Bombe à eau",
     "cost": 30,
     "effect": {
@@ -64,6 +72,7 @@
     "target": "boss"
   },
   {
+    "id":  8,
     "name": "Muraille",
     "cost": 15,
     "effect": {
@@ -72,6 +81,7 @@
     "target": "randomPlayer"
   },
   {
+    "id":  9,
     "name": "Baies sauvages",
     "cost": 10,
     "effect": {
@@ -80,6 +90,7 @@
     "target": "randomPlayer"
   },
   {
+    "id":  10,
     "name": "Eruption",
     "cost": 30,
     "effect": {
@@ -88,6 +99,7 @@
     "target": "boss"
   },
   {
+    "id": 11,
     "name": "Braises",
     "cost": 10,
     "effect": {
@@ -96,6 +108,7 @@
     "target": "boss"
   },
   {
+    "id":  12,
     "name": "Rugissement",
     "cost": 15,
     "effect": {
@@ -104,6 +117,7 @@
     "target": "boss"
   },
   {
+    "id":  13,
     "name": "Régénération",
     "cost": 12,
     "effect": {
@@ -112,6 +126,7 @@
     "target": "self"
   },
   {
+    "id":  14,
     "name": "Rugissement",
     "cost": 15,
     "effect": {
@@ -120,6 +135,7 @@
     "target": "boss"
   },
   {
+    "id":  15,
     "name": "Médecine",
     "cost": 20,
     "effect": {
@@ -128,6 +144,7 @@
     "target": "self"
   },
   {
+    "id":  16,
     "name": "Glissement de terrain",
     "cost": 20,
     "effect": {
@@ -136,6 +153,7 @@
     "target": "boss"
   },
   {
+    "id":  17,
     "name": "Vitalité",
     "cost": 10,
     "effect": {
@@ -144,6 +162,7 @@
     "target": "self"
   },
   {
+    "id":  18,
     "name": "Séisme",
     "cost": 30,
     "effect": {
@@ -152,6 +171,7 @@
     "target": "boss"
   },
   {
+    "id":  19,
     "name": "Tsunami",
     "cost": 30,
     "effect": {

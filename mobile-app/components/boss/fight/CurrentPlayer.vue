@@ -1,19 +1,11 @@
 <template>
   <div class="flex flex-col items-center text-lg">
     <transition name="avatar" mode="out-in">
-      <div :key="player.player.id" class="relative -mb-16">
+      <div :key="player.player.id" class="relative -mb-10">
         <img
           :src="require(`assets/img/avatars/${player.img.character}`)"
           alt=""
-          class="w-80 block relative z-10 floating-avatar"
-          :class="{
-            playerhurt:
-              gameContext.bossAttack &&
-              gameContext.bossAttack.capabilityResult.capability.target !==
-                'self' &&
-              gameContext.bossAttack.capabilityResult.effectiveTarget.player
-                .id === player.player.id,
-          }"
+          class="w-80 block relative z-10 floating-avatar -mt-10"
         />
       </div>
     </transition>
@@ -31,9 +23,9 @@
           style="transform: translateX(-11px)"
         >
           <img src="~/assets/img/energy.png" alt="" class="w-8 h-8" />
-          <p class="text-white font-bold ml-2">Energie</p>
+          <p class="text-white text-xl font-display ml-2">Energie</p>
         </div>
-        <p class="text-white font-bold text-xl mr-auto ml-7 mt-2">
+        <p class="text-white font-bold text-4xl mr-auto ml-7 mt-2">
           {{ player.energy }}
         </p>
       </div>
