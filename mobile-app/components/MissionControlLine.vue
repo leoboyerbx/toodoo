@@ -71,6 +71,9 @@ export default {
   methods: {
     addMissionToActive() {
       this.isActive = !this.isActive
+      const missionId = this.$props.mission.id
+      const active = !this.$props.mission.active
+      this.$parent.addToActiveMissionQueue({ missionId, active })
     },
     displayPlayerList() {
       this.listOfCharacterOpen = !this.listOfCharacterOpen

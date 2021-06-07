@@ -78,6 +78,7 @@ export default {
       addLineOpen: false,
       newMissionName: '',
       assignPlayerQueue: [],
+      activeMissionQueue: [],
     }
   },
   computed: {
@@ -133,6 +134,17 @@ export default {
       }
       this.assignPlayerQueue.push(queryParam)
       console.log(this.assignPlayerQueue)
+    },
+    addToActiveMissionQueue(queryParam) {
+      for (let i = 0; i < this.activeMissionQueue.length; i++) {
+        if (this.activeMissionQueue[i].missionId === queryParam.missionId) {
+          this.activeMissionQueue[i].active = queryParam.active
+          console.log(this.activeMissionQueue)
+          return
+        }
+      }
+      this.activeMissionQueue.push(queryParam)
+      console.log(this.activeMissionQueue)
     },
   },
 }
