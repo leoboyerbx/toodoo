@@ -109,7 +109,11 @@ export default function setupRoutes(app: Express): void {
       },
       include: {
         assignedMissions: true,
-        completeMissions: true,
+        completeMissions: {
+          include: {
+            mission: true
+          }
+        },
       },
     });
     res.json(players);
