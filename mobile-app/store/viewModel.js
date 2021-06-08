@@ -11,6 +11,9 @@ export const state = () => ({
   missionsManagerData: {
     missionsList: [],
   },
+  scoreData: {
+    playerList: [],
+  },
 })
 
 export const getters = {
@@ -31,6 +34,9 @@ export const mutations = {
   },
   setMissionsManagerList(state, set) {
     state.missionsManagerData.missionsList = set.missions
+  },
+  setScoreData(state, set) {
+    state.scoreData.playerList = set.players
   },
 }
 
@@ -93,6 +99,12 @@ export const actions = {
     const missions = rootState.apiService.missions
     commit('setMissionsManagerList', {
       missions,
+    })
+  },
+  fetchScoreData({ commit, rootState }) {
+    const players = rootState.apiService.players
+    commit('setScoreData', {
+      players,
     })
   },
 }
