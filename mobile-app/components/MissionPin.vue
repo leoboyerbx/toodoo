@@ -1,13 +1,29 @@
 <template>
   <Pin
+    v-if="!completed"
     ref="pin"
     :position="position"
     :mission-complete="completed"
     @open="$emit('open', $event)"
   >
-    <p class="text-center">
-      {{ completed ? 'Tâche ' + mission.name + ' effectuée' : mission.name }}
-    </p>
+    <div class="text-center">
+      <span class="font-bold text-xl"> {{ mission.name }} </span> <br />
+      <div v-if="!goodAssign">
+        Cette mission est attribué à
+        <div
+          class="bg-theme rounded-3xl z-10 avatar h-12 w-12 mx-auto mt-1 overflow-hidden border-2"
+          :style="{
+            borderColor: color,
+          }"
+        >
+          <AvatarImg
+            :avatar-name="mission.assignPlayer.avatar"
+            avatar-type="portrait"
+            @avatar-loaded="color = $event.color"
+          />
+        </div>
+      </div>
+    </div>
     <button
       v-if="!completed && goodAssign"
       class="flex mx-auto mt-6 rounded-full p-2 bg-theme"
@@ -20,9 +36,10 @@
 
 <script>
 import Pin from './Pin'
+import AvatarImg from './avatar/AvatarImg'
 export default {
   name: 'MissionPin',
-  components: { Pin },
+  components: { Pin, AvatarImg },
   props: {
     position: {
       type: Object,
@@ -36,6 +53,7 @@ export default {
   data: () => {
     return {
       completed: false,
+      color: '#fff',
     }
   },
   computed: {
@@ -79,4 +97,11 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.avatar img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+</style>
