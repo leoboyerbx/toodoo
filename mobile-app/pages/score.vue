@@ -6,11 +6,19 @@
     >
       <unicon name="arrow-left" fill="#b5b1fe" />
     </button>
+    <ScoreSlider />
   </div>
 </template>
 
 <script>
-export default {}
+import ScoreSlider from '../components/ScoreSlider'
+
+export default {
+  components: { ScoreSlider },
+  async beforeCreate() {
+    await this.$store.dispatch('viewModel/fetchScoreData')
+  },
+}
 </script>
 
 <style scoped>
