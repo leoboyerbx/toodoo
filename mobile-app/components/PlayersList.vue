@@ -61,7 +61,7 @@ export default {
   cursor: pointer;
   transition: all 0.1s;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #291d66;
 }
 .avatar img {
   object-fit: cover;
