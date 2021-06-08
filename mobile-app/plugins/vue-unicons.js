@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Unicon from 'vue-unicons/dist/vue-unicons-vue2.es'
-import { uniArrowLeft, uniCheck } from 'vue-unicons/dist/icons'
+import {
+  uniArrowLeft,
+  uniCheck,
+  uniSchedule,
+  uniChartGrowthAlt,
+} from 'vue-unicons/dist/icons'
 
-Unicon.add([uniCheck, uniArrowLeft])
+Unicon.add([uniCheck, uniArrowLeft, uniSchedule, uniChartGrowthAlt])
 Vue.use(Unicon)

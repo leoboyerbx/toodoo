@@ -1,6 +1,6 @@
 <template>
   <div class="circle-button">
-    <img :src="iconUrl" :alt="iconAlt" />
+    <unicon :name="$props.iconName" fill="#4e0b6c" height="30" width="30" />
   </div>
 </template>
 
@@ -8,13 +8,9 @@
 export default {
   name: 'CircleButton',
   props: {
-    iconUrl: {
+    iconName: {
       type: String,
-      default: '@/assets/ionic-md-stats.png',
-    },
-    iconAlt: {
-      type: String,
-      default: 'Texte alternatif',
+      default: 'schedule',
     },
   },
 }
@@ -25,21 +21,17 @@ export default {
   height: 55px;
   width: 55px;
   border-radius: 50%;
-  border: #2583db 2px solid;
+  border: #4e0b6c 2px solid;
   background-color: #ffffff;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .circle-button:hover {
   transition: all 0.2s;
-  border: #2583db 4px solid;
-}
-.circle-button img {
-  object-fit: contain;
-  object-position: center;
-  height: 25px;
-  width: 25px;
-  margin: 15px auto;
+  border: #4e0b6c 4px solid;
 }
 </style>

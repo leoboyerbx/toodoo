@@ -27,7 +27,7 @@
         :mission="pin.mission"
         @open="characterPathToPin(pin)"
       />
-      <NuxtLink to="/missions-manager">
+      <NuxtLink to="/score">
         <DailyGuide class="left-96 sticky top-5" />
       </NuxtLink>
     </div>

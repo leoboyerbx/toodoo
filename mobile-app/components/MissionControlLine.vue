@@ -13,7 +13,7 @@
     <div
       class="relative max-w-3xl w-full mx-auto mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pl-5 pt-2.5 pb-1"
     >
-      {{ mission.name }}
+      <span class="text-base">{{ mission.name }}</span>
       <div
         class="absolute right-16 top-0 bottom-0 text-1xl font-bold text-theme-lightPurple flex items-center"
         :class="{ 'hidden-check': isActive === false }"

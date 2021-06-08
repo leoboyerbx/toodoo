@@ -38,6 +38,7 @@ export default {
   methods: {
     async loadAvatar() {
       this.avatar = await getAvatar(this.avatarName)
+      this.$emit('avatar-loaded', this.avatar)
     },
   },
 }
