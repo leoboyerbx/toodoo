@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="h-full"
+   viewBox="0 0 10849 772"
+   version="1.1"
+   id="svg109"
+   sodipodi:docname="DEV_map1.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs113" />
+  <sodipodi:namedview
+     id="namedview111"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false" />
+  <image
+     width="10849"
+     height="772"
+     xlink:href="map1.png"
+     id="image107" />
+  <g
+     id="paths_1_"
+     style="fill:#ff0000">
+    <path
+       id="path-c-d_1_"
+       class="st0"
+       d="M365.51,56.81c13.9-3.8,29.7-6,48.1-5.7c44.1,0.7,88.2,8,125.99,15.5"
+       style="fill:#ff0000" />
+    <path
+       id="path-b-c_1_"
+       class="st0"
+       d="M160.92,106.5c28.9,8.2,64.5,10.5,96.7,1.9c34.9-9.2,61.1-39.1,107.89-51.7"
+       style="fill:#ff0000" />
+    <path
+       id="path-2-a_1_"
+       class="st0"
+       d="M32.23,83.1c-0.3,22-8.3,44.7,30.7,48.3s55.7,26.7,50,75"
+       style="fill:#ff0000" />
+    <path
+       id="path-3-b_1_"
+       class="st0"
+       d="M160.92,82.1v24.4c-11.8-3.4-22.4-7.7-31.3-12.7c-30.7-17.3-97.3-10.7-97.3-10.7   c-25.7,1.6,7.7-29.7-16.7-42c-24.4-12.3-12.7-34.3-10.7-41"
+       style="fill:#ff0000" />
+  </g>
+  <g
+     id="points_1_"
+     transform="translate(476.74105,401.95814)">
+    <circle
+       id="a_1_"
+       class="st1"
+       cx="32.23"
+       cy="82.099998"
+       r="2.5999999" />
+    <circle
+       id="b_1_"
+       class="st1"
+       cx="161.02"
+       cy="106.1"
+       r="2.5999999" />
+    <circle
+       id="c_1_"
+       class="st1"
+       cx="365.51001"
+       cy="56.810001"
+       r="2.5999999" />
+    <circle
+       id="d_1_"
+       class="st1"
+       cx="539.60999"
+       cy="66.599998"
+       r="2.5999999" />
+  </g>
+</svg>

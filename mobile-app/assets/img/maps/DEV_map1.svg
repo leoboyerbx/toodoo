@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="h-full"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 10849 772"
+>
+
+  <g id="paths_1_">
+    <path id="path-c-d_1_" class="st0" d="M365.51,56.81c13.9-3.8,29.7-6,48.1-5.7c44.1,0.7,88.2,8,125.99,15.5"/>
+    <path id="path-b-c_1_" class="st0" d="M160.92,106.5c28.9,8.2,64.5,10.5,96.7,1.9c34.9-9.2,61.1-39.1,107.89-51.7"/>
+    <path id="path-2-a_1_" class="st0" d="M32.23,83.1c-0.3,22-8.3,44.7,30.7,48.3s55.7,26.7,50,75"/>
+    <path id="path-3-b_1_" class="st0" d="M160.92,82.1v24.4c-11.8-3.4-22.4-7.7-31.3-12.7c-30.7-17.3-97.3-10.7-97.3-10.7
+		c-25.7,1.6,7.7-29.7-16.7-42c-24.4-12.3-12.7-34.3-10.7-41"/>
+  </g>
+  <g id="points_1_">
+    <circle id="a_1_" class="st1" cx="32.23" cy="82.1" r="2.6"/>
+    <circle id="b_1_" class="st1" cx="161.02" cy="106.1" r="2.6"/>
+    <circle id="c_1_" class="st1" cx="365.51" cy="56.81" r="2.6"/>
+    <circle id="d_1_" class="st1" cx="539.61" cy="66.6" r="2.6"/>
+  </g>
+  <image
+    width="10849"
+    height="772"
+    xlink:href="map1.png"
+  />
+</svg>
+  <!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="8191.7px" height="582.91px" viewBox="0 0 8191.7 582.91"
+     style="overflow:visible;enable-background:new 0 0 8191.7 582.91;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FF0000;stroke-width:0.7551;stroke-miterlimit:7.5509;}
+</style>
+<defs>
+</defs>
+<g id="paths_1_">
+	<path id="path-c-d_1_" class="st0" d="M586.57,274.99c13.9-3.8,29.7-6,48.1-5.7c44.1,0.7,88.2,8,125.99,15.5"/>
+  <path id="path-b-c_1_" class="st0" d="M381.98,324.68c28.9,8.2,64.5,10.5,96.7,1.9c34.9-9.2,61.1-39.1,107.89-51.7"/>
+  <path id="path-2-a_1_" class="st0" d="M253.29,301.29c-0.3,22-8.3,44.7,30.7,48.3c39,3.6,55.7,26.7,50,75"/>
+  <path id="path-3-b_1_" class="st0" d="M381.98,300.29v24.4c-11.8-3.4-22.4-7.7-31.3-12.7c-30.7-17.3-97.3-10.7-97.3-10.7
+		c-25.7,1.6,7.7-29.7-16.7-42c-24.4-12.3-12.7-34.3-10.7-41"/>
+</g>
+</svg>

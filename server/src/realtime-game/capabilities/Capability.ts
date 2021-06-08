@@ -7,6 +7,7 @@ import { CapabilityUsageResult } from "./CapabilityUsageResult";
 import CapabilityTarget from "./CapabilityTarget";
 
 export default class Capability {
+  public id: Number;
   public name: String;
   public cost: number;
   public target: CapabilityTargetType;
