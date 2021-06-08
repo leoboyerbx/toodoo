@@ -23,7 +23,20 @@
     <!--      }"-->
     <!--    />-->
     <TurnIndicator class="absolute top-10 left-12" />
-    <CurrentPlayer class="absolute left-56 bottom-10" />
+    <CurrentPlayer
+      class="absolute left-56 bottom-10"
+      :healing-other="healingOther"
+    />
+    <transition name="comefromleft">
+      <img
+        v-if="healingOther"
+        :src="
+          require(`assets/img/avatars/${gameContext.playerAttack.effectiveTarget.img.character}`)
+        "
+        alt="c"
+        class="w-96 absolute bottom-40 left-20 z-50"
+      />
+    </transition>
 
     <BossAnimation
       class="absolute top-0 left-0 h-full w-full z-40 pointer-events-none"
@@ -69,5 +82,24 @@ export default {
     PlayerCapabilityAnimation,
   },
   mixins: [gameContext],
+  computed: {
+    healingOther() {
+      return (
+        this.gameContext.playerAttack &&
+        this.gameContext.playerAttack.capability.target === 'specificPlayer'
+      )
+    },
+  },
 }
 </script>
+<style scoped>
+.comefromleft-enter-active,
+.comefromleft-leave-active {
+  transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.comefromleft-enter,
+.comefromleft-leave-to {
+  transform: translate(-120%, 0);
+}
+</style>
