@@ -1,12 +1,11 @@
 <template>
   <Pin
-    v-if="!completed"
     ref="pin"
     :position="position"
     :mission-complete="completed"
     @open="$emit('open', $event)"
   >
-    <div class="text-center">
+    <div v-if="!completed" class="text-center">
       <span class="font-bold text-xl"> {{ mission.name }} </span> <br />
       <div v-if="!goodAssign">
         Cette mission est attribué à
