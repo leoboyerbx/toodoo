@@ -1,7 +1,12 @@
 <template>
   <div class="fixed top-0 left-0 right-0 h-full pointer-events-none">
     <PlayersList :players="players" class="pointer-events-auto"></PlayersList>
-    <CircleButton id="stats-btn" :icon-name="'chart-growth-alt'"></CircleButton>
+    <NuxtLink to="/score">
+      <CircleButton
+        id="stats-btn"
+        :icon-name="'chart-growth-alt'"
+      ></CircleButton>
+    </NuxtLink>
     <NuxtLink to="/missions-manager">
       <CircleButton id="calendar-btn" :icon-name="'schedule'"></CircleButton>
     </NuxtLink>
