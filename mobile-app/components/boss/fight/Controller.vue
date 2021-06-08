@@ -2,7 +2,7 @@
   <transition name="capabilities" mode="out-in">
     <section
       :key="playerId"
-      class="max-w-2xl flex flex-wrap gap-x-4 gap-y-10 gap p-10 relative"
+      class="max-w-2xl flex flex-wrap gap-5 gap relative items-center justify-center"
     >
       <CapabilityButton
         v-for="capability in capabilities"
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     useCapability(capability) {
-      this.$store.dispatch('bossSync/useCapability', capability)
+      this.$emit('use-capability', capability)
     },
   },
 }

@@ -23,6 +23,8 @@ module.exports = {
         lightPurple: '#b5b1fe',
       },
       pink: '#FF8A8A',
+      sky: '#91B3FF',
+      tradewind: '#69BCB5',
     },
     zIndex: {
       0: 0,

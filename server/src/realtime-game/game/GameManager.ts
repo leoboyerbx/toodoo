@@ -44,8 +44,8 @@ export default class GameManager {
   private bindPlayerSocket(socket: ClientSocket) {
     socket.socket.on("config", (config) => this.config(config));
     socket.socket.on("startFight", () => this.startFight());
-    socket.socket.on("useCapability", (capability) =>
-      this.currentPlayerUseCapability(new Capability(capability))
+    socket.socket.on("useCapability", (payload) =>
+      this.currentPlayerUseCapability(payload)
     );
     socket.socket.on("skipTurn", () => this.currentPlayerSkipTurn());
   }
@@ -104,12 +104,21 @@ export default class GameManager {
 
   /**
    * Called when the mobile app send the instruction to use a capability
-   * @param capability
+   * @param payload
    * @private
    */
-  private async currentPlayerUseCapability(capability: Capability) {
+  private async currentPlayerUseCapability(payload: any) {
     if (this.context.turnIndex < 0) return;
-    this.context.playerAttack = capability.use(this.context);
+    const capability = new Capability(payload.capability);
+    let player = null;
+
+    if (payload.player) {
+      player = this.context.players.find((p) => {
+        return p.player.id === payload.player.player.id;
+      });
+    }
+
+    this.context.playerAttack = capability.use(this.context, player);
     this.broadcastState();
     await delay(3433);
     this.context.nextTurn();
