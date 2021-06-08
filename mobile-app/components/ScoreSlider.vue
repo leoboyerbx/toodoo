@@ -1,14 +1,30 @@
 <template>
-  <div class="flex-nowrap justify-center flex">
-    <ScoreSliderItem
-      v-for="player in players"
-      :key="player.id"
-      :player="player"
-      :current-item="player.id === activeId"
-      class="item"
-      :class="{ active: activeId === player.id }"
-      @click.native="changeCurrent(player.id)"
-    />
+  <div>
+    <div class="flex-nowrap justify-center flex">
+      <ScoreSliderItem
+        v-for="player in players"
+        :key="player.id"
+        :player="player"
+        :current-item="player.id === activeId"
+        class="item"
+        :class="{ active: activeId === player.id }"
+        @click.native="changeCurrent(player.id)"
+      />
+    </div>
+    <div class="ladder-part max-w-3xl mx-auto">
+      <div class="text-white font-display text-2xl">
+        Historique des missions
+        <div class="content mr-2 ml-2 mt-6">
+          <div
+            class="legend flex-nowrap flex border-b-2 border-white pl-0.5 pr-0.5"
+          >
+            <span class="w-4/6 font-body"> Nom des missions</span>
+            <span class="w-2/6 font-body"> Gain </span>
+          </div>
+          <div class="missions-completed"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
