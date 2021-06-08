@@ -20,6 +20,16 @@ export const mutations = {
       character
     )
   },
+  setCurrentCharacterPin(state, pin) {
+    const character =
+      state.viewModel.mapViewData.characters[state.currentPlayerIndex]
+    character.pin = pin
+    Vue.set(
+      state.viewModel.mapViewData.characters,
+      state.currentPlayerIndex,
+      character
+    )
+  },
 }
 
 export const actions = {

@@ -80,16 +80,19 @@ export default {
       this.$store.commit('moveCurrentCharacter', Object.assign({}, position))
     },
     characterPathToPin(pin) {
+      const currentCharacter = this.$store.getters['viewModel/currentCharacter']
+      const fromPoint = currentCharacter.pin
+      const toPoint = pin.id
+      console.log(fromPoint, toPoint)
       const pathtmp = ['2', 'a', 'b', '3']
-      const id =
-        '#character-' +
-        this.$store.getters['viewModel/currentCharacter'].player.id
+      const id = '#character-' + currentCharacter.player.id
       const tl = getTimelineFromPoints(pathtmp, id)
       gsap.to(tl, {
         time: tl.duration(),
         duration: tl.duration(),
         ease: 'power3.inOut',
       })
+      this.$store.commit('setCurrentCharacterPin', pin.id)
     },
   },
 }

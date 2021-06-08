@@ -56,6 +56,7 @@ export const actions = {
           avatar,
           position: Object.assign({}, mapData.startCoords),
           timeline: null,
+          pin: 'a',
         }
       })
     )
@@ -67,6 +68,7 @@ export const actions = {
         if (index >= missionsToPin.length) return
         pinList.push({
           position: pinPlace.coords,
+          id: pinPlace.id,
           mission: missionsToPin[index],
         })
       })

@@ -29,7 +29,7 @@ export default function getTimelineFromPoints(points, elementSelector) {
       motionPath: {
         path,
         align: path,
-        alignOrigin: [0.5, 0.8],
+        alignOrigin: [0.5, 0.7],
         autoRotate: false,
         start,
         end,
