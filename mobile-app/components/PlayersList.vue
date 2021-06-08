@@ -66,7 +66,7 @@ export default {
   width: 55px;
   margin-bottom: 20px;
   border-radius: 50%;
-  border: 2px solid;
+  border: 3px solid;
   cursor: pointer;
   transition: all 0.1s;
   background-color: #291d66;
