@@ -1,4 +1,3 @@
-import gsap from 'gsap'
 import { getAvatar } from '../../common/entities/getEntity'
 
 export const state = () => ({
@@ -56,7 +55,6 @@ export const actions = {
           player,
           avatar,
           position: Object.assign({}, mapData.startCoords),
-          timeline: gsap.timeline(),
           pin: 'a',
         }
       })

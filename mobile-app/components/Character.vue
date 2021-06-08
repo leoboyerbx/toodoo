@@ -40,10 +40,6 @@ export default {
       type: Object,
       required: true,
     },
-    timeline: {
-      type: Object,
-      default: null,
-    },
   },
   watch: {
     timeline(newVal) {

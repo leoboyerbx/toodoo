@@ -17,7 +17,6 @@
           :name="character.player.name"
           :url="character.avatar.img.character"
           :position="character.position"
-          :timeline="character.timeline"
         >
         </Character>
       </MapBackground>
@@ -85,7 +84,6 @@ export default {
       const fromPoint = currentCharacter.pin
       const toPoint = pin.id
       const path = pathFinder(fromPoint, toPoint)
-      console.log(path)
 
       const id = '#character-' + currentCharacter.player.id
       const tl = getTimelineFromPoints(path, id)
