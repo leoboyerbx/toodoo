@@ -5,10 +5,10 @@
         v-for="player in players"
         :key="player.id"
         :player="player"
-        :current-item="player.id === activeId"
+        :current-item="player.id === activePlayer.id"
         class="item"
-        :class="{ active: activeId === player.id }"
-        @click.native="changeCurrent(player.id)"
+        :class="{ active: activePlayer.id === player.id }"
+        @click.native="changeCurrent(player)"
       />
     </div>
     <div class="ladder-part max-w-3xl mx-auto">
@@ -21,7 +21,13 @@
             <span class="w-4/6 font-body"> Nom des missions</span>
             <span class="w-2/6 font-body"> Gain </span>
           </div>
-          <div class="missions-completed"></div>
+          <div class="missions-completed">
+            <ScoreCompletionLine
+              v-for="missionComplete in activePlayer.completeMissions"
+              :key="missionComplete.id"
+              :mission="missionComplete"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -30,12 +36,13 @@
 
 <script>
 import ScoreSliderItem from '../components/ScoreSliderItem'
+import ScoreCompletionLine from '../components/ScoreCompletionLine'
 export default {
   name: 'ScoreSlider',
-  components: { ScoreSliderItem },
+  components: { ScoreSliderItem, ScoreCompletionLine },
   data: () => {
     return {
-      activeId: 0,
+      activePlayer: {},
     }
   },
   computed: {
@@ -44,11 +51,11 @@ export default {
     },
   },
   mounted() {
-    this.activeId = this.players[0].id
+    this.activePlayer = this.players[0]
   },
   methods: {
-    changeCurrent(id) {
-      this.activeId = id
+    changeCurrent(player) {
+      this.activePlayer = player
     },
   },
 }
