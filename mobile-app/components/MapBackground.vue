@@ -26,7 +26,7 @@
           transform="translate(-0.08 0)"
         />
         <path
-          id="path-2-a"
+          id="path-3-a"
           class="cls-2"
           d="M334.07,424.58c5.7-48.3-11-71.4-50-75s-31-26.3-30.7-48.29"
           transform="translate(-0.08 0)"
@@ -44,7 +44,7 @@
           transform="translate(-0.08 0)"
         />
         <path
-          id="path-3-b"
+          id="path-2-b"
           class="cls-2"
           d="M419.24,294.56q-1.8,20.55-37.17,30.12"
           transform="translate(-0.08 0)"

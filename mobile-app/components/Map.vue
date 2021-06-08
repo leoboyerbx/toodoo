@@ -39,6 +39,7 @@
 import gsap from 'gsap'
 import charactersAutoPlace from '@/helpers/charactersAutoPlace'
 import getTimelineFromPoints from '@/helpers/getTimelineFromPoints'
+import pathFinder from '@/helpers/pathFinder'
 import Character from './Character'
 import MissionPin from './MissionPin'
 import DailyGuide from './DailyGuide'
@@ -83,14 +84,15 @@ export default {
       const currentCharacter = this.$store.getters['viewModel/currentCharacter']
       const fromPoint = currentCharacter.pin
       const toPoint = pin.id
-      console.log(fromPoint, toPoint)
-      const pathtmp = ['2', 'a', 'b', '3']
+      const path = pathFinder(fromPoint, toPoint)
+      console.log(path)
+
       const id = '#character-' + currentCharacter.player.id
-      const tl = getTimelineFromPoints(pathtmp, id)
+      const tl = getTimelineFromPoints(path, id)
       gsap.to(tl, {
         time: tl.duration(),
         duration: tl.duration(),
-        ease: 'power3.inOut',
+        ease: 'power1.inOut',
       })
       this.$store.commit('setCurrentCharacterPin', pin.id)
     },
