@@ -51,7 +51,10 @@ export default {
   css: ['@/layouts/styles.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/vue-unicons', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/vue-unicons', mode: 'client' },
+    { src: '~/plugins/gsap', mode: 'client' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

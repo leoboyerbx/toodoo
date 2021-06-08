@@ -55,6 +55,7 @@ export const actions = {
           player,
           avatar,
           position: Object.assign({}, mapData.startCoords),
+          timeline: null,
         }
       })
     )
