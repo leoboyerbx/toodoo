@@ -1,6 +1,7 @@
 <template>
   <div>
     <component :is="`${$store.state.bossSync.currentScreen}-screen`" />
+    <div class="cursor-pointer w-12 h-12 bg-white absolute top-0 right-0"></div>
   </div>
 </template>
 
