@@ -5,9 +5,16 @@
       :key="player.id"
       class="avatar"
       :class="{ focus: currentPlayer === player }"
+      :style="{
+        borderColor: color[player.id],
+      }"
       @click="currentPlayer = player"
     >
-      <AvatarImg :avatar-name="player.avatar" avatar-type="portrait" />
+      <AvatarImg
+        :avatar-name="player.avatar"
+        avatar-type="portrait"
+        @avatar-loaded="color[player.id] = $event.color"
+      />
     </div>
   </div>
 </template>
@@ -20,12 +27,13 @@ export default {
   props: {
     players: {
       type: Array,
-      default: () => [],
+      default: () => {},
     },
   },
   data() {
     return {
       playersProfiles: [],
+      color: [],
     }
   },
   computed: {
@@ -57,7 +65,7 @@ export default {
   width: 55px;
   margin-bottom: 10px;
   border-radius: 50%;
-  border: #13538b 2px solid;
+  border: 2px solid;
   cursor: pointer;
   transition: all 0.1s;
   overflow: hidden;
@@ -70,6 +78,6 @@ export default {
   height: 100%;
 }
 .avatar.focus {
-  border: #2583db 4px solid;
+  border: 4px solid;
 }
 </style>
