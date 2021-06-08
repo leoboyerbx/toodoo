@@ -13,6 +13,7 @@
       <AvatarImg
         :avatar-name="player.avatar"
         avatar-type="portrait"
+        class="rounded-3xl"
         @avatar-loaded="color[player.id] = $event.color"
       />
     </div>
@@ -56,28 +57,43 @@ export default {
 
 <style scoped>
 .avatar-container {
-  margin-left: 10px;
-  margin-top: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
   width: fit-content;
 }
 .avatar {
   height: 55px;
   width: 55px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 50%;
   border: 2px solid;
   cursor: pointer;
   transition: all 0.1s;
-  overflow: hidden;
   background-color: #291d66;
+  position: relative;
+  z-index: 3;
 }
 .avatar img {
   object-fit: cover;
   object-position: center;
   width: 100%;
   height: 100%;
+  z-index: 3;
+  background-color: #291d66;
 }
-.avatar.focus {
-  border: 4px solid;
+.avatar.focus::before {
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0.3;
+  position: absolute;
+  transform-origin: center;
+  transform: scale(1.4);
+  z-index: -1;
+  transition: all 0.5s;
 }
 </style>
