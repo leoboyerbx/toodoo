@@ -39,3 +39,14 @@ html, body {
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
+.fade-fast-enter-active, .fade-fast-leave-active {
+  transition: opacity .2s;
+}
+.fade-fast-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.controller-screen {
+  background-image: url('assets/img/controller-bg.svg');
+  background-size: cover;
+}

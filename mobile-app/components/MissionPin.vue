@@ -3,12 +3,13 @@
     ref="pin"
     :position="position"
     :mission-complete="completed"
-    @open="$emit('open', $event)"
+    :show-popup="!completed"
+    @open="$emit('open', $refs.pin)"
   >
-    <div v-if="!completed" class="text-center">
+    <div class="text-center">
       <span class="font-bold text-xl"> {{ mission.name }} </span> <br />
       <div v-if="!goodAssign">
-        Cette mission est attribué à
+        Cette mission est attribuée à
         <div
           class="bg-theme rounded-3xl z-10 avatar h-12 w-12 mx-auto mt-1 overflow-hidden border-2"
           :style="{
