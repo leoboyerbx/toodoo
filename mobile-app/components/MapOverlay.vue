@@ -11,6 +11,11 @@
       <CircleButton id="calendar-btn" :icon-name="'schedule'"></CircleButton>
     </NuxtLink>
     <DailyGuide class="left-72 fixed top-5" />
+    <!--    warning: demo only hidden button-->
+    <div
+      class="absolute pointer-events-auto top-0 right-0 w-16 h-16"
+      @click="demoNextDay"
+    ></div>
   </div>
 </template>
 
@@ -27,6 +32,17 @@ export default {
   computed: {
     players() {
       return this.$store.state.apiService.players
+    },
+  },
+  methods: {
+    demoNextDay() {
+      // Mesdames et messieux, l'enfumage !
+      const currentDay = this.$store.state.currentDay
+      if (currentDay === 0) {
+        this.$store.commit('setCurrentDay', 1)
+      } else if (currentDay === 1) {
+        this.$store.commit('setCurrentDay', 6)
+      }
     },
   },
 }
