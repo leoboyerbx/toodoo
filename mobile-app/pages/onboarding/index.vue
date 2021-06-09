@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import OnboardingTextBox from '../components/OnboardingTextBox'
-import OnboardingFirstScreen from '../components/onboarding/OnboardingFirstScreen'
+import OnboardingTextBox from '../../components/OnboardingTextBox'
+import OnboardingFirstScreen from '../../components/onboarding/OnboardingFirstScreen'
 export default {
   components: { OnboardingTextBox, OnboardingFirstScreen },
   data() {
