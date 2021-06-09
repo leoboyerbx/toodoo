@@ -23,14 +23,14 @@
       </p>
       <div v-if="victory" class="flex flex-col w-full mt-5">
         <NuxtLink
-          to="/"
+          to="/map"
           class="block text-white text-xl font-display bg-pink rounded-xl p-3 w-full text-center mb-5"
           @click.native="endSession"
         >
           On continue !
         </NuxtLink>
         <NuxtLink
-          to="/"
+          to="/map"
           class="block text-white text-xl font-display bg-pink rounded-xl p-3 w-full text-center"
           @click.native="endSession"
         >
@@ -39,14 +39,14 @@
       </div>
       <div v-else class="flex flex-col w-full mt-5">
         <NuxtLink
-          to="/"
+          to="/map"
           class="block text-white text-xl font-display bg-sky rounded-xl p-3 w-full text-center mb-5"
           @click.native="endSession"
         >
           Hàte d’être la semaine prochaine...
         </NuxtLink>
         <NuxtLink
-          to="/"
+          to="/map"
           class="block text-white text-xl font-display bg-sky rounded-xl p-3 w-full text-center"
           @click.native="endSession"
         >
@@ -63,7 +63,7 @@ export default {
   mixins: [gameContext],
   computed: {
     victory() {
-      return !(this.gameContext.winner !== 'boss')
+      return this.gameContext.winner !== 'boss'
     },
   },
   methods: {
