@@ -12,6 +12,7 @@
       <MapBackground @mounted="onLoadMap">
         <Character
           v-for="character in charactersAutoPlace"
+          :id="'character-' + character.player.id"
           :key="character.player.id"
           :name="character.player.name"
           :url="character.avatar.img.character"
@@ -24,7 +25,7 @@
         :key="index + 'pin'"
         :position="pin.position"
         :mission="pin.mission"
-        @open="moveCurrentCharacter(pin.position)"
+        @open="characterPathToPin(pin)"
       />
       <NuxtLink to="/ponctual-missions">
         <DailyGuide class="left-96 sticky top-5" />
@@ -34,7 +35,10 @@
 </template>
 
 <script>
+import gsap from 'gsap'
 import charactersAutoPlace from '@/helpers/charactersAutoPlace'
+import getTimelineFromPoints from '@/helpers/getTimelineFromPoints'
+import pathFinder from '@/helpers/pathFinder'
 import Character from './Character'
 import MissionPin from './MissionPin'
 import DailyGuide from './DailyGuide'
@@ -74,6 +78,21 @@ export default {
     },
     moveCurrentCharacter(position) {
       this.$store.commit('moveCurrentCharacter', Object.assign({}, position))
+    },
+    characterPathToPin(pin) {
+      const currentCharacter = this.$store.getters['viewModel/currentCharacter']
+      const fromPoint = currentCharacter.pin
+      const toPoint = pin.id
+      const path = pathFinder(fromPoint, toPoint)
+
+      const id = '#character-' + currentCharacter.player.id
+      const tl = getTimelineFromPoints(path, id)
+      gsap.to(tl, {
+        time: tl.duration(),
+        duration: tl.duration(),
+        ease: 'power1.inOut',
+      })
+      this.$store.commit('setCurrentCharacterPin', pin.id)
     },
   },
 }

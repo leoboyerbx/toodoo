@@ -77,13 +77,13 @@ export const actions = {
       { root: true }
     );
   },
-  useCapability({ dispatch }, capability) {
+  useCapability({ dispatch }, payload) {
     dispatch(
       "$nuxtSocket/emit",
       {
         label: "game-sync",
         evt: "useCapability",
-        msg: capability,
+        msg: payload,
       },
       { root: true }
     );

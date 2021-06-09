@@ -2,7 +2,11 @@
   <div class="flex flex-col items-center text-lg">
     <div class="undersocle"></div>
     <transition name="avatar" mode="out-in">
-      <div :key="player.player.id" class="relative -mb-16">
+      <div
+        :key="player.player.id"
+        class="relative -mb-16 transition-transform duration-500"
+        :class="{ healing: healingOther }"
+      >
         <img
           :src="require(`assets/img/avatars/${player.img.character}`)"
           alt=""
@@ -48,6 +52,12 @@ import StandardBar from './StandardBar'
 export default {
   components: { StandardBar },
   mixins: [gameContext],
+  props: {
+    healingOther: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
     player() {
       return this.gameContext.players[this.gameContext.playerTurn]
@@ -89,6 +99,10 @@ export default {
 
 .floating-avatar {
   animation: float 2s ease infinite alternate;
+}
+
+.healing {
+  transform: translateX(40%);
 }
 
 $floatingAmplitude: 8px;

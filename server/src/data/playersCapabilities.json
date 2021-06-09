@@ -78,7 +78,7 @@
     "effect": {
       "protect": true
     },
-    "target": "randomPlayer"
+    "target": "specificPlayer"
   },
   {
     "id":  9,
@@ -87,7 +87,7 @@
     "effect": {
       "heal": 10
     },
-    "target": "randomPlayer"
+    "target": "specificPlayer"
   },
   {
     "id":  10,
@@ -145,7 +145,7 @@
   },
   {
     "id":  16,
-    "name": "Glissement de terrain",
+    "name": "Accident",
     "cost": 20,
     "effect": {
       "attack": 20

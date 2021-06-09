@@ -47,7 +47,7 @@ export default {
       return this.entity.hp
     },
     scale() {
-      return this.animateHp / this.entity.initialHp
+      return this.tweenedHp / this.entity.initialHp
     },
     animateHp() {
       return this.tweenedHp.toFixed(0)
