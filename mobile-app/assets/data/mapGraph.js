@@ -14,6 +14,7 @@ const mapGraph = `graph {
     m -- n
     n -- o
     o -- p
+    p -- q
 
     1 -- a
     2 -- b

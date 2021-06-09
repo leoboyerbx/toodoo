@@ -6,6 +6,7 @@ export const state = () => ({
     pinList: [],
     characters: [],
     dayStarts: [],
+    castlePoint: '',
   },
   ponctualMissionsListData: {
     missionsList: [],
@@ -86,6 +87,7 @@ export const actions = {
       pinList,
       characters,
       dayStarts: mapData.dayStarts,
+      castlePoint: mapData.castlePoint,
     })
   },
   moveAllCharacters({ state, commit }, position) {

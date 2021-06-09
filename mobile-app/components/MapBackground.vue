@@ -12,7 +12,14 @@
         xlink:href="~assets/img/maps/map1.png"
         transform="translate(0 0) scale(0.76)"
       />
+
       <g id="paths">
+        <path
+          id="path-p-q"
+          class="cls-2"
+          d="M7783.31,325.38l134.67-67"
+          transform="translate(-0.08 0)"
+        />
         <path
           id="path-o-p"
           class="cls-2"
@@ -224,6 +231,14 @@
           transform="translate(-0.08 0)"
         />
       </g>
+      <image
+        id="castle"
+        width="436"
+        height="445"
+        transform="translate(7810 35.84) scale(0.5)"
+        xlink:href="~assets/img/maps/castle1.png"
+        @click="$emit('click-castle')"
+      />
 
       <slot />
 

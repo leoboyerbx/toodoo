@@ -4,6 +4,7 @@
     "y": 235
   },
   "dayStarts": ["a", "h", "p", "p", "p", "p", "p"],
+  "castlePoint": "q",
   "image": "map1.svg",
   "pinPlaces": [
     [

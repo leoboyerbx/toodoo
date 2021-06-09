@@ -6,7 +6,7 @@
         width: mapWidth + 'px',
       }"
     >
-      <MapBackground @mounted="onLoadMap">
+      <MapBackground @mounted="onLoadMap" @click-castle="goToCastle">
         <Character
           v-for="character in charactersAutoPlace"
           :id="'character-' + character.player.id"
@@ -94,9 +94,9 @@ export default {
     moveCurrentCharacter(position) {
       this.$store.commit('moveCurrentCharacter', Object.assign({}, position))
     },
-    moveAllCharactersToPoint(point) {
+    moveAllCharactersToPoint(point, duration = 5) {
       this.characters.forEach((character, i) => {
-        this.moveCharacterToPoint(character, point, i / 5, 5)
+        this.moveCharacterToPoint(character, point, i / 5, duration)
       })
     },
     characterPathToPin(pin, component) {
@@ -126,6 +126,15 @@ export default {
       )
       this.$store.commit('setCharacterPin', { pin: toPoint, index })
       return tl
+    },
+    goToCastle() {
+      this.moveAllCharactersToPoint(
+        this.$store.state.viewModel.mapViewData.castlePoint,
+        1
+      )
+      setTimeout(() => {
+        this.$router.push('/boss')
+      }, 2000)
     },
   },
 }
