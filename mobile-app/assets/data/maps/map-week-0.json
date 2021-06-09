@@ -3,6 +3,7 @@
     "x": 155,
     "y": 235
   },
+  "dayStarts": ["a", "h", "p", "p", "p", "p", "p"],
   "image": "map1.svg",
   "pinPlaces": [
     [

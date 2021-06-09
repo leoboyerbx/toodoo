@@ -1,9 +1,11 @@
+import { cloneDeep } from 'lodash'
 import { getAvatar } from '../../common/entities/getEntity'
 
 export const state = () => ({
   mapViewData: {
     pinList: [],
     characters: [],
+    dayStarts: [],
   },
   ponctualMissionsListData: {
     missionsList: [],
@@ -68,13 +70,14 @@ export const actions = {
 
     const pinList = []
 
-    mapData.pinPlaces.forEach((pinPlacesOfDay) => {
+    mapData.pinPlaces.forEach((pinPlacesOfDay, dayIndex) => {
       pinPlacesOfDay.forEach((pinPlace, index) => {
         if (index >= missionsToPin.length) return
         pinList.push({
           position: pinPlace.coords,
           id: pinPlace.id,
           mission: missionsToPin[index],
+          day: dayIndex,
         })
       })
     })
@@ -82,7 +85,15 @@ export const actions = {
     commit('setMapViewData', {
       pinList,
       characters,
+      dayStarts: mapData.dayStarts,
     })
+  },
+  moveAllCharacters({ state, commit }, position) {
+    const characters = cloneDeep(state.mapViewData.characters)
+    characters.forEach((character) => {
+      character.position = position
+    })
+    commit('setCharacters', characters)
   },
   fetchPonctualMissionsListData({ commit, rootState }) {
     const missions = rootState.apiService.missions

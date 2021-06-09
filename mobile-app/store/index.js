@@ -1,6 +1,7 @@
 import Vue from 'vue'
 export const state = () => ({
   currentPlayerIndex: null,
+  currentDay: 0,
 })
 
 export const mutations = {
@@ -29,6 +30,14 @@ export const mutations = {
       state.currentPlayerIndex,
       character
     )
+  },
+  setCharacterPin(state, { pin, index }) {
+    const character = state.viewModel.mapViewData.characters[index]
+    character.pin = pin
+    Vue.set(state.viewModel.mapViewData.characters, index, character)
+  },
+  setCurrentDay(state, day) {
+    state.currentDay = day
   },
 }
 
