@@ -21,7 +21,7 @@
             <span class="w-4/6 font-body"> Nom des missions</span>
             <span class="w-2/6 font-body"> Gain </span>
           </div>
-          <div class="missions-completed">
+          <div class="missions-completed overflow-scroll">
             <ScoreCompletionLine
               v-for="missionComplete in activePlayer.completeMissions"
               :key="missionComplete.id"
@@ -73,5 +73,8 @@ export default {
 }
 .item:not(.active) {
   opacity: 0.4;
+}
+.missions-completed {
+  max-height: 40vh;
 }
 </style>
