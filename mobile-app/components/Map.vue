@@ -25,11 +25,8 @@
         :key="index + 'pin'"
         :position="pin.position"
         :mission="pin.mission"
-        @open="characterPathToPin(pin)"
+        @open="characterPathToPin(pin, $event)"
       />
-      <NuxtLink to="/ponctual-missions">
-        <DailyGuide class="left-96 sticky top-5" />
-      </NuxtLink>
     </div>
   </div>
 </template>
@@ -41,12 +38,11 @@ import getTimelineFromPoints from '@/helpers/getTimelineFromPoints'
 import pathFinder from '@/helpers/pathFinder'
 import Character from './Character'
 import MissionPin from './MissionPin'
-import DailyGuide from './DailyGuide'
 import MapBackground from './MapBackground'
 
 export default {
   name: 'Map',
-  components: { MapBackground, MissionPin, Character, DailyGuide },
+  components: { MapBackground, MissionPin, Character },
   data: () => {
     return {
       mapWidth: 0,
@@ -79,7 +75,7 @@ export default {
     moveCurrentCharacter(position) {
       this.$store.commit('moveCurrentCharacter', Object.assign({}, position))
     },
-    characterPathToPin(pin) {
+    characterPathToPin(pin, component) {
       const currentCharacter = this.$store.getters['viewModel/currentCharacter']
       const fromPoint = currentCharacter.pin
       const toPoint = pin.id
@@ -93,6 +89,9 @@ export default {
         ease: 'power1.inOut',
       })
       this.$store.commit('setCurrentCharacterPin', pin.id)
+      setTimeout(() => {
+        component.isActive = true
+      }, tl.duration() * 1000)
     },
   },
 }

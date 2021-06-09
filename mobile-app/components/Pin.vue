@@ -14,7 +14,7 @@
     />
     <transition name="slide-fade">
       <div
-        v-show="isActive"
+        v-show="showPopup && isActive"
         class="pin__content absolute text-theme z-20 p-6 rounded-xl"
         :class="position.y > 30 ? 'pin-top' : 'pin-bottom'"
         :style="
@@ -54,6 +54,10 @@ export default {
       required: true,
       default: false,
     },
+    showPopup: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   data() {
@@ -69,7 +73,7 @@ export default {
 
   methods: {
     clickPopUp(event) {
-      this.isActive = true
+      // this.isActive = true
       this.$emit('open')
     },
 
@@ -112,7 +116,7 @@ export default {
 }
 
 .slide-fade-enter-active {
-  transition: all 0.3s ease 1s;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
   transition: all 0.3s ease;

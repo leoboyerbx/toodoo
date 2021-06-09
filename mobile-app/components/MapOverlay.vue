@@ -10,6 +10,9 @@
     <NuxtLink to="/missions-manager" class="pointer-events-auto">
       <CircleButton id="calendar-btn" :icon-name="'schedule'"></CircleButton>
     </NuxtLink>
+    <NuxtLink to="/ponctual-missions" class="pointer-events-auto">
+      <DailyGuide class="left-72 fixed top-5" />
+    </NuxtLink>
   </div>
 </template>
 
