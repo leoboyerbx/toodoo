@@ -1,7 +1,8 @@
 <template>
   <div class="bg-theme fullscreen">
+    <component :is="bgComponent[screenCounter]" class="z-0" />
     <OnboardingTextBox
-      class="absolute bottom-5 right-5"
+      class="absolute bottom-5 right-5 z-10"
       :text-to-display="textBoxText[screenCounter]"
       @increment-counter="incrementCounter()"
     />
@@ -10,8 +11,9 @@
 
 <script>
 import OnboardingTextBox from '../components/OnboardingTextBox'
+import OnboardingFirstScreen from '../components/onboarding/OnboardingFirstScreen'
 export default {
-  components: { OnboardingTextBox },
+  components: { OnboardingTextBox, OnboardingFirstScreen },
   data() {
     return {
       screenCounter: 0,
@@ -20,6 +22,12 @@ export default {
         'Ils vivent en harmonie et prennent soins les uns des autres. Tous ont des rôles différents, qui leur permettent de s’entraider au sein de leur grande famille.',
         "Un soir une violente tempête fait rage sur l'archipel. Le tonnerre gronde et un vent impressionnant fait débarquer une tonne de poussière sur les îles avec d’étranges créatures...",
         "Les électros ont déversés des tonnes de poussières sur les îles des Toodoos et essayent de rompre l'harmonie qui est au coeur de l'archipel.",
+      ],
+      bgComponent: [
+        'OnboardingFirstScreen',
+        'OnboardingSecondScreen',
+        'OnboardingThirdScreen',
+        'OnboardingFourthScreen',
       ],
     }
   },
