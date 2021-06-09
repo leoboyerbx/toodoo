@@ -15,7 +15,7 @@
         "idleAnimationSegment": ["boss_loop", "boss_hurt"],
         "hitAnimationSegment": ["boss_hurt", "boss_attack1"]
     },
-    "hp": 10,
+    "hp": 150,
     "energy": 100,
     "capabilities": [
         {
