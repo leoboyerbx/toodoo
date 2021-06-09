@@ -101,10 +101,6 @@ export default {
 }
 </script>
 <style scoped>
-.controller-screen {
-  background-image: url('assets/img/controller-bg.svg');
-  background-size: cover;
-}
 .controller {
   transition: all 0.2s 0.5s;
 }
