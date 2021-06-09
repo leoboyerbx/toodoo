@@ -24,7 +24,8 @@
     "sass-loader": "^10",
     "socket.io-client": "^4.0.1",
     "uuid": "^8.3.2",
-    "v-aspect-ratio": "^2.0.1"
+    "v-aspect-ratio": "^2.0.1",
+    "vue-unicons": "^3.2.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
