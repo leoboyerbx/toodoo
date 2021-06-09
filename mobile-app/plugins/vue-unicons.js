@@ -5,7 +5,8 @@ import {
   uniCheck,
   uniSchedule,
   uniChartGrowthAlt,
+  uniTimes,
 } from 'vue-unicons/dist/icons'
 
-Unicon.add([uniCheck, uniArrowLeft, uniSchedule, uniChartGrowthAlt])
+Unicon.add([uniCheck, uniArrowLeft, uniSchedule, uniChartGrowthAlt, uniTimes])
 Vue.use(Unicon)

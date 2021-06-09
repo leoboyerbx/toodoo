@@ -21,9 +21,19 @@
             @use-capability="useCapability"
           />
         </div>
-        <div v-if="pickPlayerCb" class="absolute w-full h-full top-0 left-0">
-          <PlayerPicker :players="otherPlayers" @pick-player="pickPlayerCb" />
-        </div>
+        <transition name="player-picker">
+          <div v-if="pickPlayerCb" class="absolute w-full h-full top-0 left-0">
+            <PlayerPicker
+              :players="otherPlayers"
+              :capability="pendingCapability"
+              @pick-player="pickPlayerCb"
+              @close="
+                pendingCapability = null
+                pickPlayerCb = null
+              "
+            />
+          </div>
+        </transition>
       </div>
     </section>
   </div>
@@ -41,6 +51,7 @@ export default {
   data() {
     return {
       pickPlayerCb: null,
+      pendingCapability: null,
     }
   },
   computed: {
@@ -72,7 +83,9 @@ export default {
     async useCapability(capability) {
       const payload = { capability }
       if (capability.target === 'specificPlayer') {
+        this.pendingCapability = capability
         payload.player = await this.pickPlayer()
+        this.pendingCapability = null
       }
       await this.$store.dispatch('bossSync/useCapability', payload)
     },
@@ -106,5 +119,15 @@ export default {
   pointer-events: none;
   filter: blur(10px);
   transition-delay: 0s;
+}
+
+.player-picker-enter-active,
+.player-picker-leave-active {
+  transition: all 0.5s;
+}
+.player-picker-enter,
+.player-picker-leave-to {
+  opacity: 0;
+  transform: scale(1.2);
 }
 </style>
