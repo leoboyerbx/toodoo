@@ -25,12 +25,14 @@
         <NuxtLink
           to="/"
           class="block text-white text-xl font-display bg-pink rounded-xl p-3 w-full text-center mb-5"
+          @click.native="endSession"
         >
           On continue !
         </NuxtLink>
         <NuxtLink
           to="/"
           class="block text-white text-xl font-display bg-pink rounded-xl p-3 w-full text-center"
+          @click.native="endSession"
         >
           Youhou !
         </NuxtLink>
@@ -39,12 +41,14 @@
         <NuxtLink
           to="/"
           class="block text-white text-xl font-display bg-sky rounded-xl p-3 w-full text-center mb-5"
+          @click.native="endSession"
         >
           Hàte d’être la semaine prochaine...
         </NuxtLink>
         <NuxtLink
           to="/"
           class="block text-white text-xl font-display bg-sky rounded-xl p-3 w-full text-center"
+          @click.native="endSession"
         >
           On va pas se laisser faire !
         </NuxtLink>
@@ -60,6 +64,11 @@ export default {
   computed: {
     victory() {
       return !(this.gameContext.winner !== 'boss')
+    },
+  },
+  methods: {
+    endSession() {
+      console.log('should end cast session here')
     },
   },
 }
