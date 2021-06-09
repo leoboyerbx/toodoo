@@ -6,13 +6,13 @@
       </div>
       <div
         class="button pt-3 pb-3 pr-6 pl-6 w-7/12 bg-pink rounded-3xl text-center text-white font-display text-3xl mt-20 mx-auto"
-        @click="$router.push('/onboarding')"
+        @click="$router.push('/onboarding/readyScreen')"
       >
         Aider les TooDoos
       </div>
       <div
         class="button pt-3 pb-3 pr-6 pl-6 w-7/12 bg-pink rounded-3xl text-center text-white font-display text-3xl mt-12 mx-auto"
-        @click="$router.push('/onboarding')"
+        @click="$router.push('/onboarding/readyScreen')"
       >
         Que l'aventure commence
       </div>
