@@ -3,6 +3,7 @@
     ref="pin"
     :position="position"
     :mission-complete="completed"
+    :legend="mission.name"
     :show-popup="!completed"
     @open="$emit('open', $refs.pin)"
   >
