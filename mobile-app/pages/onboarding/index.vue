@@ -35,7 +35,7 @@ export default {
     incrementCounter() {
       this.screenCounter++
       if (this.screenCounter > 3) {
-        // TODO Go to next page
+        this.$router.push('/onboarding/readyScreen')
         this.screenCounter = 3
       }
     },
