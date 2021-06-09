@@ -1,12 +1,20 @@
 import axios from 'axios'
 
 export const state = () => ({
+  gameId: null,
+  team: {},
   players: [],
   game: null,
   missions: [],
 })
 
 export const mutations = {
+  SET_GAMEID(state, gameId) {
+    state.gameId = gameId
+  },
+  SET_TEAM(state, team) {
+    state.team = { ...state.team, ...team }
+  },
   SET_PLAYERS(state, players) {
     state.players = players
   },
@@ -28,6 +36,10 @@ export const actions = {
   async getGame({ commit }) {
     const response = await axios.get(`${this.$config.API_URL}/games/3`)
     commit('SET_GAME', response.data[0])
+  },
+  setTeam({ commit }, { team }) {
+    console.log(team)
+    commit('SET_TEAM', team)
   },
   async getPlayers({ commit, state }) {
     const response = await axios.get(
