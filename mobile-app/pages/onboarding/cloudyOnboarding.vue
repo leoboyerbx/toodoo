@@ -19,7 +19,7 @@
       :text-to-display="textBoxText[screenCounter]"
       @increment-counter="incrementCounter()"
     />
-    <div v-show="showLast" class="flex flex-col items-center">
+    <div v-show="showLast" class="flex flex-col items-center z-20">
       <p class="font-display text-3xl text-white">L’aventure va commencer !</p>
       <button class="w-16 h-16 bg-white rounded-full mt-12">
         <unicon
