@@ -2,14 +2,14 @@
   <div class="gradient-bg h-screen flex flex-col justify-center">
     <div class="onBoarding-shape-container">
       <img
-        src="~/assets/img/assets-onBoarding/shape/shape6.svg"
+        src="~assets/img/assets-onboarding/shape/shape6.svg"
         alt=""
         class="onBoarding-shape-content transform -translate-x-1/2 -translate-y-1/2 scale-110"
       />
     </div>
 
     <img
-      src="~/assets/img/kiki.svg"
+      src="~assets/img/kiki.svg"
       alt="Kiki le petit nuage"
       class="w-1/3 mx-auto mb-6 daily-guide"
     />
