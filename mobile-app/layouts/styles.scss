@@ -55,7 +55,7 @@ html, body {
   @apply absolute top-0 left-0 h-full w-full;
 
   .onBoarding-shape-content {
-    @apply absolute top-0 left-0 h-full w-full object-cover;
+    @apply absolute top-0 left-0 h-full w-full object-cover -z-1;
   }
 }
 //.onBoarding-shape-container {

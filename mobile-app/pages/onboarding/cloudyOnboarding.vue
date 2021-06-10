@@ -1,5 +1,5 @@
 <template>
-  <div class="gradient-bg h-screen flex flex-col justify-center">
+  <div class="h-screen flex flex-col justify-center">
     <div class="onBoarding-shape-container">
       <img
         src="~assets/img/assets-onboarding/shape/shape6.svg"

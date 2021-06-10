@@ -1,5 +1,5 @@
 <template>
-  <div class="gradient-bg fullscreen flex items-center">
+  <div class="fullscreen flex items-center">
     <div class="onBoarding-shape-container">
       <img
         src="~assets/img/assets-onboarding/shape/shape7.svg"
