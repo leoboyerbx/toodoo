@@ -1,5 +1,5 @@
 <template>
-  <div class="relative" :class="{ selected: isSelected }" @click="beSelected">
+  <div class="relative" :class="{ selected: isSelected }">
     <AvatarImg
       :avatar-name="avatarName.toLowerCase()"
       avatar-type="character"
@@ -22,16 +22,13 @@ export default {
       type: String,
       required: true,
     },
+    isSelected: {
+      type: Boolean,
+      required: true,
+    },
   },
   data() {
-    return {
-      isSelected: false,
-    }
-  },
-  methods: {
-    beSelected() {
-      this.isSelected = !this.isSelected
-    },
+    return {}
   },
 }
 </script>
