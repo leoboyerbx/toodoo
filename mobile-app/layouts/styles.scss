@@ -51,6 +51,13 @@ html, body {
   background-size: cover;
 }
 
+//.onBoarding-shape-container {
+//  @apply absolute top-0 left-0 h-full w-full;
+//
+//  .onBoarding-shape-content {
+//    @apply absolute top-0 left-0 h-full w-full;
+//  }
+//}
 .onBoarding-shape-container {
   @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden h-full w-full;
 
