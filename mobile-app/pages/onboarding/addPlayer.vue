@@ -8,7 +8,7 @@
         v-for="(player, i) in players"
         :key="i"
         v-model="player.name"
-        class="max-w-3xl w-full mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pt-2.5 pb-1 pl-3 border-pink h-12"
+        class="player-line max-w-3xl w-full mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pt-2.5 pb-1 pl-3 border-pink h-12"
         placeholder="Quel est votre nom ?"
       />
     </div>
@@ -51,6 +51,9 @@ export default {
     addNewPlayerLine() {
       if (this.players.length < 6) {
         this.players.push({ name: '' })
+        this.$nextTick(() => {
+          this.$el.querySelector('.player-line:last-child')?.focus()
+        })
       }
       if (this.players.length === 6) {
         this.displayAddButton = false
