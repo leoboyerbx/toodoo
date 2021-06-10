@@ -114,7 +114,7 @@ export default {
       this.$store.dispatch('apiService/setTeam', {
         team: { players: this.playersUpdate },
       })
-      this.$router.push('/map')
+      this.$router.push('/onboarding/priceChoice')
     },
   },
 }
