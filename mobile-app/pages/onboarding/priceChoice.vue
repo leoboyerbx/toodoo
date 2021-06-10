@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-theme-dark h-full flex flex-col justify-center">
+  <div
+    class="gradient-bg bg-theme-dark fullscreen flex flex-col justify-center"
+  >
     <p
       class="text-white font-display w-3/5 text-3xl mx-auto text-center mb-32 leading-10"
     >
@@ -14,6 +16,7 @@
           width="70px"
           height="70px"
           style="transform: translateY(5px)"
+          @click="$router.push('/onboarding/cloudyOnboarding')"
         />
       </button>
       <button class="w-40 h-40 bg-pink rounded-full">
@@ -23,6 +26,7 @@
           width="100px"
           height="100px"
           style="transform: translateY(5px)"
+          @click="$router.push('/onboarding/cloudyOnboarding')"
         />
       </button>
     </div>
@@ -36,6 +40,13 @@ export default {
 </script>
 
 <style scoped>
+.gradient-bg {
+  background: linear-gradient(
+    137deg,
+    rgba(72, 56, 141, 1) 40%,
+    rgba(172, 168, 241, 1) 100%
+  );
+}
 button {
   box-shadow: 0px 3px 6px #00000029;
 }
