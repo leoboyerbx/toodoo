@@ -1,5 +1,12 @@
 <template>
   <div class="gradient-bg fullscreen overflow-y-scroll">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~assets/img/assets-onboarding/shape/shape2.svg"
+        alt=""
+        class="onBoarding-shape-content"
+      />
+    </div>
     <div class="teamName mt-16 font-display max-w-2xl mx-auto">
       {{ teamName }}
     </div>

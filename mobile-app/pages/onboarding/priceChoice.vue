@@ -1,5 +1,12 @@
 <template>
-  <div class="gradient-bg fullscreen flex flex-col justify-center">
+  <div class="fullscreen flex flex-col justify-center">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~assets/img/assets-onboarding/shape/shape5.svg"
+        alt=""
+        class="onBoarding-shape-content"
+      />
+    </div>
     <p
       class="text-white font-display w-3/5 text-3xl mx-auto text-center mb-32 leading-10"
     >
