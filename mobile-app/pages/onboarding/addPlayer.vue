@@ -1,5 +1,5 @@
 <template>
-  <div class="gradient-bg fullscreen">
+  <div class="gradient-bg fullscreen overflow-y-scroll">
     <div class="teamName mt-16 font-display max-w-2xl mx-auto">
       {{ teamName }}
     </div>
@@ -17,7 +17,7 @@
       class="content w-screen max-w-2xl mx-auto mt-5"
     >
       <div
-        class="w-10 h-10 rounded-3xl bg-pink mt-5 flex justify-center items-center cursor-pointer"
+        class="w-10 h-10 rounded-3xl bg-pink my-5 flex justify-center items-center cursor-pointer"
         @click="addNewPlayerLine"
       >
         <span class="text-blue-50 font-bold font text-3xl"> + </span>
