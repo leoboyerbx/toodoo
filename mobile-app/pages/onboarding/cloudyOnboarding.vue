@@ -3,7 +3,7 @@
     <img
       src="~/assets/img/kiki.svg"
       alt="Kiki le petit nuage"
-      class="w-1/3 mx-auto mb-6"
+      class="w-1/3 mx-auto mb-6 daily-guide"
     />
     <OnboardingTextBox
       v-show="!showLast"
@@ -67,5 +67,21 @@ export default {
 
 button {
   box-shadow: 0px 3px 6px #00000029;
+}
+
+.daily-guide {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
 }
 </style>
