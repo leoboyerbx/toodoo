@@ -4,7 +4,7 @@
       <img
         src="~assets/img/assets-onboarding/shape/shape6.svg"
         alt=""
-        class="onBoarding-shape-content transform -translate-x-1/2 -translate-y-1/2 scale-110"
+        class="onBoarding-shape-content"
       />
     </div>
 
