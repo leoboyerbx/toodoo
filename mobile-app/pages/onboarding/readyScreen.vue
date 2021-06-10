@@ -1,5 +1,12 @@
 <template>
   <div class="gradient-bg fullscreen flex items-center">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~/assets/img/assets-onBoarding/shape/shape7.svg"
+        alt=""
+        class="onBoarding-shape-content transform -translate-x-1/2 -translate-y-1/2 scale-110"
+      />
+    </div>
     <div class="content w-screen">
       <div class="title text-center text-white font-display text-5xl">
         Etes-vous prêts ?
