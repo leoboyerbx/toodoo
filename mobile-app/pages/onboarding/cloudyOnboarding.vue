@@ -46,10 +46,10 @@ export default {
       screenCounter: 0,
       showLast: false,
       textBoxText: [
-        'Salut Happy Family ! Moi c’est Cloudy, je serai votre guide tout au long de l’aventure !',
-        'Nous allons passer 1 mois ensemble, alors j’espère que vous êtes déterminés à aider les TooDoo à retrouver la tranquilité sur leurs îles!',
+        `Salut ${this.$store.state.apiService.team.name} ! Moi c’est Cloudy, je serai votre guide tout au long de l’aventure !`,
+        'Nous allons passer 1 mois ensemble, alors j’espère que vous êtes déterminés à aider les TooDoos à retrouver la tranquilité sur leurs îles!',
         'Nous allons nous préparer ensemble pour défier les Electro à chaque fin de semaine.',
-        'Pour cela il va falloir effectuer des missions qui vous permettront de transformer toute cette poussière en énergie ! Alors j’espère que vous avez la pêche !',
+        'Pour cela, il va falloir effectuer des missions qui vous permettront de transformer toute cette poussière en énergie ! Alors j’espère que vous avez la pêche !',
         'Venez me voir chaque jour pour connaître vos missions !',
       ],
     }

@@ -23,8 +23,8 @@
       <div class="title teamName mt-4 font-display">Choisissez vos Toodoo</div>
       <div class="description text-white mt-6">
         Tour à tour choisissez un TooDoo, faites attention aux pouvoirs choisis
-        dans l’équipe, car ils vous seront d’une grande aide pour collabore face
-        aux méchants.
+        dans l’équipe, car ils vous seront d’une grande aide pour collaborer
+        face aux méchants.
       </div>
       <div class="avatar-grid">
         <ItemChooseAvatar
