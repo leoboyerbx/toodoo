@@ -1,15 +1,23 @@
 <template>
-  <div class="main bg-theme-dark flex-wrap">
+  <div class="main bg-theme-dark flex-wrap" @click="demoMode = true">
     <img src="../assets/img/logo.png" alt="logo" class="w-2/5" />
     <div class="flex flex-nowrap w-full justify-center">
       <NuxtLink
-        class="bg-theme-light mr-3 p-10 rounded-md max-w-7xl text-blue-50 font-bold"
+        class="bg-theme-light mr-3 py-4 px-8 rounded-md max-w-7xl text-blue-50 font-bold"
+        to="/onboarding"
+      >
+        Commencer !
+      </NuxtLink>
+      <NuxtLink
+        v-if="demoMode"
+        class="bg-theme-light mr-3 py-4 px-8 rounded-md max-w-7xl text-blue-50 font-bold"
         to="/map"
       >
         Carte interactive MVP
       </NuxtLink>
       <NuxtLink
-        class="bg-theme-light p-10 rounded-md max-w-7xl text-blue-50 font-bold"
+        v-if="demoMode"
+        class="bg-theme-light py-4 px-8 rounded-md max-w-7xl text-blue-50 font-bold"
         to="/boss"
       >
         Boss de fin de semaine MVP
@@ -23,6 +31,7 @@ export default {
   data() {
     return {
       banana: 5,
+      demoMode: false,
     }
   },
   methods: {
