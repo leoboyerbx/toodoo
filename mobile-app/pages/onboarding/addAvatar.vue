@@ -5,7 +5,7 @@
         v-for="player in players"
         :key="player.name"
         :class="{ active: playerNameSelect === player.name }"
-        class="w-full text-center pt-6 pb-8 text-white font-display text-2xl relative"
+        class="player-tab w-full text-center pt-6 pb-8 text-white font-display text-2xl relative"
         @click="changeSelectPlayer(player.name)"
       >
         {{ player.name }}
@@ -131,9 +131,9 @@ export default {
   background-color: #ffffff;
   color: #1f0a62;
   box-shadow: 0px 3px 20px rgb(0 0 0 / 30%);
-  transition: all 0.3s;
+  /*transition: all 0.3s;*/
 }
-.active::after {
+.player-tab::after {
   content: '';
   position: absolute;
   width: 30px;
@@ -142,7 +142,11 @@ export default {
   border-radius: 50%;
   top: 0;
   bottom: 0;
-  transition: all 0.3s;
+  opacity: 0;
+  /*transition: all 0.3s;*/
+}
+.player-tab.active::after {
+  opacity: 1;
 }
 .avatar-grid {
   display: grid;
