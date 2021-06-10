@@ -6,7 +6,7 @@
     :auto-play="false"
     :loop="false"
     :style="{
-      filter: `hue-rotate(${hue}deg)`,
+      filter: `hue-rotate(${hue}deg) brightness(${brightness})`,
     }"
     @AnimControl="setAnimController"
   />
@@ -31,6 +31,7 @@ export default {
       segmentMarkers: null,
       capabilitiesLottie: capabilitiesAnimations.lottieFile,
       hue: 0,
+      brightness: 1,
     }
   },
   watch: {
@@ -39,10 +40,13 @@ export default {
       const effect = Object.keys(this.capability.capability.effect)[0]
       const target = this.capability.capability.target
       if (effect && target) {
-        this.hue =
-          effect === 'attack'
-            ? this.gameContext.players[this.gameContext.playerTurn].hue
-            : 0
+        if (effect === 'attack') {
+          this.hue = this.gameContext.players[this.gameContext.playerTurn].hue
+          this.brightness = 1.5
+        } else {
+          this.hue = 0
+          this.brightness = 1
+        }
         const segment = getCapabilityAnimation(
           effect,
           target,
