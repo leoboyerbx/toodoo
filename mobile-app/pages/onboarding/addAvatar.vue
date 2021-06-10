@@ -28,11 +28,15 @@
       </div>
       <div class="avatar-grid">
         <ItemChooseAvatar
-          v-for="avatarName in avatarNames"
+          v-for="(avatarName, index) in avatarNames"
           :key="avatarName"
           :avatar-name="avatarName"
+          :is-selected="index === selectedAvatarIndex"
           class="grid-item"
-          @click.native="makeAvatarActiveForPlayer(avatarName)"
+          :class="{
+            unavailable: !avatarIsAvailable(avatarName),
+          }"
+          @click.native="makeAvatarActiveForPlayer(avatarName, index)"
         />
       </div>
     </div>
@@ -41,6 +45,10 @@
 
 <script>
 import ItemChooseAvatar from '../../components/ItemChooseAvatar'
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
 
 export default {
   name: 'AddAvatar',
@@ -60,11 +68,17 @@ export default {
         'Joy',
         'Vinou',
       ],
+      selectedAvatarIndex: null,
     }
   },
   computed: {
     players() {
       return this.$store.state.apiService.team.players
+    },
+    otherPlayers() {
+      return this.players.filter(
+        (player) => player.name !== this.playerNameSelect
+      )
     },
   },
   mounted() {
@@ -72,15 +86,29 @@ export default {
     this.playersUpdate = this.players
   },
   methods: {
+    avatarIsAvailable(avatarName) {
+      return !this.otherPlayers.some((player) => {
+        return player.avatar === avatarName.toLowerCase()
+      })
+    },
     changeSelectPlayer(name) {
       this.playerNameSelect = name
+      const playerObj = this.players.find((player) => player.name === name)
+      if (playerObj.avatar) {
+        this.selectedAvatarIndex = this.avatarNames.indexOf(
+          capitalizeFirstLetter(playerObj.avatar)
+        )
+      } else {
+        this.selectedAvatarIndex = null
+      }
     },
-    makeAvatarActiveForPlayer(avatarName) {
+    makeAvatarActiveForPlayer(avatarName, index) {
       this.playersUpdate.forEach((player) => {
         if (player.name === this.playerNameSelect) {
           player.avatar = avatarName.toLowerCase()
         }
       })
+      this.selectedAvatarIndex = index
     },
     updatePlayers() {
       this.$store.dispatch('apiService/setTeam', {
@@ -124,5 +152,9 @@ export default {
 .grid-item {
   grid-row: auto;
   grid-column: auto;
+}
+.unavailable {
+  opacity: 0.6;
+  pointer-events: none;
 }
 </style>

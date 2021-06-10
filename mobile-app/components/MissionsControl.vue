@@ -46,9 +46,9 @@
         :class="{ hidden: addLineOpen === false }"
       >
         <input
+          v-model="newMissionName"
           class="max-w-3xl w-full mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pt-2.5 pb-1 pl-3"
           placeholder="Ajouter une tâche |"
-          v-model="newMissionName"
         />
         <div
           class="w-16 h-10 rounded-lg bg-theme-light mt-5 flex justify-center ml-5"
@@ -96,21 +96,17 @@ export default {
     missions() {
       const arrayToReturn = []
       if (!this.displayPonctual) {
-        this.$store.state.viewModel.missionsManagerData.missionsList.forEach(
-          (mission) => {
-            if (mission.ponctual === false) {
-              arrayToReturn.push(mission)
-            }
+        this.$store.state.apiService.missions.forEach((mission) => {
+          if (mission.ponctual === false) {
+            arrayToReturn.push(mission)
           }
-        )
+        })
       } else {
-        this.$store.state.viewModel.missionsManagerData.missionsList.forEach(
-          (mission) => {
-            if (mission.ponctual === true) {
-              arrayToReturn.push(mission)
-            }
+        this.$store.state.apiService.missions.forEach((mission) => {
+          if (mission.ponctual === true) {
+            arrayToReturn.push(mission)
           }
-        )
+        })
       }
 
       return arrayToReturn
