@@ -164,7 +164,7 @@ Pour plus d'infos sur la structure, l'organisation ou le déploiement, voir [le 
 
 ## Auteurs
 
-* **Léo Boyer** _alias_ [@leoboyerbx](https://www.linkedin.com/in/leoboyerbx/)
+* **Léo Boyer** _alias_ [@leoboyerbx](https://www.leoboyer.fr/)
 * **JohannDumoulin Minguet**
 * **Vincent Creton** _alias_ [@cretonv](https://fr.linkedin.com/in/vincent-creton-776816187)
 
