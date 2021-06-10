@@ -12,6 +12,19 @@
       :style="'top:' + position.y + '%; left:' + position.x + '%'"
       @click="clickPopUp($event)"
     />
+    <div
+      v-if="legend"
+      class="absolute text-center text-white opacity-60 transform -translate-x-1/2 flex flex-col justify-end"
+      :style="{
+        bottom: 100 - position.y + 0.5 + '%',
+        left: position.x + '%',
+        'font-size': '1.8vh',
+        width: '12vh',
+        lineHeight: '1',
+      }"
+    >
+      {{ legend }}
+    </div>
     <transition name="slide-fade">
       <div
         v-show="showPopup && isActive"
@@ -57,6 +70,10 @@ export default {
     showPopup: {
       type: Boolean,
       default: true,
+    },
+    legend: {
+      type: String,
+      default: null,
     },
   },
 

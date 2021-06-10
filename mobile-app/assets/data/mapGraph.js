@@ -6,10 +6,19 @@ const mapGraph = `graph {
     e -- f
     f -- g
     g -- h
+    h -- i
+    i -- j
+    j -- k
+    k -- l
+    l -- m
+    m -- n
+    n -- o
+    o -- p
+    p -- q
 
-    1 -- a;
-    2 -- b;
-    3 -- a;
+    1 -- a
+    2 -- b
+    3 -- a
     4 -- d
     5 -- c
     6 -- e
@@ -17,5 +26,15 @@ const mapGraph = `graph {
     8 -- f
     9 -- g
     10 -- g
+    11 -- h
+    12 -- h
+    13 -- i
+    14 -- l
+    15 -- j
+    16 -- k
+    17 -- m
+    18 -- m
+    19 -- n
+    20 -- o
 }`
 export default mapGraph
