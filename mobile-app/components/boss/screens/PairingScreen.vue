@@ -40,6 +40,7 @@
       <p>et scannez le code affiché</p>
       <div class="w-64 h-64 m-5 mt-10 relative">
         <QrcodeStream
+          v-if="scanQrCode"
           class="rounded-lg overflow-hidden"
           @decode="onDecode"
         ></QrcodeStream>
