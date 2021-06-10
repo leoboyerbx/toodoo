@@ -27,7 +27,7 @@
       class="absolute bottom-7 right-7 flex mx-auto mt-6 rounded-full p-2 bg-pink z-10"
       @click="updatePlayersOfTeam"
     >
-      <unicon name="check" fill="#fff" />
+      <unicon name="check" width="60" height="60" fill="#fff" />
     </button>
   </div>
 </template>
