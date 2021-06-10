@@ -1,5 +1,13 @@
 <template>
   <div class="gradient-bg h-screen flex flex-col justify-center">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~/assets/img/assets-onBoarding/shape/shape6.svg"
+        alt=""
+        class="onBoarding-shape-content transform -translate-x-1/2 -translate-y-1/2 scale-110"
+      />
+    </div>
+
     <img
       src="~/assets/img/kiki.svg"
       alt="Kiki le petit nuage"
