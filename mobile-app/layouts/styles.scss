@@ -52,7 +52,7 @@ html, body {
 }
 
 .onBoarding-shape-container {
-  @apply absolute top-0 left-0 h-full w-full;
+  @apply absolute top-0 left-0 h-full w-full pointer-events-none;
 
   .onBoarding-shape-content {
     @apply absolute top-0 left-0 h-full w-full object-cover -z-1;
