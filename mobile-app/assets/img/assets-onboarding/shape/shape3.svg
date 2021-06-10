@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="723.503" height="1581.741" viewBox="0 0 723.503 1581.741">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b8b5ff"/>
+      <stop offset="0.653" stop-color="#8b7fed"/>
+      <stop offset="1" stop-color="#7868e6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.855" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#eaed8d"/>
+      <stop offset="0.528" stop-color="#f6ae89"/>
+      <stop offset="1" stop-color="#ff8286"/>
+    </linearGradient>
+  </defs>
+  <g id="Groupe_1676" data-name="Groupe 1676" transform="translate(-374 56.553)">
+    <path id="Tracé_2379" data-name="Tracé 2379" d="M3509,8322s-89-26-139,90-26,310-114,354-120,88-120,88h373Z" transform="translate(-2464.5 -7328.813)" opacity="0.9" fill="url(#linear-gradient)"/>
+    <path id="Tracé_2378" data-name="Tracé 2378" d="M3475.579,7289.534s-303.714,2.455-466.642,15.652-287.193-97.955-213.518,32.973,342.814-60.44,490.205,70.734,147.955,288.8,189.955,314.8,9.848-200.456,9.848-200.456Z" transform="translate(-2399.689 -7330.217)" fill="url(#linear-gradient-2)"/>
+  </g>
+</svg>
