@@ -5,9 +5,9 @@
         v-for="player in players"
         :key="player.id"
         :player="player"
-        :current-item="player.id === activePlayer.id"
+        :current-item="activePlayer && player.id === activePlayer.id"
         class="item"
-        :class="{ active: activePlayer.id === player.id }"
+        :class="{ active: activePlayer && activePlayer.id === player.id }"
         @click.native="changeCurrent(player)"
       />
     </div>
@@ -23,7 +23,7 @@
           </div>
           <div class="missions-completed overflow-scroll">
             <ScoreCompletionLine
-              v-for="missionComplete in activePlayer.completeMissions"
+              v-for="missionComplete in missionCompletions"
               :key="missionComplete.id"
               :mission="missionComplete"
             />
@@ -42,12 +42,19 @@ export default {
   components: { ScoreSliderItem, ScoreCompletionLine },
   data: () => {
     return {
-      activePlayer: {},
+      activePlayer: null,
     }
   },
   computed: {
     players() {
-      return this.$store.state.viewModel.scoreData.playerList
+      return this.$store.state.apiService.players
+    },
+    missionCompletions() {
+      return (
+        this.activePlayer?.completeMissions.filter(
+          (missionCompletion) => !!missionCompletion.mission
+        ) ?? []
+      )
     },
   },
   mounted() {

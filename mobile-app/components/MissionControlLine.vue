@@ -24,12 +24,14 @@
         class="absolute flex justify-center right-0 top-0 bottom-0 w-10 bg-theme-light rounded-lg"
         :class="{ 'hidden-check': isActive === false }"
       >
-        <span class="text-blue-50 font-bold font text-3xl text-before">
-          <span
+        <div class="text-blue-50 font-bold font text-3xl text-before">
+          <div
             v-if="!$data.isAssign && !$data.listOfCharacterOpen"
+            class="add-button"
             @click="displayPlayerList"
-            >+</span
           >
+            +
+          </div>
           <span v-if="$data.listOfCharacterOpen" @click="removeAssignement"
             >-</span
           >
@@ -43,7 +45,7 @@
               avatar-type="portrait"
             />
           </div>
-        </span>
+        </div>
         <div
           class="absolute top-8 bg-theme-light pl-1 pr-1 pt-1.5 rounded-b-lg z-10"
           :class="{ hidden: listOfCharacterOpen === false }"
@@ -142,5 +144,8 @@ export default {
   object-position: center;
   width: 100%;
   height: 100%;
+}
+.add-button {
+  padding-top: 5px;
 }
 </style>

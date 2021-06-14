@@ -195,7 +195,11 @@ export default function setupRoutes(app: Express): void {
         gameId: Number(gameId),
       },
       include: {
-        missionCompletion: true,
+        missionCompletion: {
+          include: {
+            mission: true
+          }
+        },
         assignPlayer: true,
       },
     });
@@ -205,7 +209,11 @@ export default function setupRoutes(app: Express): void {
       },
       include: {
         assignedMissions: true,
-        completeMissions: true,
+        completeMissions: {
+          include: {
+            mission: true
+          }
+        },
       },
     });
     res.json({missions: missions, players: players});

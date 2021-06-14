@@ -16,7 +16,7 @@ import ScoreSlider from '../components/ScoreSlider'
 export default {
   components: { ScoreSlider },
   async beforeCreate() {
-    await this.$store.dispatch('viewModel/fetchScoreData')
+    await this.$store.dispatch('apiService/fetchScoreData')
   },
 }
 </script>

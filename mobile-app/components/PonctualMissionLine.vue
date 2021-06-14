@@ -62,7 +62,6 @@ export default {
     ) {
       this.goodAssign = true
     }
-    console.log(this.goodAssign)
   },
   methods: {
     sendMissionCompletion() {
