@@ -25,8 +25,9 @@ export default {
       banana: 5,
     }
   },
-  methods: {
-    test() {},
+  beforeMount() {
+    const didOnboarding = localStorage.getItem('didOnboarding')
+    console.log(didOnboarding)
   },
 }
 </script>
