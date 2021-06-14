@@ -1,7 +1,12 @@
 <template>
-  <div
-    class="gradient-bg bg-theme-dark fullscreen flex flex-col justify-center"
-  >
+  <div class="fullscreen flex flex-col justify-center">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~assets/img/assets-onboarding/shape/shape5.svg"
+        alt=""
+        class="onBoarding-shape-content"
+      />
+    </div>
     <p
       class="text-white font-display w-3/5 text-3xl mx-auto text-center mb-32 leading-10"
     >
@@ -41,12 +46,11 @@ export default {
 
 <style scoped>
 .gradient-bg {
-  background: linear-gradient(
-    137deg,
-    rgba(72, 56, 141, 1) 40%,
-    rgba(172, 168, 241, 1) 100%
-  );
+  background: transparent
+    linear-gradient(127deg, #1f0a62 0%, #6e62b4 68%, #b5b1fe 100%) 0% 0%
+    no-repeat padding-box;
 }
+
 button {
   box-shadow: 0px 3px 6px #00000029;
 }

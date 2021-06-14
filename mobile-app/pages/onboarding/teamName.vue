@@ -1,5 +1,12 @@
 <template>
-  <div class="gradient-bg fullscreen flex items-center">
+  <div class="fullscreen flex items-center">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~assets/img/assets-onboarding/shape/shape1.svg"
+        alt=""
+        class="onBoarding-shape-content"
+      />
+    </div>
     <div class="content w-screen max-w-2xl mx-auto">
       <div class="title text-white font-display text-2xl">Nom de la team</div>
       <input
@@ -39,13 +46,6 @@ export default {
 </script>
 
 <style scoped>
-.gradient-bg {
-  background: linear-gradient(
-    137deg,
-    rgba(72, 56, 141, 1) 40%,
-    rgba(172, 168, 241, 1) 100%
-  );
-}
 .content {
   transform: translateY(-30px);
 }

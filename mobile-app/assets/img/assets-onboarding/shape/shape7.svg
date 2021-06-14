@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <linearGradient id="linear-gradient" x2="0.983" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1f0a62"/>
+      <stop offset="0.695" stop-color="#6e62b4"/>
+      <stop offset="1" stop-color="#b5b1fe"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.855" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#eaed8d"/>
+      <stop offset="0.528" stop-color="#f6ae89"/>
+      <stop offset="1" stop-color="#ff8286"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b8b5ff"/>
+      <stop offset="0.653" stop-color="#8b7fed"/>
+      <stop offset="1" stop-color="#7868e6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#91ffff"/>
+      <stop offset="1" stop-color="#0a4e62"/>
+    </linearGradient>
+    <clipPath id="clip-Créer_Team_12">
+      <rect width="1024" height="768"/>
+    </clipPath>
+  </defs>
+  <g id="Créer_Team_12" data-name="Créer Team – 12" clip-path="url(#clip-Créer_Team_12)">
+    <rect width="1024" height="768" fill="url(#linear-gradient)"/>
+    <path id="Tracé_2151" data-name="Tracé 2151" d="M1327.2,8101.734,297,8100.827Z" transform="translate(-297 -7334.029)" fill="#9590f6"/>
+    <path id="Tracé_2378" data-name="Tracé 2378" d="M3475.579,7289.534s-303.714,2.455-466.642,15.652-287.193-97.955-213.518,32.973,342.814-60.44,490.205,70.734,147.955,288.8,189.955,314.8,9.848-200.456,9.848-200.456Z" transform="translate(8331.469 -2698.94) rotate(90)" fill="url(#linear-gradient-2)"/>
+    <path id="Tracé_2736" data-name="Tracé 2736" d="M9868.5,7329s-47.288,225.545-541.228,292.212,48.484-436.364,48.484-436.364Z" transform="translate(4435.671 12004.523) rotate(-149)" fill="url(#linear-gradient-3)"/>
+    <path id="Tracé_3365" data-name="Tracé 3365" d="M-3898.554,6913.853c45.042,72.851,64.739,94.811,110.514,72.3s19.2-178.266,79.441-197.429,328.268-141.549,115.869-178.521-329.622,29.316-329.622,29.316Z" transform="translate(3855 -6644)" fill="url(#linear-gradient-4)"/>
+  </g>
+</svg>

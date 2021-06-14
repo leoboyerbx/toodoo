@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="765" viewBox="0 0 1024 765">
+  <defs>
+    <linearGradient id="linear-gradient" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1f0a62"/>
+      <stop offset="0.682" stop-color="#6e62b4"/>
+      <stop offset="1" stop-color="#b5b1fe"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#eaed8d"/>
+      <stop offset="0.528" stop-color="#f6ae89"/>
+      <stop offset="1" stop-color="#ff8286"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b8b5ff"/>
+      <stop offset="0.653" stop-color="#8b7fed"/>
+      <stop offset="1" stop-color="#7868e6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0.456" y1="0.759" x2="0.05" y2="0.233" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#91ffff"/>
+      <stop offset="1" stop-color="#0a4e62"/>
+    </linearGradient>
+    <clipPath id="clip-Liste_de_taches_hebdo_dispo_7">
+      <rect width="1024" height="765"/>
+    </clipPath>
+  </defs>
+  <g id="Liste_de_taches_hebdo_dispo_7" data-name="Liste de taches hebdo dispo – 7" clip-path="url(#clip-Liste_de_taches_hebdo_dispo_7)">
+    <rect width="1024" height="765" fill="url(#linear-gradient)"/>
+    <path id="Tracé_2383" data-name="Tracé 2383" d="M8125.642,7667.214C7786.865,7776.094,7959.221,8000.322,7453,7901.9s-435.661,163.365-435.661,163.365l1108.308,15.9Z" transform="translate(-7072.642 -7281.5)" fill="url(#linear-gradient-2)"/>
+    <path id="Tracé_2384" data-name="Tracé 2384" d="M7459.169,7296.423c288.344,16.739-295.453,554.2-457.318,346.563s12.007-332.045,12.007-332.045Z" transform="translate(-7174.796 -7464.118)" stroke="#707070" stroke-width="1" fill="url(#linear-gradient-3)"/>
+    <path id="Tracé_2394" data-name="Tracé 2394" d="M5936.856,7644.672c179.268-86.437,34.281-224.663,348.189-263.426,228.211-28.181,261.313-102.843,262.386-141.817.392-14.211-3.726-23.654-3.726-23.654l-606.85,78.28Z" transform="matrix(-0.07, 0.998, -0.998, -0.07, 8763.712, -5445.991)" fill="url(#linear-gradient-4)"/>
+    <path id="Tracé_2728" data-name="Tracé 2728" d="M8125.642,7667.214C7786.865,7776.094,7959.221,8000.322,7453,7901.9s-435.661,163.365-435.661,163.365l1108.308,15.9Z" transform="translate(-7072.642 -7281.5)" fill="url(#linear-gradient-2)"/>
+    <path id="Tracé_2730" data-name="Tracé 2730" d="M5936.856,7644.672c179.268-86.437,34.281-224.663,348.189-263.426,228.211-28.181,261.313-102.843,262.386-141.817.392-14.211-3.726-23.654-3.726-23.654l-606.85,78.28Z" transform="matrix(-0.07, 0.998, -0.998, -0.07, 8763.712, -5445.991)" fill="url(#linear-gradient-4)"/>
+  </g>
+</svg>

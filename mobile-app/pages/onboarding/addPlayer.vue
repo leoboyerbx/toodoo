@@ -1,5 +1,12 @@
 <template>
-  <div class="gradient-bg fullscreen">
+  <div class="gradient-bg fullscreen overflow-y-scroll">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~assets/img/assets-onboarding/shape/shape2.svg"
+        alt=""
+        class="onBoarding-shape-content"
+      />
+    </div>
     <div class="teamName mt-16 font-display max-w-2xl mx-auto">
       {{ teamName }}
     </div>
@@ -8,7 +15,7 @@
         v-for="(player, i) in players"
         :key="i"
         v-model="player.name"
-        class="max-w-3xl w-full mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pt-2.5 pb-1 pl-3 border-pink h-12"
+        class="player-line max-w-3xl w-full mt-5 flex flex-row flex-nowrap justify-between rounded-lg bg-white pt-2.5 pb-1 pl-3 border-pink h-12"
         placeholder="Quel est votre nom ?"
       />
     </div>
@@ -17,7 +24,7 @@
       class="content w-screen max-w-2xl mx-auto mt-5"
     >
       <div
-        class="w-10 h-10 rounded-3xl bg-pink mt-5 flex justify-center items-center cursor-pointer"
+        class="w-10 h-10 rounded-3xl bg-pink my-5 flex justify-center items-center cursor-pointer"
         @click="addNewPlayerLine"
       >
         <span class="text-blue-50 font-bold font text-3xl"> + </span>
@@ -27,7 +34,7 @@
       class="absolute bottom-7 right-7 flex mx-auto mt-6 rounded-full p-2 bg-pink z-10"
       @click="updatePlayersOfTeam"
     >
-      <unicon name="check" fill="#fff" />
+      <unicon name="check" width="60" height="60" fill="#fff" />
     </button>
   </div>
 </template>
@@ -51,6 +58,9 @@ export default {
     addNewPlayerLine() {
       if (this.players.length < 6) {
         this.players.push({ name: '' })
+        this.$nextTick(() => {
+          this.$el.querySelector('.player-line:last-child')?.focus()
+        })
       }
       if (this.players.length === 6) {
         this.displayAddButton = false
