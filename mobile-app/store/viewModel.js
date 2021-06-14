@@ -116,10 +116,4 @@ export const actions = {
       missions,
     })
   },
-  fetchScoreData({ commit, rootState }) {
-    const players = rootState.apiService.players
-    commit('setScoreData', {
-      players,
-    })
-  },
 }

@@ -102,4 +102,9 @@ export const actions = {
     await dispatch('getPlayers')
     await dispatch('getMissions')
   },
+
+  fetchScoreData({ commit, state }) {
+    const players = state.players
+    commit('SET_PLAYERS', players)
+  },
 }
