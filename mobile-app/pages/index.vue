@@ -34,9 +34,11 @@ export default {
       demoMode: false,
     }
   },
-  beforeMount() {
+  beforeCreate() {
     const didOnboarding = localStorage.getItem('didOnboarding')
-    console.log(didOnboarding)
+    if (didOnboarding) {
+      this.$router.push('/map')
+    }
   },
 }
 </script>

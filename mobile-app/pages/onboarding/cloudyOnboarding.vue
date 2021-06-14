@@ -28,7 +28,7 @@
           width="50px"
           height="50px"
           style="transform: translateY(4px)"
-          @click="$router.push('/map')"
+          @click="exit"
         />
       </button>
     </div>
@@ -61,6 +61,10 @@ export default {
         this.showLast = true
         this.screenCounter = 4
       }
+    },
+    exit() {
+      localStorage.setItem('didOnboarding', true)
+      this.$router.push('/map')
     },
   },
 }

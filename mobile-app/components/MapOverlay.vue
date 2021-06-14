@@ -16,6 +16,10 @@
       class="absolute pointer-events-auto top-0 right-0 w-16 h-16"
       @click="demoNextDay"
     ></div>
+    <div
+      class="absolute pointer-events-auto top-0 right-16 w-16 h-16"
+      @click="$router.push('/onboarding')"
+    ></div>
   </div>
 </template>
 
