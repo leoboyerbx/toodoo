@@ -1,15 +1,15 @@
 <template>
-  <div class="gradient-bg h-screen flex flex-col justify-center">
+  <div class="h-screen flex flex-col justify-center">
     <div class="onBoarding-shape-container">
       <img
-        src="~/assets/img/assets-onBoarding/shape/shape6.svg"
+        src="~assets/img/assets-onboarding/shape/shape6.svg"
         alt=""
-        class="onBoarding-shape-content transform -translate-x-1/2 -translate-y-1/2 scale-110"
+        class="onBoarding-shape-content"
       />
     </div>
 
     <img
-      src="~/assets/img/kiki.svg"
+      src="~assets/img/kiki.svg"
       alt="Kiki le petit nuage"
       class="w-1/3 mx-auto mb-6 daily-guide"
     />
@@ -19,7 +19,7 @@
       :text-to-display="textBoxText[screenCounter]"
       @increment-counter="incrementCounter()"
     />
-    <div v-show="showLast" class="flex flex-col items-center">
+    <div v-show="showLast" class="flex flex-col items-center z-20">
       <p class="font-display text-3xl text-white">L’aventure va commencer !</p>
       <button class="w-16 h-16 bg-white rounded-full mt-12">
         <unicon
@@ -46,10 +46,10 @@ export default {
       screenCounter: 0,
       showLast: false,
       textBoxText: [
-        'Salut Happy Family ! Moi c’est Cloudy, je serai votre guide tout au long de l’aventure !',
-        'Nous allons passer 1 mois ensemble, alors j’espère que vous êtes déterminés à aider les TooDoo à retrouver la tranquilité sur leurs îles!',
+        `Salut ${this.$store.state.apiService.team.name} ! Moi c’est Cloudy, je serai votre guide tout au long de l’aventure !`,
+        'Nous allons passer 1 mois ensemble, alors j’espère que vous êtes déterminés à aider les TooDoos à retrouver la tranquilité sur leurs îles!',
         'Nous allons nous préparer ensemble pour défier les Electro à chaque fin de semaine.',
-        'Pour cela il va falloir effectuer des missions qui vous permettront de transformer toute cette poussière en énergie ! Alors j’espère que vous avez la pêche !',
+        'Pour cela, il va falloir effectuer des missions qui vous permettront de transformer toute cette poussière en énergie ! Alors j’espère que vous avez la pêche !',
         'Venez me voir chaque jour pour connaître vos missions !',
       ],
     }

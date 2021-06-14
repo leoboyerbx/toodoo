@@ -88,7 +88,7 @@ export default {
     }
   },
   beforeDestroy() {
-    this.mutationObserver.disconnect()
+    this.mutationObserver?.disconnect()
   },
   methods: {
     checkCastStyleDiff() {

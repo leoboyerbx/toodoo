@@ -52,9 +52,16 @@ html, body {
 }
 
 .onBoarding-shape-container {
-  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden h-full w-full;
+  @apply absolute top-0 left-0 h-full w-full pointer-events-none;
 
   .onBoarding-shape-content {
-    @apply absolute top-1/2 left-1/2;
+    @apply absolute top-0 left-0 h-full w-full object-cover -z-1;
   }
 }
+//.onBoarding-shape-container {
+//  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden h-full w-full;
+//
+//  .onBoarding-shape-content {
+//    @apply absolute top-1/2 left-1/2;
+//  }
+//}

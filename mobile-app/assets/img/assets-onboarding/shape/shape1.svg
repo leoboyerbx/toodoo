@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1283.417" height="912.282" viewBox="0 0 1283.417 912.282">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="768" viewBox="0 0 1024 768">
   <defs>
-    <linearGradient id="linear-gradient" x1="0.69" y1="0.45" x2="0.038" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#91ffff"/>
-      <stop offset="1" stop-color="#0a4e62"/>
+    <linearGradient id="linear-gradient" y1="0.023" x2="1.019" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#1f0a62"/>
+      <stop offset="0.682" stop-color="#6e62b4"/>
+      <stop offset="1" stop-color="#b5b1fe"/>
     </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="0.242" y1="-0.515" x2="0.33" y2="1.035" gradientUnits="objectBoundingBox">
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#eaed8d"/>
-      <stop offset="0.355" stop-color="#eedb8c"/>
+      <stop offset="0.528" stop-color="#f6ae89"/>
       <stop offset="1" stop-color="#ff8286"/>
     </linearGradient>
     <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
@@ -14,10 +15,18 @@
       <stop offset="0.653" stop-color="#8b7fed"/>
       <stop offset="1" stop-color="#7868e6"/>
     </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0.69" y1="0.45" x2="0.038" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#91ffff"/>
+      <stop offset="1" stop-color="#0a4e62"/>
+    </linearGradient>
+    <clipPath id="clip-shape1">
+      <rect width="1024" height="768"/>
+    </clipPath>
   </defs>
-  <g id="Groupe_1673" data-name="Groupe 1673" transform="translate(111.577 98.31)">
-    <path id="Tracé_2389" data-name="Tracé 2389" d="M721.381,8121.807c-197.906,26.8-404,382.826-352.129,723.857-44.832,6.586-127.782-409.341-127.782-409.341l23.5-244.5Z" transform="matrix(0.995, 0.105, -0.105, 0.995, 572.908, -8179.307)" fill="url(#linear-gradient)"/>
-    <path id="Tracé_2390" data-name="Tracé 2390" d="M1347.572,8390.391c-103.181,31.815-373.7,52.258-619.926-97.387s-454.313-169.339-454.313-169.339v388.972H1347.572Z" transform="translate(-298.452 -7698.665)" fill="url(#linear-gradient-2)"/>
-    <path id="Tracé_2741" data-name="Tracé 2741" d="M801.112,7239.813c104.47,133.757,557.911,445.936,670.634,184.785S801.112,7239.813,801.112,7239.813Z" transform="translate(-311 -7327.724)" fill="url(#linear-gradient-3)"/>
+  <g id="shape1" clip-path="url(#clip-shape1)">
+    <rect width="1024" height="768" fill="url(#linear-gradient)"/>
+    <path id="Tracé_2728" data-name="Tracé 2728" d="M8125.642,7667.214C7786.865,7776.094,7959.221,8000.322,7453,7901.9s-435.661,163.365-435.661,163.365l1108.308,15.9Z" transform="translate(-7072.643 -7281.5)" fill="url(#linear-gradient-2)"/>
+    <path id="Tracé_2741" data-name="Tracé 2741" d="M801.112,7239.813c104.47,133.757,557.911,445.936,670.634,184.785S801.112,7239.813,801.112,7239.813Z" transform="translate(-289.112 -7377.518)" fill="url(#linear-gradient-3)"/>
+    <path id="Tracé_2831" data-name="Tracé 2831" d="M721.381,8121.807c-197.906,26.8-404,382.826-352.129,723.857-44.832,6.586-127.782-409.341-127.782-409.341l23.5-244.5Z" transform="translate(1604.247 -8141.877) rotate(13)" fill="url(#linear-gradient-4)"/>
   </g>
 </svg>
