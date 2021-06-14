@@ -24,13 +24,13 @@ export default {
       avatar: null,
     }
   },
-  beforeMount() {
-    this.loadAvatar()
-  },
   watch: {
     avatarName() {
       this.loadAvatar()
     },
+  },
+  beforeMount() {
+    this.loadAvatar()
   },
   beforeUpdate() {
     this.loadAvatar()

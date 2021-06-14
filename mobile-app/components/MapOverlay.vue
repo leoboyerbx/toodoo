@@ -20,16 +20,20 @@
       class="absolute pointer-events-auto top-0 right-16 w-16 h-16"
       @click="$router.push('/onboarding')"
     ></div>
+    <MapChosePlayer :players="players" class="z-50" />
+    <!--    <transition name="fade">-->
+    <!--    </transition>-->
   </div>
 </template>
 
 <script>
 import PlayersList from './PlayersList'
 import CircleButton from './CircleButton'
+import MapChosePlayer from './MapChosePlayer'
 
 export default {
   name: 'MapOverlay',
-  components: { CircleButton, PlayersList },
+  components: { MapChosePlayer, CircleButton, PlayersList },
   data: () => {
     return {}
   },
