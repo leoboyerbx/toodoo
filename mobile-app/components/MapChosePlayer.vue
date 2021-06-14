@@ -20,7 +20,7 @@
             :avatar-name="player.avatar"
             avatar-type="portrait"
             class="rounded-3xl"
-            @avatar-loaded="color[player.id] = $event.color"
+            @avatar-loaded="loadColor(player.id, $event.color)"
           />
         </div>
         <p class="text-white mt-3">{{ player.name }}</p>
@@ -52,6 +52,11 @@ export default {
     },
     chose(player) {
       this.$store.commit('setCurrentPlayer', player)
+      this.$store.commit('viewModel/setShowMapChosePlayer', false)
+    },
+    loadColor(id, color) {
+      this.color[id] = color
+      this.$forceUpdate()
     },
   },
 }

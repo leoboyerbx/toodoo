@@ -64,6 +64,7 @@ export default {
     },
     exit() {
       localStorage.setItem('didOnboarding', true)
+      this.$store.commit('viewModel/setShowMapChosePlayer', false)
       this.$router.push('/map')
     },
   },

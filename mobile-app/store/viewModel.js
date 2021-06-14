@@ -17,6 +17,7 @@ export const state = () => ({
   scoreData: {
     playerList: [],
   },
+  showMapChosePlayer: true,
 })
 
 export const getters = {
@@ -40,6 +41,9 @@ export const mutations = {
   },
   setScoreData(state, set) {
     state.scoreData.playerList = set.players
+  },
+  setShowMapChosePlayer(state, set) {
+    state.showMapChosePlayer = set
   },
 }
 

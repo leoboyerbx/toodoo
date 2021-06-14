@@ -20,9 +20,13 @@
       class="absolute pointer-events-auto top-0 right-16 w-16 h-16"
       @click="$router.push('/onboarding')"
     ></div>
-    <MapChosePlayer :players="players" class="z-50" />
-    <!--    <transition name="fade">-->
-    <!--    </transition>-->
+    <transition name="fade">
+      <MapChosePlayer
+        v-if="$store.state.viewModel.showMapChosePlayer"
+        :players="players"
+        class="z-50"
+      />
+    </transition>
   </div>
 </template>
 
