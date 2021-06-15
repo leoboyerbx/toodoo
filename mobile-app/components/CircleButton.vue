@@ -29,6 +29,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.43);
 }
 
 .circle-button img {
