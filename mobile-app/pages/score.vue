@@ -1,5 +1,5 @@
 <template>
-  <div class="fullscreen bg-theme-darkBlue gradient-bg">
+  <div class="fullscreen bg-theme-darkBlue gradient-bg pl-6 pr-6">
     <button
       class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
       @click="$router.go(-1)"

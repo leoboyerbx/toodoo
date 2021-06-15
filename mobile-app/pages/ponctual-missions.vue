@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen pt-10 bg-theme-darkBlue bg-shape relative">
+  <div class="h-screen pt-10 bg-theme-darkBlue bg-shape relative pl-6 pr-6">
     <button
       class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-20"
       @click="$router.go(-1)"

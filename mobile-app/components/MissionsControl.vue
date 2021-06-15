@@ -1,5 +1,5 @@
 <template>
-  <div class="fullscreen bg-shape relative">
+  <div class="fullscreen bg-shape relative pl-6 pr-6">
     <div class="title absolute top-20 left-10 font-display z-15">
       VOS MISSIONS
     </div>
