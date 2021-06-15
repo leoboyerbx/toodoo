@@ -12,7 +12,7 @@ if (nodeEnv === 'tunnel') {
   publicRuntimeConfig = {
     API_URL: 'http://localhost:7554',
     baseUrl: 'http://localhost:3002',
-    // devPair: true,
+    devPair: true,
   }
 } else if (nodeEnv === 'lan') {
   const ip = process.env.IP
@@ -43,7 +43,7 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, user-scalable="no"',
+        content: 'width=device-width, initial-scale=1, user-scalable=no',
       },
       { hid: 'description', name: 'description', content: '' },
     ],
@@ -57,6 +57,7 @@ export default {
   plugins: [
     { src: '~/plugins/vue-unicons', mode: 'client' },
     { src: '~/plugins/gsap', mode: 'client' },
+    { src: '~/plugins/visibilityState', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

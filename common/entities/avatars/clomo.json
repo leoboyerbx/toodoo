@@ -6,5 +6,39 @@
     "portrait": "clomo-portrait.png",
     "character": "clomo-character.png"
   },
-  "hp": 100
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Jouvence",
+      "cost": 15,
+      "effect": {
+        "heal": 5
+      },
+      "target": "allPlayers"
+    },
+    {
+      "name": "Baies sauvages",
+      "cost": 25,
+      "effect": {
+        "heal": 20
+      },
+      "target": "specificPlayer"
+    },
+    {
+      "name": "Bulle lumineuse",
+      "cost": 30,
+      "effect": {
+        "protect": true
+      },
+      "target": "allPlayers"
+    },
+    {
+      "name": "Baffe",
+      "cost": 15,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    }
+  ]
 }

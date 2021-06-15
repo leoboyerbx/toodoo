@@ -6,5 +6,39 @@
     "portrait": "romi-portrait.png",
     "character": "romi-character.png"
   },
-  "hp": 100
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Blocage",
+      "cost": 12,
+      "effect": {
+        "protect": true
+      },
+      "target": "self"
+    },
+    {
+      "name": "Potion",
+      "cost": 50,
+      "effect": {
+        "heal": 10
+      },
+      "target": "allPlayers"
+    },
+    {
+      "name": "Régénération",
+      "cost": 12,
+      "effect": {
+        "heal": 10
+      },
+      "target": "self"
+    },
+    {
+      "name": "Rugissement",
+      "cost": 15,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    }
+  ]
 }

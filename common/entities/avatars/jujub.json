@@ -6,5 +6,39 @@
     "portrait": "jujub-portrait.png",
     "character": "jujub-character.png"
   },
-  "hp": 100
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Sauveteur",
+      "cost": 15,
+      "effect": {
+        "heal": 5
+      },
+      "target": "allPlayers"
+    },
+    {
+      "name": "Armure",
+      "cost": 10,
+      "effect": {
+        "protect": true
+      },
+      "target": "specificPlayer"
+    },
+    {
+      "name": "Bulle lumineuse",
+      "cost": 30,
+      "effect": {
+        "protect": true
+      },
+      "target": "allPlayers"
+    },
+    {
+      "name": "Cri",
+      "cost": 15,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    }
+  ]
 }

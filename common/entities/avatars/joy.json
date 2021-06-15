@@ -6,5 +6,39 @@
     "portrait": "joy-portrait.png",
     "character": "joy-character.png"
   },
-  "hp": 100
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Rugissement",
+      "cost": 15,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Éboulement",
+      "cost": 40,
+      "effect": {
+        "attack": 30
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Bouh",
+      "cost": 5,
+      "effect": {
+        "attack": 5
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Soin",
+      "cost": 12,
+      "effect": {
+        "heal": 10
+      },
+      "target": "self"
+    }
+  ]
 }

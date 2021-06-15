@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute w-full h-full top-0 left-0 bg-theme-dark flex flex-col items-center justify-center p-10 pointer-events-auto"
+    class="absolute w-full h-full top-0 left-0 bg-gradient flex flex-col items-center justify-center p-10 pointer-events-auto"
   >
     <h1 class="font-display text-2xl text-white mb-10">Qui est-ce ?</h1>
     <div class="flex items-center justify-center">
@@ -82,6 +82,13 @@ export default {
   height: 100%;
   z-index: 3;
   background-color: #291d66;
+}
+
+.bg-gradient {
+  background: transparent
+    linear-gradient(127deg, #1f0a62ef 0%, #6e62b4ef 68%, #b5b1feef 100%) 0% 0%
+    no-repeat padding-box;
+  //backdrop-filter: blur(10px);
 }
 
 @for $i from 1 through 6 {

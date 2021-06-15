@@ -6,5 +6,39 @@
     "portrait": "vinou-portrait.png",
     "character": "vinou-character.png"
   },
-  "hp": 100
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Séisme",
+      "cost": 20,
+      "effect": {
+        "attack": 20
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Morsure",
+      "cost": 10,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Couverture",
+      "cost": 10,
+      "effect": {
+        "protect": true
+      },
+      "target": "specificPlayer"
+    },
+    {
+      "name": "Vitalité",
+      "cost": 10,
+      "effect": {
+        "heal": 10
+      },
+      "target": "self"
+    }
+  ]
 }
