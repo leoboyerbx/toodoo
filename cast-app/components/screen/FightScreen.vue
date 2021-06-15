@@ -57,12 +57,12 @@
       :capability="gameContext.playerAttack ? gameContext.playerAttack : null"
     />
 
-    <p
-      v-if="gameContext.bossAttack && gameContext.bossAttack.message"
-      class="text-lg absolute w-96 text-white bottom-10 left-1/2"
-    >
-      {{ gameContext.bossAttack.message }}
-    </p>
+    <!--    <p-->
+    <!--      v-if="gameContext.bossAttack && gameContext.bossAttack.message"-->
+    <!--      class="text-lg absolute w-96 text-white bottom-10 left-1/2"-->
+    <!--    >-->
+    <!--      {{ gameContext.bossAttack.message }}-->
+    <!--    </p>-->
   </div>
 </template>
 <script>
