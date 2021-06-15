@@ -1,6 +1,6 @@
 <template>
   <div class="circle-button">
-    <unicon :name="$props.iconName" fill="#4e0b6c" height="30" width="30" />
+    <img :src="require('assets/img/' + iconName)" alt="" />
   </div>
 </template>
 
@@ -18,8 +18,8 @@ export default {
 
 <style scoped>
 .circle-button {
-  height: 55px;
-  width: 55px;
+  height: 75px;
+  width: 75px;
   border-radius: 50%;
   border: #4e0b6c 2px solid;
   background-color: #ffffff;
@@ -29,6 +29,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.circle-button img {
+  height: 33px;
 }
 .circle-button:hover {
   transition: all 0.2s;

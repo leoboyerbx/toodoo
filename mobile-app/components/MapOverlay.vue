@@ -2,13 +2,13 @@
   <div class="fixed top-0 left-0 right-0 h-full pointer-events-none">
     <PlayersList :players="players" class="pointer-events-auto"></PlayersList>
     <NuxtLink to="/score" class="pointer-events-auto">
-      <CircleButton
-        id="stats-btn"
-        :icon-name="'chart-growth-alt'"
-      ></CircleButton>
+      <CircleButton id="stats-btn" :icon-name="'icon_stats.svg'"></CircleButton>
     </NuxtLink>
     <NuxtLink to="/missions-manager" class="pointer-events-auto">
-      <CircleButton id="calendar-btn" :icon-name="'schedule'"></CircleButton>
+      <CircleButton
+        id="calendar-btn"
+        :icon-name="'icon_calendrier.svg'"
+      ></CircleButton>
     </NuxtLink>
     <DailyGuide class="left-72 fixed top-5" />
     <!--    warning: demo only hidden button-->
@@ -27,6 +27,7 @@
         class="z-50"
       />
     </transition>
+    <CompletionBar class="absolute bottom-10 w-screen" />
   </div>
 </template>
 
@@ -34,10 +35,11 @@
 import PlayersList from './PlayersList'
 import CircleButton from './CircleButton'
 import MapChosePlayer from './MapChosePlayer'
+import CompletionBar from './CompletionBar'
 
 export default {
   name: 'MapOverlay',
-  components: { MapChosePlayer, CircleButton, PlayersList },
+  components: { MapChosePlayer, CircleButton, PlayersList, CompletionBar },
   data: () => {
     return {}
   },
