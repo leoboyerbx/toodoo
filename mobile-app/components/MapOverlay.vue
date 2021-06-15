@@ -27,6 +27,7 @@
         class="z-50"
       />
     </transition>
+    <CompletionBar class="absolute bottom-10 w-screen" />
   </div>
 </template>
 
@@ -34,10 +35,11 @@
 import PlayersList from './PlayersList'
 import CircleButton from './CircleButton'
 import MapChosePlayer from './MapChosePlayer'
+import CompletionBar from './CompletionBar'
 
 export default {
   name: 'MapOverlay',
-  components: { MapChosePlayer, CircleButton, PlayersList },
+  components: { MapChosePlayer, CircleButton, PlayersList, CompletionBar },
   data: () => {
     return {}
   },
