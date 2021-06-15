@@ -15,10 +15,11 @@
 <script>
 export default {
   name: 'CompletionBar',
-  data() {
-    return {
-      currentDay: 1,
-    }
+  props: {
+    currentDay: {
+      type: Number,
+      default: 1,
+    },
   },
 }
 </script>

@@ -27,7 +27,10 @@
         class="z-50"
       />
     </transition>
-    <CompletionBar class="absolute bottom-10 w-screen" />
+    <CompletionBar
+      :current-day="$store.state.currentDay + 1"
+      class="absolute bottom-10 w-screen"
+    />
   </div>
 </template>
 
