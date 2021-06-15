@@ -4,10 +4,7 @@
       <NoOrphans :text="textToDisplay" />
     </div>
     <div class="w-1/6">
-      <button
-        class="flex mx-auto rounded-full bg-theme p-3"
-        @click="emmitClick"
-      >
+      <button class="flex mx-auto rounded-full bg-pink p-3" @click="emmitClick">
         <unicon name="arrow-right" fill="#fff" />
       </button>
     </div>
