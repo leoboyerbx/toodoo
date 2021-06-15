@@ -57,6 +57,7 @@ export default {
   plugins: [
     { src: '~/plugins/vue-unicons', mode: 'client' },
     { src: '~/plugins/gsap', mode: 'client' },
+    { src: '~/plugins/visibilityState', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

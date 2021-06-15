@@ -50,6 +50,16 @@ export default {
     players() {
       return this.$store.state.apiService.players
     },
+    appForeground() {
+      return this.$store.state.appIsForeground
+    },
+  },
+  watch: {
+    appForeground(newVal, oldVal) {
+      if (!oldVal && newVal) {
+        this.$store.commit('viewModel/setShowMapChosePlayer', true)
+      }
+    },
   },
   methods: {
     demoNextDay() {
