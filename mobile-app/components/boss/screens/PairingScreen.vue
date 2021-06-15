@@ -76,15 +76,19 @@ export default {
     }
   },
   mounted() {
-    this.castButton = this.$el.querySelector('#cast-button')
-    this.mutationObserver = new window.MutationObserver(
-      this.checkCastStyleDiff.bind(this)
-    )
-    if (this.castButton) {
-      this.mutationObserver.observe(this.castButton, {
-        attributes: true,
-        attributeFilter: ['style'],
-      })
+    try {
+      this.castButton = this.$el.querySelector('#cast-button')
+      this.mutationObserver = new window.MutationObserver(
+        this.checkCastStyleDiff.bind(this)
+      )
+      if (this.castButton) {
+        this.mutationObserver.observe(this.castButton, {
+          attributes: true,
+          attributeFilter: ['style'],
+        })
+      }
+    } catch (e) {
+      console.log('no pairing, dev environment')
     }
   },
   beforeDestroy() {

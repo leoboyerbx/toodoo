@@ -12,7 +12,7 @@ if (nodeEnv === 'tunnel') {
   publicRuntimeConfig = {
     API_URL: 'http://localhost:7554',
     baseUrl: 'http://localhost:3002',
-    // devPair: true,
+    devPair: true,
   }
 } else if (nodeEnv === 'lan') {
   const ip = process.env.IP

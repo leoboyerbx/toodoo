@@ -71,7 +71,7 @@ export default class GameContext extends EventEmitter {
       avatar.energy = player.points;
       this.players.push(new PlayerEntity(avatar, player));
     }
-    this.mapCapabilities();
+    // this.mapCapabilities();
     console.log(this.players);
   }
 
@@ -101,7 +101,7 @@ export default class GameContext extends EventEmitter {
   }
 
   onFirstPlayerTurn() {
-    this.mapCapabilities();
+    // this.mapCapabilities();
   }
 
   mapCapabilities() {

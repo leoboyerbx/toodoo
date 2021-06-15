@@ -17,6 +17,5 @@ export default class PlayerEntity extends Entity {
     this.player = player;
     this.color = avatarData.color ?? "#f00";
     this.hue = avatarData.hue ?? 0;
-    this.capabilities = []; // capabilities are not defined by the avatar
   }
 }
