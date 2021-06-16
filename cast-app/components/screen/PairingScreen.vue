@@ -10,6 +10,7 @@
 <script>
 import CastPairing from '../pairing/CastPairing'
 import QrCodePairing from '../pairing/QrCodePairing'
+
 export default {
   components: { QrCodePairing, CastPairing },
   props: {

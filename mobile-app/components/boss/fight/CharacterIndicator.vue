@@ -14,7 +14,7 @@
             player.player.id ||
             gameContext.bossAttack.capabilityResult.capability.target ===
               'allPlayers'),
-        dead: player.hp <= 0,
+        dead: isDead,
       }"
     />
     <SmallBar
@@ -43,6 +43,10 @@ export default {
     player: {
       type: Object,
       required: true,
+    },
+    isDead: {
+      type: Boolean,
+      default: false,
     },
   },
 }

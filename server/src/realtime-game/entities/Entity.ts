@@ -20,4 +20,10 @@ export default class Entity {
       this.capabilities.push(new Capability(capabilityData));
     });
   }
+
+  get canPlay() {
+    return this.capabilities.some(
+      (capability) => capability.cost <= this.energy
+    );
+  }
 }

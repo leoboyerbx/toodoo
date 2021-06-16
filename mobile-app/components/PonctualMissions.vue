@@ -8,12 +8,6 @@
       :key="mission.id"
       :mission="mission"
     />
-    <button
-      class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white"
-      @click="$router.go(-1)"
-    >
-      <unicon name="arrow-left" fill="#b5b1fe" />
-    </button>
   </div>
 </template>
 

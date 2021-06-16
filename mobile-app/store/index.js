@@ -2,6 +2,7 @@ import Vue from 'vue'
 export const state = () => ({
   currentPlayerIndex: null,
   currentDay: 0,
+  appIsForeground: true,
 })
 
 export const mutations = {
@@ -38,6 +39,9 @@ export const mutations = {
   },
   setCurrentDay(state, day) {
     state.currentDay = day
+  },
+  setAppForeground(state, set) {
+    state.appIsForeground = set
   },
 }
 

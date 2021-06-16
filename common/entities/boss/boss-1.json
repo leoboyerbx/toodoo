@@ -1,5 +1,5 @@
 {
-    "name": "Machine à laver",
+    "name": "Lessivo",
     "introSentence": "Préparez vous à être lessivés !",
     "img": {
         "decor": "boss1-decor.svg",
@@ -40,7 +40,7 @@
             "name": "Adoucissant",
             "cost": 50,
             "effect": {
-                "heal": 30
+                "heal": 10
             },
             "target": "self",
             "animationSegment": ["boss_heal", "boss_end"]

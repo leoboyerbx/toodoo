@@ -16,12 +16,12 @@
         <div
           v-for="player in players"
           :key="player.player.id"
-          class="flex flex-col mx-5 justify-end items-center"
+          class="avatar-img flex flex-col mx-5 justify-end items-center"
         >
           <img
             :src="require(`assets/img/avatars/${player.img.character}`)"
             alt="Avatar image"
-            class="w-36"
+            class="w-36 transform scale-150"
           />
         </div>
       </div>
@@ -54,5 +54,8 @@ export default {
 <style scoped>
 .bg-gradient-intro {
   background: linear-gradient(to bottom right, #1f0a62, #6e62b4 67%, #b5b1fe);
+}
+.avatar-img:nth-child(2n) {
+  transform: translateY(50%);
 }
 </style>

@@ -6,5 +6,39 @@
     "portrait": "lyo-portrait.png",
     "character": "lyo-character.png"
   },
-  "hp": 100
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Muraille",
+      "cost": 15,
+      "effect": {
+        "protect": true
+      },
+      "target": "specificPlayer"
+    },
+    {
+      "name": "Baies sauvages",
+      "cost": 10,
+      "effect": {
+        "heal": 10
+      },
+      "target": "specificPlayer"
+    },
+    {
+      "name": "Tape",
+      "cost": 15,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Chute",
+      "cost": 25,
+      "effect": {
+        "attack": 20
+      },
+      "target": "boss"
+    }
+  ]
 }

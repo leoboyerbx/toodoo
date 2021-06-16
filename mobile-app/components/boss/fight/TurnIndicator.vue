@@ -1,13 +1,15 @@
 <template>
   <div class="flex flex-col text-lg text-white">
-    <p class="text-xl font-display">
-      {{ gameContext.game.team.name }}
+    <p v-if="gameContext.turnIndex >= 0">
+      Au tour de <strong>{{ gameContext.turnEntity.player.name }}</strong>
     </p>
+    <p v-else>Au tour du boss !</p>
     <transition-group name="players-list" tag="div" class="flex mt-5">
       <CharacterIndicator
         v-for="player in sortedPlayers"
         :key="player.player.id"
         :player="player"
+        :is-dead="player.isDead"
       />
     </transition-group>
   </div>
@@ -25,8 +27,12 @@ export default {
       const sorted = []
       const dead = []
       for (let i = this.gameContext.playerTurn; i < players.length; i++) {
-        if (players[i].hp <= 0) {
-          dead.push(players[i])
+        const canPlay = players[i].capabilities.some(
+          (capability) => capability.cost <= players[i].energy
+        )
+        console.log(players[i].name, canPlay)
+        if (players[i].hp <= 0 || !canPlay) {
+          dead.push({ ...players[i], isDead: true })
         } else {
           sorted.push(players[i])
         }

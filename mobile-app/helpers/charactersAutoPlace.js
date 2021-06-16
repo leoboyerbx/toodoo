@@ -24,10 +24,11 @@ export default function (characters) {
         position.forEach((character) => resultCharacters.push(character))
         break
       case 3:
-        position[0].position.x += 0.2
-        position[1].position.x -= 0.7
-        position[2].position.x -= 0.27
-        position[2].position.y -= 6
+        position[0].position.x += 30
+        position[0].position.y += 10
+        position[1].position.x -= 30
+        position[1].position.y += 10
+        position[2].position.y -= 20
         position.forEach((character) => resultCharacters.push(character))
         break
       case 4:

@@ -27,7 +27,10 @@
         class="z-50"
       />
     </transition>
-    <CompletionBar class="absolute bottom-10 w-screen" />
+    <CompletionBar
+      :current-day="$store.state.currentDay + 1"
+      class="absolute bottom-10 w-screen"
+    />
   </div>
 </template>
 
@@ -46,6 +49,16 @@ export default {
   computed: {
     players() {
       return this.$store.state.apiService.players
+    },
+    appForeground() {
+      return this.$store.state.appIsForeground
+    },
+  },
+  watch: {
+    appForeground(newVal, oldVal) {
+      if (!oldVal && newVal) {
+        this.$store.commit('viewModel/setShowMapChosePlayer', true)
+      }
     },
   },
   methods: {

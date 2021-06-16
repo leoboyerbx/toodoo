@@ -6,5 +6,39 @@
     "portrait": "nami-portrait.png",
     "character": "nami-character.png"
   },
-  "hp": 100
+  "hp": 100,
+  "capabilities": [
+    {
+      "name": "Arrosage",
+      "cost": 10,
+      "effect": {
+        "attack": 10
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Boum",
+      "cost": 30,
+      "effect": {
+        "attack": 30
+      },
+      "target": "boss"
+    },
+    {
+      "name": "Fortifications",
+      "cost": 40,
+      "effect": {
+        "protect": true
+      },
+      "target": "allPlayers"
+    },
+    {
+      "name": "Requinqué",
+      "cost": 20,
+      "effect": {
+        "heal": 20
+      },
+      "target": "self"
+    }
+  ]
 }
