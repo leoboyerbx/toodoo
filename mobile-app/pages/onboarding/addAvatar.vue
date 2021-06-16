@@ -20,7 +20,10 @@
       </div>
     </div>
     <div class="content w-9/12 h-screen overflow-scroll pl-24 pr-24">
-      <div class="title teamName mt-4 font-display">Choisissez vos Toodoo</div>
+      <div class="text-3xl mt-4 font-display relative">
+        <p class="title-gradient">Choisissez vos Toodoo</p>
+        <p class="Text-shadow">Choisissez vos Toodoo</p>
+      </div>
       <div class="description text-white mt-6">
         Tour à tour choisissez un TooDoo, faites attention aux pouvoirs choisis
         dans l’équipe, car ils vous seront d’une grande aide pour collaborer
@@ -121,12 +124,6 @@ export default {
 </script>
 
 <style scoped>
-.title {
-  font-size: 30px;
-  background: -webkit-linear-gradient(#eec389, #fd8486);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .active {
   background-color: #ffffff;
   color: #1f0a62;

@@ -7,8 +7,9 @@
         class="onBoarding-shape-content"
       />
     </div>
-    <div class="teamName mt-16 font-display max-w-2xl mx-auto">
-      {{ teamName }}
+    <div class="text-3xl mt-16 font-display max-w-2xl mx-auto relative">
+      <p class="title-gradient">{{ teamName }}</p>
+      <p class="Text-shadow">{{ teamName }}</p>
     </div>
     <div class="content w-screen max-w-2xl mx-auto mt-24">
       <input
@@ -83,11 +84,5 @@ export default {
     rgba(72, 56, 141, 1) 40%,
     rgba(172, 168, 241, 1) 100%
   );
-}
-.teamName {
-  font-size: 30px;
-  background: -webkit-linear-gradient(#eec389, #fd8486);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 </style>

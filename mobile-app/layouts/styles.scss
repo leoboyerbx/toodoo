@@ -65,3 +65,13 @@ html, body {
 //    @apply absolute top-1/2 left-1/2;
 //  }
 //}
+
+.title-gradient {
+  background: -webkit-linear-gradient(#eec389, #fd8486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Text-shadow {
+  @apply absolute text-theme-darkBlue top-0 left-0 -z-1 transform translate-x-0.5 translate-y-0.5;
+}

@@ -1,5 +1,12 @@
 <template>
   <div class="fullscreen bg-theme-darkBlue gradient-bg">
+    <div class="onBoarding-shape-container">
+      <img
+        src="~assets/img/shape-score.svg"
+        alt=""
+        class="onBoarding-shape-content"
+      />
+    </div>
     <button
       class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
       @click="$router.go(-1)"
