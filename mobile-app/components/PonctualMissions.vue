@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1 class="text-center text-gray-50 text-4xl font-semibold mt-10">
-      Missions ponctuelles
-    </h1>
+    <div class="text-4xl relative font-semibold">
+      <p class="text-center text-gray-50 mt-10">Missions ponctuelles</p>
+      <p class="Text-shadow text-center w-full">Missions ponctuelles</p>
+    </div>
     <PonctualMissionLine
       v-for="mission in missions"
       :key="mission.id"
