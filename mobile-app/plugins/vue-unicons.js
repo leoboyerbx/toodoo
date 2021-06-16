@@ -7,6 +7,7 @@ import {
   uniSchedule,
   uniChartGrowthAlt,
   uniTimes,
+  uniSync,
 } from 'vue-unicons/dist/icons'
 
 Unicon.add([
@@ -17,5 +18,6 @@ Unicon.add([
   uniTimes,
   uniArrowRight,
   uniTimes,
+  uniSync,
 ])
 Vue.use(Unicon)

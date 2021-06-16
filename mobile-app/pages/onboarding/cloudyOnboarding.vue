@@ -50,7 +50,7 @@ export default {
         'Nous allons passer 1 mois ensemble, alors j’espère que vous êtes déterminés à aider les TooDoos à retrouver la tranquilité sur leurs îles!',
         'Nous allons nous préparer ensemble pour défier les Electro à chaque fin de semaine.',
         'Pour cela, il va falloir effectuer des missions qui vous permettront de transformer toute cette poussière en énergie ! Alors j’espère que vous avez la pêche !',
-        'Venez me voir chaque jour pour connaître vos missions !',
+        'Vous allez commencer par ajouter des missions. Ensuite, venez me voir chaque jour pour connaître vos missions !',
       ],
     }
   },
@@ -65,7 +65,7 @@ export default {
     exit() {
       localStorage.setItem('didOnboarding', true)
       this.$store.commit('viewModel/setShowMapChosePlayer', false)
-      this.$router.push('/map')
+      this.$router.push('/missions-manager')
     },
   },
 }

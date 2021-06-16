@@ -71,7 +71,8 @@
       class="absolute bottom-7 right-7 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
       @click="makeAllQueries"
     >
-      <unicon name="check" fill="#b5b1fe" />
+      <unicon v-if="saving" class="spinner" name="sync" fill="#b5b1fe" />
+      <unicon v-else name="check" fill="#b5b1fe" />
     </button>
   </div>
 </template>
@@ -79,7 +80,6 @@
 <script>
 import MissionControlLine from '../components/MissionControlLine'
 import DailyGuide from '../components/DailyGuide'
-
 export default {
   name: 'MissionsControl',
   components: { MissionControlLine, DailyGuide },
@@ -90,6 +90,7 @@ export default {
       newMissionName: '',
       assignPlayerQueue: [],
       activeMissionQueue: [],
+      saving: false,
     }
   },
   computed: {
@@ -149,21 +150,25 @@ export default {
       }
       this.activeMissionQueue.push(queryParam)
     },
-    makeAllQueries() {
-      this.assignPlayerQueue.forEach((data) => {
-        this.$store.dispatch('apiService/assignPlayer', {
+    async makeAllQueries() {
+      this.saving = true
+      const assignQueue = this.assignPlayerQueue.map(async (data) => {
+        return await this.$store.dispatch('apiService/assignPlayer', {
           playerId: data.playerId,
           missionId: data.missionId,
         })
       })
-      this.activeMissionQueue.forEach((data) => {
-        this.$store.dispatch('apiService/activateMission', {
+      const missionsQueue = this.activeMissionQueue.map(async (data) => {
+        return await this.$store.dispatch('apiService/activateMission', {
           active: data.active,
           missionId: data.missionId,
         })
       })
+      await Promise.all([...assignQueue, ...missionsQueue])
       this.activeMissionQueue = []
       this.assignPlayerQueue = []
+      this.saving = false
+      await this.$router.push('/map')
     },
   },
 }
@@ -195,5 +200,13 @@ export default {
   background: -webkit-linear-gradient(#eec389, #fd8486);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.spinner {
+  animation: spin 0.8s ease infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(180deg);
+  }
 }
 </style>
