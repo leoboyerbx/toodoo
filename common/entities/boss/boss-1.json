@@ -40,7 +40,7 @@
             "name": "Adoucissant",
             "cost": 50,
             "effect": {
-                "heal": 30
+                "heal": 10
             },
             "target": "self",
             "animationSegment": ["boss_heal", "boss_end"]
