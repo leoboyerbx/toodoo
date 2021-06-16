@@ -1,8 +1,9 @@
 <template>
   <div class="flex flex-col text-lg text-white">
-    <p class="text-xl font-display">
-      {{ gameContext.game.team.name }}
+    <p v-if="gameContext.turnIndex >= 0">
+      Au tour de <strong>{{ gameContext.turnEntity.player.name }}</strong>
     </p>
+    <p v-else>Au tour du boss !</p>
     <transition-group name="players-list" tag="div" class="flex mt-5">
       <CharacterIndicator
         v-for="player in sortedPlayers"
