@@ -35,10 +35,10 @@ export default {
     }
   },
   beforeCreate() {
-    const didOnboarding = localStorage.getItem('didOnboarding')
-    if (didOnboarding) {
-      this.$router.push('/map')
-    }
+    // const didOnboarding = localStorage.getItem('didOnboarding')
+    // if (didOnboarding) {
+    //   this.$router.push('/map')
+    // }
   },
 }
 </script>
