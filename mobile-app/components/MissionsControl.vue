@@ -196,14 +196,7 @@ export default {
 .missions-container {
   max-height: 50vh;
 }
-<<<<<<< HEAD
-=======
-.title {
-  font-size: 30px;
-  background: -webkit-linear-gradient(#eec389, #fd8486);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 .spinner {
   animation: spin 0.8s ease infinite;
 }
@@ -212,5 +205,4 @@ export default {
     transform: rotate(180deg);
   }
 }
->>>>>>> e6e93332626930b390f0e7df515891aaf62a1eaf
 </style>
