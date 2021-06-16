@@ -5,7 +5,7 @@
       <p class="Text-shadow">VOS MISSIONS</p>
     </div>
     <button
-      class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
+      class="Button-shadow absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
       @click="$router.go(-1)"
     >
       <unicon name="arrow-left" fill="#b5b1fe" />
