@@ -10,6 +10,7 @@ export default {
   name: 'MissionsManager',
   components: { MissionsControl },
   async beforeCreate() {
+    await this.$store.dispatch('fetchAll')
     await this.$store.dispatch('viewModel/fetchMissionsManagerData')
   },
 }
