@@ -118,7 +118,10 @@ export default class GameContext extends EventEmitter {
       do {
         this.incrementPlayerTurn();
         this.setTurn(this.playerTurn);
-      } while (this.turnEntity.hp === 0 && !this.winner);
+      } while (
+        (this.turnEntity.hp === 0 || !this.turnEntity.canPlay) &&
+        !this.winner
+      );
     } else {
       this.setTurn(-1);
     }

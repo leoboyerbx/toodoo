@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col text-lg text-white">
-    <p class="ml-10">
-      {{ gameContext.game.team.name }}
-    </p>
-    <!--    <p v-if="gameContext.turnIndex >= 0">-->
-    <!--      Au tour de <strong>{{ gameContext.turnEntity.player.name }}</strong>-->
+    <!--    <p class="ml-10">-->
+    <!--      {{ gameContext.game.team.name }}-->
     <!--    </p>-->
-    <!--    <p v-else>Au tour du boss !</p>-->
+    <p v-if="gameContext.turnIndex >= 0">
+      Au tour de <strong>{{ gameContext.turnEntity.player.name }}</strong>
+    </p>
+    <p v-else>Au tour du boss !</p>
     <transition-group name="players-list" tag="div" class="flex mt-10 ml-10">
       <CharacterIndicator
         v-for="player in sortedPlayers"
