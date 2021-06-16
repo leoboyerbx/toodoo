@@ -1,14 +1,8 @@
 <template>
-<<<<<<< HEAD
-  <div class="fullscreen bg-shape relative">
+  <div class="fullscreen bg-shape relative pl-6 pr-6">
     <div class="text-3xl absolute top-20 left-10 font-display z-15">
       <p class="title-gradient">VOS MISSIONS</p>
       <p class="Text-shadow">VOS MISSIONS</p>
-=======
-  <div class="fullscreen bg-shape relative pl-6 pr-6">
-    <div class="title absolute top-20 left-10 font-display z-15">
-      VOS MISSIONS
->>>>>>> e6e93332626930b390f0e7df515891aaf62a1eaf
     </div>
     <button
       class="absolute top-1.5 left-10 flex mx-auto mt-6 rounded-full p-2 bg-white z-10"
